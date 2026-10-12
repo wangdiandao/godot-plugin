@@ -2,18 +2,18 @@
 
 ## Project Structure & Module Organization
 
-This Codex plugin uses native Godot CLI and GDScript; its documented baseline is Godot 4.7.2 standard edition.
+This Codex plugin uses Godot CLI/GDScript; baseline: Godot 4.7.2 standard edition.
 
-- `skills/godot-*/`: 18 domain skills, each with `SKILL.md`, `agents/openai.yaml`, `references/native.md`, and runnable `assets/examples/minimal/` projects.
-- `shared/scripts/`: reusable execution, inspection, screenshot, and template helpers; `shared/host/` provides a neutral tool project.
-- `tests/`: case manifests, routing prompts, failure fixtures, and integration scripts.
-- `docs/`: authoring rules, capability evidence, and validation summaries.
-- `plugin.json`, `.codex-plugin/plugin.json`, and `.agents/plugins/marketplace.json`: coordinated plugin metadata.
-- `artifacts/` and `dist/`: local evidence and generated packages; exclude research downloads and caches from releases.
+- `skills/godot-*/`: domain skills, references, UI metadata, and runnable examples.
+- `shared/`: native tools, neutral host project, and execution conventions.
+- `tests/`: manifests, routing prompts, fixtures, and integration scripts.
+- `docs/`: authoring rules and validation evidence.
+- `plugin.json`, `.codex-plugin/plugin.json`, `.agents/plugins/marketplace.json`: coordinated metadata.
+- `artifacts/`, `dist/`: ignored evidence and packages; exclude caches/research from releases.
 
 ## Build, Test, and Development Commands
 
-Run from the repository root. Replace `GODOT`, `PLUGIN`, and `OUT` with absolute paths; use a fresh writable output directory.
+From the root, replace `GODOT`, `PLUGIN`, `OUT` with absolute paths; use fresh output directories.
 
 ```text
 python -X utf8 tests/validate_structure.py --root PLUGIN
@@ -21,20 +21,28 @@ GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_ch
 GODOT --headless --path PLUGIN/shared/host --script PLUGIN/tests/package.gd -- --root PLUGIN --out PLUGIN/dist
 ```
 
-These validate structure, run regression cases, and build packages. Python and PyYAML are author-only dependencies; schema validation needs jsonschema. See `docs/authoring.md` for integration commands and template requirements.
+Commands check structure, run regressions, and package releases. Python/PyYAML are author-only dependencies; optional schema validation needs jsonschema. See `docs/authoring.md` for integration requirements.
 
 ## Coding Style & Naming Conventions
 
-Match existing files: tabs and explicit types in GDScript, four spaces in Python, and two spaces in JSON. Use `snake_case` for functions and variables, and `godot-<domain>` for skill directories. Keep skill frontmatter names aligned with directories and default prompts. No dedicated formatter or linter is configured; use structural and native checks.
+Use tabs and explicit types in GDScript, four spaces in Python, two in JSON; `snake_case` functions/variables and `godot-<domain>` directories. No dedicated formatter/linter is configured.
 
 ## Testing Guidelines
 
-Tests use a custom GDScript runner and Python structural checks. Add descriptive case IDs to `tests/cases.json`; keep intentional failures in isolated fixtures. Update routing prompts when trigger boundaries change. Validate logs, exit codes, assertions, and artifacts together. Rendering needs a real GPU; desktop integration needs Windows and matching export templates. No percentage coverage threshold is defined. Record only executed evidence in capability and validation summaries.
+Use the custom GDScript runner and Python checks. Add descriptive case IDs and isolated negative fixtures. Assess logs, exit codes, assertions, and artifacts together. Rendering needs a GPU; desktop integration needs Windows/matching templates. Record executed evidence only; no percentage threshold applies.
 
-## Commit & Pull Request Guidelines
+## Contribution Workflow
 
-Git history is unavailable. Use imperative subjects describing the affected area. PRs should explain behavior changes, link issues, list executed checks and platform conditions, and include screenshots for visual changes. Synchronize manifests and marketplace metadata for releases.
+Open an upstream Issue before editing; use `.github/ISSUE_TEMPLATE/` for problem, scope, environment, acceptance criteria, and validation plan. Search duplicates first.
+
+External contributors fork `wangdiandao/godot-plugin`; maintainers may use repository branches. Branch from updated `main` as `type/<issue>-<summary>`. Use imperative commits: `docs: clarify acceptance (#1)`.
+
+Submit a templated PR with `Closes #<number>`, results, evidence, and untested scope. Resolve feedback; structure checks and relevant native tests must pass. Maintainers approve before merge; AI cannot approve/merge its own PR. Initial `v0.1.0` import is the sole bootstrap exception.
+
+## Skill Creation & Modification
+
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) and [authoring rules](docs/authoring.md). Preserve required sections, frontmatter, UI metadata, references, and standalone examples. Update cases, routing, capabilities, inventory, and fixed skill-count validation together. Include governance in source packages and MIT licensing in both archives.
 
 ## Agent-Specific Instructions
 
-Use Context7 for current library, SDK, API, and CLI documentation questions; resolve the library first, then query each concept separately. Confirm Godot bindings against version-matched official sources. Context7 remains a research tool, not a runtime dependency. Preserve user edits and scope cleanup to verified, task-created directories.
+For library/SDK/API/CLI questions, resolve Context7 IDs then query concepts separately. Verify Godot bindings against version-matched official sources. Preserve user edits; clean only verified task-created directories. Context7 is research-only.
