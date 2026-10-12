@@ -73,7 +73,9 @@ def main():
         for item in route:
             check(item['skill'] + ':routing', item['positive_expected'] == item['skill'] and item['negative_expected'] != item['skill'] and item['adjacent_expected'] in names and bool(item['adjacent_prompt']))
 
-    published = [root / 'README.md', root / 'README.zh.md']
+    published = [root / 'README.md', root / 'README.zh.md', root / 'CHANGELOG.md']
+    changelog = (root / 'CHANGELOG.md').read_text(encoding='utf-8')
+    check('changelog:current_version', '## [' + portable['version'] + ']' in changelog)
     for filename, other in [('README.md', 'README.zh.md'), ('README.zh.md', 'README.md')]:
         text = (root / filename).read_text(encoding='utf-8')
         check(filename + ':language_switch', '](' + other + ')' in text)
