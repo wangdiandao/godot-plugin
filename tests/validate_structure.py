@@ -32,6 +32,15 @@ def main():
     check('manifest:skills_only', not (set(portable) & {'skills', 'mcpServers', 'apps', 'interface'}))
     check('manifest:semver', re.fullmatch(r'\d+\.\d+\.\d+', portable['version']))
     check('marketplace:local', market['plugins'][0]['name'] == portable['name'] and market['plugins'][0]['source'] == {'source': 'local', 'path': './'})
+    for host, relative in [('claude', '.claude-plugin/plugin.json'), ('cursor', '.cursor-plugin/plugin.json'), ('gemini', 'gemini-extension.json')]:
+        manifest = read_json(relative)
+        for key in ['name', 'version', 'description']:
+            check(host + ':manifest:' + key, manifest[key] == portable[key])
+        if host != 'gemini':
+            check(host + ':author', manifest['author'] == portable['author'])
+            check(host + ':license', manifest['license'] == 'MIT')
+        # All hosts discover skills/ by default; no server or executable adapter is needed.
+        check(host + ':native_skills_only', not (set(manifest) & {'skills', 'mcpServers', 'hooks', 'dependencies'}))
     if args.schema:
         import jsonschema
         try:
@@ -64,7 +73,12 @@ def main():
         for item in route:
             check(item['skill'] + ':routing', item['positive_expected'] == item['skill'] and item['negative_expected'] != item['skill'] and item['adjacent_expected'] in names and bool(item['adjacent_prompt']))
 
-    published = [root / 'README.md']
+    published = [root / 'README.md', root / 'README.zh.md']
+    for filename, other in [('README.md', 'README.zh.md'), ('README.zh.md', 'README.md')]:
+        text = (root / filename).read_text(encoding='utf-8')
+        check(filename + ':language_switch', '](' + other + ')' in text)
+        check(filename + ':hosts', all(host in text for host in ['Codex Desktop', 'Codex CLI', 'Claude Code', 'Cursor', 'Gemini CLI']))
+        check(filename + ':skills', all('skills/' + name + '/SKILL.md' in text for name in names))
     for directory in ['skills', 'shared', 'docs']:
         published.extend((root / directory).rglob('*.md'))
     for path in published:

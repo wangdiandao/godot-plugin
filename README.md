@@ -1,83 +1,160 @@
 # godot-plugin
 
-面向 Codex 的 Godot 原生开发插件：18 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 游戏的创建、内容制作、诊断、测试与导出。
+**English** | [简体中文](README.zh.md)
 
-运行需要 **Codex、Godot 标准编辑器发行版和操作系统自带能力**。不安装 MCP Server、Godot 编辑器插件、Python 或 Node。Context7 仅用于作者研究，不是用户运行依赖。
+Native Godot development skills for **Codex Desktop / CLI, Claude Code, Cursor, and Gemini CLI**. Includes 18 focused Skills, native GDScript helpers, and runnable examples for creating, diagnosing, testing, and exporting GDScript 2D/3D games.
 
-基线为 **Godot 4.7.2 stable**，2026-10-11 核对官方发行版、4.7 文档、同 tag 源码和真实二进制。实际通过范围见[验证报告](docs/validation.md)，逐项证据见[能力索引](docs/capabilities.json)。旧版、其他平台和未覆盖的高级功能不因有 Skill 就自动视为已验证。
+Use your chosen agent, the **standard Godot editor distribution**, and operating-system tools. The plugin adds no MCP server, Godot editor add-on, Python, or Node runtime dependency; your agent's own installation requirements still apply. Context7 is an author research tool, not a runtime dependency.
 
-## 安装与使用
+The engine baseline is **Godot 4.7.2 stable**, checked on 2026-10-11 against the official release, version-matched documentation, source, and binary. See the [validation report](docs/validation.md), [capability index](docs/capabilities.json), and [host compatibility notes](docs/compatibility.md). Host packaging support does not imply tested model-driven workflows in every agent.
 
-解压安装包，保留 `godot-plugin/` 整个目录，包括隐藏清单和 `shared/`。在支持本地插件的 Codex CLI 中执行：
+## Installation
+
+Download an installation ZIP from [Releases](https://github.com/wangdiandao/godot-plugin/releases) that includes the host manifests below, then extract it. Version 0.2.0 introduces the additional hosts; the older 0.1.0 archives only provide Codex packaging. Keep the complete `godot-plugin/` directory, including hidden directories, `skills/`, `shared/`, and `docs/`. Copying only `SKILL.md` files breaks shared resource references.
+
+If the matching release ZIP has not been published yet, use a clean source checkout: `git clone https://github.com/wangdiandao/godot-plugin.git`. The same installation steps apply to that directory. For directory copies, use the installation ZIP or a clean checkout; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
+
+The PowerShell examples use `C:\Tools\godot-plugin` as the extracted directory. Replace it with your actual absolute path. On macOS/Linux, use equivalent paths and shell commands. Install a current agent release with the documented plugin features, and keep Godot on the machine where the agent executes commands.
+
+### Codex Desktop
+
+1. Extract the complete plugin directory to a stable location.
+2. Register the bundled local marketplace from a terminal using a Codex CLI that supports `plugin marketplace`:
+
+   ```powershell
+   codex plugin marketplace add "C:\Tools\godot-plugin"
+   ```
+
+3. Fully restart Codex Desktop. The CLI and desktop must use the same user and Codex home configuration; registering inside WSL or on another machine does not register a Windows desktop marketplace.
+4. Open **Plugins**, choose the **Godot Native Development** marketplace (`godot-native-local`), open `godot-plugin`, and install/enable it. Labels vary by desktop version; current OpenAI documentation also calls this surface the Plugins Directory in the ChatGPT desktop app.
+5. Open your Godot project in a new local chat and ask: “Use `$godot-workflow` to inspect this project and report the installed Godot version.”
+
+For a repository-scoped alternative, open the extracted `godot-plugin` directory as a local project and restart the desktop. Its `.agents/plugins/marketplace.json` supplies that repository's marketplace. For use from other game projects, register the marketplace as above. If it is missing, inspect `codex plugin marketplace list`, check the resolved path and shared configuration, and restart. If your desktop has no install control, use the CLI installation below, then restart and check the installed plugin.
+
+See the [official local marketplace guide](https://developers.openai.com/plugins/build/plugins). No cache editing or public directory publishing is required.
+
+### Codex CLI
 
 ```powershell
-codex plugin marketplace add "C:\实际解压路径\godot-plugin"
+codex plugin marketplace add "C:\Tools\godot-plugin"
 codex plugin add godot-plugin@godot-native-local
 codex plugin list --marketplace godot-native-local --json
 ```
 
-也可以把路径指向当前源码目录。注册的是目录内 `.agents/plugins/marketplace.json` 所描述的本地市场，条目的 `source.path` 相对于市场根目录。更新版本后按当前客户端支持的 marketplace upgrade / plugin add 流程刷新缓存，不手改 Codex 插件缓存。安装操作由用户或获得安装授权的 Codex 完成；本次交付不改动现有全局插件安装。
+Start a new Codex session in your game project. Invoke `$godot-workflow` or a domain Skill, or describe your task naturally. The marketplace entry's `source.path` resolves relative to the marketplace root, not `.agents/plugins/`.
 
-插件生效后直接用自然语言发起任务，例如：
+### Claude Code
 
-- “创建一个有菜单、收集、音效和存档的 Godot 2D 游戏，导出 Windows 版本并验证。”
-- “接手这个项目，找出角色穿墙的原因，修复后验证碰撞。”
-- “用原生能力搭建 3D 关卡，烘焙导航并测试敌人路径。”
-- “检查当前版本能否从脚本完成这个编辑器操作，给出官方依据。”
+From your game project, load the complete plugin for a session:
 
-也可显式使用 `$godot-workflow` 或对应领域 Skill。Codex 自动发现已安装的引擎、核查版本、编辑项目并运行验证；无需事先设置 PATH 或手动打开 Godot 编辑器。便携引擎若放在无法发现/读取的位置，任务会报告具体查找结果，不会伪装找到引擎。
+```powershell
+claude --plugin-dir "C:\Tools\godot-plugin"
+```
+
+The `.claude-plugin/plugin.json` manifest identifies the plugin; Claude Code discovers the 18 Skills under `skills/`. Invoke `/godot-plugin:godot-workflow`, `/godot-plugin:godot-physics`, or describe a task naturally.
+
+For persistence on current versions that support plugins in skills directories, copy the **complete extracted installation directory** to `~/.claude/skills/godot-plugin`, then start a new session. Preserve its nested manifests and shared directories. Check `/plugin` for loading errors; older clients can use `--plugin-dir` on each launch. See [local development](https://code.claude.com/docs/en/plugin-marketplaces) and the [manifest reference](https://code.claude.com/docs/en/plugins-reference).
+
+### Cursor
+
+Copy the **complete extracted installation directory** to `~/.cursor/plugins/local/godot-plugin`. On Windows, if the destination does not already exist:
+
+```powershell
+$cursorLocalPlugins = Join-Path $env:USERPROFILE ".cursor\plugins\local"
+if (Test-Path -LiteralPath (Join-Path $cursorLocalPlugins "godot-plugin")) { throw "Plugin already exists; review it before updating." }
+New-Item -ItemType Directory -Force -Path $cursorLocalPlugins | Out-Null
+Copy-Item -LiteralPath "C:\Tools\godot-plugin" -Destination $cursorLocalPlugins -Recurse
+```
+
+Restart Cursor or run **Developer: Reload Window**. Open **Customize**, confirm the Godot Skills are present, then use Agent mode in your game project and request `godot-workflow`. The plugin provides `.cursor-plugin/plugin.json` with default `skills/` discovery; the root `plugin.json` also follows the supported Agent Plugins standard.
+
+Your organization must allow local plugin imports. An installed marketplace plugin with the same name takes precedence. Cursor skips local-plugin symlinks targeting directories outside its local plugin directory, so copy the actual directory. See [local installation](https://cursor.com/docs/plugins) and the [plugin reference](https://cursor.com/docs/reference/plugins).
+
+### Gemini CLI
+
+Install the complete directory as an extension:
+
+```powershell
+gemini extensions install "C:\Tools\godot-plugin"
+gemini extensions list
+```
+
+Restart Gemini CLI in your game project. Run `/skills list` to confirm the Godot Skills appear, then ask it to use `godot-workflow` or a domain Skill. The root `gemini-extension.json` identifies the extension; Gemini discovers `skills/` without an MCP server. For development, `gemini extensions link "C:\Tools\godot-plugin"` links the directory instead of installing a copy. See the [official extension reference](https://geminicli.com/docs/extensions/reference/).
+
+Skill activation grants access to that Skill's directory. This plugin also uses sibling `shared/` and `docs/` resources, so include the **loaded extension root** when starting Gemini in your game project:
+
+```powershell
+gemini --include-directories "$env:USERPROFILE\.gemini\extensions\godot-plugin"
+```
+
+That is the default installed location; use the actual extension path reported by `gemini extensions list` if it differs. For a linked extension, include its source directory instead. An existing session can use `/directory add <absolute-extension-root>` where allowed. See [workspace directory commands](https://geminicli.com/docs/reference/commands/).
+
+### Updates and first-use checks
+
+Keep source/extracted directories available for local registrations and links. Refresh Codex with its supported `marketplace upgrade` / `plugin add` flow; replace complete local Claude Code or Cursor copies after reviewing their existing directories; use `gemini extensions update godot-plugin` for an installed Gemini extension. Restart the host. Do not mix versions or edit generated host caches.
+
+On first use, ask the agent to report the plugin location, discover Godot, run `--version`, and read the execution conventions before changing the game. It needs access to the complete plugin and permission to run Godot; rendering checks also need a display/GPU. A portable engine in an unreadable or undiscoverable location must be reported as missing.
+
+## Usage
+
+- “Create a Godot 2D game with a menu, collectibles, sound, and saving; export and verify a Windows build.”
+- “Find why the character passes through walls, fix the collision, and verify it.”
+- “Build a native 3D level, bake navigation, and test enemy paths.”
+- “Check whether this editor operation has a public scripting API in my Godot version.”
+
+Use a domain Skill for isolated tasks and `godot-workflow` for complete games or changes across systems. The agent discovers the engine, checks its version, edits the project, and runs native verification. Setting PATH or opening the editor manually is unnecessary when the engine can be discovered.
 
 ## Skills
 
-| Skill | 适用任务 |
+| Skill | Tasks |
 |---|---|
-| [godot-workflow](skills/godot-workflow/SKILL.md) | 完整游戏、跨领域迭代与阶段验收 |
-| [godot-project](skills/godot-project/SKILL.md) | 创建、接手、迁移、输入与 Autoload |
-| [godot-api](skills/godot-api/SKILL.md) | 版本、CLI、公开 API 和源码核对 |
-| [godot-gdscript](skills/godot-gdscript/SKILL.md) | 类型、信号、异步与代码组织 |
-| [godot-scenes](skills/godot-scenes/SKILL.md) | 场景、所有权、实例、继承和持久化 |
-| [godot-assets](skills/godot-assets/SKILL.md) | 原生导入、重导入和程序化资源 |
-| [godot-2d](skills/godot-2d/SKILL.md) | 图块、地图、相机与 2D 内容 |
-| [godot-3d](skills/godot-3d/SKILL.md) | 网格、模型、相机与 3D 内容 |
-| [godot-physics](skills/godot-physics/SKILL.md) | 运动、碰撞、触发与射线 |
-| [godot-navigation](skills/godot-navigation/SKILL.md) | 导航烘焙、路径与代理 |
-| [godot-ui](skills/godot-ui/SKILL.md) | 菜单、布局、焦点、主题和本地化 |
-| [godot-animation](skills/godot-animation/SKILL.md) | 动画库、属性动画和状态机 |
-| [godot-rendering](skills/godot-rendering/SKILL.md) | Shader、材质、灯光与画面验证 |
-| [godot-audio](skills/godot-audio/SKILL.md) | 播放、总线、效果与 PCM 音效 |
-| [godot-data](skills/godot-data/SKILL.md) | 设置、存档、迁移与异常数据 |
-| [godot-multiplayer](skills/godot-multiplayer/SKILL.md) | 原生联机、RPC、生成与复制 |
-| [godot-validation](skills/godot-validation/SKILL.md) | 解析、行为、输入、截图与性能诊断 |
-| [godot-export](skills/godot-export/SKILL.md) | 官方模板、预设、构建与产物验证 |
+| [godot-workflow](skills/godot-workflow/SKILL.md) | Complete games, iteration across systems, staged acceptance |
+| [godot-project](skills/godot-project/SKILL.md) | Creation, takeover, migration, input, Autoload |
+| [godot-api](skills/godot-api/SKILL.md) | Versions, CLI, public APIs, source verification |
+| [godot-gdscript](skills/godot-gdscript/SKILL.md) | Types, signals, async, code organization |
+| [godot-scenes](skills/godot-scenes/SKILL.md) | Ownership, instancing, inheritance, persistence |
+| [godot-assets](skills/godot-assets/SKILL.md) | Native import, reimport, procedural resources |
+| [godot-2d](skills/godot-2d/SKILL.md) | Tiles, maps, cameras, 2D content |
+| [godot-3d](skills/godot-3d/SKILL.md) | Meshes, models, cameras, 3D content |
+| [godot-physics](skills/godot-physics/SKILL.md) | Movement, collision, triggers, raycasts |
+| [godot-navigation](skills/godot-navigation/SKILL.md) | Navigation baking, paths, agents |
+| [godot-ui](skills/godot-ui/SKILL.md) | Menus, layout, focus, themes, localization |
+| [godot-animation](skills/godot-animation/SKILL.md) | Animation libraries, property animation, state machines |
+| [godot-rendering](skills/godot-rendering/SKILL.md) | Shaders, materials, lighting, visual checks |
+| [godot-audio](skills/godot-audio/SKILL.md) | Playback, buses, effects, PCM audio |
+| [godot-data](skills/godot-data/SKILL.md) | Settings, saves, migration, malformed data |
+| [godot-multiplayer](skills/godot-multiplayer/SKILL.md) | Native networking, RPC, spawning, replication |
+| [godot-validation](skills/godot-validation/SKILL.md) | Parsing, behavior, input, screenshots, diagnostics |
+| [godot-export](skills/godot-export/SKILL.md) | Official templates, presets, builds, artifact checks |
 
-单领域任务直接进入领域 Skill。完整游戏使用 workflow 协调；接口有疑问读取 api，复杂故障读取 validation。没有隐藏执行状态或强制加载全部 Skills 的要求。
+Skills load on demand; there is no hidden execution state or requirement to load all of them.
 
-## 示例和工具
+## Examples and tools
 
-每个 Skill 的 `assets/examples/minimal/` 都可独立复制到干净目录运行。完整游戏在 `skills/godot-workflow/assets/examples/game-2d/` 和 `game-3d/`，使用原生节点、几何和声音。命令中的 GODOT、PLUGIN、PROJECT、OUT 是执行时解析的路径，完整调用方式在各 Skill 的 `references/native.md`。
+Each Skill has an independently runnable `assets/examples/minimal/` project. Complete games are in `skills/godot-workflow/assets/examples/game-2d/` and `game-3d/`, using native nodes, geometry, and sound. `GODOT`, `PLUGIN`, `PROJECT`, and `OUT` in command examples are paths resolved at execution time; complete calls are in each Skill's `references/native.md`.
 
-| 脚本 | 功能 |
+| Script | Purpose |
 |---|---|
-| `shared/scripts/inspect_environment.gd` | 引擎、平台、公开绑定和指定类的接口 |
-| `shared/scripts/inspect_project.gd` | 资源加载、场景结构、依赖与错误收集 |
-| `shared/scripts/run_checks.gd` | 隔离子进程、墙钟超时、结果与日志判据 |
-| `shared/scripts/capture_scene.gd` | 真实渲染截图和 PNG 读回 |
-| `shared/scripts/prepare_templates.gd` | 官方模板下载、SHA256、版本和覆盖保护 |
+| `shared/scripts/inspect_environment.gd` | Engine, platform, public bindings, selected class APIs |
+| `shared/scripts/inspect_project.gd` | Resource loading, scene structure, dependencies, errors |
+| `shared/scripts/run_checks.gd` | Isolated processes, wall-clock timeout, results, log checks |
+| `shared/scripts/capture_scene.gd` | Real rendered screenshots and PNG readback |
+| `shared/scripts/prepare_templates.gd` | Official template download, SHA256, version, overwrite protection |
 
-`common.gd` 是上述脚本的内部共享代码，`shared/host/` 是避免启动目标 Autoload 的中性工具项目。工具不建立常驻服务。测试和辅助状态默认进入项目 `.godot-plugin/` 或外部指定目录，发布前验证不进入游戏包。
+`common.gd` is internal shared code. `shared/host/` avoids starting the target project's Autoloads. Helpers establish no persistent service. Test/helper output defaults to the project's `.godot-plugin/` or an explicit external directory and must stay out of game exports.
 
-## 能力边界
+## Limits
 
-- headless 验证逻辑与资源；Shader、视觉、GPU 功能需要真实渲染进程。声音状态不等于听感验收。
-- 4.7.2 的 `LightmapGI.bake()` 没有 GDScript 公开绑定，插件不提供虚构调用。
-- 标准包支持原生桌面流程；Android/iOS 仍有必要 SDK、签名和宿主平台要求。`.blend` 导入需要 Blender，不在默认依赖内。
-- 自动化可创建和组合原生内容，不能保证任意复杂美术素材、商业游戏质量或所有平台功能自动完成。
-- 本版实测 Windows；Web 只验证构建。Linux/macOS、移动端、公网联机与安装后的模型语义触发尚未实测。
+- Headless checks cover logic/resources. Shaders, visuals, and GPU features need real rendering. Audio state checks do not prove listening quality.
+- Godot 4.7.2 has no public GDScript binding for `LightmapGI.bake()`; the plugin does not invent one.
+- Native desktop workflows use the standard editor. Android/iOS require SDKs, signing, and host platforms; `.blend` import requires Blender.
+- Native content automation does not guarantee arbitrary artwork, commercial game quality, or every platform feature.
+- Existing engine behavior evidence is from Windows. Web was checked for build output only. Linux/macOS, mobile, public networking, and model-driven skill routing across hosts remain untested; see the compatibility notes for this change's actual checks.
 
-## 维护和交付
+## Contributing and distribution
 
-贡献前阅读 [贡献指南](CONTRIBUTING.md)：先提 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
+Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated PRs implemented by Codex receive recorded Codex self-review. Code and original examples use the [MIT license](LICENSE).
 
-安装包包含清单、Skills、共享文件、示例和能力/验证说明。源码包另含测试与扩展文档。原始日志、截图、隔离项目和研究下载保留在工作区 `artifacts/`；`artifacts/`、`dist/` 和引擎缓存不递归进入任何发布包。
+The installation ZIP includes all host manifests, both READMEs, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Version 0.1.0 release assets remain immutable; these additions belong to version 0.2.0.
 
-阅读[扩展规范](docs/authoring.md)、[研究依据](docs/research.md)和[验证报告](docs/validation.md)。插件格式依据 [OpenAI 官方包装说明](https://developers.openai.com/plugins/build/plugins)；引擎依据 [Godot 4.7.2 官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。
+See [authoring contracts](docs/authoring.md), [research sources](docs/research.md), [validation](docs/validation.md), and the [official Godot baseline release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable).
