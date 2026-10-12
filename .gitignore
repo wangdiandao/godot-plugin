@@ -4,3 +4,4 @@ dist/
 **/.godot-plugin/
 **/__pycache__/
 *.tmp
+/AGENTS.md
