@@ -1,5 +1,7 @@
 # 实际验证报告
 
+0.2.0 新增宿主包装及 2026-10-12 的实际检查见 [compatibility.md](compatibility.md)。下文保留 2026-10-11 的引擎行为证据，不代表在所有 Agent 中重新验证。
+
 日期：2026-10-11。引擎：Godot **4.7.2.stable.official.ed1daf0bf** 标准 Windows x86_64 发行版。GPU：NVIDIA GeForce RTX 5070 Laptop GPU，OpenGL Compatibility，驱动 616.92。逻辑使用 headless；图像测试使用真实窗口和渲染。所有通过项均结合日志、退出码、明确断言及实际产物判定。
 
 ## 已完成的行为验证

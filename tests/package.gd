@@ -45,7 +45,13 @@ func archive(path: String, manifest: Dictionary) -> void:
 	for member: String in reader.get_files():
 		if not member.ends_with("/"):
 			file_count += 1
+		var forbidden: bool = member.get_file() == "AGENTS.md"
+		for directory: String in [".godot", ".godot-plugin", "artifacts", "dist", ".git", "__pycache__"]:
+			forbidden = forbidden or ("/" + directory + "/") in member
+		Common.check(result, "excluded:" + member, not forbidden)
 	Common.check(result, "member_count", file_count == files.size())
+	for required: String in ["plugin.json", ".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", ".claude-plugin/plugin.json", ".cursor-plugin/plugin.json", "gemini-extension.json", "README.md", "README.zh.md", "LICENSE", "shared/scripts/common.gd", "shared/host/project.godot", "docs/capabilities.json"]:
+		Common.check(result, "required:" + required, reader.file_exists(str(manifest.name).path_join(required)))
 	for relative: String in files:
 		var hash := HashingContext.new()
 		hash.start(HashingContext.HASH_SHA256)
@@ -69,8 +75,8 @@ func _run() -> void:
 		Common.check(result, "manifest", false)
 		Common.finish(self, result)
 		return
-	files = ["plugin.json", "README.md", "LICENSE", "CONTRIBUTING.md"]
-	for directory: String in [".codex-plugin", ".agents/plugins", "skills", "shared", "docs"]:
+	files = ["plugin.json", "gemini-extension.json", "README.md", "README.zh.md", "LICENSE", "CONTRIBUTING.md"]
+	for directory: String in [".codex-plugin", ".agents/plugins", ".claude-plugin", ".cursor-plugin", "skills", "shared", "docs"]:
 		collect(directory)
 	if result.status != "passed":
 		Common.finish(self, result)

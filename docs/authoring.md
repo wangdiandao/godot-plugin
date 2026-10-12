@@ -32,7 +32,7 @@
 5. 更新 `tests/cases.json`，关联 Skill、输入、条件和预期；新增负例必须说明预期故障文本。正常例复用随包示例，故障只放独立夹具。
 6. 更新 `tests/routing/prompts.json` 的应触发、非目标、相邻请求。人工评审和真实宿主模型选择分开记录。
 7. 运行必要的原生检查，只有结果通过才更新 capabilities 的 tested 范围。新增平台需实际运行，不能从跨平台 API 推断通过。
-8. 同步两份 manifest 和市场条目，提升版本；生成包、读回 ZIP、检查共享引用、搬移后运行，再交付。
+8. 同步根 manifest、Codex/Claude Code/Cursor 兼容 manifest、Gemini 扩展清单与市场条目，提升版本；同步英文 README.md 与简体中文 README.zh.md。生成包、读回 ZIP、检查共享引用、搬移后运行，再交付。
 
 ## 测试命令
 
@@ -49,6 +49,8 @@ GODOT --headless --path PLUGIN/shared/host --script PLUGIN/tests/package.gd --lo
 desktop 集成测试需要 Windows、真实 GPU 和匹配的 Windows/Web 模板；它不是跨平台自动测试。多人重复测试可将 run_checks 的 manifest 指向 `tests/integration/multiplayer-repeat.json`，执行六轮相同断言。原生套件中的 rendering/capture/game 案例会启动短暂窗口并自动退出，multiplayer 仅使用本机回环。
 
 作者结构检查 `python -X utf8 tests/validate_structure.py --root PLUGIN --schema artifacts/research/plugin.schema.json` 使用 Python、PyYAML 和 jsonschema，PLUGIN 替换为绝对路径；仅用于维护，不进入安装包或成为游戏开发运行条件。也可用 skill-creator 的 quick_validate.py 复核单个 Skill；Windows 下使用 Python UTF-8 模式读取中文。结构检查不能替代行为测试。
+
+新增宿主包装时，结构检查核对全部清单的 name/version/description、双语切换链接和 18 个 Skill 链接。Claude Code 可用 `claude plugin validate --strict PLUGIN/.claude-plugin/plugin.json` 校验宿主清单。打包器核对全部清单与 README 的存在、禁入目录及逐文件哈希；随后将两份 ZIP 解压到新的隔离目录，运行源码结构检查与随包原生示例。宿主发现/模型触发与 GDScript 运行证据分开记录，不能仅凭清单校验宣称完整 Agent 流程通过。详见 [compatibility.md](compatibility.md)。
 
 ## 保存、清理与证据更新
 
