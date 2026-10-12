@@ -10,7 +10,7 @@
 
 ## 安装
 
-从 [Releases](https://github.com/wangdiandao/godot-plugin/releases) 下载包含下述宿主清单的安装 ZIP 并解压。0.2.0 开始增加其它宿主；旧的 0.1.0 压缩包只提供 Codex 包装。保留 `godot-plugin/` 整个目录，包括隐藏目录、`skills/`、`shared/` 和 `docs/`。只复制 `SKILL.md` 会破坏共享资源引用。
+从 [Releases](https://github.com/wangdiandao/godot-plugin/releases) 下载 **0.1.1** 安装 ZIP 并解压。0.1.1 开始增加其它宿主；旧的 0.1.0 包装只提供 Codex 支持。更新说明见 [CHANGELOG](CHANGELOG.md)。保留 `godot-plugin/` 整个目录，包括隐藏目录、`skills/`、`shared/` 和 `docs/`。只复制 `SKILL.md` 会破坏共享资源引用。
 
 对应版本的发布 ZIP 尚未上传时，可使用干净源码：`git clone https://github.com/wangdiandao/godot-plugin.git`，对该目录执行相同安装步骤。需要复制目录时，使用安装 ZIP 或干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
@@ -18,18 +18,13 @@
 
 ### Codex Desktop
 
-1. 将完整插件目录解压到稳定位置。
-2. 在终端使用支持 `plugin marketplace` 的 Codex CLI 注册随包本地市场：
+1. 在 Codex Desktop 打开 **Plugins（插件）** 页。
+2. 打开市场管理入口，选择 **Add marketplace（添加市场）**；不同桌面版本的标签可能不同。
+3. 输入仓库地址 `https://github.com/wangdiandao/godot-plugin` 并添加。仓库已包含 `.agents/plugins/marketplace.json`，此桌面流程无需另行执行 CLI 注册命令。
+4. 选择 **Godot Native Development** 市场（`godot-native-local`），打开 `godot-plugin` 并安装/启用。
+5. 在本地游戏项目中新建聊天，输入：“使用 `$godot-workflow` 检查当前项目，报告已安装的 Godot 版本。”若新安装的插件未被加载，重启桌面端后重新开聊天。
 
-   ```powershell
-   codex plugin marketplace add "C:\Tools\godot-plugin"
-   ```
-
-3. 完全退出并重启 Codex Desktop。CLI 和桌面端必须使用同一用户及 Codex home 配置；在 WSL 或另一台机器注册，不会注册到 Windows 桌面端。
-4. 打开 **Plugins（插件）**，选择 **Godot Native Development** 市场（`godot-native-local`），打开 `godot-plugin` 并安装/启用。不同桌面版本的名称可能不同；当前 OpenAI 官方文档也将此界面称为 ChatGPT 桌面端的 Plugins Directory。
-5. 在本地游戏项目中新建聊天，输入：“使用 `$godot-workflow` 检查当前项目，报告已安装的 Godot 版本。”
-
-也可将解压后的 `godot-plugin` 目录作为本地项目打开并重启桌面端；其中的 `.agents/plugins/marketplace.json` 提供该仓库范围的市场。要在其它游戏项目中使用，采用上面的注册步骤。市场未出现时，执行 `codex plugin marketplace list` 检查解析路径与共享配置，再重启。如果桌面版本没有安装按钮，可以按下面的 CLI 步骤安装，再重启并检查已安装插件。
+使用本地解压 ZIP，或客户端没有 **Add marketplace** 时，可采用下面的 Codex CLI 注册/安装步骤，再重启桌面端。CLI 和桌面端必须使用同一用户及 Codex home 配置；在 WSL 或另一台机器注册，不会注册到 Windows 桌面端。该替代流程可通过 `codex plugin marketplace list` 排查。也可将解压后的 `godot-plugin` 目录作为本地项目打开，以发现仓库范围的市场。
 
 参见 [OpenAI 官方本地市场指南](https://developers.openai.com/plugins/build/plugins)，无需修改插件缓存或发布到公共插件目录。
 
@@ -155,6 +150,6 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 
 贡献前阅读[贡献指南](CONTRIBUTING.md)：先提或关联 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
 
-安装包包含全部宿主清单、中英文 README、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。已发布的 0.1.0 附件保持不变，本次新增内容属于 0.2.0。
+安装包包含全部宿主清单、中英文 README、CHANGELOG、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。已有发布标签和附件保持不变，本次新增内容以 0.1.1 发布。
 
 阅读[扩展规范](docs/authoring.md)、[研究依据](docs/research.md)、[验证报告](docs/validation.md)和 [Godot 基线官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。

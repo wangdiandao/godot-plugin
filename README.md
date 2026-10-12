@@ -10,7 +10,7 @@ The engine baseline is **Godot 4.7.2 stable**, checked on 2026-10-11 against the
 
 ## Installation
 
-Download an installation ZIP from [Releases](https://github.com/wangdiandao/godot-plugin/releases) that includes the host manifests below, then extract it. Version 0.2.0 introduces the additional hosts; the older 0.1.0 archives only provide Codex packaging. Keep the complete `godot-plugin/` directory, including hidden directories, `skills/`, `shared/`, and `docs/`. Copying only `SKILL.md` files breaks shared resource references.
+Download the **0.1.1** installation ZIP from [Releases](https://github.com/wangdiandao/godot-plugin/releases), then extract it. Version 0.1.1 introduces the additional hosts; the older 0.1.0 package only provides Codex packaging. See [CHANGELOG](CHANGELOG.md) for release notes. Keep the complete `godot-plugin/` directory, including hidden directories, `skills/`, `shared/`, and `docs/`. Copying only `SKILL.md` files breaks shared resource references.
 
 If the matching release ZIP has not been published yet, use a clean source checkout: `git clone https://github.com/wangdiandao/godot-plugin.git`. The same installation steps apply to that directory. For directory copies, use the installation ZIP or a clean checkout; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
 
@@ -18,18 +18,13 @@ The PowerShell examples use `C:\Tools\godot-plugin` as the extracted directory. 
 
 ### Codex Desktop
 
-1. Extract the complete plugin directory to a stable location.
-2. Register the bundled local marketplace from a terminal using a Codex CLI that supports `plugin marketplace`:
+1. Open **Plugins** in Codex Desktop.
+2. Open the marketplace controls and choose **Add marketplace** (labels may vary by desktop version).
+3. Enter the repository URL `https://github.com/wangdiandao/godot-plugin` and add it. The repository includes `.agents/plugins/marketplace.json`; no separate CLI registration is required for this desktop flow.
+4. Select **Godot Native Development** (`godot-native-local`), open `godot-plugin`, and install/enable it.
+5. Open your Godot project in a new local chat and ask: “Use `$godot-workflow` to inspect this project and report the installed Godot version.” If the installed plugin is not picked up, restart the desktop and start a new chat.
 
-   ```powershell
-   codex plugin marketplace add "C:\Tools\godot-plugin"
-   ```
-
-3. Fully restart Codex Desktop. The CLI and desktop must use the same user and Codex home configuration; registering inside WSL or on another machine does not register a Windows desktop marketplace.
-4. Open **Plugins**, choose the **Godot Native Development** marketplace (`godot-native-local`), open `godot-plugin`, and install/enable it. Labels vary by desktop version; current OpenAI documentation also calls this surface the Plugins Directory in the ChatGPT desktop app.
-5. Open your Godot project in a new local chat and ask: “Use `$godot-workflow` to inspect this project and report the installed Godot version.”
-
-For a repository-scoped alternative, open the extracted `godot-plugin` directory as a local project and restart the desktop. Its `.agents/plugins/marketplace.json` supplies that repository's marketplace. For use from other game projects, register the marketplace as above. If it is missing, inspect `codex plugin marketplace list`, check the resolved path and shared configuration, and restart. If your desktop has no install control, use the CLI installation below, then restart and check the installed plugin.
+For an extracted local ZIP or clients without **Add marketplace**, use the Codex CLI registration/install steps below, then restart the desktop. The CLI and desktop must use the same user and Codex home configuration; registration inside WSL or on another machine does not register a Windows desktop marketplace. Inspect `codex plugin marketplace list` when troubleshooting that alternative. You can also open the extracted `godot-plugin` directory as a local project to discover its repository-scoped marketplace.
 
 See the [official local marketplace guide](https://developers.openai.com/plugins/build/plugins). No cache editing or public directory publishing is required.
 
@@ -155,6 +150,6 @@ Each Skill has an independently runnable `assets/examples/minimal/` project. Com
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated PRs implemented by Codex receive recorded Codex self-review. Code and original examples use the [MIT license](LICENSE).
 
-The installation ZIP includes all host manifests, both READMEs, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Version 0.1.0 release assets remain immutable; these additions belong to version 0.2.0.
+The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Existing published tags and assets remain immutable; these additions are released as version 0.1.1.
 
 See [authoring contracts](docs/authoring.md), [research sources](docs/research.md), [validation](docs/validation.md), and the [official Godot baseline release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable).

@@ -1,6 +1,6 @@
 # Host compatibility
 
-Version 0.2.0 adds native packaging for Claude Code, Cursor, and Gemini CLI alongside Codex Desktop/CLI. All hosts share the same 18 `skills/<name>/SKILL.md` files, GDScript helpers, examples, and relative references. No adapter server or new runtime is introduced.
+Version 0.1.1 adds native packaging for Claude Code, Cursor, and Gemini CLI alongside Codex Desktop/CLI. All hosts share the same 18 `skills/<name>/SKILL.md` files, GDScript helpers, examples, and relative references. No adapter server or new runtime is introduced. Codex Desktop can add the GitHub marketplace directly from its Plugins page; CLI registration is an alternative.
 
 | Host | Manifest and discovery | Installation |
 |---|---|---|
@@ -17,7 +17,7 @@ Gemini's Skill activation adds the individual Skill directory to allowed paths. 
 
 Host manifest and archive checks are separate from model routing and game acceptance. The original 2026-10-11 Godot behavior results remain historical evidence in [validation.md](validation.md); they are not reruns under the new hosts.
 
-The following checks were run on 2026-10-12 on Windows with Godot `4.7.2.stable.official.ed1daf0bf`, Codex CLI `0.142.5`, and Claude Code `2.1.198`:
+The following checks were run on the earlier, unpublished 0.2.0 development snapshot on 2026-10-12, with Windows, Godot `4.7.2.stable.official.ed1daf0bf`, Codex CLI `0.142.5`, and Claude Code `2.1.198`. Version 0.1.1 retains those runtime files; the release checks are recorded separately below.
 
 | Check | Actual result and scope |
 |---|---|
@@ -33,6 +33,14 @@ The following checks were run on 2026-10-12 on Windows with Godot `4.7.2.stable.
 `PLUGIN`, `SCHEMA`, `REPORT`, `GODOT`, `LOG`, and `OUT` stand for actual absolute paths supplied at execution time. The installation manifest selects cases whose projects are under `../skills/` and resolves their project/script paths against the extracted package; fixture cases stay in the source suite. Raw reports and logs are in the maintainer's ignored `artifacts/multi-agent-3/` directory; the PR records commands and results for reviewers. Negative cases pass only when the expected failure is detected.
 
 Cursor and Gemini CLI are not installed in this maintenance environment. Their packaging follows official documentation; their installation UI, runtime discovery, and model-driven workflows require verification in those hosts. Codex Desktop UI interactions and Claude Code model-driven workflows are also outside the packaging checks.
+
+## 0.1.1 release checks (2026-10-12)
+
+All five host manifests now identify version 0.1.1. The [changelog](../CHANGELOG.md) and both READMEs are included in the installation/source archives. Codex Desktop instructions start with adding the repository marketplace from the Plugins page; the workflow was corrected from the owner's desktop usage report, without claiming a new UI automation test.
+
+The source structure/root schema/Markdown link checks and Claude strict manifest validation passed again. Both 0.1.1 ZIPs passed native creation, required/excluded content checks, and per-file SHA256 readback. After extraction into new Chinese/space paths, source structure checks passed; isolated Codex registration/install/list reported 0.1.1 enabled; isolated Claude discovery reported 0.1.1 with all 18 Skills. The installation workflow example and source physics example both passed with exit 0, explicit reports, and clean engine logs. Cursor's official manifest schema was also checked for 0.1.1.
+
+Every `skills/` and `shared/` archive member matches the bytes of the previous package used for the 31/22-case suites above. Those full suites were not rerun for this metadata/documentation release. Raw release-check records are under ignored `artifacts/release-0.1.1/`; actual commands/results and release SHA256 values are recorded in the release PR and published assets. Unavailable-host and model-routing limitations remain as stated above.
 
 ## Official sources
 
