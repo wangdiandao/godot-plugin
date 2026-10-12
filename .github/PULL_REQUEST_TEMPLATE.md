@@ -23,4 +23,4 @@ Closes #
 
 ## Maintainer review
 
-<!-- Human approval and resolved feedback are required before merge. AI feedback is advisory. Owner records a manual review decision when no independent maintainer is available. -->
+<!-- External contributions require maintainer review. For owner-initiated PRs implemented by Codex, Codex reviews the final changes and records findings/checks without waiting for additional human review. Identify self-review accurately; do not claim independent approval. Merge follows owner authorization and repository protection rules. -->

@@ -76,7 +76,7 @@ codex plugin list --marketplace godot-native-local --json
 
 ## 维护和交付
 
-贡献前阅读 [贡献指南](CONTRIBUTING.md) 与 [Repository Guidelines](AGENTS.md)：先提 Issue，外部贡献者 fork 后开发，完成后提交 PR，由维护者人工审核再合并。代码和自有示例采用 [MIT](LICENSE)。
+贡献前阅读 [贡献指南](CONTRIBUTING.md)：先提 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
 
 安装包包含清单、Skills、共享文件、示例和能力/验证说明。源码包另含测试与扩展文档。原始日志、截图、隔离项目和研究下载保留在工作区 `artifacts/`；`artifacts/`、`dist/` 和引擎缓存不递归进入任何发布包。
 

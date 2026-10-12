@@ -69,7 +69,7 @@ func _run() -> void:
 		Common.check(result, "manifest", false)
 		Common.finish(self, result)
 		return
-	files = ["plugin.json", "README.md", "LICENSE", "AGENTS.md", "CONTRIBUTING.md"]
+	files = ["plugin.json", "README.md", "LICENSE", "CONTRIBUTING.md"]
 	for directory: String in [".codex-plugin", ".agents/plugins", "skills", "shared", "docs"]:
 		collect(directory)
 	if result.status != "passed":

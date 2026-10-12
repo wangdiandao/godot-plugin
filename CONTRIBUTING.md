@@ -9,7 +9,7 @@
 3. 从最新 upstream `main` 建立 `type/<issue-number>-<summary>`，例如 `docs/1-contribution-workflow`；不要直接向 `main` 推送。
 4. 完成实现、示例和相关验证，再提交 PR。未完成的工作使用 Draft PR。
 5. PR 用 `Closes #编号` 关联 Issue，附执行证据、未测范围及兼容性影响。
-6. 修复审核意见，更新证据。维护者人工明确批准后才可合并；AI 只辅助审核，不能批准或合并自己的 PR。没有其他维护者时，仓库所有者须人工复核并记录决定。
+6. 修复审核意见，更新证据。外部贡献由维护者审核。仓库所有者发起且由 Codex 承担开发的 PR，由 Codex 自行审核最终改动、处理发现并记录结果，无需等待额外人工审核。GitHub 不允许作者批准自己的 PR 时，以 review comment 记录自检，不宣称获得独立批准。合并须符合所有者授权和仓库保护规则。
 
 提交主题采用 `type: imperative summary (#issue)`，例如 `fix: detect import errors (#12)`。type 可为 `feat`、`fix`、`docs`、`test`、`chore`。这是新确立的规范，不是历史推断。
 
@@ -48,7 +48,7 @@ skills/godot-<domain>/
 
 ## 验证与审核门槛
 
-运行命令见 [AGENTS.md](AGENTS.md) 和 [authoring.md](docs/authoring.md)。维护结构检查需要 Python 与 PyYAML；schema 校验还需要 jsonschema 及对应 schema。schema 当前位于被忽略的研究目录，不能宣称干净 checkout 已执行此项。
+运行命令见 [authoring.md](docs/authoring.md)。维护结构检查需要 Python 与 PyYAML；schema 校验还需要 jsonschema 及对应 schema。schema 当前位于被忽略的研究目录，不能宣称干净 checkout 已执行此项。
 
 - 所有 PR 必须通过结构检查，并检查 Markdown 链接和清单一致性。
 - 行为变更执行受影响案例及负例；共享执行器变更执行核心套件；打包变更验证两份 ZIP 的内容、哈希读回及搬移后运行。
@@ -62,5 +62,7 @@ PR 写明实际执行的命令、引擎版本、平台、结果及未测部分�
 代码和自有示例采用 [MIT](LICENSE)。第三方资源注明来源、许可和再分发条件；不纳入未授权素材。
 
 发布前同步两份 manifest、市场条目与必要版本说明，生成安装/源码 ZIP，读回 SHA256，执行搬移验证，再由维护者发布版本标签和附件。源码包包含贡献指南与模板，两份 ZIP 都包含 LICENSE。已发布的标签与附件保持不变，后续修改通过新版本发布。
+
+`AGENTS.md` 是所有者本地开发规范，由 `.gitignore` 排除，不提交到远端，也不进入任何发布包。公共贡献流程放在本指南，Issue/PR 格式放在 `.github/` 模板，skill 的技术合同和验证命令放在 `docs/authoring.md`，许可条款放在 `LICENSE`。
 
 结构 CI、受保护分支和独立审核人目前尚未配置；文档规则不等于 GitHub 已强制执行。后续应通过独立 Issue 配置最低权限 CI、required checks 与审核保护，并补充可复现的维护依赖/schema；真实 GPU 和桌面测试仍需适配的执行环境。
