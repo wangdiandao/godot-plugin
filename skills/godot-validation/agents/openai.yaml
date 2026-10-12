@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Validation and Diagnostics"
+  short_description: "Run repeatable Godot checks and diagnose observed failures"
+  default_prompt: "Use $godot-validation to set up automated smoke, input, and screenshot checks for the project."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,106 @@
+{
+  "cases": [
+    {
+      "id": "multiplayer-repeat-1",
+      "project": "../../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "multiplayer-repeat-2",
+      "project": "../../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "multiplayer-repeat-3",
+      "project": "../../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "multiplayer-repeat-4",
+      "project": "../../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "multiplayer-repeat-5",
+      "project": "../../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "multiplayer-repeat-6",
+      "project": "../../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    }
+  ]
+}

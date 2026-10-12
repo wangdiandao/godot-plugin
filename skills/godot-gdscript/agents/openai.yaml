@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · GDScript Implementation"
+  short_description: "Write and refactor GDScript with verified types and behavior"
+  default_prompt: "Use $godot-gdscript to refactor a state component's types and signals while preserving compatibility with existing scenes."
+policy:
+  allow_implicit_invocation: true

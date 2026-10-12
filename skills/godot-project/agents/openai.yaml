@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Projects and Configuration"
+  short_description: "Set up and verify Godot projects and configuration"
+  default_prompt: "Use $godot-project to initialize a Godot project and configure WASD and pause input."
+policy:
+  allow_implicit_invocation: true

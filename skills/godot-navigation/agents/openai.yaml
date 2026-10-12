@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Navigation and Pathfinding"
+  short_description: "Build and verify native Godot navigation and pathfinding"
+  default_prompt: "Use $godot-navigation to bake level navigation automatically and make enemies navigate around obstacles."
+policy:
+  allow_implicit_invocation: true

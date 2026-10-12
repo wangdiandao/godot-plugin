@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Asset Import"
+  short_description: "Import and verify assets with native Godot tools"
+  default_prompt: "Use $godot-assets to batch-adjust pixel texture import settings and verify reimporting."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+artifacts/
+dist/
+**/.godot/
+**/.godot-plugin/
+**/__pycache__/
+*.tmp

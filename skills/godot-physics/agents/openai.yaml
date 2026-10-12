@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Physics and Interaction"
+  short_description: "Implement and verify native Godot physics and interaction"
+  default_prompt: "Use $godot-physics to diagnose a character falling through the floor and unresponsive triggers."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,641 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "baseline": "4.7.2-stable",
+  "platform": "Windows",
+  "renderer": "OpenGL Compatibility; NVIDIA GeForce RTX 5070 Laptop GPU; driver 616.92",
+  "groups": {
+    "suite": {
+      "status": "passed",
+      "raw_report": "artifacts/final-source-tests/1791721342-956-49640/report.json",
+      "checks": [
+        {
+          "name": "workflow-example",
+          "passed": true
+        },
+        {
+          "name": "project-example",
+          "passed": true
+        },
+        {
+          "name": "api-example",
+          "passed": true
+        },
+        {
+          "name": "gdscript-example",
+          "passed": true
+        },
+        {
+          "name": "scenes-example",
+          "passed": true
+        },
+        {
+          "name": "assets-example",
+          "passed": true
+        },
+        {
+          "name": "2d-example",
+          "passed": true
+        },
+        {
+          "name": "3d-example",
+          "passed": true
+        },
+        {
+          "name": "physics-example",
+          "passed": true
+        },
+        {
+          "name": "navigation-example",
+          "passed": true
+        },
+        {
+          "name": "ui-example",
+          "passed": true
+        },
+        {
+          "name": "animation-example",
+          "passed": true
+        },
+        {
+          "name": "rendering-example",
+          "passed": true
+        },
+        {
+          "name": "audio-example",
+          "passed": true
+        },
+        {
+          "name": "data-example",
+          "passed": true
+        },
+        {
+          "name": "validation-example",
+          "passed": true
+        },
+        {
+          "name": "export-example",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-example",
+          "passed": true
+        },
+        {
+          "name": "game-2d",
+          "passed": true
+        },
+        {
+          "name": "game-3d",
+          "passed": true
+        },
+        {
+          "name": "fault-runtime",
+          "passed": true
+        },
+        {
+          "name": "fault-missing-report",
+          "passed": true
+        },
+        {
+          "name": "fault-timeout",
+          "passed": true
+        },
+        {
+          "name": "fault-missing-resource",
+          "passed": true
+        },
+        {
+          "name": "fault-save-failure",
+          "passed": true
+        },
+        {
+          "name": "fault-parse",
+          "passed": true
+        },
+        {
+          "name": "scene-inheritance",
+          "passed": true
+        },
+        {
+          "name": "headless-capture-refused",
+          "passed": true
+        },
+        {
+          "name": "capture-real",
+          "passed": true
+        },
+        {
+          "name": "log-parser",
+          "passed": true
+        },
+        {
+          "name": "fault-broken-reference",
+          "passed": true
+        },
+        {
+          "name": "selected_cases_exist",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "desktop": {
+      "status": "passed",
+      "raw_report": "artifacts/desktop-final/report.json",
+      "checks": [
+        {
+          "name": "2d_clean_copy",
+          "passed": true
+        },
+        {
+          "name": "2d_preset_saved",
+          "passed": true
+        },
+        {
+          "name": "2d_import",
+          "passed": true
+        },
+        {
+          "name": "2d_inspect",
+          "passed": true
+        },
+        {
+          "name": "2d_game",
+          "passed": true
+        },
+        {
+          "name": "2d_export",
+          "passed": true
+        },
+        {
+          "name": "2d_binary_exists",
+          "passed": true
+        },
+        {
+          "name": "2d_exported_game",
+          "passed": true
+        },
+        {
+          "name": "web_export",
+          "passed": true
+        },
+        {
+          "name": "web_artifact_html",
+          "passed": true
+        },
+        {
+          "name": "web_artifact_js",
+          "passed": true
+        },
+        {
+          "name": "web_artifact_wasm",
+          "passed": true
+        },
+        {
+          "name": "web_artifact_pck",
+          "passed": true
+        },
+        {
+          "name": "3d_clean_copy",
+          "passed": true
+        },
+        {
+          "name": "3d_preset_saved",
+          "passed": true
+        },
+        {
+          "name": "3d_import",
+          "passed": true
+        },
+        {
+          "name": "3d_inspect",
+          "passed": true
+        },
+        {
+          "name": "3d_game",
+          "passed": true
+        },
+        {
+          "name": "3d_export",
+          "passed": true
+        },
+        {
+          "name": "3d_binary_exists",
+          "passed": true
+        },
+        {
+          "name": "3d_exported_game",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "assets": {
+      "status": "passed",
+      "raw_report": "artifacts/assets-1/report.json",
+      "checks": [
+        {
+          "name": "write_source_32",
+          "passed": true
+        },
+        {
+          "name": "import_32",
+          "passed": true
+        },
+        {
+          "name": "texture_32",
+          "passed": true
+        },
+        {
+          "name": "write_source_64",
+          "passed": true
+        },
+        {
+          "name": "import_64",
+          "passed": true
+        },
+        {
+          "name": "texture_64",
+          "passed": true
+        },
+        {
+          "name": "native_import_metadata",
+          "passed": true
+        },
+        {
+          "name": "remove_owned_source",
+          "passed": true
+        },
+        {
+          "name": "missing_source_detected",
+          "passed": true
+        },
+        {
+          "name": "repair_import",
+          "passed": true
+        },
+        {
+          "name": "repaired_texture",
+          "passed": true
+        },
+        {
+          "name": "unrelated_file_preserved",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "failures": {
+      "status": "passed",
+      "raw_report": "artifacts/failures-3/report.json",
+      "checks": [
+        {
+          "name": "fixture_archive",
+          "passed": true
+        },
+        {
+          "name": "checksum_rejected",
+          "passed": true
+        },
+        {
+          "name": "checksum_no_writes",
+          "passed": true
+        },
+        {
+          "name": "fixture_install",
+          "passed": true
+        },
+        {
+          "name": "fixture_repeat",
+          "passed": true
+        },
+        {
+          "name": "repeat_unchanged",
+          "passed": true
+        },
+        {
+          "name": "conflict_rejected",
+          "passed": true
+        },
+        {
+          "name": "concurrent_content_preserved",
+          "passed": true
+        },
+        {
+          "name": "path_traversal_rejected",
+          "passed": true
+        },
+        {
+          "name": "no_escaped_file",
+          "passed": true
+        },
+        {
+          "name": "project_import",
+          "passed": true
+        },
+        {
+          "name": "template_is_missing",
+          "passed": true
+        },
+        {
+          "name": "missing_template_export",
+          "passed": true
+        },
+        {
+          "name": "no_failed_executable",
+          "passed": true
+        },
+        {
+          "name": "invalid_import_detected",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "native_download": {
+      "status": "passed",
+      "raw_report": "artifacts/reports/native-download.json",
+      "checks": [
+        {
+          "name": "matching_version",
+          "passed": true
+        },
+        {
+          "name": "member:windows_release_x86_64.exe",
+          "passed": true
+        },
+        {
+          "name": "member:version.txt",
+          "passed": true
+        },
+        {
+          "name": "create_destination",
+          "passed": true
+        },
+        {
+          "name": "install:windows_release_x86_64.exe",
+          "passed": true
+        },
+        {
+          "name": "install:version.txt",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "multiplayer_repeat": {
+      "status": "passed",
+      "raw_report": "artifacts/multiplayer-final/1791721229-935-55052/report.json",
+      "checks": [
+        {
+          "name": "multiplayer-repeat-1",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-repeat-2",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-repeat-3",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-repeat-4",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-repeat-5",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-repeat-6",
+          "passed": true
+        },
+        {
+          "name": "selected_cases_exist",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "broken_reference": {
+      "status": "passed",
+      "raw_report": "artifacts/tests/1791721001-279-22864/report.json",
+      "checks": [
+        {
+          "name": "fault-broken-reference",
+          "passed": true
+        },
+        {
+          "name": "selected_cases_exist",
+          "passed": true
+        },
+        {
+          "name": "selected:fault-broken-reference",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "official_links": {
+      "status": "passed",
+      "count": 173,
+      "raw_report": "artifacts/reports/official-links.json"
+    },
+    "skill_creator": {
+      "status": "passed",
+      "count": 18,
+      "raw_report": "artifacts/reports/skill-creator.json"
+    },
+    "structure": {
+      "status": "passed",
+      "count": 672,
+      "raw_report": "artifacts/reports/structure.json"
+    },
+    "relocated_install": {
+      "status": "passed",
+      "raw_report": "artifacts/final-relocated-tests/1791721297-988-54480/report.json",
+      "checks": [
+        {
+          "name": "workflow-example",
+          "passed": true
+        },
+        {
+          "name": "project-example",
+          "passed": true
+        },
+        {
+          "name": "api-example",
+          "passed": true
+        },
+        {
+          "name": "gdscript-example",
+          "passed": true
+        },
+        {
+          "name": "scenes-example",
+          "passed": true
+        },
+        {
+          "name": "assets-example",
+          "passed": true
+        },
+        {
+          "name": "2d-example",
+          "passed": true
+        },
+        {
+          "name": "3d-example",
+          "passed": true
+        },
+        {
+          "name": "physics-example",
+          "passed": true
+        },
+        {
+          "name": "navigation-example",
+          "passed": true
+        },
+        {
+          "name": "ui-example",
+          "passed": true
+        },
+        {
+          "name": "animation-example",
+          "passed": true
+        },
+        {
+          "name": "rendering-example",
+          "passed": true
+        },
+        {
+          "name": "audio-example",
+          "passed": true
+        },
+        {
+          "name": "data-example",
+          "passed": true
+        },
+        {
+          "name": "validation-example",
+          "passed": true
+        },
+        {
+          "name": "export-example",
+          "passed": true
+        },
+        {
+          "name": "multiplayer-example",
+          "passed": true
+        },
+        {
+          "name": "game-2d",
+          "passed": true
+        },
+        {
+          "name": "game-3d",
+          "passed": true
+        },
+        {
+          "name": "headless-capture-refused",
+          "passed": true
+        },
+        {
+          "name": "capture-real",
+          "passed": true
+        },
+        {
+          "name": "selected_cases_exist",
+          "passed": true
+        }
+      ],
+      "engine_version": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      }
+    },
+    "candidate_package": {
+      "status": "passed",
+      "raw_report": "artifacts/package-candidate4/package-report.json",
+      "scope": "native ZIP creation, all packaged file hashes read back; final dist is rebuilt after summary-only edits"
+    }
+  }
+}

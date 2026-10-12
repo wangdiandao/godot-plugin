@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Complete Game Development"
+  short_description: "Develop complete Godot games with verified behavior and delivery"
+  default_prompt: "Use $godot-workflow to create a 2D collection game with menus, scoring, sound effects, and save files."
+policy:
+  allow_implicit_invocation: true

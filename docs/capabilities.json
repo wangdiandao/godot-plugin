@@ -1,0 +1,707 @@
+{
+  "schema_version": 1,
+  "baseline": "4.7.2-stable",
+  "source_commit": "ed1daf0bf001b61586d9930840f2f1394092c079",
+  "capabilities": [
+    {
+      "id": "godot-workflow",
+      "skill": "skills/godot-workflow/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_projectsettings.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_scenetree.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_input.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_packedscene.html"
+      ],
+      "example": "skills/godot-workflow/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "workflow-example",
+        "game-2d",
+        "game-3d"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认项目目录、游戏目标和主机平台；检查 Godot 标准编辑器发行版。已有项目先运行现状检查并记录已知失败。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "2D/3D 原生示例：菜单、输入、物理收集、音效配置、胜利、重开、存档与截图",
+        "干净中文空格目录导入，Windows release 导出并运行"
+      ],
+      "documented_not_tested": [
+        "大型完整商业游戏质量",
+        "所有游戏类型"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ProjectSettings.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneTree.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PackedScene.xml"
+      ]
+    },
+    {
+      "id": "godot-project",
+      "skill": "skills/godot-project/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_projectsettings.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_inputmap.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_inputeventkey.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_configfile.html"
+      ],
+      "example": "skills/godot-project/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "project-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "读取 project.godot、主场景、Autoload 和已有版本证据；用 --version、--help 确认实际二进制。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "ConfigFile 输入事件与 Autoload 配置读回",
+        "完整示例项目原生导入"
+      ],
+      "documented_not_tested": [
+        "既有大型项目版本迁移",
+        "所有安装布局的自动发现"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ProjectSettings.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/InputMap.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/InputEventKey.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ConfigFile.xml"
+      ]
+    },
+    {
+      "id": "godot-api",
+      "skill": "skills/godot-api/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_classdb.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_engine.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_object.html"
+      ],
+      "example": "skills/godot-api/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "api-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "获得实际引擎版本、构建类型和目标功能；优先已固定版本的官方类文档。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "本机 ClassDB 方法列表和 LightmapGI 未绑定检查"
+      ],
+      "documented_not_tested": [
+        "所有公开接口的行为"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ClassDB.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Engine.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Object.xml"
+      ]
+    },
+    {
+      "id": "godot-gdscript",
+      "skill": "skills/godot-gdscript/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_gdscript.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_signal.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_resource.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_object.html"
+      ],
+      "example": "skills/godot-gdscript/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "gdscript-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "读取调用方、节点生命周期、导出的属性和序列化依赖；首次导入后再验证 class_name。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "类型化信号、状态和跨帧异步流程"
+      ],
+      "documented_not_tested": [
+        "任意代码自动正确重构"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gdscript/doc_classes/GDScript.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Signal.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Resource.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Object.xml"
+      ]
+    },
+    {
+      "id": "godot-scenes",
+      "skill": "skills/godot-scenes/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_packedscene.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_scenestate.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_resourcesaver.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_resourceloader.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_node.html"
+      ],
+      "example": "skills/godot-scenes/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "scenes-example",
+        "scene-inheritance",
+        "fault-save-failure"
+      ],
+      "verification_status": "tested",
+      "conditions": "读取现有场景、外部资源、实例关系、节点所有权和信号；导入完成后再加载。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "owner 子节点、持久化信号保存后执行",
+        "实例保留、继承覆盖和基底未变"
+      ],
+      "documented_not_tested": [
+        "复杂导入场景任意重写"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PackedScene.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneState.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceSaver.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceLoader.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Node.xml"
+      ]
+    },
+    {
+      "id": "godot-assets",
+      "skill": "skills/godot-assets/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_image.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_resourceloader.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_editorfilesystem.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_gltfdocument.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_audiostreamwav.html"
+      ],
+      "example": "skills/godot-assets/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "assets-example",
+        "asset_import_recovery"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认源格式、授权来源、目标平台和渲染器；优先 Godot 直接支持的 PNG/SVG/WAV/glTF 等格式。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "原生 PNG 编码解码",
+        "32→64 像素重导入、恢复指定源文件和保留无关内容"
+      ],
+      "documented_not_tested": [
+        "字体文件导入",
+        "GLB/FBX 导入完整动画链"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Image.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceLoader.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/EditorFileSystem.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gltf/doc_classes/GLTFDocument.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioStreamWAV.xml"
+      ]
+    },
+    {
+      "id": "godot-2d",
+      "skill": "skills/godot-2d/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_tilemaplayer.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_tileset.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_tilesetatlassource.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_camera2d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_sprite2d.html"
+      ],
+      "example": "skills/godot-2d/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "2d-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认世界单位、图块尺寸、纹理尺寸、坐标系和渲染缩放；新地图使用 TileMapLayer。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "TileSet 图集与 TileMapLayer 保存读回",
+        "2D 完整收集游戏"
+      ],
+      "documented_not_tested": [
+        "复杂地形邻接组合",
+        "像素完美相机所有分辨率"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TileMapLayer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TileSet.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TileSetAtlasSource.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Camera2D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Sprite2D.xml"
+      ]
+    },
+    {
+      "id": "godot-3d",
+      "skill": "skills/godot-3d/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_node3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_meshinstance3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_boxmesh.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_camera3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_skeleton3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_gltfdocument.html"
+      ],
+      "example": "skills/godot-3d/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "3d-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认米制尺度、轴向、摄像机视角和目标 GPU；导入模型先检查 transform 与材质。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "BoxMesh 与 Camera3D 保存读回",
+        "3D 角色、地面和收集关卡"
+      ],
+      "documented_not_tested": [
+        "复杂骨骼与导入模型编辑"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Node3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/MeshInstance3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/BoxMesh.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Camera3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Skeleton3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gltf/doc_classes/GLTFDocument.xml"
+      ]
+    },
+    {
+      "id": "godot-physics",
+      "skill": "skills/godot-physics/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_characterbody2d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_characterbody3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_area2d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_physicsrayqueryparameters3d.html"
+      ],
+      "example": "skills/godot-physics/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "physics-example",
+        "game-2d",
+        "game-3d"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认 2D/3D、物理后端、物体类型、碰撞层/掩码、形状和单位；读取已有角色控制器。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "CharacterBody2D 落地与防穿透",
+        "2D/3D 游戏物理移动及 Area 收集"
+      ],
+      "documented_not_tested": [
+        "高速刚体/CCD",
+        "所有形状和后端"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/CharacterBody2D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/CharacterBody3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Area2D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PhysicsRayQueryParameters3D.xml"
+      ]
+    },
+    {
+      "id": "godot-navigation",
+      "skill": "skills/godot-navigation/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_navigationserver3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_navigationmesh.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_navigationmeshsourcegeometrydata3d.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_navigationagent3d.html"
+      ],
+      "example": "skills/godot-navigation/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "navigation-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认 2D/3D、几何来源、代理半径、导航图层和目标平台；烘焙应使用可获取的源几何。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "CPU 几何烘焙、保存、异步同步后跨区域寻路"
+      ],
+      "documented_not_tested": [
+        "NavigationAgent 避障",
+        "动态多地图导航"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationServer3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationMesh.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationMeshSourceGeometryData3D.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationAgent3D.xml"
+      ]
+    },
+    {
+      "id": "godot-ui",
+      "skill": "skills/godot-ui/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_control.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_container.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_theme.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_translation.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_translationserver.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_input.html"
+      ],
+      "example": "skills/godot-ui/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "ui-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认目标分辨率、长宽比、输入设备、语言和字体覆盖；读取现有 Theme 与 UI 场景。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "Container 布局、焦点按钮输入、中英文翻译查询",
+        "游戏菜单真实截图"
+      ],
+      "documented_not_tested": [
+        "中文字体渲染覆盖",
+        "所有分辨率布局"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Control.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Container.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Theme.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Translation.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TranslationServer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml"
+      ]
+    },
+    {
+      "id": "godot-animation",
+      "skill": "skills/godot-animation/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_animation.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_animationlibrary.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_animationplayer.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_animationtree.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_spriteframes.html"
+      ],
+      "example": "skills/godot-animation/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "animation-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认节点路径、AnimationPlayer root_node、资源共享关系以及目标骨架；导入动画先列出现有库。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "AnimationLibrary 保存",
+        "AnimationPlayer 属性轨道中间帧插值"
+      ],
+      "documented_not_tested": [
+        "AnimationTree 状态混合",
+        "骨骼重定向/root motion"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Animation.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AnimationLibrary.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AnimationPlayer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AnimationTree.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SpriteFrames.xml"
+      ]
+    },
+    {
+      "id": "godot-rendering",
+      "skill": "skills/godot-rendering/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_shader.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_shadermaterial.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_worldenvironment.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_renderingserver.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_viewport.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_gpuparticles3d.html"
+      ],
+      "example": "skills/godot-rendering/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "rendering-example",
+        "capture-real",
+        "headless-capture-refused"
+      ],
+      "verification_status": "tested",
+      "conditions": "读取 rendering_method、真实渲染设备、目标平台和效果需求；headless 无法证明图像正确。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "真实 GPU canvas_item Shader 像素断言",
+        "Viewport 截图和 PNG 读回",
+        "headless 截图明确拒绝"
+      ],
+      "documented_not_tested": [
+        "Forward+/Mobile 特效",
+        "GPU 粒子",
+        "compute",
+        "LightmapGI 烘焙"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Shader.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ShaderMaterial.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/WorldEnvironment.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/RenderingServer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Viewport.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/GPUParticles3D.xml"
+      ]
+    },
+    {
+      "id": "godot-audio",
+      "skill": "skills/godot-audio/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_audioserver.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_audiobuslayout.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_audiostreamwav.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_audiostreamplayer.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_audioeffectcapture.html"
+      ],
+      "example": "skills/godot-audio/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "audio-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认音频格式、循环需求、采样率、总线路由及目标设备；保留现有音频总线。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "16-bit PCM WAV 保存",
+        "音频总线、Limiter 和播放状态"
+      ],
+      "documented_not_tested": [
+        "主观听感",
+        "空间音频遮挡"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioServer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioBusLayout.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioStreamWAV.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioStreamPlayer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioEffectCapture.xml"
+      ]
+    },
+    {
+      "id": "godot-data",
+      "skill": "skills/godot-data/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_fileaccess.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_diraccess.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_json.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_configfile.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_resource.html"
+      ],
+      "example": "skills/godot-data/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "data-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认数据结构、保存范围、版本和兼容目标；测试使用隔离路径，不覆盖玩家现有存档。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "JSON v1→v2 迁移、异常结构/未来版本/损坏数据检测",
+        "完整游戏存档写入和读回"
+      ],
+      "documented_not_tested": [
+        "断电事务",
+        "多进程同时写同一存档"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/FileAccess.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/DirAccess.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/JSON.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ConfigFile.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Resource.xml"
+      ]
+    },
+    {
+      "id": "godot-multiplayer",
+      "skill": "skills/godot-multiplayer/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_enetmultiplayerpeer.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_multiplayerapi.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_multiplayerspawner.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_multiplayersynchronizer.html"
+      ],
+      "example": "skills/godot-multiplayer/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "multiplayer-example",
+        "multiplayer_repeat"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认传输方式、服务端权威范围、端口和节点路径；测试仅绑定回环地址和临时端口。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "回环 1 服务端 + 2 客户端",
+        "ENet 生成、属性复制、可靠 RPC、权威回执与断线"
+      ],
+      "documented_not_tested": [
+        "公网/NAT/丢包",
+        "生产身份认证"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/enet/doc_classes/ENetMultiplayerPeer.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/MultiplayerAPI.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/multiplayer/doc_classes/MultiplayerSpawner.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/multiplayer/doc_classes/MultiplayerSynchronizer.xml"
+      ]
+    },
+    {
+      "id": "godot-validation",
+      "skill": "skills/godot-validation/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_logger.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_os.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_input.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_performance.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_scenetree.html"
+      ],
+      "example": "skills/godot-validation/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "validation-example",
+        "log-parser",
+        "fault-runtime",
+        "fault-missing-report",
+        "fault-timeout",
+        "fault-parse",
+        "fault-broken-reference"
+      ],
+      "verification_status": "tested",
+      "conditions": "记录引擎版本、平台、渲染器、当前失败与目标行为；所有测试有超时和隔离输出位置。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "31 项套件含超时、错误退出0、无报告、解析失败、保存失败和截图拒绝",
+        "嵌套负例日志不误报"
+      ],
+      "documented_not_tested": [
+        "宿主模型语义触发",
+        "性能指标采样与优化收益"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Logger.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/OS.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Performance.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneTree.xml"
+      ]
+    },
+    {
+      "id": "godot-export",
+      "skill": "skills/godot-export/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_editorexportplatform.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_editorexportplatformwindows.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_editorexportplatformweb.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_zipreader.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_httprequest.html"
+      ],
+      "example": "skills/godot-export/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "export-example",
+        "desktop_integration",
+        "failure_contracts",
+        "native_download"
+      ],
+      "verification_status": "tested",
+      "conditions": "确认引擎版本、目标系统/架构、渲染器和匹配模板；检查现有 export_presets.cfg 与保密凭据。",
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows",
+      "tested_scope": [
+        "官方模板原生下载、SHA256/版本校验及冲突保护",
+        "Windows release 构建并运行",
+        "Web 单线程构建产物"
+      ],
+      "documented_not_tested": [
+        "Web 浏览器运行",
+        "Linux/macOS",
+        "Android/iOS/签名"
+      ],
+      "evidence": "docs/validation-results.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/EditorExportPlatform.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/windows/doc_classes/EditorExportPlatformWindows.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/doc_classes/EditorExportPlatformWeb.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/zip/doc_classes/ZIPReader.xml",
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/HTTPRequest.xml"
+      ]
+    }
+  ],
+  "limitations": [
+    {
+      "id": "lightmap-script-bake",
+      "status": "unsupported",
+      "reason": "LightmapGI bake is not bound to GDScript in the baseline."
+    },
+    {
+      "id": "mobile-release",
+      "status": "conditional",
+      "reason": "Target SDK, signing and required host platform must be available."
+    },
+    {
+      "id": "cross-platform-runtime",
+      "status": "not_run",
+      "reason": "Linux and macOS have not been executed on this Windows host."
+    },
+    {
+      "id": "editor-script-exit",
+      "status": "conditional",
+      "description": "EditorInterface 可访问，但 --editor --script 探针退出有泄漏日志；不列为默认可靠操作路径。"
+    },
+    {
+      "id": "semantic-routing",
+      "status": "not_run",
+      "description": "18×3 触发请求已人工评审；尚未在安装后的宿主模型中测量自动选择准确率。"
+    }
+  ]
+}

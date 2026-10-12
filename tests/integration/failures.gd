@@ -1,0 +1,68 @@
+extends "desktop.gd"
+func write_text(path: String, contents: String) -> void:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_string(contents)
+	file.close()
+func _run() -> void:
+	result = Common.report("failure_contracts")
+	var args := Common.arguments()
+	if not args.has_all(["plugin", "out"]):
+		Common.check(result, "arguments", false)
+		Common.finish(self, result)
+		return
+	plugin_root = Common.absolute(str(args.plugin))
+	output = Common.absolute(str(args.out))
+	if DirAccess.dir_exists_absolute(output):
+		Common.check(result, "fresh_output_required", false)
+		Common.finish(self, result)
+		return
+	DirAccess.make_dir_recursive_absolute(output)
+	var archive := output.path_join("templates.tpz")
+	var packer := ZIPPacker.new()
+	Common.check(result, "fixture_archive", packer.open(archive) == OK)
+	for name: String in ["version.txt", "example.bin"]:
+		packer.start_file("templates/" + name)
+		packer.write_file(("4.7.2.stable\n" if name == "version.txt" else "FIXTURE_TEMPLATE").to_utf8_buffer())
+		packer.close_file()
+	packer.close()
+	var digest := FileAccess.get_sha256(archive)
+	var dest := output.path_join("installed")
+	var prefix: PackedStringArray = ["--headless", "--path", plugin_root.path_join("shared/host"), "--script", plugin_root.path_join("shared/scripts/prepare_templates.gd"), "--", "--archive", archive, "--dest", dest, "--files", "example.bin", "--sha256"]
+	var wrong := prefix.duplicate()
+	wrong.append("0".repeat(64))
+	await execute("checksum_rejected", OS.get_executable_path(), wrong, false, 20, "archive_sha256")
+	Common.check(result, "checksum_no_writes", not DirAccess.dir_exists_absolute(dest))
+	var correct := prefix.duplicate()
+	correct.append(digest)
+	await execute("fixture_install", OS.get_executable_path(), correct, true)
+	var installed_hash := FileAccess.get_sha256(dest.path_join("example.bin"))
+	await execute("fixture_repeat", OS.get_executable_path(), correct, true)
+	Common.check(result, "repeat_unchanged", FileAccess.get_sha256(dest.path_join("example.bin")) == installed_hash)
+	write_text(dest.path_join("example.bin"), "CONCURRENT_EDIT")
+	await execute("conflict_rejected", OS.get_executable_path(), correct, false, 20, "Refuse to overwrite different content")
+	Common.check(result, "concurrent_content_preserved", FileAccess.get_file_as_string(dest.path_join("example.bin")) == "CONCURRENT_EDIT")
+	var traversal := correct.duplicate()
+	traversal[traversal.find("--files") + 1] = "../escape.bin"
+	await execute("path_traversal_rejected", OS.get_executable_path(), traversal, false, 20, "member:../escape.bin")
+	Common.check(result, "no_escaped_file", not FileAccess.file_exists(output.path_join("escape.bin")))
+	var project := output.path_join("project")
+	copy_tree(plugin_root.path_join("skills/godot-workflow/assets/examples/game-2d"), project)
+	var preset := ConfigFile.new()
+	preset.set_value("preset.0", "name", "Missing Template")
+	preset.set_value("preset.0", "platform", "Windows Desktop")
+	preset.set_value("preset.0", "export_filter", "all_resources")
+	preset.set_value("preset.0", "include_filter", "")
+	preset.set_value("preset.0", "exclude_filter", "")
+	preset.set_value("preset.0.options", "custom_template/release", output.path_join("absent-template.exe"))
+	preset.set_value("preset.0.options", "application/modify_resources", false)
+	preset.save(project.path_join("export_presets.cfg"))
+	await execute("project_import", OS.get_executable_path(), ["--headless", "--path", project, "--import"])
+	Common.check(result, "template_is_missing", not FileAccess.file_exists(output.path_join("absent-template.exe")))
+	await execute("missing_template_export", OS.get_executable_path(), ["--headless", "--path", project, "--export-release", "Missing Template", output.path_join("failed.exe")], false, 30, "configuration errors")
+	Common.check(result, "no_failed_executable", not FileAccess.file_exists(output.path_join("failed.exe")))
+	write_text(project.path_join("broken.png"), "NOT_A_PNG")
+	# Some editor import errors use exit 0; use run_checks' log-based failure contract.
+	var manifest := {"cases": [{"id": "broken-import", "project": project, "engine_args": ["--import"], "require_report": false, "expect": "failed", "error_contains": "broken.png"}]}
+	write_text(output.path_join("broken.json"), JSON.stringify(manifest))
+	await execute("invalid_import_detected", OS.get_executable_path(), ["--headless", "--path", plugin_root.path_join("shared/host"), "--script", plugin_root.path_join("shared/scripts/run_checks.gd"), "--", "--manifest", output.path_join("broken.json"), "--out", output.path_join("broken-check")], true)
+	Common.finish(self, result, output.path_join("report.json"))

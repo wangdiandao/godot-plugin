@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "workflow-example",
+      "project": "../skills/godot-workflow/assets/examples/minimal",
+      "script": "../skills/godot-workflow/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-workflow",
+      "capability_id": "godot-workflow",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "project-example",
+      "project": "../skills/godot-project/assets/examples/minimal",
+      "script": "../skills/godot-project/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-project",
+      "capability_id": "godot-project",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "api-example",
+      "project": "../skills/godot-api/assets/examples/minimal",
+      "script": "../skills/godot-api/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-api",
+      "capability_id": "godot-api",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "gdscript-example",
+      "project": "../skills/godot-gdscript/assets/examples/minimal",
+      "script": "../skills/godot-gdscript/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-gdscript",
+      "capability_id": "godot-gdscript",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "scenes-example",
+      "project": "../skills/godot-scenes/assets/examples/minimal",
+      "script": "../skills/godot-scenes/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-scenes",
+      "capability_id": "godot-scenes",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "assets-example",
+      "project": "../skills/godot-assets/assets/examples/minimal",
+      "script": "../skills/godot-assets/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-assets",
+      "capability_id": "godot-assets",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "2d-example",
+      "project": "../skills/godot-2d/assets/examples/minimal",
+      "script": "../skills/godot-2d/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-2d",
+      "capability_id": "godot-2d",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "3d-example",
+      "project": "../skills/godot-3d/assets/examples/minimal",
+      "script": "../skills/godot-3d/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-3d",
+      "capability_id": "godot-3d",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "physics-example",
+      "project": "../skills/godot-physics/assets/examples/minimal",
+      "script": "../skills/godot-physics/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-physics",
+      "capability_id": "godot-physics",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "navigation-example",
+      "project": "../skills/godot-navigation/assets/examples/minimal",
+      "script": "../skills/godot-navigation/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-navigation",
+      "capability_id": "godot-navigation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "ui-example",
+      "project": "../skills/godot-ui/assets/examples/minimal",
+      "script": "../skills/godot-ui/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-ui",
+      "capability_id": "godot-ui",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "animation-example",
+      "project": "../skills/godot-animation/assets/examples/minimal",
+      "script": "../skills/godot-animation/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-animation",
+      "capability_id": "godot-animation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "rendering-example",
+      "project": "../skills/godot-rendering/assets/examples/minimal",
+      "script": "../skills/godot-rendering/assets/examples/minimal/example.gd",
+      "headless": false,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-rendering",
+      "capability_id": "godot-rendering",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "real GPU/display"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "audio-example",
+      "project": "../skills/godot-audio/assets/examples/minimal",
+      "script": "../skills/godot-audio/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-audio",
+      "capability_id": "godot-audio",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "data-example",
+      "project": "../skills/godot-data/assets/examples/minimal",
+      "script": "../skills/godot-data/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-data",
+      "capability_id": "godot-data",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "validation-example",
+      "project": "../skills/godot-validation/assets/examples/minimal",
+      "script": "../skills/godot-validation/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "export-example",
+      "project": "../skills/godot-export/assets/examples/minimal",
+      "script": "../skills/godot-export/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-export",
+      "capability_id": "godot-export",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "multiplayer-example",
+      "project": "../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 20,
+      "skill": "godot-multiplayer",
+      "capability_id": "godot-multiplayer",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "game-2d",
+      "project": "../skills/godot-workflow/assets/examples/game-2d",
+      "headless": false,
+      "args": [
+        "--self-test",
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-workflow",
+      "capability_id": "godot-workflow",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "real GPU/display"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "game-3d",
+      "project": "../skills/godot-workflow/assets/examples/game-3d",
+      "headless": false,
+      "args": [
+        "--self-test",
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-workflow",
+      "capability_id": "godot-workflow",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "real GPU/display"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "fault-runtime",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "args": [
+        "--mode",
+        "runtime",
+        "--out",
+        "{output}"
+      ],
+      "expect": "failed",
+      "error_contains": "INJECTED_RUNTIME_ERROR",
+      "timeout": 5,
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected failed with matching cause and any specified child report"
+    },
+    {
+      "id": "fault-missing-report",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "args": [
+        "--mode",
+        "missing-report",
+        "--out",
+        "{output}"
+      ],
+      "expect": "failed",
+      "error_contains": "MISSING_REPORT",
+      "timeout": 5,
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected failed with matching cause and any specified child report"
+    },
+    {
+      "id": "fault-timeout",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "args": [
+        "--mode",
+        "timeout",
+        "--out",
+        "{output}"
+      ],
+      "expect": "timeout",
+      "timeout": 1,
+      "contains": "BEFORE_TIMEOUT",
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected timeout with matching cause and any specified child report"
+    },
+    {
+      "id": "fault-missing-resource",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "args": [
+        "--mode",
+        "missing-resource",
+        "--out",
+        "{output}"
+      ],
+      "expect": "failed",
+      "error_contains": "MISSING_SOURCE_DETECTED",
+      "timeout": 5,
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected failed with matching cause and any specified child report"
+    },
+    {
+      "id": "fault-save-failure",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "args": [
+        "--mode",
+        "save-failure",
+        "--out",
+        "{output}"
+      ],
+      "expect": "failed",
+      "error_contains": "INJECTED_SAVE_FAILURE",
+      "timeout": 5,
+      "reported_status": "passed",
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected failed with matching cause and any specified child report"
+    },
+    {
+      "id": "fault-parse",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/bad-script.gd",
+      "expect": "failed",
+      "error_contains": "Parse Error",
+      "timeout": 5,
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected failed with matching cause and any specified child report"
+    },
+    {
+      "id": "scene-inheritance",
+      "project": "fixtures/scenes",
+      "script": "fixtures/scenes/check.gd",
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "skill": "godot-scenes",
+      "capability_id": "godot-scenes",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "headless-capture-refused",
+      "project": "../skills/godot-workflow/assets/examples/game-2d",
+      "script": "../shared/scripts/capture_scene.gd",
+      "args": [
+        "--scene",
+        "res://main.tscn",
+        "--out",
+        "{output}/frame.png"
+      ],
+      "expect": "unsupported",
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected unsupported with matching cause and any specified child report"
+    },
+    {
+      "id": "capture-real",
+      "headless": false,
+      "project": "../skills/godot-workflow/assets/examples/game-3d",
+      "script": "../shared/scripts/capture_scene.gd",
+      "args": [
+        "--scene",
+        "res://main.tscn",
+        "--out",
+        "{output}/frame.png"
+      ],
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "real GPU/display"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "log-parser",
+      "project": "../shared/host",
+      "script": "fixtures/runtime/log-check.gd",
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Explicit passed report, no actual error records, exit 0"
+    },
+    {
+      "id": "fault-broken-reference",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "args": [
+        "--mode",
+        "broken-reference"
+      ],
+      "expect": "failed",
+      "error_contains": "BROKEN_REFERENCE_DETECTED",
+      "timeout": 5,
+      "skill": "godot-validation",
+      "capability_id": "godot-validation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless"
+      ],
+      "acceptance": "Expected failed with matching cause and any specified child report"
+    }
+  ],
+  "integration_suites": [
+    {
+      "id": "desktop_integration",
+      "script": "integration/desktop.gd",
+      "skills": [
+        "godot-workflow",
+        "godot-export",
+        "godot-project"
+      ],
+      "conditions": [
+        "Windows x86_64",
+        "real GPU",
+        "matching Windows and Web templates"
+      ],
+      "acceptance": "21 checks: import, reload, source game, exported game, Web artifacts"
+    },
+    {
+      "id": "asset_import_recovery",
+      "script": "integration/assets.gd",
+      "skills": [
+        "godot-assets"
+      ],
+      "conditions": [
+        "standard editor build"
+      ],
+      "acceptance": "12 checks: source creation, import, reimport, recovery and unrelated hash"
+    },
+    {
+      "id": "failure_contracts",
+      "script": "integration/failures.gd",
+      "skills": [
+        "godot-export",
+        "godot-validation"
+      ],
+      "conditions": [
+        "Windows standard editor build"
+      ],
+      "acceptance": "15 checks: checksum, repeat, conflict, traversal, missing template, corrupt import"
+    },
+    {
+      "id": "native_download",
+      "script": "../shared/scripts/prepare_templates.gd",
+      "skills": [
+        "godot-export"
+      ],
+      "conditions": [
+        "network access to official GitHub assets",
+        "free disk space for full template archive"
+      ],
+      "acceptance": "official digest + exact version + requested files extracted"
+    },
+    {
+      "id": "multiplayer_repeat",
+      "manifest": "integration/multiplayer-repeat.json",
+      "skills": [
+        "godot-multiplayer"
+      ],
+      "conditions": [
+        "local loopback network"
+      ],
+      "acceptance": "six sequential runs with server and two clients, all logs clean and disconnect assertions passed"
+    }
+  ]
+}

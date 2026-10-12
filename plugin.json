@@ -1,0 +1,25 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "godot-plugin",
+  "version": "0.1.0",
+  "description": "Godot 原生 CLI 与 GDScript 驱动的游戏开发 Skills，涵盖创建、内容制作、验证与导出。",
+  "author": {
+    "name": "godot-plugin contributors"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Godot Native Development",
+        "shortDescription": "原生 Godot 游戏开发与验证",
+        "longDescription": "通过领域 Skills、官方 API 与原生 GDScript 辅助脚本开发、检查和导出 Godot 游戏。需要本机 Godot；平台和能力限制随验证报告提供。",
+        "developerName": "godot-plugin contributors",
+        "category": "Developer Tools",
+        "defaultPrompt": [
+          "创建一个完整的 Godot 2D 游戏并验证",
+          "检查并修复当前 Godot 项目",
+          "构建一个可交互的 Godot 3D 场景"
+        ]
+      }
+    }
+  }
+}

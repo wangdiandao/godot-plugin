@@ -1,0 +1,200 @@
+[
+  {
+    "skill": "godot-workflow",
+    "positive": "创建一个有菜单、计分、音效和存档的 2D 收集游戏。",
+    "negative": "只修改按钮的边距。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-workflow",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "只建立项目目录与输入配置。",
+    "adjacent_expected": "godot-project",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-project",
+    "positive": "初始化 Godot 项目并配置 WASD 和暂停输入。",
+    "negative": "调整角色的跳跃手感。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-project",
+    "negative_expected": "godot-physics",
+    "adjacent_prompt": "给现有 HUD 改布局。",
+    "adjacent_expected": "godot-ui",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-api",
+    "positive": "核查当前版本是否能从 GDScript 烘焙 LightmapGI。",
+    "negative": "设计游戏的关卡节奏。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-api",
+    "negative_expected": "godot-workflow",
+    "adjacent_prompt": "核查完接口后实现导航烘焙。",
+    "adjacent_expected": "godot-navigation",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-gdscript",
+    "positive": "重构状态组件的类型和信号，保持已有场景兼容。",
+    "negative": "创建一张 TileMap 地图。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-gdscript",
+    "negative_expected": "godot-2d",
+    "adjacent_prompt": "为角色实现跳跃与落地。",
+    "adjacent_expected": "godot-physics",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-scenes",
+    "positive": "给现有场景增加一个有碰撞的子场景并保存信号。",
+    "negative": "调整音频总线压缩器。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-scenes",
+    "negative_expected": "godot-audio",
+    "adjacent_prompt": "创建带地形连接的 TileMapLayer。",
+    "adjacent_expected": "godot-2d",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-assets",
+    "positive": "批量调整像素贴图导入参数并验证重新导入。",
+    "negative": "给角色实现追踪 AI。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-assets",
+    "negative_expected": "godot-navigation",
+    "adjacent_prompt": "调节已导入材质的透明 Shader。",
+    "adjacent_expected": "godot-rendering",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-2d",
+    "positive": "用 TileMapLayer 创建一张带障碍物的地图。",
+    "negative": "导出 Android 安装包。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-2d",
+    "negative_expected": "godot-export",
+    "adjacent_prompt": "修复 2D 角色的碰撞 mask。",
+    "adjacent_expected": "godot-physics",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-3d",
+    "positive": "搭建一个带相机、光照和可交互物体的 3D 房间。",
+    "negative": "编写用户存档迁移。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-3d",
+    "negative_expected": "godot-data",
+    "adjacent_prompt": "给 3D 场景烘焙寻路数据。",
+    "adjacent_expected": "godot-navigation",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-physics",
+    "positive": "排查角色穿过地面和触发器不响应的问题。",
+    "negative": "给背景添加粒子效果。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-physics",
+    "negative_expected": "godot-rendering",
+    "adjacent_prompt": "让敌人按导航路径移动。",
+    "adjacent_expected": "godot-navigation",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-navigation",
+    "positive": "自动烘焙关卡导航并让敌人绕过障碍。",
+    "negative": "创建菜单按钮。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-navigation",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "角色沿路径移动时穿墙。",
+    "adjacent_expected": "godot-physics",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-ui",
+    "positive": "做一个支持键盘导航和中英文切换的暂停菜单。",
+    "negative": "调整导航代理半径。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-ui",
+    "negative_expected": "godot-navigation",
+    "adjacent_prompt": "把已完成的 UI 动画制作成动画库。",
+    "adjacent_expected": "godot-animation",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-animation",
+    "positive": "用 AnimationTree 实现待机和行走之间的混合。",
+    "negative": "压缩发布包。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-animation",
+    "negative_expected": "godot-export",
+    "adjacent_prompt": "修复动画材质的 Shader 编译错误。",
+    "adjacent_expected": "godot-rendering",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-rendering",
+    "positive": "为物体添加溶解 Shader 并验证实际渲染。",
+    "negative": "实现存档版本迁移。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-rendering",
+    "negative_expected": "godot-data",
+    "adjacent_prompt": "减少音频内存与总线峰值。",
+    "adjacent_expected": "godot-audio",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-audio",
+    "positive": "添加音乐和音效总线以及可保存的音量设置。",
+    "negative": "把 3D 网格生成导航。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-audio",
+    "negative_expected": "godot-navigation",
+    "adjacent_prompt": "为音量设置实现存档迁移。",
+    "adjacent_expected": "godot-data",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-data",
+    "positive": "实现带版本号的存档并兼容旧版本。",
+    "negative": "修复角色落地碰撞。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-data",
+    "negative_expected": "godot-physics",
+    "adjacent_prompt": "同步多人权威状态。",
+    "adjacent_expected": "godot-multiplayer",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-multiplayer",
+    "positive": "实现双人联机并在本机运行两个客户端验证。",
+    "negative": "创建单机菜单。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-multiplayer",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "只做单机分数保存。",
+    "adjacent_expected": "godot-data",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-validation",
+    "positive": "为项目建立自动冒烟、输入和截图验证。",
+    "negative": "仅调整地图中的一个节点位置。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-validation",
+    "negative_expected": "godot-scenes",
+    "adjacent_prompt": "完成诊断后导出 Windows 安装目录。",
+    "adjacent_expected": "godot-export",
+    "host_model_routing": "not_run"
+  },
+  {
+    "skill": "godot-export",
+    "positive": "导出 Windows 游戏并启动检查。",
+    "negative": "改写角色移动脚本。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-export",
+    "negative_expected": "godot-physics",
+    "adjacent_prompt": "诊断构建后黑屏并采集画面证据。",
+    "adjacent_expected": "godot-validation",
+    "host_model_routing": "not_run"
+  }
+]

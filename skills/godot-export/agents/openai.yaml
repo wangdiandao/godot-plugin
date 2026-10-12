@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Builds and Exports"
+  short_description: "Build and verify native Godot exports and platform requirements"
+  default_prompt: "Use $godot-export to export a Windows game and verify that it launches."
+policy:
+  allow_implicit_invocation: true
