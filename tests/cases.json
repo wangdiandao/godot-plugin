@@ -601,6 +601,42 @@
         "headless"
       ],
       "acceptance": "Resource duplication, identity, persisted state and scene-local isolation assertions"
+    },
+    {
+      "id": "terrain-example",
+      "project": "../skills/godot-2d/assets/examples/terrain",
+      "script": "../skills/godot-2d/assets/examples/terrain/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-2d",
+      "capability_id": "godot-2d",
+      "conditions": [
+        "Godot4.7.2standard",
+        "headless"
+      ],
+      "acceptance": "All16square-side terrain combinations; connected neighbor and empty boundary; saved mode/cells and world/local conversion"
+    },
+    {
+      "id": "root-motion-example",
+      "project": "../skills/godot-animation/assets/examples/root-motion",
+      "script": "../skills/godot-animation/assets/examples/root-motion/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-animation",
+      "capability_id": "godot-animation",
+      "conditions": [
+        "Godot4.7.2standard",
+        "headless"
+      ],
+      "acceptance": "Extract0.5m displacement; target is unchanged; controller applies once; inactive tree leaves position"
     }
   ],
   "integration_suites": [

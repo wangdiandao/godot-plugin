@@ -57,3 +57,8 @@ Animation.length uses seconds. After `add_track(Animation.TYPE_VALUE)`, call `tr
 Point AnimationTree to an existing AnimationPlayer and set tree_root and active. For state machines, obtain AnimationNodeStateMachinePlayback through `parameters/playback`, then call `travel(state)`. Configure transition edges, blend parameters, and conditions in the graph; travel alone is insufficient without a valid state machine. Record RESET, initial pose, and root motion usage before changing the animation system.
 
 The minimal example actually verifies property-track interpolation and library persistence. AnimationTree blending and skeletal retargeting/root motion are documented workflows that need separate behavior tests on the target skeleton. Avoid having AnimationPlayer and AnimationTree actively drive the same property. `advance(delta)` supports explicit sampling but does not replace acceptance checks for coordinated behavior in actual physics frames.
+
+
+## Task recipes
+
+Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.

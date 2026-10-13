@@ -1,6 +1,6 @@
 interface:
   display_name: "Godot · 2D Worlds"
-  short_description: "Build and verify 2D worlds with native Godot tools"
-  default_prompt: "Use $godot-2d to create a map with obstacles using TileMapLayer."
+  short_description: "Create and repair Godot tile terrain and camera worlds"
+  default_prompt: "Use $godot-2d to build a terrain-connected tile level and verify empty boundaries, saved tiles and transformed coordinates."
 policy:
   allow_implicit_invocation: true

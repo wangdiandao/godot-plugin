@@ -57,3 +57,8 @@ TileSetAtlasSource.texture and texture_region_size define the atlas. After creat
 Configure terrain with `TileSet.add_terrain_set()`, `set_terrain_set_mode()`, `add_terrain()`, and TileData.terrain_set/terrain/`set_terrain_peering_bit()`. Call `TileMapLayer.set_cells_terrain_connect(cells, terrain_set, terrain, ignore_empty_terrains)` only after preparing all adjacency combinations. Automatic connections cannot create missing edge/corner artwork. The minimal example tests only basic tile persistence; add acceptance images for terrain matching with the specific tileset.
 
 Configure Camera2D.enabled, position_smoothing_enabled, and limits through node properties, capturing multiple boundary positions to verify the view. For pixel art, define texture filtering, integer scaling, and camera pixel alignment; changing one global setting cannot guarantee jitter-free rendering. Route collision layers, masks, and TileData collision shapes to godot-physics.
+
+
+## Task recipes
+
+Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.

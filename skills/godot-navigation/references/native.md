@@ -58,3 +58,8 @@ After assigning the mesh to the region, the map's cell_size/cell_height must mat
 Call NavigationAgent `get_next_path_position()` once per physics frame to update internal path state; calculate velocity from the returned point and pass it to character physics. With avoidance enabled, move using the safe velocity from velocity_computed. Avoidance does not create navigation meshes or replace collisions. Verify narrow passages using actual agent_radius and map traversal assertions.
 
 Sources: [Source geometry winding](https://docs.godotengine.org/en/4.7/classes/class_navigationmeshsourcegeometrydata3d.html#class-navigationmeshsourcegeometrydata3d-method-add-faces), [NavigationServer3D](https://docs.godotengine.org/en/4.7/classes/class_navigationserver3d.html).
+
+
+## Task recipes
+
+Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.

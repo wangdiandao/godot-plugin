@@ -1,6 +1,6 @@
 interface:
   display_name: "Godot · Navigation and Pathfinding"
-  short_description: "Build and verify native Godot navigation and pathfinding"
-  default_prompt: "Use $godot-navigation to bake level navigation automatically and make enemies navigate around obstacles."
+  short_description: "Bake and repair Godot paths, regions and agent motion"
+  default_prompt: "Use $godot-navigation to repair a route across two regions and verify target arrival, excluded layers and map readiness."
 policy:
   allow_implicit_invocation: true
