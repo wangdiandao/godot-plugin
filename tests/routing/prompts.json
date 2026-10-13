@@ -204,7 +204,10 @@
     "installed_host_autoload_tested": false,
     "repair_prompt": "A transparent overlay blocks button clicks. Repair pointer interception while keeping an intentional modal blocker.",
     "repair_expected": "godot-ui",
-    "repair_host_model_routing": "not_run"
+    "repair_host_model_routing": "not_run",
+    "localization_prompt": "Add English/Spanish catalogs, preserve context/plural messages, audit missing keys and placeholders, and refresh the existing menu on repeated language switches.",
+    "localization_expected": "godot-ui",
+    "localization_host_model_routing": "not_run"
   },
   {
     "skill": "godot-animation",

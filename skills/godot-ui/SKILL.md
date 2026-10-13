@@ -20,7 +20,7 @@ Baseline: Godot 4.7 documentation and locally verified Godot 4.7.2. Read [execut
 1. Choose Container flow versus anchored overlays; set logical base size, aspect policy and minimum window size before laying out children.
 2. Follow the relevant native.md recipe for new menus, existing-theme modifications or input/text failures. Use project/parent Themes for shared styling and local overrides for exceptions.
 3. Define initial focus, focus neighbors, mouse filtering and pause processing. Exercise press and release through real input dispatch rather than emitting widget signals.
-4. Translate semantic messages and preserve formatting placeholders; use licensed font fallback stacks and appropriate BiDi/line-breaking language. Handle IME composition and grapheme boundaries for text entry.
+4. For language/catalog tasks, read localization.md: persist registrations, audit keys/context/formatting, and retest existing UI on repeated locale changes. Use licensed font fallback stacks and appropriate BiDi/line-breaking language. Handle IME composition and grapheme boundaries for text entry.
 5. Save the scene, Theme and localization preferences separately; reload without cache and test layout, focus and translated text at representative aspect ratios.
 
 ## File Changes, Saving, and Recovery
@@ -34,5 +34,7 @@ For pointer interception, reproduce actual press/release, repair only the uninte
 The minimal example saves and reloads Theme and PackedScene, checks inherited font/style/color, persisted local overrides and removal, then verifies layout, focused button input and translation lookup. This does not prove CJK glyph coverage, screen-reader behavior or layout at every resolution; collect actual rendered/input evidence for those conditions. Deliver changed files, exact commands/version/mode, assertions, artifacts, failures and explicit untested scope. Logs and exit codes must agree with reports.
 
 ## On-Demand References and Examples
+
+Read [native localization workflow](references/localization.md) for translation catalogs, language changes, missing keys or plural/context failures; run its standalone example for those contracts. Font shaping/layout quality still requires rendered acceptance.
 
 Read [UI recipes and failure paths](references/native.md) before implementing the selected task; run the [menu example](assets/examples/minimal/project.godot) in a clean copy. Load [persistence conventions](../../shared/references/persistence.md) when editing existing scenes/resources.

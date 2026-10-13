@@ -370,6 +370,214 @@
         "checks": 1260,
         "schema": "local ignored artifacts/research/plugin.schema.json; not a clean-checkout claim"
       }
+    },
+    {
+      "issue": 16,
+      "status": "passed",
+      "platform": "Windows",
+      "display": "headless",
+      "command": "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/final.log -- --manifest PLUGIN/tests/cases.json --out OUT/final --case ui-example,ui-localization",
+      "observations": [
+        {
+          "test_id": "ui-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "theme_saved",
+              "status": "passed"
+            },
+            {
+              "name": "theme_cache_ignored_reload",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_font",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_font_size",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_theme_color",
+              "status": "passed"
+            },
+            {
+              "name": "menu_packed",
+              "status": "passed"
+            },
+            {
+              "name": "menu_saved",
+              "status": "passed"
+            },
+            {
+              "name": "saved_local_override_effective",
+              "status": "passed"
+            },
+            {
+              "name": "override_removal_restores_inheritance",
+              "status": "passed"
+            },
+            {
+              "name": "saved_inherited_style",
+              "status": "passed"
+            },
+            {
+              "name": "focused_button_input_dispatch",
+              "status": "passed"
+            },
+            {
+              "name": "container_layout",
+              "status": "passed"
+            },
+            {
+              "name": "overlay_stop_blocks_pointer_activation",
+              "status": "passed"
+            },
+            {
+              "name": "overlay_ignore_repairs_pointer_activation",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_pointer_activation_repeats_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_pointer_activation_repeats_1",
+              "status": "passed"
+            },
+            {
+              "name": "pointer_repair_preserves_style_and_geometry",
+              "status": "passed"
+            },
+            {
+              "name": "intentional_modal_blocking_remains_available",
+              "status": "passed"
+            },
+            {
+              "name": "translation_lookup",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "ui-localization",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "public_bindings_available",
+              "status": "passed"
+            },
+            {
+              "name": "cold_start_loads_configured_catalogs",
+              "status": "passed"
+            },
+            {
+              "name": "po_loaded_by_native_resource_loader",
+              "status": "passed"
+            },
+            {
+              "name": "catalog_required_keys_and_named_placeholders",
+              "status": "passed"
+            },
+            {
+              "name": "catalog_saved",
+              "status": "passed"
+            },
+            {
+              "name": "uncached_catalog_preserves_context",
+              "status": "passed"
+            },
+            {
+              "name": "uncached_catalog_preserves_plural_forms",
+              "status": "passed"
+            },
+            {
+              "name": "initial_label_uses_english",
+              "status": "passed"
+            },
+            {
+              "name": "locale_notification_refreshes_existing_ui",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_context_disambiguation",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_pluralization",
+              "status": "passed"
+            },
+            {
+              "name": "named_placeholder_formatting",
+              "status": "passed"
+            },
+            {
+              "name": "missing_key_fallback_does_not_prove_completeness",
+              "status": "passed"
+            },
+            {
+              "name": "unsupported_locale_uses_configured_fallback",
+              "status": "passed"
+            },
+            {
+              "name": "audit_detects_missing_entry_without_fallback",
+              "status": "passed"
+            },
+            {
+              "name": "audit_detects_changed_placeholder",
+              "status": "passed"
+            },
+            {
+              "name": "repair_keeps_original_catalog_intact",
+              "status": "passed"
+            },
+            {
+              "name": "negative_controls_preserve_source_file_hash",
+              "status": "passed"
+            },
+            {
+              "name": "pseudolocalization_changes_text",
+              "status": "passed"
+            },
+            {
+              "name": "pseudolocalization_preserves_printf_placeholder",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_es_20",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_en_21",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_es_22",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_en_23",
+              "status": "passed"
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "English/Spanish fixture catalogs only, not arbitrary project extraction accuracy.",
+        "Named brace audit for the fixture keys only; no universal formatting/markup validator.",
+        "No CJK/RTL glyph, layout, screen reader, device or installed-host autoload acceptance."
+      ],
+      "self_review": "Passed final self-review: checked locale notification ownership, saved PO/context/plural readback, token-audit scope, original-file hash and fallback negative controls. Two native cases / 43 assertions and 1277 structure/schema/link checks passed; git diff --check passed.",
+      "structure": {
+        "status": "passed",
+        "checks": 1277,
+        "schema": "local ignored schema; not a clean-checkout claim"
+      }
     }
   ]
 }

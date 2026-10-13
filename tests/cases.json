@@ -755,6 +755,25 @@
         "normaleditorMainLoop"
       ],
       "acceptance": "EditorPlugin enable/disable, dock cleanup, undo/redo and uncached scene readback; visual UX separate"
+    },
+    {
+      "id": "ui-localization",
+      "project": "../skills/godot-ui/assets/examples/localization",
+      "script": "../skills/godot-ui/assets/examples/localization/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-ui",
+      "capability_id": "godot-ui",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "headless; cold copied project"
+      ],
+      "acceptance": "Cold catalog registration, context/plural readback, repeated locale refresh, fallback and missing-entry/placeholder repair; no font visual claim."
     }
   ],
   "integration_suites": [

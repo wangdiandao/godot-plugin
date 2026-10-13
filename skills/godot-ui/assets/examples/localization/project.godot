@@ -1,0 +1,8 @@
+config_version=5
+[application]
+config/name="Godot Native Localization Example"
+[internationalization]
+locale/fallback="en"
+locale/translations=PackedStringArray("res://locale/en.po", "res://locale/es.po")
+[rendering]
+renderer/rendering_method="gl_compatibility"
