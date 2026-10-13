@@ -1,0 +1,36 @@
+[
+  {
+    "path": "search.html",
+    "url": "https://docs.godotengine.org/en/4.7/search.html",
+    "source_revision": "9adca4c1c72917bfe1b7be3108abed5ce26696a6",
+    "build": "Sphinx 8.1.3, HTML, English, serial -j 1",
+    "sha256": "b6b0be67604b28bdb110fb843bd445f2de8498adde6eb521c370be827e224457",
+    "bytes": 1334583,
+    "status": "read",
+    "reviewer": "main",
+    "skills": [
+      "godot-api"
+    ],
+    "findings": [
+      "Generated search body contains JavaScript-required noscript warning and empty search-results container. Search.loadIndex loads searchindex.js; generated page is navigation, not additional tutorial/API prose. Browser search execution not tested, and local development version/language links are placeholders so local build is not evidence of live hosted navigation."
+    ],
+    "runtime_validation": "untested"
+  },
+  {
+    "path": "genindex.html",
+    "url": "https://docs.godotengine.org/en/4.7/genindex.html",
+    "source_revision": "9adca4c1c72917bfe1b7be3108abed5ce26696a6",
+    "build": "Sphinx 8.1.3, HTML, English, serial -j 1",
+    "sha256": "b740cc360424da1005e689c8e82844de8fa66ecbe0873e5d1d12e6872d8b9873",
+    "bytes": 1339001,
+    "status": "read",
+    "reviewer": "main",
+    "skills": [
+      "godot-api"
+    ],
+    "findings": [
+      "Entire generated main-body index read: A/C/E/L/M/O/U sections contain only HTML5 shell Engine/EngineConfig methods, attributes and callbacks. They link to already-read tutorials/platform/web/html5_shell_classref.html; class-reference entries do not appear in this Sphinx generic index, so use classes/index and the page inventory for API coverage. Index has no new implementation prose. Footer license/build links read; repeated global navigation chrome is not new documentation content. Hosted navigation and browser link clicks remain untested."
+    ],
+    "runtime_validation": "untested"
+  }
+]
