@@ -774,6 +774,24 @@
         "headless; cold copied project"
       ],
       "acceptance": "Cold catalog registration, context/plural readback, repeated locale refresh, fallback and missing-entry/placeholder repair; no font visual claim."
+    },
+    {
+      "id": "web-server",
+      "project": "../shared/host",
+      "script": "integration/web_server.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-export",
+      "capability_id": "godot-export",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "loopback TCP"
+      ],
+      "acceptance": "Native loopback serving, binary integrity, MIME/isolation headers, HEAD, traversal/foreign-host/write/oversized-header rejection and explicit stop."
     }
   ],
   "integration_suites": [
@@ -837,6 +855,20 @@
         "local loopback network"
       ],
       "acceptance": "six sequential runs with server and two clients, all logs clean and disconnect assertions passed"
+    },
+    {
+      "id": "web_browser_acceptance",
+      "execution": "manual_browser",
+      "procedure": "../skills/godot-export/references/web.md",
+      "skills": [
+        "godot-export"
+      ],
+      "conditions": [
+        "Matching Web template",
+        "Native loopback serving",
+        "Real intended browser"
+      ],
+      "acceptance": "Rendered startup, actual pointer and keyboard input, saved readback and same-origin reload; record console and screenshot evidence separately."
     }
   ]
 }

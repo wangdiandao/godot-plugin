@@ -34,6 +34,8 @@ Report the actual engine and execution mode, changed files, verified behaviors, 
 
 ## On-Demand References and Examples
 
+- For Web startup/input/storage failures or browser acceptance, read [native Web workflow](references/web.md). Use its bounded Godot HTTP helper and real browser checks; file generation alone is insufficient.
+
 - Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
 - Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.
 - Read the [evidence standards](../../shared/references/evidence.md) when maintaining evidence. The capability index is [capabilities.json](../../docs/capabilities.json).

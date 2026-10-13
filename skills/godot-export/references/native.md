@@ -1,5 +1,7 @@
 # Builds and Exports: Native Operations Reference
 
+For actual Web serving, browser input/storage acceptance and startup diagnosis, read [web.md](web.md); it uses a temporary native Godot HTTP helper without adding a runtime dependency.
+
 Baseline: Godot 4.7.2 standard editor distribution. Refer to the capability index and reports for the examples' actual validation status.
 
 ## Invocation Example

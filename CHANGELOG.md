@@ -1,6 +1,10 @@
 # Changelog
 
-## [Unreleased]
+## [0.2.1] - 2026-10-13
+
+Source update and local archives; no version tag or GitHub Release published.
+
+- Add bounded loopback Godot HTTP serving and a Web input/storage fixture; verify actual Chrome pointer/keyboard interaction and save restoration after reload (#17).
 
 - Add native persisted-catalog localization checks for runtime language refresh, context/plural messages, fallback and missing-entry/placeholder repair in the existing UI skill (#16).
 

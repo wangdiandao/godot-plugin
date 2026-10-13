@@ -1,5 +1,7 @@
 # Performance recipes (Godot 4.7)
 
+For Web, first establish a functional browser baseline with the [native Web acceptance workflow](../../godot-export/references/web.md). Measure real transferred bytes, navigation-to-interactive time and repeatable frame tails separately from export success or script initialization timings. Retain cold/warm cache and before/after input, save and visual equivalence.
+
 Use this reference for CPU radius-query changes, rendering costs, memory growth, loading spikes and frame pacing. API baseline is the [4.7 manual](https://docs.godotengine.org/en/4.7/tutorials/performance/index.html); implementation checks use [4.7.2 source](https://github.com/godotengine/godot/tree/4.7.2-stable). Context7 retrieval can return master snippets even under a versioned ID; verify those against this baseline and ClassDB before use.
 
 ## Run the isolated comparison
