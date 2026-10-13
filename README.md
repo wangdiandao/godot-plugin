@@ -10,9 +10,9 @@ The engine baseline is **Godot 4.7.2 stable**, checked on 2026-10-11 against the
 
 ## Installation
 
-This change prepares **0.2.0** installation/source ZIPs locally; public publication is outside this task. Existing [Releases](https://github.com/wangdiandao/godot-plugin/releases) remain historical and may contain fewer Skills. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
+Install version **0.2.0** from the repository marketplace or a clean source checkout. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
 
-If the matching release ZIP has not been published yet, use a clean source checkout: `git clone https://github.com/wangdiandao/godot-plugin.git`. The same installation steps apply to that directory. For directory copies, use the installation ZIP or a clean checkout; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
+For local installation, use `git clone https://github.com/wangdiandao/godot-plugin.git`, then follow the host-specific steps below. Use a clean checkout for directory copies; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
 
 The PowerShell examples use `C:\Tools\godot-plugin` as the extracted directory. Replace it with your actual absolute path. On macOS/Linux, use equivalent paths and shell commands. Install a current agent release with the documented plugin features, and keep Godot on the machine where the agent executes commands.
 
@@ -153,9 +153,9 @@ Each Skill has an independently runnable `assets/examples/minimal/` project. Com
 
 ## Contributing and distribution
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated PRs implemented by Codex receive recorded Codex self-review. Code and original examples use the [MIT license](LICENSE).
+Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated changes are reviewed, corrected, and validated before merging, with findings and results recorded. Code and original examples use the [MIT license](LICENSE).
 
-The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Existing published tags and assets remain immutable; version0.2.0 is prepared locally without publishing.
+The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Local archives remain optional offline copies; GitHub Releases are not used to distribute this plugin.
 
 See [authoring contracts](docs/authoring.md), [research sources](docs/research.md), [validation](docs/validation.md), and the [official Godot baseline release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable).
 
