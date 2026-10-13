@@ -1,6 +1,6 @@
 interface:
-  display_name: "Godot · Rendering and Effects"
-  short_description: "Create and verify Godot rendering effects on supported hardware"
-  default_prompt: "Use $godot-rendering to add a dissolve shader to an object and verify the rendered result."
+  display_name: "Godot · Rendering and HDR"
+  short_description: "Build Godot shaders, materials, particles, and HDR"
+  default_prompt: "Use $godot-rendering to modify a shared shader safely and verify saved parameters and rendered pixels."
 policy:
   allow_implicit_invocation: true

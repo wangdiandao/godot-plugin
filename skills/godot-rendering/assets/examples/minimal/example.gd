@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -36,10 +37,18 @@ func _run() -> void:
 	var rect := ColorRect.new()
 	rect.size = Vector2(320, 180)
 	var shader := Shader.new()
-	shader.code = "shader_type canvas_item; void fragment() { COLOR = vec4(0.2, 0.6, 0.9, 1.0); }"
+	shader.code = "shader_type canvas_item; uniform vec4 tint : source_color = vec4(1.0); void fragment() { COLOR = tint; }"
 	var material := ShaderMaterial.new()
 	material.shader = shader
-	rect.material = material
+	material.set_shader_parameter("tint", Color(0.2, 0.6, 0.9))
+	var material_path := output.path_join("canvas_material.tres")
+	expect(ResourceSaver.save(material, material_path) == OK, "shader_material_saved")
+	var restored := ResourceLoader.load(material_path, "ShaderMaterial", ResourceLoader.CACHE_MODE_IGNORE) as ShaderMaterial
+	expect(restored != null and (restored.get_shader_parameter("tint") as Color).is_equal_approx(Color(0.2, 0.6, 0.9)), "shader_uniform_saved_readback")
+	if restored == null:
+		finish()
+		return
+	rect.material = restored
 	root.add_child(rect)
 	for i in range(5):
 		await process_frame
@@ -48,6 +57,16 @@ func _run() -> void:
 	var pixel := picture.get_pixel(160, 90)
 	expect(absf(pixel.r - 0.2) < 0.02 and absf(pixel.g - 0.6) < 0.02 and absf(pixel.b - 0.9) < 0.02, "shader_pixel_matches")
 	expect(picture.save_png(output.path_join("shader.png")) == OK, "gpu_readback_png")
+	var instance_material := restored.duplicate() as ShaderMaterial
+	instance_material.set_shader_parameter("tint", Color(0.8, 0.2, 0.1))
+	expect((restored.get_shader_parameter("tint") as Color).is_equal_approx(Color(0.2, 0.6, 0.9)), "local_material_change_preserves_shared_original")
+	rect.material = instance_material
+	await process_frame
+	await RenderingServer.frame_post_draw
+	picture = root.get_texture().get_image()
+	pixel = picture.get_pixel(160, 90)
+	expect(absf(pixel.r - 0.8) < 0.02 and absf(pixel.g - 0.2) < 0.02 and absf(pixel.b - 0.1) < 0.02, "modified_uniform_changes_actual_pixels")
+	expect(picture.save_png(output.path_join("modified_shader.png")) == OK, "modified_gpu_readback_png")
 	rect.queue_free()
 	await process_frame
 	finish()

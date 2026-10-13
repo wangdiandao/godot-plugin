@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh.md)
 
-Native Godot development skills for **Codex Desktop / CLI, Claude Code, Cursor, and Gemini CLI**. Includes 19 focused Skills, native GDScript helpers, and runnable examples for creating, diagnosing, testing, and exporting GDScript 2D/3D games.
+Native Godot development skills for **Codex Desktop / CLI, Claude Code, Cursor, and Gemini CLI**. Includes 20 focused Skills, native GDScript helpers, and runnable examples for creating, diagnosing, testing, and exporting GDScript 2D/3D games.
 
 Use your chosen agent, the **standard Godot editor distribution**, and operating-system tools. The plugin adds no MCP server, Godot editor add-on, Python, or Node runtime dependency; your agent's own installation requirements still apply. Context7 is an author research tool, not a runtime dependency.
 
@@ -46,7 +46,7 @@ From your game project, load the complete plugin for a session:
 claude --plugin-dir "C:\Tools\godot-plugin"
 ```
 
-The `.claude-plugin/plugin.json` manifest identifies the plugin; Claude Code discovers the 19 Skills under `skills/`. Invoke `/godot-plugin:godot-workflow`, `/godot-plugin:godot-physics`, or describe a task naturally.
+The `.claude-plugin/plugin.json` manifest identifies the plugin; Claude Code discovers the 20 Skills under `skills/`. Invoke `/godot-plugin:godot-workflow`, `/godot-plugin:godot-physics`, or describe a task naturally.
 
 For persistence on current versions that support plugins in skills directories, copy the **complete extracted installation directory** to `~/.claude/skills/godot-plugin`, then start a new session. Preserve its nested manifests and shared directories. Check `/plugin` for loading errors; older clients can use `--plugin-dir` on each launch. See [local development](https://code.claude.com/docs/en/plugin-marketplaces) and the [manifest reference](https://code.claude.com/docs/en/plugins-reference).
 
@@ -121,6 +121,7 @@ Use a domain Skill for isolated tasks and `godot-workflow` for complete games or
 | [godot-multiplayer](skills/godot-multiplayer/SKILL.md) | Native networking, RPC, spawning, replication |
 | [godot-validation](skills/godot-validation/SKILL.md) | Parsing, behavior, input, screenshots, diagnostics |
 | [godot-export](skills/godot-export/SKILL.md) | Official templates, presets, builds, artifact checks |
+| [godot-performance](skills/godot-performance/SKILL.md) | Measured CPU/GPU/memory diagnosis and comparison |
 | [godot-architecture](skills/godot-architecture/SKILL.md) | Module contracts, composition, lifecycle and signals |
 
 Skills load on demand; there is no hidden execution state or requirement to load all of them.

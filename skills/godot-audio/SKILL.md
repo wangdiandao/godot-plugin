@@ -1,39 +1,36 @@
 ---
 name: godot-audio
-description: "Configure Godot audio playback, buses, effects, and spatial audio, generate basic procedural sound effects, and check playback behavior."
+description: "Develop, modify, and diagnose Godot sound playback, import choices, audio bus routing, effects, volume controls, positional audio, recording, and platform playback conditions."
 ---
 
-# Audio Systems
+# Audio Assets, Playback, and Mixing
 
 ## Purpose and Scope
 
-Audio resources, playback, mixing, and spatial settings. Audio callback tests are not equivalent to subjective listening acceptance.
+Implement audible game behavior and persistent mixing configuration. Asset licensing and source creation belong to the asset workflow; interactive music and animation events may require the animation skill.
 
 ## Prerequisite Checks
 
-Confirm audio formats, looping needs, sample rates, bus routing, and target devices; preserve existing audio buses.
-Read the [execution conventions](../../shared/references/execution.md) before first launching the engine or changing execution modes. The research baseline is Godot 4.7.2; actual capabilities depend on the corresponding version, build, and runtime verification.
+Inspect imported format/sample rate/channels, loop settings, player type/bus, bus send graph, effects, pause modes, actual audio driver/device and target platform. A Dummy driver or headless state test does not establish sound quality, latency or effect output.
+
+Baseline: Godot 4.7 documentation and locally verified Godot 4.7.2. Read [execution conventions](../../shared/references/execution.md) before the first engine launch; confirm the actual project version.
 
 ## Workflow and Key Decisions
 
-1. Choose AudioStreamPlayer/2D/3D according to playback and spatial requirements; generate short sound effects natively with AudioStreamWAV when appropriate.
-2. Manage named buses and effects through AudioServer, separating master volume from music/effects groups; verify that bus names are valid.
-3. Persist bus layouts with generate_bus_layout and ResourceSaver when needed, and reference the layout as the project default.
-4. Check playback start, stop, looping, muting, and routing; verify waveforms and levels with a real device or native audio capture.
+1. Choose WAV/PCM for short latency-sensitive effects versus compressed music/long ambience from measured memory and decoding needs. Use mono sources for positional audio where appropriate.
+2. Follow the native.md recipe for player and bus creation, existing mix modification or silence/latency diagnosis. Resolve bus names before assigning players and route sends toward a bus to the left.
+3. Implement volume, mute, voice limits and playback lifecycle using checked data; treat pause, stop, finished, looping and seeking as different behaviors.
+4. Save bus layout and user preferences separately, reload without cache and verify player routing/effect identities. Keep original bus layout for rollback.
+5. Audition the target device at intended loudness and repeat under load; check Web playback type, permissions and spatial listener behavior before claiming parity.
 
 ## File Changes, Saving, and Recovery
 
-Save AudioBusLayout, stream resources, and volume settings; do not repeatedly add buses with the same name or modify all shared audio.
-For silence, check the player, bus, muting, and device first. The headless Dummy driver verifies only the logical path; do not claim to have heard audio.
-Read the [persistence strategy](../../shared/references/persistence.md) when persisting existing resources; follow the [recovery conventions](../../shared/references/recovery.md) on failure.
+Do not overwrite source audio while changing importer options; reimport through the normal asset pipeline. Save checked AudioBusLayout and configuration resources. Changes to AudioServer are runtime state until saved; recover the original layout and stop task-owned players on failure. Use [recovery conventions](../../shared/references/recovery.md) when a failure needs restoration.
 
 ## Acceptance and Delivery
 
-The example generates nonzero PCM, checks bus routing, and plays audio; it reloads the saved layout to confirm buses. Report subjective audio quality separately.
-Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
+Require WAV/resource readback, effective bus routing and actual lifecycle assertions. The minimal example tests generated PCM, saved bus volume/send/limiter, mute/unmute, missing-bus detection and nonlooping completion. Report listening, clipping, device latency, microphone permissions and Web sample-effect behavior separately as untested unless exercised. Deliver changed files, exact commands/version/mode, assertions, artifacts, failures and explicit untested scope. Logs and exit codes must agree with reports.
 
 ## On-Demand References and Examples
 
-- Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
-- Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.
-- Read the [evidence standards](../../shared/references/evidence.md) when maintaining evidence. The capability index is [capabilities.json](../../docs/capabilities.json).
+Read [audio recipes and diagnostics](references/native.md) for the requested operation. Run the [isolated audio example](assets/examples/minimal/project.godot); use [evidence standards](../../shared/references/evidence.md) for device/listening acceptance.

@@ -302,5 +302,21 @@
       "modify": "把依赖全局玩家的库存模块改为可独立实例化组件。",
       "diagnose": "修复场景切换后旧信号监听仍更新已释放界面的问题。"
     }
+  },
+  {
+    "skill": "godot-performance",
+    "positive": "为固定敌人场景建立 CPU/GPU/内存采样基线。",
+    "negative": "只调整菜单按钮边距。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-performance",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "为物体添加溶解 Shader 并验证实际渲染。",
+    "adjacent_expected": "godot-rendering",
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "为固定敌人场景建立 CPU/GPU/内存采样基线。",
+      "modify": "优化热点查询并保留行为等价断言，记录预热后采样。",
+      "diagnose": "定位角色增加后帧时间上升属于脚本、渲染提交还是GPU。"
+    }
   }
 ]
