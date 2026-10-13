@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "version": "0.2.0",
+  "date": "2026-10-13",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "documentation_revision": "9adca4c1c72917bfe1b7be3108abed5ce26696a6",
+  "research": {
+    "source_pages": 1596,
+    "generated_pages": 2,
+    "pending": 0,
+    "errors": 0,
+    "unit_tests_passed": 13
+  },
+  "core": {
+    "status": "passed",
+    "cases": 41,
+    "parent_checks": 43,
+    "actual_status_counts": {
+      "blocked": 2,
+      "failed": 6,
+      "passed": 30,
+      "timeout": 1,
+      "unsupported": 2
+    },
+    "raw_report": "artifacts/deepening-final-core/cases/1791881063-884-46056/report.json"
+  },
+  "integrations": {
+    "desktop": {
+      "status": "passed",
+      "checks": 21,
+      "failed_checks": [],
+      "raw_report": "artifacts/deepening-final-integration/desktop/report.json"
+    },
+    "failures": {
+      "status": "passed",
+      "checks": 15,
+      "failed_checks": [],
+      "raw_report": "artifacts/deepening-final-integration/failures/report.json"
+    },
+    "assets": {
+      "status": "passed",
+      "checks": 17,
+      "failed_checks": [],
+      "raw_report": "artifacts/deepening-assets-check/unrestricted-fixture/report.json"
+    },
+    "multiplayer_repeat": {
+      "status": "passed",
+      "checks": 7,
+      "failed_checks": [],
+      "raw_report": "artifacts/deepening-final-integration/multiplayer/1791881218-827-51084/report.json"
+    }
+  },
+  "task_evaluation": "tests/routing/actual-results.json",
+  "domain_reports": [
+    "docs/research/foundation-implementation.md",
+    "docs/research/content-implementation.md",
+    "docs/research/render-implementation.md",
+    "docs/research/delivery-implementation.md",
+    "docs/research/extension-implementation.md"
+  ],
+  "review": "docs/research/implementation-review.md",
+  "packaging": {
+    "status": "passed_preliminary_archive_and_relocation",
+    "checks": 1535,
+    "artifacts": [
+      {
+        "path": "dist/deepening-0.2.0/godot-plugin-0.2.0.zip",
+        "sha256": "61fbcc1e68cad2897a515b6b8e117b3ae1d5cc333e0e057bb506fca32f7acded",
+        "files": 201
+      },
+      {
+        "path": "dist/deepening-0.2.0/godot-plugin-0.2.0-source.zip",
+        "sha256": "981e9286fe7b156abfac523308e7d3e530db3b37030f8d922f6df473f0cd2055",
+        "files": 225
+      }
+    ],
+    "relocated_source_structure_checks": 1247,
+    "relocated_research_tests": 13,
+    "relocated_installation_architecture_assertions": 16,
+    "relocated_source_selected_cases": 7,
+    "final_archives": "Regenerated after evidence updates; final SHA256 is stored externally beside the archive to avoid self-reference."
+  },
+  "historical_results_changed": false,
+  "publication": "not_requested_not_performed",
+  "untested": [
+    "Actual HDR luminance/display switching",
+    "Listening/microphone/device audio",
+    "ForeignOS/devices/consoleSDK/signing",
+    "Installed-host implicit autoload",
+    "Native unseeded cold import control remains a failure; bootstrap pipeline verified separately"
+  ],
+  "native_pipeline": {
+    "status": "passed_with_documented_bootstrap",
+    "raw_report": "artifacts/deepening-native-moved/out/result.json",
+    "steps_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "runtime_assertions": 13,
+    "unseeded_control_status": "failed_engine_boundary_preserved"
+  },
+  "structure": {
+    "status": "passed",
+    "checks": 1256,
+    "raw_report": "artifacts/deepening-final-structure-updated.json"
+  },
+  "host_manifest_check": {
+    "claude_strict": "passed",
+    "codex_cli": "0.142.5",
+    "installed_host_autoload": "not_tested"
+  }
+}

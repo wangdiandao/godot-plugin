@@ -692,6 +692,69 @@
       "expect": "unsupported",
       "reported_status": "unsupported",
       "acceptance": "Actual headless rejection; do not infer pixel verification"
+    },
+    {
+      "id": "csharp-example",
+      "project": "../skills/godot-csharp/assets/examples/minimal",
+      "script": "../skills/godot-csharp/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 45,
+      "skill": "godot-csharp",
+      "capability_id": "godot-csharp",
+      "conditions": [
+        "Godot 4.7.2 standard",
+        "headless"
+      ],
+      "acceptance": "Missing task-specific toolchain/library is reported blocked; this is preflight evidence, not compilation acceptance",
+      "expect": "blocked",
+      "reported_status": "blocked"
+    },
+    {
+      "id": "gdextension-example",
+      "project": "../skills/godot-gdextension/assets/examples/minimal",
+      "script": "../skills/godot-gdextension/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 45,
+      "skill": "godot-gdextension",
+      "capability_id": "godot-gdextension",
+      "conditions": [
+        "Godot 4.7.2 standard",
+        "headless"
+      ],
+      "acceptance": "Missing task-specific toolchain/library is reported blocked; this is preflight evidence, not compilation acceptance",
+      "expect": "blocked",
+      "reported_status": "blocked"
+    },
+    {
+      "id": "editor-tools-example",
+      "project": "../skills/godot-editor-tools/assets/examples/minimal",
+      "copy_project": true,
+      "headless": true,
+      "engine_args": [
+        "--editor"
+      ],
+      "args": [
+        "--self-test",
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-editor-tools",
+      "capability_id": "godot-editor-tools",
+      "conditions": [
+        "Godot4.7.2standard editor",
+        "isolatedcopiedproject",
+        "normaleditorMainLoop"
+      ],
+      "acceptance": "EditorPlugin enable/disable, dock cleanup, undo/redo and uncached scene readback; visual UX separate"
     }
   ],
   "integration_suites": [

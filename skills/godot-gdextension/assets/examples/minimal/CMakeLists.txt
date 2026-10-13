@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.20)
+project(native_recipe LANGUAGES CXX)
+if(NOT GODOT_CPP_DIR)
+  message(FATAL_ERROR "Pass -DGODOT_CPP_DIR=absolute/pinned/godot-cpp")
+endif()
+add_subdirectory("${GODOT_CPP_DIR}" godot-cpp)
+add_library(native_recipe SHARED native.cpp)
+target_link_libraries(native_recipe PRIVATE godot-cpp)
+target_compile_features(native_recipe PRIVATE cxx_std_17)
+set_target_properties(native_recipe PROPERTIES PREFIX "" OUTPUT_NAME "native_recipe"
+  RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin"
+  LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
+if(MINGW)
+  target_link_options(native_recipe PRIVATE -static -static-libgcc -static-libstdc++)
+endif()

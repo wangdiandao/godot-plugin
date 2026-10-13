@@ -55,3 +55,17 @@ python -X utf8 -m unittest discover -s tests -p test_research_inventory.py
 本轮 Context7 Theme 研究：Godot Engine resolve 成功，选择官方 4.7 文档分支；独立 Theme、导航跨区域与 AnimationLibrary 持久化概念查询成功。检索的邻接 2D 导航段落不能替代 3D 接口校验；实现仍核对对应 3D 固定源码并运行。
 
 PR 自审补强：完整门槛同时拒绝错误固定版本、空清单及遗漏的本地 RST 文件；新增回归断言后 13 项测试通过（0.143 秒），完整门槛再次退出 0。安装结构自审在原始 18 Skill 的隔离快照加研究批次上通过 777 项；后续新增 Skill 不借用该快照结果。
+
+
+## 本次实施与交付证据
+
+- [基础与架构](foundation-implementation.md)
+- [内容与交互](content-implementation.md)
+- [表现与性能](render-implementation.md)
+- [联网与交付](delivery-implementation.md)
+- [工具与语言扩展](extension-implementation.md)
+- [实现审核与修复](implementation-review.md)
+- [独立任务评估](task-evaluation.md)
+- [本轮汇总](../deepening-validation.json)与[中文覆盖总览](../coverage.zh.md)
+
+23个入口已实现；原18个名称保留。当前标准套件41案例按预期通过，含正确失败/超时/不支持/依赖未就绪识别；这些负结果不代表操作成功。实际C#/原生扩展编译与运行另行验证。冷扫描引擎问题未被伪称修复，隔离4.7.2启动登记流程已有零缓存导入和搬移验证。安装/源码包通过字节读回及中文空格目录搬移测试。0.2.0仅本地准备，不公开发布。历史验证文件未改写。

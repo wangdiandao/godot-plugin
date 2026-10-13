@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.2.0] - 2026-10-13
+
+Prepared locally; public publication is outside this change.
+
+### Added
+
+- Architecture, performance, editor-tools, C# and GDExtension Skills, bringing the inventory to23 without renaming existing calls.
+- Complete development/modification/diagnosis recipes, task-specific decisions, failure paths and meaningful isolated fixtures.
+- Pinned1596source-page and2generated-page research records, hash/coverage gate, Chinese task overview and independent task evidence.
+- Actual editor transactions, managed/native builds, fixed-condition CPU samples and conditional platform/HDR/audio procedures.
+
+### Fixed
+
+- UI Theme persistence/overrides, Windows resource-path serialization, animation saved readback, cross-region navigation and intended-fault detection.
+- Managed/native64-bit integer binding boundaries and ORM versus StandardMaterial3D texture semantics.
+- Structure validation now checks actual inventory/reference consistency rather than a fixed18-Skill count.
+
+### Validation boundaries
+
+- Current native/domain/integration results are recorded separately from historical release evidence.
+- Standard-engine dependency blocks do not count as managed/native compilation passes; visualHDR, real listening and other devices require their actual environments.
+- Engine-internal source research does not promise engine-source modification capability.
+
 ## [0.1.1] - 2026-10-12
 
 ### Added

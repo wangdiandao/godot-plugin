@@ -2,7 +2,7 @@
 
 [English](README.md) | **简体中文**
 
-面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：20 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 游戏的创建、内容制作、诊断、测试与导出。
+面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：23 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 开发，并提供架构、性能、编辑器工具及条件式 C#/GDExtension 工作流。
 
 运行需要所选 Agent、**Godot 标准编辑器发行版和操作系统自带能力**。插件不新增 MCP Server、Godot 编辑器插件、Python 或 Node 运行依赖；Agent 本身的安装要求仍然适用。Context7 仅用于作者研究，不是用户运行依赖。
 
@@ -10,7 +10,7 @@
 
 ## 安装
 
-从 [Releases](https://github.com/wangdiandao/godot-plugin/releases) 下载 **0.1.1** 安装 ZIP 并解压。0.1.1 开始增加其它宿主；旧的 0.1.0 包装只提供 Codex 支持。更新说明见 [CHANGELOG](CHANGELOG.md)。保留 `godot-plugin/` 整个目录，包括隐藏目录、`skills/`、`shared/` 和 `docs/`。只复制 `SKILL.md` 会破坏共享资源引用。
+本次版本为 **0.2.0**，提供本地生成的安装/源码 ZIP 与源码 checkout；公开发布不属于本次工作。已有 [Releases](https://github.com/wangdiandao/godot-plugin/releases) 保留历史版本，不代表已包含23个 Skill。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
 
 对应版本的发布 ZIP 尚未上传时，可使用干净源码：`git clone https://github.com/wangdiandao/godot-plugin.git`，对该目录执行相同安装步骤。需要复制目录时，使用安装 ZIP 或干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
@@ -46,7 +46,7 @@ codex plugin list --marketplace godot-native-local --json
 claude --plugin-dir "C:\Tools\godot-plugin"
 ```
 
-`.claude-plugin/plugin.json` 标识插件，Claude Code 自动发现 `skills/` 下的 20 个 Skills。使用 `/godot-plugin:godot-workflow`、`/godot-plugin:godot-physics` 或自然语言发起任务。
+`.claude-plugin/plugin.json` 标识插件，Claude Code 自动发现 `skills/` 下的 23 个 Skills。使用 `/godot-plugin:godot-workflow`、`/godot-plugin:godot-physics` 或自然语言发起任务。
 
 支持 Skills 目录内插件的当前版本，也可将**完整解压后的安装目录**复制到 `~/.claude/skills/godot-plugin`，新会话中自动加载。保留内部清单与共享目录。通过 `/plugin` 检查加载错误；旧客户端可每次使用 `--plugin-dir` 启动。参见[本地开发说明](https://code.claude.com/docs/en/plugin-marketplaces)和[清单规范](https://code.claude.com/docs/en/plugins-reference)。
 
@@ -121,6 +121,9 @@ gemini --include-directories "$env:USERPROFILE\.gemini\extensions\godot-plugin"
 | [godot-multiplayer](skills/godot-multiplayer/SKILL.md) | 原生联机、RPC、生成与复制 |
 | [godot-validation](skills/godot-validation/SKILL.md) | 解析、行为、输入、截图与性能诊断 |
 | [godot-export](skills/godot-export/SKILL.md) | 官方模板、预设、构建与产物验证 |
+| [godot-gdextension](skills/godot-gdextension/SKILL.md) | 原生扩展构建、ABI 与加载诊断 |
+| [godot-csharp](skills/godot-csharp/SKILL.md) | Godot.NET 构建、绑定和托管调试 |
+| [godot-editor-tools](skills/godot-editor-tools/SKILL.md) | 工具脚本、EditorPlugin 事务与生命周期 |
 | [godot-performance](skills/godot-performance/SKILL.md) | CPU/GPU/内存测量、定位与优化对照 |
 | [godot-architecture](skills/godot-architecture/SKILL.md) | 模块契约、组件组合、生命周期与信号 |
 
@@ -152,6 +155,11 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 
 贡献前阅读[贡献指南](CONTRIBUTING.md)：先提或关联 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
 
-安装包包含全部宿主清单、中英文 README、CHANGELOG、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。已有发布标签和附件保持不变，本次新增内容以 0.1.1 发布。
+安装包包含全部宿主清单、中英文 README、CHANGELOG、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。已有发布标签和附件保持不变，本次0.2.0仅本地交付，不创建公开发布。
 
 阅读[扩展规范](docs/authoring.md)、[研究依据](docs/research.md)、[验证报告](docs/validation.md)和 [Godot 基线官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。
+
+
+中文任务覆盖与验收边界见[23 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
+
+C#任务额外需要匹配的Godot.NET与.NET SDK；GDExtension任务额外需要绑定、C++编译器、构建工具及绑定生成器。默认原生路径保留。

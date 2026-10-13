@@ -44,7 +44,7 @@ skills/godot-<domain>/
 
 入口说明决策、保存、失败恢复与验收；详细 API 和完整命令放 `references/native.md`。`agents/openai.yaml` 的默认提示包含 `$skill-name`，UI 描述符合真实边界。最小示例须能复制到干净目录运行、接受输出目录、输出明确结果并退出。
 
-同步修改 `tests/cases.json`、`tests/routing/prompts.json`、`docs/capabilities.json`。新增 skill 还须修改 `tests/validate_structure.py` 中固定 18 个 skill 的断言及 README 清单。删除或改名须说明兼容性影响并更新全部引用。使用 Context7 研究接口，随后核对版本匹配的官方文档、源码绑定与最小调用；研究工具不能成为插件运行依赖。
+同步修改 `tests/cases.json`、`tests/routing/prompts.json`、`docs/capabilities.json`。新增 skill 还须核对 `tests/validate_structure.py` 所检查的实际目录清单、案例/能力引用及 README 清单，不再设置固定数量断言。删除或改名须说明兼容性影响并更新全部引用。使用 Context7 研究接口，随后核对版本匹配的官方文档、源码绑定与最小调用；研究工具不能成为插件运行依赖。
 
 ## 验证与审核门槛
 

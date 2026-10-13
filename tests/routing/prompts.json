@@ -10,10 +10,12 @@
     "adjacent_expected": "godot-project",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "创建一个有菜单、计分、音效和存档的 2D 收集游戏。",
-      "modify": "修改与当前任务对应的 godot-workflow 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-workflow 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Build and verify a complete Godot 2D loop with start, movement/collision, collection, win, save/readback and keyboard restart.",
+      "modify": "Add a limited jump resource to the playable loop and propagate it through HUD, command checks and restart reset.",
+      "diagnose": "Restart duplicates scoring and sound across several systems; trace the whole loop and verify repeated restart restores a coherent game."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-project",
@@ -26,10 +28,12 @@
     "adjacent_expected": "godot-ui",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "初始化 Godot 项目并配置 WASD 和暂停输入。",
-      "modify": "修改与当前任务对应的 godot-project 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-project 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a Godot project configuration with persistent jump input and Session Autoload, then launch it and verify bootstrap state.",
+      "modify": "Add a persistent input action without mistaking a temporary InputMap change for saved project configuration.",
+      "diagnose": "Session exists in a script test but not after project restart; inspect its saved Autoload entry and startup readiness."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-api",
@@ -42,10 +46,12 @@
     "adjacent_expected": "godot-navigation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "核查当前版本是否能从 GDScript 烘焙 LightmapGI。",
-      "modify": "修改与当前任务对应的 godot-api 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-api 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Verify public Godot bindings for tile layers and navigation baking, then prove scene pack/save ownership through a minimal actual call.",
+      "modify": "Before adapting a Godot 4.7 call to an older engine, check the exact public binding and minimum version.",
+      "diagnose": "A method appears in Godot C++ source but GDScript says it does not exist; distinguish internal methods from bound APIs."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-gdscript",
@@ -58,10 +64,12 @@
     "adjacent_expected": "godot-physics",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "重构状态组件的类型和信号，保持已有场景兼容。",
-      "modify": "修改与当前任务对应的 godot-gdscript 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-gdscript 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Implement a typed Godot counter with signal delivery and asynchronous continuation; verify reconnect and disconnect behavior.",
+      "modify": "Refactor the counter to typed GDScript and ensure a disconnected receiver is not called after an update.",
+      "diagnose": "An awaited gameplay continuation does not resume; inspect node lifetime and the actual awaited signal."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-scenes",
@@ -74,10 +82,12 @@
     "adjacent_expected": "godot-2d",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "给现有场景增加一个有碰撞的子场景并保存信号。",
-      "modify": "修改与当前任务对应的 godot-scenes 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-scenes 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a Godot packed scene with an owned child and persistent signal; verify reload executes the signal and excludes an unowned preview.",
+      "modify": "Add a persistent child and connection to an existing scene while preserving ownership and instance boundaries.",
+      "diagnose": "A generated child vanishes after saving; inspect owner versus parent and verify PackedScene readback."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-assets",
@@ -90,10 +100,12 @@
     "adjacent_expected": "godot-rendering",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "批量调整像素贴图导入参数并验证重新导入。",
-      "modify": "修改与当前任务对应的 godot-assets 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-assets 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Generate a Godot texture, import it, change its source width and reimport, then recover a missing source and verify glTF bounds.",
+      "modify": "Change a texture source from 32 to 64 pixels and a glTF triangle width from one to two; preserve unrelated files during reimport.",
+      "diagnose": "A source image disappeared while its import metadata remains; restore only that source and verify the texture loads."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-2d",
@@ -106,10 +118,12 @@
     "adjacent_expected": "godot-physics",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "用 TileMapLayer 创建一张带障碍物的地图。",
-      "modify": "修改与当前任务对应的 godot-2d 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-2d 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a three-cell Godot terrain strip with matching sides and verify saved cells and world-to-map coordinates.",
+      "modify": "Replace only one atlas tile in my 2D level while preserving its cell coordinates and shared TileSet users.",
+      "diagnose": "Terrain joins have a seam at the left edge; inspect terrain peering bits and missing combinations before repainting."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-3d",
@@ -122,10 +136,12 @@
     "adjacent_expected": "godot-navigation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "搭建一个带相机、光照和可交互物体的 3D 房间。",
-      "modify": "修改与当前任务对应的 godot-3d 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-3d 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Build a Godot 3D scene with a box, camera and sun, independently resize a second mesh and verify saved dimensions.",
+      "modify": "Resize one box instance without resizing the shared original model, and preserve camera and light nodes.",
+      "diagnose": "My 3D scene is black; inspect the current camera, clipping and visibility before changing lighting."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-physics",
@@ -138,10 +154,12 @@
     "adjacent_expected": "godot-navigation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "排查角色穿过地面和触发器不响应的问题。",
-      "modify": "修改与当前任务对应的 godot-physics 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-physics 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a Godot character that lands on a floor, moves at units per second, raycasts with masks and crosses a trigger exactly once.",
+      "modify": "Change horizontal movement speed without losing floor contact or applying delta twice.",
+      "diagnose": "A ray misses a visible floor; inspect collision masks and verify that the wrong mask intentionally produces no hit."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-navigation",
@@ -154,10 +172,12 @@
     "adjacent_expected": "godot-physics",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "自动烘焙关卡导航并让敌人绕过障碍。",
-      "modify": "修改与当前任务对应的 godot-navigation 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-navigation 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Bake Godot navigation, save it and verify paths across two regions and rejection of excluded or disabled destinations.",
+      "modify": "Disable a navigation region and adjust layer masks while preserving routes through the remaining connected region.",
+      "diagnose": "A path stops before the destination across a region boundary; inspect synchronization, connectivity and navigation masks."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-ui",
@@ -170,10 +190,12 @@
     "adjacent_expected": "godot-animation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "做一个支持键盘导航和中英文切换的暂停菜单。",
-      "modify": "修改与当前任务对应的 godot-ui 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-ui 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Build a Godot menu with inherited Theme, local override readback, focused-button input and an overlay that blocks then permits clicks.",
+      "modify": "Remove one button's local font-color override so its parent Theme becomes effective again.",
+      "diagnose": "An invisible Control blocks button clicks; inspect mouse_filter and verify activation after the overlay ignores input."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-animation",
@@ -186,10 +208,12 @@
     "adjacent_expected": "godot-rendering",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "用 AnimationTree 实现待机和行走之间的混合。",
-      "modify": "修改与当前任务对应的 godot-animation 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-animation 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a position animation library in Godot, evaluate its midpoint and reload its stored track and keyframes.",
+      "modify": "Change a movement clip's duration without editing unrelated animation tracks or contending with AnimationTree playback.",
+      "diagnose": "An AnimationPlayer plays but the target does not move; inspect its root and property track paths."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-rendering",
@@ -202,10 +226,12 @@
     "adjacent_expected": "godot-audio",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "为物体添加溶解 Shader 并验证实际渲染。",
-      "modify": "修改与当前任务对应的 godot-rendering 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-rendering 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a Godot canvas shader material, save its tint and verify actual GPU pixels before and after an isolated uniform change.",
+      "modify": "Change only one material instance's tint and prove the original shared material retains its saved color.",
+      "diagnose": "A shader parameter changes in the Inspector but pixels do not; inspect the bound material and draw-frame readback."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-audio",
@@ -218,10 +244,12 @@
     "adjacent_expected": "godot-data",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "添加音乐和音效总线以及可保存的音量设置。",
-      "modify": "修改与当前任务对应的 godot-audio 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-audio 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Generate a short mono Godot WAV, route a player through a limited bus, save/read back routing and exercise mute/unmute and completion.",
+      "modify": "Reduce only the SFX bus by twelve decibels, retaining its Master send and limiter in the saved layout.",
+      "diagnose": "A player targets a nonexistent bus; detect the missing route before playback and verify nonlooping completion."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-data",
@@ -234,10 +262,12 @@
     "adjacent_expected": "godot-multiplayer",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "实现带版本号的存档并兼容旧版本。",
-      "modify": "修改与当前任务对应的 godot-data 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-data 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Implement and verify versioned Godot save migration, guarded commit, backup readback and recovery while preserving corrupt/future files.",
+      "modify": "Migrate a version-one score into version-two progress and reject concurrent writes without overwriting the newer save.",
+      "diagnose": "A player save is corrupt and its backup is invalid; report recovery required and preserve both originals."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-multiplayer",
@@ -250,10 +280,12 @@
     "adjacent_expected": "godot-data",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "实现双人联机并在本机运行两个客户端验证。",
-      "modify": "修改与当前任务对应的 godot-multiplayer 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-multiplayer 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a local Godot server and clients with spawning, replication and RPC; reject invalid authority/bounds and verify disconnect and reconnect.",
+      "modify": "Modify the multiplayer command handler to check sender ownership and budget on the server.",
+      "diagnose": "A client reconnects but keeps stale replicated state; inspect peer IDs, disconnect cleanup and spawn/synchronizer paths."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-validation",
@@ -266,10 +298,12 @@
     "adjacent_expected": "godot-export",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "为项目建立自动冒烟、输入和截图验证。",
-      "modify": "修改与当前任务对应的 godot-validation 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-validation 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create bounded Godot checks detecting parse errors, runtime faults, errors with exit zero, timeout and missing reports, while rejecting unrelated failures.",
+      "modify": "Strengthen my test runner so a passed child marker cannot hide startup errors or a missing report.",
+      "diagnose": "A test exits zero despite push_error; inspect the complete process log and the expected failure cause."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-export",
@@ -282,10 +316,12 @@
     "adjacent_expected": "godot-validation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "导出 Windows 游戏并启动检查。",
-      "modify": "修改与当前任务对应的 godot-export 实现，保持持久化数据和已有调用兼容。",
-      "diagnose": "在 godot-export 示例中复现一项关键失败条件，定位并验证修复。"
-    }
+      "develop": "Create a Windows Godot export preset, import a tiny project, build with existing matching templates and launch the actual exported executable.",
+      "modify": "Change only the export architecture and custom release template while preserving other presets.",
+      "diagnose": "Export fails because its template is absent; verify the actual version and template path before rebuilding."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-architecture",
@@ -298,10 +334,12 @@
     "adjacent_expected": "godot-scenes",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "为背包和拾取模块设计显式依赖、生命周期与信号契约。",
-      "modify": "把依赖全局玩家的库存模块改为可独立实例化组件。",
-      "diagnose": "修复场景切换后旧信号监听仍更新已释放界面的问题。"
-    }
+      "develop": "Create a Godot module with an injected service and command/fact signals; verify readiness, repeated wiring, replacement and teardown.",
+      "modify": "Replace the service dependency in a component without retaining subscribers to the previous service.",
+      "diagnose": "Reloading the level duplicates service notifications; trace module lifetimes and idempotent signal wiring."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   },
   {
     "skill": "godot-performance",
@@ -314,9 +352,65 @@
     "adjacent_expected": "godot-rendering",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "为固定敌人场景建立 CPU/GPU/内存采样基线。",
-      "modify": "优化热点查询并保留行为等价断言，记录预热后采样。",
-      "diagnose": "定位角色增加后帧时间上升属于脚本、渲染提交还是GPU。"
-    }
+      "develop": "Benchmark distance versus squared-distance radius queries over a fixed 512-actor snapshot with warmup, distributions and behavior equivalence.",
+      "modify": "Optimize the measured radius query while retaining its results for zero, small and large radii and modified positions.",
+      "diagnose": "The game stutters but average FPS looks fine; establish matching workloads and compare frame pacing distributions before changing features."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
+  },
+  {
+    "skill": "godot-editor-tools",
+    "positive": "编写可撤销的 Godot 编辑器场景标记工具。",
+    "negative": "只调整菜单按钮边距。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-editor-tools",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "给现有场景增加一个有碰撞的子场景并保存信号。",
+    "adjacent_expected": "godot-scenes",
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "Implement a Godot editor dock that adds an owned marker through undo/redo, saves/reloads the scene and survives repeated disable/enable.",
+      "modify": "Change an editor scene mutation to use the scene-context undo manager and persist added children correctly.",
+      "diagnose": "Disabling an addon leaves duplicate docks after re-enable; inspect plugin registration and cleanup in an actual editor process."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
+  },
+  {
+    "skill": "godot-csharp",
+    "positive": "创建并编译 Godot C# Resource，验证信号和存储属性。",
+    "negative": "只调整菜单按钮边距。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-csharp",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "重构状态组件的类型和信号，保持已有场景兼容。",
+    "adjacent_expected": "godot-gdscript",
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "Build a Godot C# Resource with clamped Score and generated ScoreChanged signal, then verify method calls and uncached save/readback.",
+      "modify": "Modify a C# Node position through copy-modify-reassign and rebuild its partial class before exercising the scene.",
+      "diagnose": "The .cs Resource is unavailable under my Godot executable; identify whether it is a standard or .NET build before blaming caches."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
+  },
+  {
+    "skill": "godot-gdextension",
+    "positive": "用 godot-cpp 构建并加载原生 GDExtension Resource。",
+    "negative": "只调整菜单按钮边距。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-gdextension",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "核查当前版本是否能从 GDScript 烘焙 LightmapGI。",
+    "adjacent_expected": "godot-api",
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "Build and load a native Godot Resource exposing score, add and score_changed, and verify clamping and saved independent readback.",
+      "modify": "Add a public property to my native extension with registered getter/setter and storage metadata, then rebuild and load it.",
+      "diagnose": "Windows reports loader error 126 although the extension DLL exists; inspect dependent DLLs, ABI and feature paths."
+    },
+    "codex_task_evaluation": "tests/routing/actual-results.json",
+    "installed_host_autoload_tested": false
   }
 ]

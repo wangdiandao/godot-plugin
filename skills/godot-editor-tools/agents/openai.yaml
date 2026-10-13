@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Editor Tools"
+  short_description: "Create editor addons with undo and saved scene verification"
+  default_prompt: "Use $godot-editor-tools to implement an editor addon and verify activation, undo/redo, persistence and cleanup."
+policy:
+  allow_implicit_invocation: true
