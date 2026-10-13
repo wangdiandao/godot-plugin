@@ -17,7 +17,7 @@ class ResearchEvidenceTests(unittest.TestCase):
         self.addCleanup(self.work.cleanup)
         self.reviews = Path(self.work.name)
         self.inventory = {
-            "revision": "fixed-revision",
+            "revision": REVISION,
             "pages": [{"path": "classes/class_node.rst", "sha256": "current-hash"}],
         }
         self.review = {
@@ -91,6 +91,14 @@ class ResearchEvidenceTests(unittest.TestCase):
         self.write([dict(self.review, skills=["godot-typo"])])
         self.assertFalse(self.result()["complete"])
 
+    def test_wrong_revision_and_empty_inventory_cannot_pass(self):
+        self.write([self.review])
+        self.inventory["revision"] = "other-version"
+        self.assertFalse(self.result()["complete"])
+        self.inventory["revision"] = REVISION
+        self.inventory["pages"] = []
+        self.assertFalse(self.result()["complete"])
+
     def test_actual_source_change_invalidates_gate(self):
         source = self.reviews / "source"
         (source / "classes").mkdir(parents=True)
@@ -102,6 +110,9 @@ class ResearchEvidenceTests(unittest.TestCase):
         self.write([dict(self.review, sha256=digest)])
         self.assertTrue(validate(self.inventory, self.reviews, source)["complete"])
         path.write_bytes(b"Changed source")
+        self.assertFalse(validate(self.inventory, self.reviews, source)["complete"])
+        path.write_bytes(payload)
+        (source / "classes/class_resource.rst").write_bytes(b"Omitted source")
         self.assertFalse(validate(self.inventory, self.reviews, source)["complete"])
 
     def test_generated_pages_require_authored_reviews_and_matching_html(self):

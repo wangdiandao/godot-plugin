@@ -53,3 +53,5 @@ python -X utf8 -m unittest discover -s tests -p test_research_inventory.py
 2026-10-13 最终阅读门槛：1,596/1,596 个 RST 页面、2/2 个生成页面完成，未读 0，哈希、归属、重复错误 0。带源快照和生成 HTML 的完整门槛命令退出 0；研究单元测试 12 项通过（0.192 秒）。main、foundation、render、extension 四份账本合并通过；研究自审列出的 Resource/Script、HDR 缓冲、RPC 归属和 TextEdit 语义已修正。此前检查点保留为历史记录。
 
 本轮 Context7 Theme 研究：Godot Engine resolve 成功，选择官方 4.7 文档分支；独立 Theme、导航跨区域与 AnimationLibrary 持久化概念查询成功。检索的邻接 2D 导航段落不能替代 3D 接口校验；实现仍核对对应 3D 固定源码并运行。
+
+PR 自审补强：完整门槛同时拒绝错误固定版本、空清单及遗漏的本地 RST 文件；新增回归断言后 13 项测试通过（0.143 秒），完整门槛再次退出 0。安装结构自审在原始 18 Skill 的隔离快照加研究批次上通过 777 项；后续新增 Skill 不借用该快照结果。

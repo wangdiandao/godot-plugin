@@ -56,9 +56,16 @@ def validate(data, review_dir, source_root=None):
     expected = {page["path"]: page for page in data["pages"]}
     reviewed = {}
     errors = []
+    if data.get("revision") != REVISION:
+        errors.append("Inventory revision is not the pinned documentation revision")
+    if not expected:
+        errors.append("Inventory has no pages")
     if len(expected) != len(data["pages"]):
         errors.append("Duplicate inventory paths")
     if source_root is not None:
+        actual_paths = {path.relative_to(source_root).as_posix() for path in source_root.rglob("*.rst") if path.is_file()}
+        if actual_paths != set(expected):
+            errors.append("Inventory does not cover exactly the local RST source pages")
         for path, page in expected.items():
             source = source_root / path
             if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != page["sha256"]:
