@@ -1,6 +1,6 @@
 interface:
   display_name: "Godot · Native Multiplayer"
   short_description: "Implement Godot multiplayer and verify local process behavior"
-  default_prompt: "Use $godot-multiplayer to implement two-player networking and verify it locally with two clients."
+  default_prompt: "Use $godot-multiplayer to implement authoritative networking and verify command rejection, replication and reconnect locally."
 policy:
   allow_implicit_invocation: true

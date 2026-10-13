@@ -11,15 +11,15 @@ Godot native multiplayer features. Local ENet connections do not automatically i
 
 ## Prerequisite Checks
 
-Confirm transport, server authority scope, ports, and node paths; bind tests only to loopback addresses and temporary ports.
+Confirm topology, transport/platform constraints, server ownership rules, connection/session state and replicated node paths. Bind local tests only to loopback and a temporary port; Internet delivery requires its own NAT/relay/TLS and device evidence.
 Read the [execution conventions](../../shared/references/execution.md) before first launching the engine or changing execution modes. The research baseline is Godot 4.7.2; actual capabilities depend on the corresponding version, build, and runtime verification.
 
 ## Workflow and Key Decisions
 
 1. Configure MultiplayerAPI with native peers such as ENetMultiplayerPeer; send data only after receiving connection signals.
-2. Explicitly specify authority/any_peer, call_local/call_remote, and transfer mode for RPC methods; validate senders and game rules on the server.
-3. Express scene spawning and property replication with MultiplayerSpawner/Synchronizer, with explicit paths and authority assignments.
-4. Start a server and two independent clients; verify round trips, authoritative state, disconnects, and shutdown, preserving logs and PIDs for each process.
+2. Send bounded intentions to the authority, derive sender from get_remote_sender_id, validate ownership/session/rate/game state, then publish accepted state. An any_peer annotation grants call permission; it is not validation.
+3. Set names, paths and multiplayer authority before spawning/replication begins. Separate spawn initial state, reliable changed state and frequent transform streams; transfer channels do not make unbounded payloads safe.
+4. Run independent server/client processes and failure requests. Assert spawn, later property changes, rejection without mutation, disconnect cleanup and a late reconnect on the same server. Preserve all child logs and exit codes.
 
 ## File Changes, Saving, and Recovery
 
@@ -29,7 +29,7 @@ Read the [persistence strategy](../../shared/references/persistence.md) when per
 
 ## Acceptance and Delivery
 
-The bundled example actually runs a server and two clients, checking RPC acknowledgments from two distinct peers and disconnect cleanup; it does not claim public-network validation.
+The bundled example runs one server, two clients and a reconnect client. It checks spawn, later state replication, three distinct peer confirmations, nine bounds/ownership/budget rejections and three graceful disconnects. Its constant fixture epoch and fixed request budget illustrate guards; production uses a server-issued session epoch and time-based rate policy. Public-network loss, hostile transport and deployment remain separate checks.
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples

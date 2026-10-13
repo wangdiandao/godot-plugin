@@ -52,6 +52,33 @@ Timeouts, missing results, and error logs are failures. Rerun affected cases aft
 
 ## Evidence Levels
 
+## Develop a repeatable check
+
+Write an observable contract first: input, setup/lifecycle, state/side effect, persistence and failure condition. A health bar task should prove damage changes health, updates display and handles zero health; instantiating a scene alone is insufficient. For modifying an existing module, snapshot the relevant saved file/hash, reproduce current behavior, change one cause, run affected behavior and uncached readback. Do not delete assertions or broaden an expected error to obtain a pass.
+
+A positive child needs a structured passed report, zero exit, no startup/runtime/shutdown errors and expected artifacts. A report cannot cover errors before logger initialization. ResourceSaver success followed by cached ResourceLoader reuse does not verify serialization; use CACHE_MODE_IGNORE or a fresh process and compare required stored fields. For input, synthesize an event through Input.parse_input_event and verify actual dispatch state; polled actions need action_press/action_release and separate tests. Device UX still requires the real device.
+
+The minimal example generates intentionally broken scripts only inside OUT/fixtures, launches the current executable, bounds each child to 2.5 seconds and kills only that child on timeout. Cases are parse error, missing Resource path with exit0, runtime array bounds error that remains running, push_error with exit0, silent timeout, missing report and unrelated error. Expected text is matched independently of generic failure; an arbitrary failure cannot pass a negative test. Each observation records log, exit and timeout. Runtime fault detection can legitimately require killing a child after its matched error, but timeout alone is insufficient for that case.
+
+## Diagnose from symptoms
+
+| Symptom | Check | Cause | Fix | Retest |
+|---|---|---|---|---|
+| Parser fails before any report | Complete log, actual specified script and dependencies | Syntax/type/constant path error | Fix first diagnostic in intended source | --check-only followed by actual behavior |
+| Import succeeds by exit but asset absent | Import logs, artifact/UID and source path | Invalid source/unsupported importer | Correct source/options, reimport affected resource | Load artifact and assert its content |
+| Resource reload unchanged | Cache mode and stored properties | Same cached object or transient field | Save correct storage field, uncached reload | Independent instance/readback comparison |
+| Assertion never reaches result | Wall-clock, await lifecycle and fatal log | Dead await/runtime error/early return | Bound readiness and emit explicit failure | Intended error matched; healthy case completes |
+| Test reports passed but engine errors | Outer log including startup/shutdown | Child report does not cover lifecycle | Fix cause and rerun complete process | Clean log plus structured report |
+| Failure test passes for wrong reason | Expected diagnostic and setup artifacts | Broad any-error acceptance | Anchor cause and prove preconditions | Unrelated fault must fail expected matcher |
+
+## Performance, visual and host evidence
+
+Fix workload, scene, renderer, hardware/driver, resolution, warmup, sample interval and duration before comparing results. Preserve baseline and changed samples, use CPU/GPU/retained-memory metrics for their actual meanings and avoid frame timing while synchronous readback or debug overhead differs. Report distributions and scene correctness, not just best FPS. A faster incorrect simulation is not an accepted optimization.
+
+GPU screenshots after frame_post_draw can verify pixels for a known scene, but screenshots alone cannot certify HDR chain, audio quality or device input. Actual HDR enabled/support/headroom, calibration and monitor changes need a real display; audio mix/state needs a listening/device check when sound quality matters. Record such conditions as untested rather than substituting headless success.
+
+Skill routing test cases must include develop, modify and diagnose prompts and adjacent/non-target prompts. Structure/manual routing review is not actual model selection. Record host/model/version and explicit versus natural-language invocation outcomes separately, including resulting files and runtime evidence.
+
 Choose checks in increasing cost order: files/references → specified script parsing → native import → scene reload → actual behavior → input and real rendering → exported artifact launch. Each level proves only what it observes. Some Godot runtime and even import errors exit with code 0, so inspect logs, explicit results, timeouts, and output files together.
 
 `run_checks.gd` reads cases.json; each case runs in a separate child process with a fresh output directory. Positive cases require a passed result. `require_report=false` is reserved for native import/export CLI operations; logs and exit codes are still checked, and extra assertions verify artifacts. Negative cases must anchor the failure reason with error_contains; arbitrary failure does not count as a passing negative test.
