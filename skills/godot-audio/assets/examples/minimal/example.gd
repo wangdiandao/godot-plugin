@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -27,11 +28,17 @@ func finish() -> void:
 	print("GODOT_PLUGIN_RESULT:" + JSON.stringify(result))
 	quit(0 if ok else 1)
 
+var playback_finished := false
+func _on_finished() -> void:
+	playback_finished = true
+
 func _run() -> void:
 	var original := AudioServer.generate_bus_layout()
 	AudioServer.add_bus()
 	var index := AudioServer.bus_count - 1
 	AudioServer.set_bus_name(index, "ExampleSFX")
+	AudioServer.set_bus_send(index, "Master")
+	AudioServer.set_bus_volume_db(index, -12.0)
 	var limiter := AudioEffectLimiter.new()
 	AudioServer.add_bus_effect(index, limiter)
 	var stream := AudioStreamWAV.new()
@@ -43,14 +50,31 @@ func _run() -> void:
 		bytes.encode_s16(i * 2, int(sin(TAU * 440.0 * i / 22050.0) * 5000.0))
 	stream.data = bytes
 	expect(stream.save_to_wav(output.path_join("tone.wav")) == OK, "native_pcm_wav_save")
+	var restored_stream := AudioStreamWAV.load_from_file(output.path_join("tone.wav"))
+	expect(restored_stream != null and restored_stream.mix_rate == 22050 and not restored_stream.stereo and is_equal_approx(restored_stream.get_length(), 0.1), "wav_saved_state_readback")
 	var player := AudioStreamPlayer.new()
-	player.stream = stream
+	player.stream = restored_stream
 	player.bus = "ExampleSFX"
 	root.add_child(player)
+	player.finished.connect(_on_finished)
 	player.play()
 	expect(player.playing, "playback_started")
 	expect(AudioServer.get_bus_effect_count(index) == 1, "effect_routed")
 	expect(ResourceSaver.save(AudioServer.generate_bus_layout(), output.path_join("buses.tres")) == OK, "save_bus_layout")
+	var saved := ResourceLoader.load(output.path_join("buses.tres"), "AudioBusLayout", ResourceLoader.CACHE_MODE_IGNORE) as AudioBusLayout
+	expect(saved != null, "bus_layout_cache_ignored_readback")
+	if saved != null:
+		AudioServer.set_bus_layout(saved)
+		index = AudioServer.get_bus_index("ExampleSFX")
+		expect(index > 0 and AudioServer.get_bus_send(index) == "Master" and is_equal_approx(AudioServer.get_bus_volume_db(index), -12.0), "saved_bus_routing_and_volume")
+		expect(AudioServer.get_bus_effect(index, 0) is AudioEffectLimiter, "saved_limiter")
+		AudioServer.set_bus_mute(index, true)
+		expect(AudioServer.is_bus_mute(index), "mute_state")
+		AudioServer.set_bus_mute(index, false)
+		expect(not AudioServer.is_bus_mute(index), "unmute_state")
+	expect(AudioServer.get_bus_index("MissingBus") == -1, "missing_bus_detected_before_routing")
+	await create_timer(0.5).timeout
+	expect(playback_finished and not player.playing, "nonlooping_playback_finishes")
 	player.stop()
 	player.queue_free()
 	AudioServer.set_bus_layout(original)

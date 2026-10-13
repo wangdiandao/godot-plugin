@@ -637,6 +637,61 @@
         "headless"
       ],
       "acceptance": "Extract0.5m displacement; target is unchanged; controller applies once; inactive tree leaves position"
+    },
+    {
+      "id": "performance-example",
+      "project": "../skills/godot-performance/assets/examples/minimal",
+      "script": "../skills/godot-performance/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 45,
+      "skill": "godot-performance",
+      "capability_id": "godot-performance",
+      "conditions": [
+        "Godot 4.7.2 standard",
+        "headless"
+      ],
+      "acceptance": "Behavioral assertions, explicit report, exact expected status, clean log and exit code"
+    },
+    {
+      "id": "rendering-materials-example",
+      "project": "../skills/godot-rendering/assets/examples/materials",
+      "script": "../skills/godot-rendering/assets/examples/materials/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-rendering",
+      "capability_id": "godot-rendering",
+      "conditions": [
+        "Godot4.7.2standard",
+        "headlessCPU resource checks"
+      ],
+      "acceptance": "Material/light/particle resource state and saved scene readback; not appearance"
+    },
+    {
+      "id": "rendering-headless-unavailable",
+      "project": "../skills/godot-rendering/assets/examples/minimal",
+      "script": "../skills/godot-rendering/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-rendering",
+      "capability_id": "godot-rendering",
+      "conditions": [
+        "headless"
+      ],
+      "expect": "unsupported",
+      "reported_status": "unsupported",
+      "acceptance": "Actual headless rejection; do not infer pixel verification"
     }
   ],
   "integration_suites": [

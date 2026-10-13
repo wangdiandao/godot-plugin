@@ -1,39 +1,36 @@
 ---
 name: godot-ui
-description: "Create or modify Godot menus, HUDs, and interactive interfaces, including Control layout, themes, focus, screen adaptation, and localization."
+description: "Develop, modify, and diagnose Godot menus and HUDs, inherited Themes, keyboard/gamepad focus, resolution adaptation, text shaping, and localization."
 ---
 
-# UI and Localization
+# UI, Themes, Input, and Localization
 
 ## Purpose and Scope
 
-UI structure, interaction, themes, and localization. Use the corresponding 2D/3D skill for layouts in game world coordinates.
+Deliver usable screen interfaces and localized interaction. World gameplay geometry belongs to 2D/3D skills; this skill can handle Viewport-based UI when input mapping is part of the task.
 
 ## Prerequisite Checks
 
-Confirm target resolutions, aspect ratios, input devices, languages, and font coverage; inspect existing Themes and UI scenes.
-Read the [execution conventions](../../shared/references/execution.md) before first launching the engine or changing execution modes. The research baseline is Godot 4.7.2; actual capabilities depend on the corresponding version, build, and runtime verification.
+Inspect existing Control/Container hierarchy, Theme scopes, local overrides, input actions, pause modes, target window sizes and locale/font requirements. Distinguish focus from LineEdit editing and translate-message lookup from actual glyph rendering.
+
+Baseline: Godot 4.7 documentation and locally verified Godot 4.7.2. Read [execution conventions](../../shared/references/execution.md) before the first engine launch; confirm the actual project version.
 
 ## Workflow and Key Decisions
 
-1. Use Containers for flow layouts and Control anchors for edge positioning; do not combine Container layout with manually positioned children.
-2. Put shared styles in a Theme and use theme overrides for local exceptions; configure minimum sizes, focus paths, mouse_filter, and processing while paused.
-3. Use Translation/TranslationServer and tr for translation; provide fonts with actual glyph coverage for languages such as Chinese and check redistribution licenses.
-4. Verify event paths through Input.parse_input_event or Viewport input; actually check keyboard focus, button clicks, and different resolutions.
+1. Choose Container flow versus anchored overlays; set logical base size, aspect policy and minimum window size before laying out children.
+2. Follow the relevant native.md recipe for new menus, existing-theme modifications or input/text failures. Use project/parent Themes for shared styling and local overrides for exceptions.
+3. Define initial focus, focus neighbors, mouse filtering and pause processing. Exercise press and release through real input dispatch rather than emitting widget signals.
+4. Translate semantic messages and preserve formatting placeholders; use licensed font fallback stacks and appropriate BiDi/line-breaking language. Handle IME composition and grapheme boundaries for text entry.
+5. Save the scene, Theme and localization preferences separately; reload without cache and test layout, focus and translated text at representative aspect ratios.
 
 ## File Changes, Saving, and Recovery
 
-Save UI scenes, Themes, translation resources, and required project settings; runtime language switching does not imply persistent settings.
-For unresponsive clicks, check occlusion, mouse_filter, and paused processing first. For overflowing text, check container constraints and font coverage rather than simply reducing font size.
-Read the [persistence strategy](../../shared/references/persistence.md) when persisting existing resources; follow the [recovery conventions](../../shared/references/recovery.md) on failure.
+Set scene owners for generated children. Duplicate shared StyleBoxes before local edits. Theme fallback getters can hide missing definitions; verify explicit items and effective child lookup after readback. Remove an override to test inheritance recovery. Preserve the prior locale and scene references when recovering. Use [recovery conventions](../../shared/references/recovery.md) when a failure needs restoration.
 
 ## Acceptance and Delivery
 
-The example creates containers, buttons, a theme, and a translation, verifying layout and language lookup; game tests start gameplay through input events.
-Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
+The minimal example saves and reloads Theme and PackedScene, checks inherited font/style/color, persisted local overrides and removal, then verifies layout, focused button input and translation lookup. This does not prove CJK glyph coverage, screen-reader behavior or layout at every resolution; collect actual rendered/input evidence for those conditions. Deliver changed files, exact commands/version/mode, assertions, artifacts, failures and explicit untested scope. Logs and exit codes must agree with reports.
 
 ## On-Demand References and Examples
 
-- Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
-- Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.
-- Read the [evidence standards](../../shared/references/evidence.md) when maintaining evidence. The capability index is [capabilities.json](../../docs/capabilities.json).
+Read [UI recipes and failure paths](references/native.md) before implementing the selected task; run the [menu example](assets/examples/minimal/project.godot) in a clean copy. Load [persistence conventions](../../shared/references/persistence.md) when editing existing scenes/resources.

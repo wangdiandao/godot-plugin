@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Performance"
+  short_description: "Measure and fix Godot CPU, GPU, and memory costs"
+  default_prompt: "Use $godot-performance to reproduce a frame-time bottleneck and compare an equivalent optimized workload."
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
 interface:
   display_name: "Godot · Audio Systems"
-  short_description: "Configure and verify native Godot audio systems"
-  default_prompt: "Use $godot-audio to add music and sound effect buses with persistent volume settings."
+  short_description: "Build Godot playback, bus mixes, and sound controls"
+  default_prompt: "Use $godot-audio to add sound effect routing and persistent volume controls, then verify playback and saved buses."
 policy:
   allow_implicit_invocation: true

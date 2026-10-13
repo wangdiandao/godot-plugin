@@ -1,39 +1,36 @@
 ---
 name: godot-rendering
-description: "Implement or troubleshoot Godot shaders, material effects, lighting, environments, particles, post-processing, and rendering performance."
+description: "Build, modify, and diagnose Godot rendering, materials, shaders, lights, particles, Viewports, and HDR presentation. Use godot-performance for measured bottleneck optimization."
 ---
 
-# Rendering and Effects
+# Rendering, Materials, and HDR
 
 ## Purpose and Scope
 
-Visual rendering, material shaders, and effect optimization. Keep GPU capabilities and renderer differences explicit in conclusions.
+Deliver the requested appearance and renderer fallback. Covers game-facing rendering APIs; engine CPU allocator and Polygon2D internals are research examples, not script operations.
 
 ## Prerequisite Checks
 
-Inspect rendering_method, the actual rendering device, target platform, and required effects; headless execution cannot establish visual correctness.
-Read the [execution conventions](../../shared/references/execution.md) before first launching the engine or changing execution modes. The research baseline is Godot 4.7.2; actual capabilities depend on the corresponding version, build, and runtime verification.
+Inspect engine/build, active renderer and driver, target platform, imported meshes/textures, material ownership, WorldEnvironment and Viewport configuration. Capture the symptom on the real render path. HDR additionally needs a supported OS/display/driver and physical HDR display; headless runs cannot validate appearance.
+
+Baseline: Godot 4.7 documentation and locally verified Godot 4.7.2. Read [execution conventions](../../shared/references/execution.md) before the first engine launch; confirm the actual project version.
 
 ## Workflow and Key Decisions
 
-1. Choose native materials or ShaderMaterial; do not reimplement a complete shading model when built-in materials suffice.
-2. Configure lights, environment, and particle resources; identify support requirements for Compatibility/Mobile/Forward+.
-3. Render an object using the shader in a real rendering mode, capturing logs and frame images; inspect the visual result even when compilation reports no errors.
-4. Before optimizing, record comparable scenes, resolutions, and metrics; do not draw GPU performance conclusions from headless FPS.
+1. Choose renderer from target capability and required effects; verify effective method/driver after fallback.
+2. Read the relevant material/shader, lighting/particles, Viewport or HDR recipe in native.md. Preserve artistic intent while changing one relevant setting or resource.
+3. Use shared materials for common appearance; duplicate only for instance exceptions or use supported instance uniforms. Check normal/tangent data, color encoding and transparent-pass behavior.
+4. Build an isolated scene that reproduces the desired effect and failure. Apply changes to the requested project, save resources and reload without cache before testing actual pixels.
+5. Diagnose artifacts by renderer, geometry, material, depth, lighting and presentation stage; measure costs with godot-performance when optimization is requested.
 
 ## File Changes, Saving, and Recovery
 
-Save materials, shaders, and environment resources separately; inspect usage before changing shared materials. Write screenshots and measurements to a hidden validation directory.
-Locate shader errors in compilation logs and retest; report GPU limitations instead of silently removing requested effects.
-Read the [persistence strategy](../../shared/references/persistence.md) when persisting existing resources; follow the [recovery conventions](../../shared/references/recovery.md) on failure.
+Record existing material/scene/resource references before edits. Keep imported source assets authoritative and persist editable overrides separately. Check ResourceSaver errors and cache-ignored readback; shared-resource mutations affect all users. Restore the prior material/settings if the retest fails; retain failed captures for diagnosis. Use [recovery conventions](../../shared/references/recovery.md) when a failure needs restoration.
 
 ## Acceptance and Delivery
 
-The example shader renders in a real window, reads back the image, and verifies known colors; headless execution must return unsupported.
-Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
+Require material/parameter readback and rendered evidence at target resolution/backend. The minimal example verifies saved shader parameters, independent material modification and actual changed GPU pixels. Report HDR, stereo, target-device and visual checks as untested until exercised; a screenshot is not HDR calibration. Deliver changed files, exact commands/version/mode, assertions, artifacts, failures and explicit untested scope. Logs and exit codes must agree with reports.
 
 ## On-Demand References and Examples
 
-- Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
-- Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.
-- Read the [evidence standards](../../shared/references/evidence.md) when maintaining evidence. The capability index is [capabilities.json](../../docs/capabilities.json).
+Read [native recipes and diagnostics](references/native.md) for the selected rendering task. Run the [shader example](assets/examples/minimal/project.godot) for actual GPU pixels or the [3D resource example](assets/examples/materials/project.godot) for scene/material readback; use the matching script and explicit output directory. For source contracts and visual limits, use [evidence standards](../../shared/references/evidence.md).

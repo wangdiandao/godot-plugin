@@ -746,6 +746,34 @@
       },
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows"
+    },
+    {
+      "id": "godot-performance",
+      "skill": "skills/godot-performance/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/tutorials/performance/index.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/performance/cpu_optimization.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_renderingserver.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/performance/gpu_optimization.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_performance.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/performance/thread_safe_apis.html"
+      ],
+      "example": "skills/godot-performance/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "performance-example"
+      ],
+      "verification_status": "pending_final_validation",
+      "conditions": "See the Skill prerequisite checks and exact task toolchain.",
+      "tested_scope": [],
+      "documented_not_tested": [
+        "Platforms and devices not explicitly recorded in fresh evidence"
+      ],
+      "evidence": "docs/research/README.md",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ]
     }
   ],
   "limitations": [
