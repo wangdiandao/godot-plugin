@@ -19,7 +19,7 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 1. Use CharacterBody velocity and move_and_slide in _physics_process for characters; use forces, impulses, or official integration callbacks for RigidBody.
 2. Configure both objects' layer/mask and the Area's monitoring; check shape nodes, transforms, and enabled states individually.
 3. Schedule physics queries at a safe point in physics processing and use PhysicsRayQueryParameters; defer structural changes in interaction callbacks when necessary.
-4. Test rest, movement, edges, collisions, and triggers with tolerances and state assertions; do not assume physics is identical frame by frame across platforms.
+4. For failures, follow the ordered diagnosis in recipes.md; change one observed cause, then test repeated success and an excluded interaction. Test rest, movement and collisions with tolerances; do not assume physics is identical frame by frame across platforms.
 
 ## File Changes, Saving, and Recovery
 

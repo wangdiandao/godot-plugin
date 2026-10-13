@@ -25,9 +25,9 @@
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "workflow-example: pack_playable_structure, save_checkpoint, reload_checkpoint, checkpoint_interaction_reloaded",
         "game-2d: initial_menu, menu_keyboard_start, input_moves_physics_body, movement_collects_first_core, audio_stream_configured, win_condition, save_created, save_reloaded, viewport_dimensions, screenshot_saved, restart_input",
-        "game-3d: initial_menu, menu_keyboard_start, input_moves_physics_body, movement_collects_first_core, audio_stream_configured, win_condition, save_created, save_reloaded, viewport_dimensions, screenshot_saved, restart_input"
+        "game-3d: initial_menu, menu_keyboard_start, input_moves_physics_body, movement_collects_first_core, audio_stream_configured, win_condition, save_created, save_reloaded, viewport_dimensions, screenshot_saved, restart_input",
+        "workflow-example: pack_playable_structure, save_checkpoint, reload_checkpoint, checkpoint_interaction_reloaded"
       ],
       "documented_not_tested": [
         "大型完整商业游戏质量",
@@ -110,6 +110,13 @@
         ],
         "tested_version": "4.7.2-stable",
         "tested_platform": "Windows"
+      },
+      "native_workflow_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 15,
+        "observed_cases": [
+          "workflow-example"
+        ]
       }
     },
     {
@@ -178,6 +185,13 @@
         ],
         "tested_version": "4.7.2-stable",
         "tested_platform": "Windows"
+      },
+      "native_workflow_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 15,
+        "observed_cases": [
+          "project-example"
+        ]
       }
     },
     {
@@ -636,7 +650,7 @@
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "physics-example: character_lands_on_floor, collision_prevents_penetration, ray_hits_expected_floor, ray_wrong_mask_has_no_hit, velocity_is_units_per_second, horizontal_movement_retains_floor, trigger_enter_and_exit_once"
+        "physics-example: character_lands_on_floor, collision_prevents_penetration, ray_hits_expected_floor, ray_wrong_mask_has_no_hit, velocity_is_units_per_second, horizontal_movement_retains_floor, trigger_enter_and_exit_once, trigger_wrong_mask_reproduced, trigger_mask_repair_detects_actor, repaired_trigger_exit, repaired_trigger_repeats_without_duplicate_callbacks, trigger_repair_preserves_excluded_layer, trigger_repair_preserves_other_filters"
       ],
       "documented_not_tested": [
         "高速刚体/CCD",
@@ -683,6 +697,13 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "native_workflow_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 15,
+        "observed_cases": [
+          "physics-example"
+        ]
       }
     },
     {
@@ -705,7 +726,7 @@
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "navigation-example: cpu_navigation_bake, save_navigation, navigation_roundtrip, path_crosses_baked_region, path_crosses_two_regions, excluded_region_cannot_reach_target, disabled_region_cannot_reach_target"
+        "navigation-example: cpu_navigation_bake, save_navigation, navigation_roundtrip, path_crosses_baked_region, path_crosses_two_regions, excluded_region_cannot_reach_target, disabled_region_cannot_reach_target, repaired_region_synchronizes_within_budget, repaired_region_reaches_target_0, repair_preserves_excluded_navigation_layer_0, repaired_region_reaches_target_1, repair_preserves_excluded_navigation_layer_1, region_repair_preserves_layer_assignments"
       ],
       "documented_not_tested": [
         "NavigationAgent 避障",
@@ -751,6 +772,13 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "native_workflow_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 15,
+        "observed_cases": [
+          "navigation-example"
+        ]
       }
     },
     {
@@ -775,7 +803,7 @@
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "ui-example: theme_saved, theme_cache_ignored_reload, inherited_font, inherited_font_size, inherited_theme_color, menu_packed, menu_saved, saved_local_override_effective, override_removal_restores_inheritance, saved_inherited_style, focused_button_input_dispatch, container_layout, overlay_stop_blocks_pointer_activation, overlay_ignore_repairs_pointer_activation, translation_lookup"
+        "ui-example: theme_saved, theme_cache_ignored_reload, inherited_font, inherited_font_size, inherited_theme_color, menu_packed, menu_saved, saved_local_override_effective, override_removal_restores_inheritance, saved_inherited_style, focused_button_input_dispatch, container_layout, overlay_stop_blocks_pointer_activation, overlay_ignore_repairs_pointer_activation, repaired_pointer_activation_repeats_0, repaired_pointer_activation_repeats_1, pointer_repair_preserves_style_and_geometry, intentional_modal_blocking_remains_available, translation_lookup"
       ],
       "documented_not_tested": [
         "中文字体渲染覆盖",
@@ -829,6 +857,13 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "native_workflow_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 15,
+        "observed_cases": [
+          "ui-example"
+        ]
       }
     },
     {
@@ -1046,7 +1081,7 @@
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "audio-example: native_pcm_wav_save, wav_saved_state_readback, playback_started, effect_routed, save_bus_layout, bus_layout_cache_ignored_readback, saved_bus_routing_and_volume, saved_limiter, mute_state, unmute_state, missing_bus_detected_before_routing, nonlooping_playback_finishes"
+        "audio-example: native_pcm_wav_save, wav_saved_state_readback, playback_started, effect_routed, save_bus_layout, bus_layout_cache_ignored_readback, saved_bus_routing_and_volume, saved_limiter, mute_state, unmute_state, missing_bus_detected_before_routing, nonlooping_playback_finishes, missing_bus_route_rejected_without_mutation, valid_bus_route_repairs_request, repaired_audio_lifecycle_repeats_0, repaired_audio_lifecycle_repeats_1, audio_route_repair_preserves_mix"
       ],
       "documented_not_tested": [
         "主观听感",
@@ -1097,6 +1132,13 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "native_workflow_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 15,
+        "observed_cases": [
+          "audio-example"
+        ]
       }
     },
     {

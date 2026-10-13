@@ -32,6 +32,16 @@ For fast objects, first reproduce at the actual speed/timestep. Consider ray/swe
 
 ## Diagnose and retest
 
+For a missing trigger, establish 2D/3D and the real backend first. Inspect the actual objects, not their visual meshes:
+
+1. Confirm both participants are in the same physics world, their shapes are enabled, and their world-space bounds intersect during an actual physics step.
+2. Check `body_entered` for PhysicsBody versus `area_entered` for Area. Check `monitoring` on the sensor and `monitorable` on another Area; neither substitutes for the correct signal.
+3. Record the sensor mask and the other object's layer as bitmasks. Change only the incorrect filter; do not enable every layer or convert the body type to make the test pass.
+4. Let physics synchronization complete with a bounded wait. Overlap lists are not updated immediately after transform writes. Exercise a fresh exit and entry after a filter repair instead of assuming an already-overlapping pair must generate a new transition.
+5. Repeat entry/exit twice, count callbacks and verify an unwanted layer stays excluded. Preserve geometry, body layer and unrelated signals. If the observation does not match, report object paths, masks, positions and steps rather than applying a second speculative change.
+
+The bundled 2D fixture reproduces a wrong sensor mask, repairs it, repeats the transition and checks an excluded body. It does not establish 3D backend, CCD or slope parity. [Area2D overlap synchronization](https://docs.godotengine.org/en/4.7/classes/class_area2d.html#class-area2d-method-get-overlapping-bodies).
+
 | Symptom | Check | Cause | Repair | Retest |
 |---|---|---|---|---|
 | Character moves slowly | Velocity assignment and delta use | Velocity multiplied by delta twice | Integrate acceleration only | Measured distance at fixed physics rate |

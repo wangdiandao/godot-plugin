@@ -32,6 +32,12 @@ var playback_finished := false
 func _on_finished() -> void:
 	playback_finished = true
 
+func route_player(player: AudioStreamPlayer, bus_name: String) -> bool:
+	if AudioServer.get_bus_index(bus_name) < 0:
+		return false
+	player.bus = bus_name
+	return true
+
 func _run() -> void:
 	var original := AudioServer.generate_bus_layout()
 	AudioServer.add_bus()
@@ -75,6 +81,15 @@ func _run() -> void:
 	expect(AudioServer.get_bus_index("MissingBus") == -1, "missing_bus_detected_before_routing")
 	await create_timer(0.5).timeout
 	expect(playback_finished and not player.playing, "nonlooping_playback_finishes")
+	var prior_bus := player.bus
+	expect(not route_player(player, "MissingBus") and player.bus == prior_bus, "missing_bus_route_rejected_without_mutation")
+	expect(route_player(player, "ExampleSFX") and player.bus == "ExampleSFX", "valid_bus_route_repairs_request")
+	for cycle in range(2):
+		playback_finished = false
+		player.play()
+		await create_timer(0.5).timeout
+		expect(playback_finished and not player.playing, "repaired_audio_lifecycle_repeats_" + str(cycle))
+	expect(AudioServer.get_bus_send(index) == "Master" and AudioServer.get_bus_effect(index, 0) is AudioEffectLimiter and is_equal_approx(AudioServer.get_bus_volume_db(index), -12.0), "audio_route_repair_preserves_mix")
 	player.stop()
 	player.queue_free()
 	AudioServer.set_bus_layout(original)

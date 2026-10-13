@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "baseline": "4.7.2-stable",
+  "execution_route": "Godot native CLI/GDScript; no new runtime dependency",
+  "stages": [
+    {
+      "issue": 15,
+      "status": "passed",
+      "platform": "Windows",
+      "display": "headless",
+      "source_baseline": "7c465c8ef04cbaf818ce3fdf8aa9c981d5375fc1",
+      "command": "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/verified.log -- --manifest PLUGIN/tests/cases.json --out OUT/verified --case physics-example,navigation-example,ui-example,audio-example,project-example,workflow-example",
+      "observations": [
+        {
+          "test_id": "workflow-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "pack_playable_structure",
+              "status": "passed"
+            },
+            {
+              "name": "save_checkpoint",
+              "status": "passed"
+            },
+            {
+              "name": "reload_checkpoint",
+              "status": "passed"
+            },
+            {
+              "name": "checkpoint_interaction_reloaded",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "project-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "save_project_configuration",
+              "status": "passed"
+            },
+            {
+              "name": "reload_configuration",
+              "status": "passed"
+            },
+            {
+              "name": "input_event_roundtrip",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_input_map",
+              "status": "passed"
+            },
+            {
+              "name": "generated_project_launch",
+              "status": "passed"
+            },
+            {
+              "name": "autoload_and_persistent_input_live",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_probe_action_removed",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "physics-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "character_lands_on_floor",
+              "status": "passed"
+            },
+            {
+              "name": "collision_prevents_penetration",
+              "status": "passed"
+            },
+            {
+              "name": "ray_hits_expected_floor",
+              "status": "passed"
+            },
+            {
+              "name": "ray_wrong_mask_has_no_hit",
+              "status": "passed"
+            },
+            {
+              "name": "velocity_is_units_per_second",
+              "status": "passed"
+            },
+            {
+              "name": "horizontal_movement_retains_floor",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_enter_and_exit_once",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_wrong_mask_reproduced",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_mask_repair_detects_actor",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_trigger_exit",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_trigger_repeats_without_duplicate_callbacks",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_repair_preserves_excluded_layer",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_repair_preserves_other_filters",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "navigation-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "cpu_navigation_bake",
+              "status": "passed"
+            },
+            {
+              "name": "save_navigation",
+              "status": "passed"
+            },
+            {
+              "name": "navigation_roundtrip",
+              "status": "passed"
+            },
+            {
+              "name": "path_crosses_baked_region",
+              "status": "passed"
+            },
+            {
+              "name": "path_crosses_two_regions",
+              "status": "passed"
+            },
+            {
+              "name": "excluded_region_cannot_reach_target",
+              "status": "passed"
+            },
+            {
+              "name": "disabled_region_cannot_reach_target",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_region_synchronizes_within_budget",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_region_reaches_target_0",
+              "status": "passed"
+            },
+            {
+              "name": "repair_preserves_excluded_navigation_layer_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_region_reaches_target_1",
+              "status": "passed"
+            },
+            {
+              "name": "repair_preserves_excluded_navigation_layer_1",
+              "status": "passed"
+            },
+            {
+              "name": "region_repair_preserves_layer_assignments",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "ui-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "theme_saved",
+              "status": "passed"
+            },
+            {
+              "name": "theme_cache_ignored_reload",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_font",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_font_size",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_theme_color",
+              "status": "passed"
+            },
+            {
+              "name": "menu_packed",
+              "status": "passed"
+            },
+            {
+              "name": "menu_saved",
+              "status": "passed"
+            },
+            {
+              "name": "saved_local_override_effective",
+              "status": "passed"
+            },
+            {
+              "name": "override_removal_restores_inheritance",
+              "status": "passed"
+            },
+            {
+              "name": "saved_inherited_style",
+              "status": "passed"
+            },
+            {
+              "name": "focused_button_input_dispatch",
+              "status": "passed"
+            },
+            {
+              "name": "container_layout",
+              "status": "passed"
+            },
+            {
+              "name": "overlay_stop_blocks_pointer_activation",
+              "status": "passed"
+            },
+            {
+              "name": "overlay_ignore_repairs_pointer_activation",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_pointer_activation_repeats_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_pointer_activation_repeats_1",
+              "status": "passed"
+            },
+            {
+              "name": "pointer_repair_preserves_style_and_geometry",
+              "status": "passed"
+            },
+            {
+              "name": "intentional_modal_blocking_remains_available",
+              "status": "passed"
+            },
+            {
+              "name": "translation_lookup",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "audio-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "native_pcm_wav_save",
+              "status": "passed"
+            },
+            {
+              "name": "wav_saved_state_readback",
+              "status": "passed"
+            },
+            {
+              "name": "playback_started",
+              "status": "passed"
+            },
+            {
+              "name": "effect_routed",
+              "status": "passed"
+            },
+            {
+              "name": "save_bus_layout",
+              "status": "passed"
+            },
+            {
+              "name": "bus_layout_cache_ignored_readback",
+              "status": "passed"
+            },
+            {
+              "name": "saved_bus_routing_and_volume",
+              "status": "passed"
+            },
+            {
+              "name": "saved_limiter",
+              "status": "passed"
+            },
+            {
+              "name": "mute_state",
+              "status": "passed"
+            },
+            {
+              "name": "unmute_state",
+              "status": "passed"
+            },
+            {
+              "name": "missing_bus_detected_before_routing",
+              "status": "passed"
+            },
+            {
+              "name": "nonlooping_playback_finishes",
+              "status": "passed"
+            },
+            {
+              "name": "missing_bus_route_rejected_without_mutation",
+              "status": "passed"
+            },
+            {
+              "name": "valid_bus_route_repairs_request",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_audio_lifecycle_repeats_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_audio_lifecycle_repeats_1",
+              "status": "passed"
+            },
+            {
+              "name": "audio_route_repair_preserves_mix",
+              "status": "passed"
+            }
+          ]
+        }
+      ],
+      "initial_failures": [
+        "Relative script/log arguments were rejected; rerun used absolute paths.",
+        "Repairing an overlapping trigger pair generated an additional transition; fixture now separates leave, filter repair and fresh entry. Initial failures are retained under artifacts/native-improvements/stage1."
+      ],
+      "limitations": [
+        "2D physics only; no 3D/CCD/backend parity.",
+        "Navigation graph queries only; no moving-agent avoidance.",
+        "Headless UI dispatch only; no physical pointer/visual accessibility acceptance.",
+        "Audio state/lifecycle only; no device listening or latency.",
+        "No new installed Desktop autoload or other-host routing evidence."
+      ],
+      "self_review": "Passed final self-review: checked one-cause repairs, repeated success, exclusion controls, preserved state and honest headless scope. Six affected cases passed; 1260 structure/schema/link checks passed; git diff --check passed.",
+      "structure": {
+        "status": "passed",
+        "checks": 1260,
+        "schema": "local ignored artifacts/research/plugin.schema.json; not a clean-checkout claim"
+      }
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+- Deepen native trigger, navigation, pointer and audio-route diagnosis with repair/repeat/exclusion checks; clarify project setup and playable-task handoffs (#15).
+- Preserve all 23 skill names and Godot-native CLI/GDScript execution. Fresh evidence is separate from historical validation in docs/native-workflows-validation.json.
+
 ## [0.2.0] - 2026-10-13
 
 Prepared locally; public publication is outside this change.

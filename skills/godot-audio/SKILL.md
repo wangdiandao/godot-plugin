@@ -29,6 +29,8 @@ Do not overwrite source audio while changing importer options; reimport through 
 
 ## Acceptance and Delivery
 
+For missing routing, reject unresolved names without changing the previous route, repair the intended destination and repeat playback/completion while preserving mix settings. Follow the ordered routing diagnosis in native.md.
+
 Require WAV/resource readback, effective bus routing and actual lifecycle assertions. The minimal example tests generated PCM, saved bus volume/send/limiter, mute/unmute, missing-bus detection and nonlooping completion. Report listening, clipping, device latency, microphone permissions and Web sample-effect behavior separately as untested unless exercised. Deliver changed files, exact commands/version/mode, assertions, artifacts, failures and explicit untested scope. Logs and exit codes must agree with reports.
 
 ## On-Demand References and Examples

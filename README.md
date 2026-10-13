@@ -145,6 +145,8 @@ Each Skill has an independently runnable `assets/examples/minimal/` project. Com
 
 ## Limits
 
+Native diagnosis examples exercise fault, repair, repeated success and excluded conditions for triggers, navigation, pointer input and audio routing. See [staged native workflow evidence](docs/native-workflows-validation.json); device/visual and installed-host discovery boundaries remain explicit.
+
 - Headless checks cover logic/resources. Shaders, visuals, and GPU features need real rendering. Audio state checks do not prove listening quality.
 - Godot 4.7.2 has no public GDScript binding for `LightmapGI.bake()`; the plugin does not invent one.
 - Native desktop workflows use the standard editor. Android/iOS require SDKs, signing, and host platforms; `.blend` import requires Blender.

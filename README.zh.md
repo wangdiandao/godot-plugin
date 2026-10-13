@@ -145,6 +145,8 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 
 ## 能力边界
 
+原生诊断案例覆盖触发器、导航、指针输入和音频路由的故障、修复、重复成功及排除条件。见[分段原生工作流证据](docs/native-workflows-validation.json)；设备、视觉和宿主安装后发现的验收范围仍单独记录。
+
 - headless 验证逻辑与资源；Shader、视觉、GPU 功能需要真实渲染进程。声音状态不等于听感验收。
 - 4.7.2 的 `LightmapGI.bake()` 没有 GDScript 公开绑定，插件不提供虚构调用。
 - 标准包支持原生桌面流程；Android/iOS 有必要 SDK、签名和宿主平台要求。`.blend` 导入需要 Blender。

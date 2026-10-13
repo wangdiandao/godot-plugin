@@ -16,6 +16,8 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 ## Develop a complete vertical slice
 
+Use an action/checkpoint table for the actual request: player action, visible/state outcome, responsible scene/system and verification method. Keep visual-only edits in UI/rendering; add gameplay wiring when the requested interaction requires it. At each handoff pass the existing project, acceptance criterion, changed contract and baseline failure to the next domain rather than restarting project discovery.
+
 Translate the request into observable player actions: start, move, interact, complete/fail, restart and persist/restore when requested. Choose minimal gameplay defaults for noncritical omissions and keep the user's genre/platform. Record acceptance per action before building systems. A headless scene graph with a Player node is not a playable game.
 
 Keep the main scene runnable. First implement input→movement→objective→win/loss→restart; then connect HUD, sound and presentation. Route to project, scenes, physics/navigation, UI/rendering, data or export only as that work becomes necessary. Use architecture when contracts or coupled lifetimes become the actual problem. Let gameplay own rules and expose state; presentation sends commands and observes completed facts.

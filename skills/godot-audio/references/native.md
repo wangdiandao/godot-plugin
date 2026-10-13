@@ -84,6 +84,16 @@ Query actual driver/device/rate/latency rather than requested settings. Dummy is
 
 ## Delivery boundaries
 
+### Repair a missing route without changing the mix
+
+1. Record the actual player path, stream, driver/device, requested bus name, bus sends, mute/solo and effects. Distinguish a missing name from an existing silent bus.
+2. Resolve names with `AudioServer.get_bus_index()` before assigning the player. Reject a missing destination while preserving the previous route; fallback to Master can hide the error.
+3. Choose the intended existing bus, or create a bus only when the requested mix requires one. Change routing separately from loudness, effects, source files and listener configuration.
+4. Save/read back authored scene/layout changes. Replay nonlooping start/completion twice and verify the send, effects and volume stayed intact. Preserve the old route on validation failure.
+5. For audible success, use the actual device and bus meters. Dummy/headless lifecycle assertions do not establish hearing, clipping, latency or output quality.
+
+The bundled case rejects a missing route without mutation, accepts an existing destination and repeats playback while retaining its saved mix.
+
 Record rate/channels/import policy, bus sends/effects, lifecycle assertions, actual driver/device and output files. State checks under headless may pass with Dummy while listening remains untested. Never claim microphone, surround, headphones, Web effects or target latency from a resource-only run. Low-frequency DSP APIs remain on-demand in the versioned class reference; do not invent a specialized recipe for every AudioEffect subclass.
 
 

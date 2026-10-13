@@ -130,6 +130,15 @@ func _run() -> void:
 	overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	await click_at(button.get_global_rect().get_center())
 	expect(pressed, "overlay_ignore_repairs_pointer_activation")
+	for cycle in range(2):
+		pressed = false
+		await click_at(button.get_global_rect().get_center())
+		expect(pressed, "repaired_pointer_activation_repeats_" + str(cycle))
+	expect(button.get_theme_color("font_color").is_equal_approx(Color(0.9, 0.3, 0.2)) and overlay.size == Vector2(320, 180), "pointer_repair_preserves_style_and_geometry")
+	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	pressed = false
+	await click_at(button.get_global_rect().get_center())
+	expect(not pressed, "intentional_modal_blocking_remains_available")
 	overlay.queue_free()
 	var translation := Translation.new()
 	translation.locale = "zh_CN"

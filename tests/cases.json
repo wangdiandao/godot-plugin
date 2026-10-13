@@ -161,7 +161,7 @@
         "Godot standard 4.7.2",
         "headless"
       ],
-      "acceptance": "Explicit passed report, no actual error records, exit 0"
+      "acceptance": "Explicit passed report, no actual error records, exit 0. Wrong trigger mask reproduced; fresh-entry repair, repeated callbacks and excluded layer preserved."
     },
     {
       "id": "navigation-example",
@@ -179,7 +179,7 @@
         "Godot standard 4.7.2",
         "headless"
       ],
-      "acceptance": "Explicit passed report, no actual error records, exit 0"
+      "acceptance": "Explicit passed report, no actual error records, exit 0. Disabled-region repair synchronizes, repeated paths reach destination and excluded layer stays unreachable."
     },
     {
       "id": "ui-example",
@@ -197,7 +197,7 @@
         "Godot standard 4.7.2",
         "headless"
       ],
-      "acceptance": "Explicit passed report, no actual error records, exit 0"
+      "acceptance": "Explicit passed report, no actual error records, exit 0. Pointer blocker repaired, repeated activation and intentional modal blocking retain style/geometry."
     },
     {
       "id": "animation-example",
@@ -251,7 +251,7 @@
         "Godot standard 4.7.2",
         "headless"
       ],
-      "acceptance": "Explicit passed report, no actual error records, exit 0"
+      "acceptance": "Explicit passed report, no actual error records, exit 0. Missing route rejected without mutation; valid route and repeated playback retain mix."
     },
     {
       "id": "data-example",
