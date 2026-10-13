@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -45,4 +46,8 @@ func _run() -> void:
 	counter.increment()
 	expect(counter.value == 2 and observed == 2, "async_continuation")
 	expect(counter.changed.is_connected(_on_changed), "connection_not_duplicated")
+	counter.changed.disconnect(_on_changed)
+	counter.increment()
+	expect(counter.value == 3 and observed == 2, "disconnected_listener_not_called")
+	expect(not counter.changed.is_connected(_on_changed), "connection_cleanup")
 	finish()

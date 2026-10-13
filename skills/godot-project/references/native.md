@@ -14,55 +14,30 @@ Create OUT first. In PowerShell, use `& $godot @args`; in POSIX shells, quote ea
 
 Inputs: scripts and native resources in the example. Outputs: generated resources and check reports in OUT; the engine may also generate the example's .godot cache and .uid metadata. Read the script before applying it to your own project; examples do not directly modify existing projects.
 
-## Related APIs
+## Develop a runnable project
 
-- [ProjectSettings](https://docs.godotengine.org/en/4.7/classes/class_projectsettings.html)
-- [InputMap](https://docs.godotengine.org/en/4.7/classes/class_inputmap.html)
-- [InputEventKey](https://docs.godotengine.org/en/4.7/classes/class_inputeventkey.html)
-- [ConfigFile](https://docs.godotengine.org/en/4.7/classes/class_configfile.html)
+Record `GODOT --version` and `--help`; inspect existing `project.godot` before writing. For a new project set `config_version=5`, a name, a real `run/main_scene`, renderer and explicit input actions. Pick Compatibility when its hardware reach and feature set fit; 3D does not automatically require Forward+ and 2D can require advanced rendering. Preserve the user's target and available GPU constraints.
 
-Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
+Author the main scene and an Autoload script before registering their paths. Autoload values beginning `*` instantiate the singleton; ordering matters when one service depends on another. Keep registration names distinct from global script class names. Input dictionaries contain `deadzone` and `events` with real InputEvent resources. Decide logical `keycode` versus layout-independent `physical_keycode` for the requested controls; provide alternatives appropriate to controllers/touch through the input domain.
 
-## Implementation Notes
+Import with `GODOT --headless --path PROJECT --import`, then launch the main scene. A ConfigFile round trip alone does not prove the application can start. The minimal fixture writes a complete generated project, input events and Session Autoload; launch that generated project to check the actual singleton and action map. Confirm the edited file on disk in a fresh engine process.
 
-1. Discover the engine in order: user-specified path, known workspace installations, PATH, and common system installation locations. Prefer the console wrapper on Windows and the executable inside the app bundle on macOS.
-2. For a new project, create a minimal project.godot and choose a main scene. Default to Compatibility for 2D; choose a 3D renderer based on target devices and actual capabilities. Preserve existing project settings.
-3. Persist input actions as InputEvent resources under ProjectSettings input/*; runtime InputMap changes are not saved automatically.
-4. After editing project settings, run --headless --path PROJECT --import. Perform version migration on a copy and check official migration notes and breaking changes.
+## Modify or migrate configuration
 
-## Saving and Validation
+Capture existing configuration and user edits. Change only the settings required by the feature. Runtime `InputMap.add_action()` is useful for a session or a probe; persist `input/action` through project configuration when the action must survive restart. `ProjectSettings.save()` normalizes the file: review its whole diff and avoid casually rewriting an existing hand-maintained project.
 
-Use minimal diffs for project configuration. ProjectSettings.save() normalizes the file, so use it only for controlled new projects or when a complete save is explicitly needed; preserve existing feature tags.
-The new project must import successfully; input mappings must survive save and reload; the main scene and Autoloads must load. Tests must not change global editor settings for the user's project.
+For migration copy the whole source project, preserve `.uid`, importer settings and version evidence, and use official stepwise upgrade guidance. Import using the proposed engine, fix parse/API changes, then compare main-scene startup, Autoload order, physics settings, renderer output and export conditions. Only move the verified changes back after review. Do not use a successful import as proof that rendering, navigation or saved games are compatible.
 
-## Common Pitfalls and Recovery
+## Diagnose startup/configuration
 
-- --quit-after counts main loop iterations, not seconds.
-- Unknown CLI flags may be ignored; check the local --help first.
+| Symptom | Check → cause → fix → retest |
+|---|---|
+| Main scene not found | Check literal path, UID mapping and file case → moved/missing reference → repair only that reference → fresh import and startup. |
+| Action works only this run | Compare InputMap with saved input/* → runtime-only edit → persist InputEvent dictionaries → restart and inspect events. |
+| Autoload absent | Check path, script base, `*`, name conflicts and startup log → invalid registration or parse failure → repair script/registration → main scene asserts service state. |
+| Global class unknown | Inspect parser errors and import cache generation → script not registered or invalid → fix script then native import → load a caller in a fresh process. |
+| Unexpected behavior after upgrade | Compare compatibility/project settings and bindings → changed default → explicitly choose intended setting → representative gameplay plus save reload. |
 
-For missing main scenes, check paths and UIDs; for missing type caches, run native import first. Do not resolve errors by deleting Autoloads or silently upgrading the engine.
+Sources: [ProjectSettings](https://docs.godotengine.org/en/4.7/classes/class_projectsettings.html), [InputMap](https://docs.godotengine.org/en/4.7/classes/class_inputmap.html), [CLI](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html), [upgrading](https://docs.godotengine.org/en/4.7/tutorials/migrating/index.html).
 
-## Official Sources
-
-- [CLI and build types](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html)
-- [Pinned source version](https://github.com/godotengine/godot/tree/4.7.2-stable)
-- The API links above provide interface evidence; use actual examples to validate behavior. A call in source code does not imply a public binding.
-
-
-## Configuration Operations
-
-`project.godot` uses ConfigFile format. A new project must at least set `config_version=5`, application/config/name, application/run/main_scene, and an explicit rendering/renderer/rendering_method. Compatibility must satisfy the requirements; do not silently discard requested effects because hardware lacks Forward+ support.
-
-The following **snippet** belongs inside a SceneTree execution function; run it in an isolated copy of the target project:
-
-```gdscript
-var event := InputEventKey.new()
-event.physical_keycode = KEY_SPACE
-ProjectSettings.set_setting("input/jump", {"deadzone": 0.2, "events": [event]})
-ProjectSettings.set_setting("autoload/Session", "*res://session.gd")
-var error := ProjectSettings.save()
-```
-
-Before saving, confirm that `session.gd` exists and extends Node; `*` enables that Autoload. InputMap is runtime state, and `add_action()` alone does not persist project configuration. Restart after saving to verify that the Autoload is created exactly once and receives input. `ProjectSettings.save_custom(path)` can generate isolated output; still check its Error.
-
-When taking over a project, identify the source version of `.godot`, plugin dependencies, C#, and GDExtension first. This plugin does not automatically convert C# into code runnable by the standard distribution. Before upgrading, isolate a copy of source files and preserve UIDs; never perform irreversible migration on the user's only copy. See the [upgrade guide](https://docs.godotengine.org/en/4.7/tutorials/migrating/index.html) for version migration.
+Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.

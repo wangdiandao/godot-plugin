@@ -14,47 +14,32 @@ Create OUT first. In PowerShell, use `& $godot @args`; in POSIX shells, quote ea
 
 Inputs: scripts and native resources in the example. Outputs: generated resources and check reports in OUT; the engine may also generate the example's .godot cache and .uid metadata. Read the script before applying it to your own project; examples do not directly modify existing projects.
 
-## Related APIs
+## Develop a complete vertical slice
 
-- [ProjectSettings](https://docs.godotengine.org/en/4.7/classes/class_projectsettings.html)
-- [SceneTree](https://docs.godotengine.org/en/4.7/classes/class_scenetree.html)
-- [Input](https://docs.godotengine.org/en/4.7/classes/class_input.html)
-- [PackedScene](https://docs.godotengine.org/en/4.7/classes/class_packedscene.html)
+Translate the request into observable player actions: start, move, interact, complete/fail, restart and persist/restore when requested. Choose minimal gameplay defaults for noncritical omissions and keep the user's genre/platform. Record acceptance per action before building systems. A headless scene graph with a Player node is not a playable game.
 
-Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
+Keep the main scene runnable. First implement input→movement→objective→win/loss→restart; then connect HUD, sound and presentation. Route to project, scenes, physics/navigation, UI/rendering, data or export only as that work becomes necessary. Use architecture when contracts or coupled lifetimes become the actual problem. Let gameplay own rules and expose state; presentation sends commands and observes completed facts.
 
-## Implementation Notes
+Use an isolated checkpoint to prove state transitions, then exercise the actual game. Bundled `game-2d/` and `game-3d/` projects demonstrate playable loops; read their scripts and automated controls before running. They are genre-neutral starter examples, not a requirement to reproduce their art or mechanics. Use screenshots for visual acceptance and actual playback for audio. Export only when the requested platform/toolchain is available, then run the exported application.
 
-1. Extract the core loop, input scheme, win/loss conditions, and observable acceptance criteria from the request; choose simple playable defaults when nonessential preferences are missing.
-2. Deliver a minimal playable slice first, then load project, scene, gameplay, UI, audio, and other domain skills as needed; do not load all skills at once.
-3. Keep a runnable main scene at every stage and connect systems with native resources and signals; complete the core loop before expanding levels and presentation.
-4. Validate interaction, saving, visuals, and exports; map actual behavior, screenshots, and logs to each requirement.
+Copy either whole game directory to GAME and create a fresh OUT, then run `GODOT --headless --path GAME --log-file OUT/engine.log -- --self-test --out OUT`. This asserts start, movement/collision, win, save/readback and keyboard restart; remove `--headless` to also capture the viewport. Headless audio stream configuration does not establish audible output. A restart key handled in `_input()` takes precedence over a focused menu; choose `_unhandled_input()` instead when UI should consume the command. Synthetic input must traverse subsequent frames before testing the result.
 
-## Saving and Validation
+## Modify a feature across systems
 
-Modify project files and domain resources incrementally in existing projects; do not recreate the whole project to fit an example. Examples are validation material, not restrictions on game genres.
-Build the bundled 2D and 3D examples from empty directories. They must support starting, moving, interacting, completing objectives, restarting, saving, and restoring state, then export and launch successfully.
+Record the current loop and known defects. Follow the requested change through input, authoritative state, presentation and persistence. For example, adding a limited jump resource needs command validation, HUD initialization, save migration if persistent and restart reset if transient. Test both exhausted and available states, load old saves, and verify repeated restart does not retain old signal subscribers.
 
-## Common Pitfalls and Recovery
+Ship a minimal coherent slice per checkpoint rather than leaving several disconnected systems half-built. Save/reload authored scenes/resources and inspect actual user flow after each cross-system change. Do not claim a specialist's fixture proves the game's integration: rerun the original main scene and caller paths.
 
-- A startup smoke test alone cannot prove that a game is playable.
-- Each domain has its own acceptance criteria; the number of generated files does not measure completion.
+## Diagnose a broken loop
 
-For regressions across systems, return to the latest runnable state and preserve the current diff for diagnosis; allow at most two evidence-based recovery rounds for the same failure.
+| Symptom | Check → cause → fix → retest |
+|---|---|
+| Input logged but objective unchanged | Trace command result and state → rejected/missing rule transition → repair boundary → valid/invalid action and HUD response. |
+| Restart duplicates scoring/audio | Count persistent listeners and old nodes → teardown omission → disconnect/remove old world → three restarts and effect counts. |
+| Saved checkpoint lacks gameplay | Inspect owner/storage fields → only hierarchy saved → serialize requested state explicitly → mutate then restore actual values. |
+| Headless passes but game unusable | Inspect renderer/input/audio environment → state tests omit presentation → test real window/device → visual and interaction evidence. |
+| Specialist fixture passes, game fails | Follow integration paths/version/settings → contract differs → adapt fixture to real callers → run complete original loop. |
 
-## Official Sources
+The minimal fixture is a persistence checkpoint; it must not be reported as complete gameplay validation. Headless, visual, hearing, export and natural-language host routing are separate evidence categories. Sources: [first 2D game](https://docs.godotengine.org/en/4.7/getting_started/first_2d_game/index.html), [first 3D game](https://docs.godotengine.org/en/4.7/getting_started/first_3d_game/index.html), [best practices](https://docs.godotengine.org/en/4.7/tutorials/best_practices/index.html).
 
-- [CLI and build types](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html)
-- [Pinned source version](https://github.com/godotengine/godot/tree/4.7.2-stable)
-- The API links above provide interface evidence; use actual examples to validate behavior. A call in source code does not imply a public binding.
-
-
-## From Requirements to Delivery
-
-Translate natural-language requirements into observable acceptance criteria first: startup screen, player input, win/loss conditions, restart, sound triggers, data persistence, target resolutions, and delivery platforms. Use replaceable procedural assets when style details are missing; ask only about missing requirements that change scope. Deliver a short playable flow before expanding content.
-
-At each stage, record only concrete inputs/outputs: project directory, changes, commands, result JSON, and prerequisites for the next step. Do not equate "scene generated" with "gameplay runnable". Load relevant domain skills during implementation; before delivery, run parsing, import, behavior, real rendering, and post-export launch checks together.
-
-The bundled `../assets/examples/game-2d/` and `game-3d/` are complete small games with menus, collision-based collection, victory, restart, native PCM sound effects, and versioned JSON saves. Inputs are arrow keys, Enter/Space, and R. Run normally with `GODOT --path GAME`; run automated acceptance with `GODOT --path GAME --log-file OUT/game.log -- --self-test --out OUT`. The latter writes to OUT instead of real player saves. The final two collectibles use test teleportation; the first is triggered through actual input and physics movement. Do not describe this test as a manual playthrough.
-
-In the source delivery, `tests/integration/desktop.gd` runs import, Windows export, exported self-tests, and Web builds from clean copies. Examples in the install package do not depend on this test directory.
+Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.

@@ -38,7 +38,13 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneTree.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PackedScene.xml"
-      ]
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      }
     },
     {
       "id": "godot-project",
@@ -73,7 +79,13 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/InputMap.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/InputEventKey.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ConfigFile.xml"
-      ]
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      }
     },
     {
       "id": "godot-api",
@@ -104,7 +116,13 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ClassDB.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Engine.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Object.xml"
-      ]
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      }
     },
     {
       "id": "godot-gdscript",
@@ -137,7 +155,13 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Signal.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Resource.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Object.xml"
-      ]
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      }
     },
     {
       "id": "godot-scenes",
@@ -175,7 +199,13 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceSaver.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceLoader.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Node.xml"
-      ]
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      }
     },
     {
       "id": "godot-assets",
@@ -553,7 +583,13 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/JSON.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ConfigFile.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Resource.xml"
-      ]
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      }
     },
     {
       "id": "godot-multiplayer",
@@ -675,6 +711,41 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/zip/doc_classes/ZIPReader.xml",
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/HTTPRequest.xml"
       ]
+    },
+    {
+      "id": "godot-architecture",
+      "skill": "skills/godot-architecture/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_node.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/best_practices/scene_organization.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/singletons_autoload.html"
+      ],
+      "example": "skills/godot-architecture/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "architecture-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "See the Skill prerequisite checks and exact task toolchain.",
+      "tested_scope": [
+        "Composition lifecycle, validated commands, signal teardown and saved scene readback"
+      ],
+      "documented_not_tested": [
+        "Platforms and devices not explicitly recorded in fresh evidence"
+      ],
+      "evidence": "docs/research/foundation-implementation.md",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
+      ],
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/research/foundation-implementation.md",
+        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
+        "scope": "Named behavioral assertions only; see report for untested target environments"
+      },
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows"
     }
   ],
   "limitations": [
@@ -703,5 +774,6 @@
       "status": "not_run",
       "description": "18×3 触发请求已人工评审；尚未在安装后的宿主模型中测量自动选择准确率。"
     }
-  ]
+  ],
+  "documentation_commit": "9adca4c1c72917bfe1b7be3108abed5ce26696a6"
 }

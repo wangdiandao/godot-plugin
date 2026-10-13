@@ -14,48 +14,36 @@ Create OUT first. In PowerShell, use `& $godot @args`; in POSIX shells, quote ea
 
 Inputs: scripts and native resources in the example. Outputs: generated resources and check reports in OUT; the engine may also generate the example's .godot cache and .uid metadata. Read the script before applying it to your own project; examples do not directly modify existing projects.
 
-## Related APIs
+## Develop strict versioned saves
 
-- [FileAccess](https://docs.godotengine.org/en/4.7/classes/class_fileaccess.html)
-- [DirAccess](https://docs.godotengine.org/en/4.7/classes/class_diraccess.html)
-- [JSON](https://docs.godotengine.org/en/4.7/classes/class_json.html)
-- [ConfigFile](https://docs.godotengine.org/en/4.7/classes/class_configfile.html)
-- [Resource](https://docs.godotengine.org/en/4.7/classes/class_resource.html)
+Write runtime player data beneath `user://`; keep source-authored definitions in `res://`. Define required fields, types, finite/integral numeric ranges and a schema version. JSON numbers may parse as float: accept a score only when finite, integral and within its supported bound before casting. A valid JSON value can still be the wrong schema; distinguish parse error, invalid shape, unsupported version, missing file and read/write failure.
 
-Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
+Implement ordered migration functions v1→v2→v3, validate each output and migrate in memory. Never overwrite a future-version save with defaults. Preserve corruption evidence and try a known valid backup only after it passes the same schema checks; identify recovery to the player/caller so it cannot silently erase progress. If both fail, return an explicit recovery-required result.
 
-## Implementation Notes
+The minimal case exercises old-version migration, fractional/negative/NaN and future schema rejection, staged write/readback, deliberate corruption, validated backup recovery, write failure and pre-commit conflict detection. It writes only to OUT. It models a single writer and does not claim power-loss atomicity or a process-safe lock.
 
-1. Prefer custom Resources for static game configuration, ConfigFile for user settings, and explicitly verifiable JSON or binary structures for player saves.
-2. Save player data to user://; validate the top-level type, version, required fields, and numeric ranges when reading, and return distinct errors.
-3. Write and flush a temporary file, validate the new data, then replace the target; preserve the original and diagnostic temporary file if a platform rename fails.
-4. Write explicit migrations for existing versions and migrate in memory before saving; preserve unknown newer versions rather than overwriting them with defaults.
+## Modify the save schema or commit sequence
 
-## Saving and Validation
+Capture the original content/hash. Construct new valid data, write a unique same-directory temporary file, flush/close and reparse it. Before committing compare the target against the expected original hash; abort on changed content. Preserve the old target as a validated backup, then rename staged data into place and verify readback. Check every rename result. If commit fails, restore only when the target is still absent/owned by this operation; preserve both versions if another writer intervened. Hash checking alone is not an atomic cross-process compare-and-swap: use one save owner or a platform-tested locking design.
 
-Separate user data from res:// configuration resources. Recovery applies only to this operation's writes; clearly report backups and conflicts with concurrent changes.
-The example round-trips a valid save and rejects corrupt JSON; tests cover old-version migration, unknown newer versions, and write failures.
+Do not interpret `flush()` as a guarantee covering directory metadata, multiple files or every hardware failure. For multiple related files use a documented commit record or a single envelope and test interrupted transitions. Use ConfigFile for independent settings when its Variant format is appropriate. Avoid full-object deserialization for untrusted saves.
 
-## Common Pitfalls and Recovery
+## Authored Resource recipe
 
-- JSON numbers may load as float; validate or convert them according to the data contract before use.
-- ResourceLoader executes project script initialization; do not load arbitrary external save files as trusted Resources.
+Define default-constructible exported Resource fields, instantiate/load trusted definitions, and select shallow/internal/all duplication according to mutable ownership. The `resources/` fixture covers external versus internal duplication, repeated alias preservation, collection independence, saved readback and scene-local meshes; copy that whole directory and run its `example.gd` using the invocation above. This is a current runtime rerun of the researched behavior, not merely a reference to an old probe.
 
-A missing file may initialize default state; preserve and report corrupt files rather than treating them as new players. Do not erase old saves when writing fails.
+Normalize Windows external Resource save paths to forward slashes before saving: backslashes can survive into a text resource reference and be interpreted incorrectly on reload. The portable fixture normalizes OUT and fails explicitly when the saved root cannot load.
 
-## Official Sources
+## Diagnose data faults
 
-- [CLI and build types](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html)
-- [Pinned source version](https://github.com/godotengine/godot/tree/4.7.2-stable)
-- The API links above provide interface evidence; use actual examples to validate behavior. A call in source code does not imply a public binding.
+| Symptom | Check → cause → fix → retest |
+|---|---|
+| Save parses but progress is invalid | Validate fields/number bounds → malformed schema or truncation → reject before migration → fractional, negative and missing-field fixtures. |
+| Future save reset to defaults | Inspect version dispatch → unsupported version collapsed into missing → preserve file and report unsupported → compare bytes before/after load. |
+| Corrupt target with valid backup | Validate both independently → interrupted/corrupt target → recover explicitly from backup → verify recovered score and preserve corrupt evidence. |
+| Target changes during save | Compare expected fingerprint before commit → external/concurrent write → abort preserving both → inject changed target before commit. |
+| Mutable config leaks between actors | Inspect Resource identities → external shared data → move runtime state or choose duplication mode → mutate one clone and reload disk definition. |
 
+Sources: [saving games](https://docs.godotengine.org/en/4.7/tutorials/io/saving_games.html), [JSON](https://docs.godotengine.org/en/4.7/classes/class_json.html), [FileAccess](https://docs.godotengine.org/en/4.7/classes/class_fileaccess.html), [DirAccess](https://docs.godotengine.org/en/4.7/classes/class_diraccess.html), [Resource](https://docs.godotengine.org/en/4.7/classes/class_resource.html).
 
-## Save File Contract
-
-Use user:// for writable runtime data and res:// for read-only game content. Include an explicit version in the file structure. JSON.parse_string returns Variant: validate Dictionary, required keys, types, and ranges before stepwise migration. Stop writing and preserve the original for unknown future versions; retain a copy of corrupt files instead of overwriting them with empty defaults.
-
-Safe write order: construct valid data → create a unique temporary file in the same directory → flush/close → reparse and validate → compare the target's pre-change hash → back up the old file → commit with rename. On failure, restore only this operation's backup; if an external change altered the target, report the conflict and preserve both versions. A single rename does not make multiple files transactional; use an explicit commit record and recovery strategy.
-
-ConfigFile suits settings and supports Godot Variants; JSON suits explicit basic-type interchange. Do not deserialize untrusted objects into executable resources with `str_to_var` or full-object deserialization. Local encryption does not make sensitive data an authoritative anti-cheat source.
-
-The minimal example covers v1→v2 migration and malformed structures; complete games additionally verify writing and readback. These are small demonstrations; concurrent cross-process writes, large saves, and power-loss recovery require further tests for the specific format. Sources: [Saving games](https://docs.godotengine.org/en/4.7/tutorials/io/saving_games.html), [FileAccess](https://docs.godotengine.org/en/4.7/classes/class_fileaccess.html).
+Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.

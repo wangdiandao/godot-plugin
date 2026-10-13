@@ -2,7 +2,7 @@
 
 [English](README.md) | **简体中文**
 
-面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：18 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 游戏的创建、内容制作、诊断、测试与导出。
+面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：19 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 游戏的创建、内容制作、诊断、测试与导出。
 
 运行需要所选 Agent、**Godot 标准编辑器发行版和操作系统自带能力**。插件不新增 MCP Server、Godot 编辑器插件、Python 或 Node 运行依赖；Agent 本身的安装要求仍然适用。Context7 仅用于作者研究，不是用户运行依赖。
 
@@ -46,7 +46,7 @@ codex plugin list --marketplace godot-native-local --json
 claude --plugin-dir "C:\Tools\godot-plugin"
 ```
 
-`.claude-plugin/plugin.json` 标识插件，Claude Code 自动发现 `skills/` 下的 18 个 Skills。使用 `/godot-plugin:godot-workflow`、`/godot-plugin:godot-physics` 或自然语言发起任务。
+`.claude-plugin/plugin.json` 标识插件，Claude Code 自动发现 `skills/` 下的 19 个 Skills。使用 `/godot-plugin:godot-workflow`、`/godot-plugin:godot-physics` 或自然语言发起任务。
 
 支持 Skills 目录内插件的当前版本，也可将**完整解压后的安装目录**复制到 `~/.claude/skills/godot-plugin`，新会话中自动加载。保留内部清单与共享目录。通过 `/plugin` 检查加载错误；旧客户端可每次使用 `--plugin-dir` 启动。参见[本地开发说明](https://code.claude.com/docs/en/plugin-marketplaces)和[清单规范](https://code.claude.com/docs/en/plugins-reference)。
 
@@ -121,6 +121,7 @@ gemini --include-directories "$env:USERPROFILE\.gemini\extensions\godot-plugin"
 | [godot-multiplayer](skills/godot-multiplayer/SKILL.md) | 原生联机、RPC、生成与复制 |
 | [godot-validation](skills/godot-validation/SKILL.md) | 解析、行为、输入、截图与性能诊断 |
 | [godot-export](skills/godot-export/SKILL.md) | 官方模板、预设、构建与产物验证 |
+| [godot-architecture](skills/godot-architecture/SKILL.md) | 模块契约、组件组合、生命周期与信号 |
 
 Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的要求。
 

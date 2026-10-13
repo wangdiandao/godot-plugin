@@ -1,6 +1,6 @@
 interface:
-  display_name: "Godot · Data and Save Files"
-  short_description: "Implement and verify Godot data storage and save migration"
-  default_prompt: "Use $godot-data to implement versioned save files with backward compatibility."
+  display_name: "Godot · Data and Save Recovery"
+  short_description: "Validate saves, migrate schemas and recover backups"
+  default_prompt: "Use $godot-data to develop, modify and diagnose a practical data task in my Godot project."
 policy:
   allow_implicit_invocation: true

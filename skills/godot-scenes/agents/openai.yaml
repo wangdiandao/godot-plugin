@@ -1,6 +1,6 @@
 interface:
-  display_name: "Godot · Scenes and Resources"
-  short_description: "Create, save, and verify Godot scenes and resources"
-  default_prompt: "Use $godot-scenes to add a child scene with collision to an existing scene and persist its signals."
+  display_name: "Godot · Scenes and Resource Persistence"
+  short_description: "Persist scene ownership and resource contracts"
+  default_prompt: "Use $godot-scenes to develop, modify and diagnose a practical scenes task in my Godot project."
 policy:
   allow_implicit_invocation: true

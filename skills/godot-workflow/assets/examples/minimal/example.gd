@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -34,11 +35,21 @@ func _run() -> void:
 	player.name = "Player"
 	world.add_child(player)
 	player.owner = world
+	var action := Button.new()
+	action.name = "Complete"
+	world.add_child(action)
+	action.owner = world
+	action.pressed.connect(player.hide, CONNECT_PERSIST)
 	var packed := PackedScene.new()
 	expect(packed.pack(world) == OK, "pack_playable_structure")
 	var path := output.path_join("game.tscn")
 	expect(ResourceSaver.save(packed, path) == OK, "save_checkpoint")
 	var reloaded := ResourceLoader.load(path, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE) as PackedScene
-	expect(reloaded != null and reloaded.get_state().get_node_count() == 2, "reload_checkpoint")
+	expect(reloaded != null and reloaded.get_state().get_node_count() == 3, "reload_checkpoint")
+	if reloaded != null:
+		var checkpoint := reloaded.instantiate()
+		(checkpoint.get_node("Complete") as Button).pressed.emit()
+		expect(not (checkpoint.get_node("Player") as CharacterBody2D).visible, "checkpoint_interaction_reloaded")
+		checkpoint.free()
 	world.free()
 	finish()
