@@ -636,6 +636,15 @@
       "status": "passed",
       "raw_report": "artifacts/package-candidate4/package-report.json",
       "scope": "native ZIP creation, all packaged file hashes read back; final dist is rebuilt after summary-only edits"
+    },
+    "native_workflows_0.2.1": {
+      "date": "2026-10-13",
+      "status": "passed",
+      "report": "docs/native-workflows-validation.json",
+      "native_cases": 10,
+      "native_assertions": 159,
+      "browser": "Windows Chrome: actual pointer, Enter and saved count restored after reload",
+      "scope": "No other-browser, threaded/PWA, audio or installed-host discovery claim"
     }
   }
 }

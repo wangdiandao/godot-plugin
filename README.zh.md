@@ -10,7 +10,7 @@
 
 ## 安装
 
-当前版本为 **0.2.0**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
+当前版本为 **0.2.1**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
 
 本地安装使用 `git clone https://github.com/wangdiandao/godot-plugin.git`，再按下方宿主说明操作。复制目录时使用干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
@@ -149,11 +149,13 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 
 现有 UI skill 还提供[原生本地化流程](skills/godot-ui/references/localization.md)和独立冷启动翻译目录案例。目录、格式和语言刷新检查与字体、布局质量分别验收。
 
+[Web 验收](skills/godot-export/references/web.md)使用 Godot TCPServer 实现的临时回环 HTTP 工具和真实导出游戏，不增加 MCP、编辑器桥接、Python 或 Node 运行依赖。
+
 - headless 验证逻辑与资源；Shader、视觉、GPU 功能需要真实渲染进程。声音状态不等于听感验收。
 - 4.7.2 的 `LightmapGI.bake()` 没有 GDScript 公开绑定，插件不提供虚构调用。
 - 标准包支持原生桌面流程；Android/iOS 有必要 SDK、签名和宿主平台要求。`.blend` 导入需要 Blender。
 - 原生内容自动化不能保证任意复杂美术素材、商业游戏质量或所有平台功能自动完成。
-- 既有引擎行为证据来自 Windows；Web 只验证构建。Linux/macOS、移动端、公网联机与跨宿主模型语义触发尚未实测；本次新增检查见宿主兼容说明。
+- 既有引擎行为证据来自 Windows；原生 Web 案例还已验证真实 Chrome 鼠标/键盘输入和刷新后存档恢复。其他浏览器、线程/PWA 变体、Linux/macOS、移动端、公网联机和安装后宿主隐式触发仍未实测，见分段证据。
 
 ## 维护和交付
 

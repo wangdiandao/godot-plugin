@@ -10,7 +10,7 @@ The engine baseline is **Godot 4.7.2 stable**, checked on 2026-10-11 against the
 
 ## Installation
 
-Install version **0.2.0** from the repository marketplace or a clean source checkout. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
+Install version **0.2.1** from the repository marketplace or a clean source checkout. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
 
 For local installation, use `git clone https://github.com/wangdiandao/godot-plugin.git`, then follow the host-specific steps below. Use a clean checkout for directory copies; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
 
@@ -149,11 +149,13 @@ Native diagnosis examples exercise fault, repair, repeated success and excluded 
 
 The existing UI skill also includes a [native localization workflow](skills/godot-ui/references/localization.md) and a standalone cold-start catalog example. Catalog, formatting and language-refresh checks are distinct from font/layout quality.
 
+[Web acceptance](skills/godot-export/references/web.md) uses a temporary loopback HTTP helper implemented with Godot TCPServer and a real exported game. It adds no MCP, editor bridge, Python or Node runtime dependency.
+
 - Headless checks cover logic/resources. Shaders, visuals, and GPU features need real rendering. Audio state checks do not prove listening quality.
 - Godot 4.7.2 has no public GDScript binding for `LightmapGI.bake()`; the plugin does not invent one.
 - Native desktop workflows use the standard editor. Android/iOS require SDKs, signing, and host platforms; `.blend` import requires Blender.
 - Native content automation does not guarantee arbitrary artwork, commercial game quality, or every platform feature.
-- Existing engine behavior evidence is from Windows. Web was checked for build output only. Linux/macOS, mobile, public networking, and model-driven skill routing across hosts remain untested; see the compatibility notes for this change's actual checks.
+- Existing engine behavior evidence is from Windows. The native Web fixture also passes actual Chrome pointer/keyboard input and save restoration after reload. Other browsers, threaded/PWA variants, Linux/macOS, mobile, public networking and installed-host implicit routing remain untested; see the staged evidence.
 
 ## Contributing and distribution
 

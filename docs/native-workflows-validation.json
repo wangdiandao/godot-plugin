@@ -578,6 +578,1002 @@
         "checks": 1277,
         "schema": "local ignored schema; not a clean-checkout claim"
       }
+    },
+    {
+      "issue": 17,
+      "status": "passed",
+      "platform": "Windows",
+      "display": "headless server; real Chrome WebGL canvas",
+      "command": "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/final-suite.log -- --manifest PLUGIN/tests/cases.json --out OUT/final-suite --case physics-example,navigation-example,ui-example,audio-example,project-example,workflow-example,ui-localization,web-server,export-example,performance-example",
+      "observations": [
+        {
+          "test_id": "workflow-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "pack_playable_structure",
+              "status": "passed"
+            },
+            {
+              "name": "save_checkpoint",
+              "status": "passed"
+            },
+            {
+              "name": "reload_checkpoint",
+              "status": "passed"
+            },
+            {
+              "name": "checkpoint_interaction_reloaded",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "project-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "save_project_configuration",
+              "status": "passed"
+            },
+            {
+              "name": "reload_configuration",
+              "status": "passed"
+            },
+            {
+              "name": "input_event_roundtrip",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_input_map",
+              "status": "passed"
+            },
+            {
+              "name": "generated_project_launch",
+              "status": "passed"
+            },
+            {
+              "name": "autoload_and_persistent_input_live",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_probe_action_removed",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "physics-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "character_lands_on_floor",
+              "status": "passed"
+            },
+            {
+              "name": "collision_prevents_penetration",
+              "status": "passed"
+            },
+            {
+              "name": "ray_hits_expected_floor",
+              "status": "passed"
+            },
+            {
+              "name": "ray_wrong_mask_has_no_hit",
+              "status": "passed"
+            },
+            {
+              "name": "velocity_is_units_per_second",
+              "status": "passed"
+            },
+            {
+              "name": "horizontal_movement_retains_floor",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_enter_and_exit_once",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_wrong_mask_reproduced",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_mask_repair_detects_actor",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_trigger_exit",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_trigger_repeats_without_duplicate_callbacks",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_repair_preserves_excluded_layer",
+              "status": "passed"
+            },
+            {
+              "name": "trigger_repair_preserves_other_filters",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "navigation-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "cpu_navigation_bake",
+              "status": "passed"
+            },
+            {
+              "name": "save_navigation",
+              "status": "passed"
+            },
+            {
+              "name": "navigation_roundtrip",
+              "status": "passed"
+            },
+            {
+              "name": "path_crosses_baked_region",
+              "status": "passed"
+            },
+            {
+              "name": "path_crosses_two_regions",
+              "status": "passed"
+            },
+            {
+              "name": "excluded_region_cannot_reach_target",
+              "status": "passed"
+            },
+            {
+              "name": "disabled_region_cannot_reach_target",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_region_synchronizes_within_budget",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_region_reaches_target_0",
+              "status": "passed"
+            },
+            {
+              "name": "repair_preserves_excluded_navigation_layer_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_region_reaches_target_1",
+              "status": "passed"
+            },
+            {
+              "name": "repair_preserves_excluded_navigation_layer_1",
+              "status": "passed"
+            },
+            {
+              "name": "region_repair_preserves_layer_assignments",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "ui-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "theme_saved",
+              "status": "passed"
+            },
+            {
+              "name": "theme_cache_ignored_reload",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_font",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_font_size",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_theme_color",
+              "status": "passed"
+            },
+            {
+              "name": "menu_packed",
+              "status": "passed"
+            },
+            {
+              "name": "menu_saved",
+              "status": "passed"
+            },
+            {
+              "name": "saved_local_override_effective",
+              "status": "passed"
+            },
+            {
+              "name": "override_removal_restores_inheritance",
+              "status": "passed"
+            },
+            {
+              "name": "saved_inherited_style",
+              "status": "passed"
+            },
+            {
+              "name": "focused_button_input_dispatch",
+              "status": "passed"
+            },
+            {
+              "name": "container_layout",
+              "status": "passed"
+            },
+            {
+              "name": "overlay_stop_blocks_pointer_activation",
+              "status": "passed"
+            },
+            {
+              "name": "overlay_ignore_repairs_pointer_activation",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_pointer_activation_repeats_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_pointer_activation_repeats_1",
+              "status": "passed"
+            },
+            {
+              "name": "pointer_repair_preserves_style_and_geometry",
+              "status": "passed"
+            },
+            {
+              "name": "intentional_modal_blocking_remains_available",
+              "status": "passed"
+            },
+            {
+              "name": "translation_lookup",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "audio-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "native_pcm_wav_save",
+              "status": "passed"
+            },
+            {
+              "name": "wav_saved_state_readback",
+              "status": "passed"
+            },
+            {
+              "name": "playback_started",
+              "status": "passed"
+            },
+            {
+              "name": "effect_routed",
+              "status": "passed"
+            },
+            {
+              "name": "save_bus_layout",
+              "status": "passed"
+            },
+            {
+              "name": "bus_layout_cache_ignored_readback",
+              "status": "passed"
+            },
+            {
+              "name": "saved_bus_routing_and_volume",
+              "status": "passed"
+            },
+            {
+              "name": "saved_limiter",
+              "status": "passed"
+            },
+            {
+              "name": "mute_state",
+              "status": "passed"
+            },
+            {
+              "name": "unmute_state",
+              "status": "passed"
+            },
+            {
+              "name": "missing_bus_detected_before_routing",
+              "status": "passed"
+            },
+            {
+              "name": "nonlooping_playback_finishes",
+              "status": "passed"
+            },
+            {
+              "name": "missing_bus_route_rejected_without_mutation",
+              "status": "passed"
+            },
+            {
+              "name": "valid_bus_route_repairs_request",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_audio_lifecycle_repeats_0",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_audio_lifecycle_repeats_1",
+              "status": "passed"
+            },
+            {
+              "name": "audio_route_repair_preserves_mix",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "export-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "preset_serialization",
+              "status": "passed"
+            },
+            {
+              "name": "preset_readback",
+              "status": "passed"
+            },
+            {
+              "name": "preset_platform",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "performance-example",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "fixed_scene_actor_count",
+              "status": "passed"
+            },
+            {
+              "name": "invalid_query_guard",
+              "status": "passed"
+            },
+            {
+              "name": "invalid_calls_rejected",
+              "status": "passed"
+            },
+            {
+              "name": "equivalent_radius_0.0",
+              "status": "passed"
+            },
+            {
+              "name": "equivalent_radius_1.0",
+              "status": "passed"
+            },
+            {
+              "name": "equivalent_radius_30.0",
+              "status": "passed"
+            },
+            {
+              "name": "equivalent_radius_100.0",
+              "status": "passed"
+            },
+            {
+              "name": "modified_data_equivalence",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_0",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_1",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_2",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_3",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_4",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_5",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_6",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_7",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_8",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_9",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_10",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_11",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_12",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_13",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_14",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_15",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_16",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_17",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_18",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_19",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_20",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_21",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_22",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_23",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_24",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_25",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_26",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_27",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_28",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_29",
+              "status": "passed"
+            },
+            {
+              "name": "sample_equivalence_30",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "ui-localization",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "name": "public_bindings_available",
+              "status": "passed"
+            },
+            {
+              "name": "cold_start_loads_configured_catalogs",
+              "status": "passed"
+            },
+            {
+              "name": "po_loaded_by_native_resource_loader",
+              "status": "passed"
+            },
+            {
+              "name": "catalog_required_keys_and_named_placeholders",
+              "status": "passed"
+            },
+            {
+              "name": "catalog_saved",
+              "status": "passed"
+            },
+            {
+              "name": "uncached_catalog_preserves_context",
+              "status": "passed"
+            },
+            {
+              "name": "uncached_catalog_preserves_plural_forms",
+              "status": "passed"
+            },
+            {
+              "name": "initial_label_uses_english",
+              "status": "passed"
+            },
+            {
+              "name": "locale_notification_refreshes_existing_ui",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_context_disambiguation",
+              "status": "passed"
+            },
+            {
+              "name": "runtime_pluralization",
+              "status": "passed"
+            },
+            {
+              "name": "named_placeholder_formatting",
+              "status": "passed"
+            },
+            {
+              "name": "missing_key_fallback_does_not_prove_completeness",
+              "status": "passed"
+            },
+            {
+              "name": "unsupported_locale_uses_configured_fallback",
+              "status": "passed"
+            },
+            {
+              "name": "audit_detects_missing_entry_without_fallback",
+              "status": "passed"
+            },
+            {
+              "name": "audit_detects_changed_placeholder",
+              "status": "passed"
+            },
+            {
+              "name": "repair_keeps_original_catalog_intact",
+              "status": "passed"
+            },
+            {
+              "name": "negative_controls_preserve_source_file_hash",
+              "status": "passed"
+            },
+            {
+              "name": "pseudolocalization_changes_text",
+              "status": "passed"
+            },
+            {
+              "name": "pseudolocalization_preserves_printf_placeholder",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_es_20",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_en_21",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_es_22",
+              "status": "passed"
+            },
+            {
+              "name": "repeated_locale_switch_en_23",
+              "status": "passed"
+            }
+          ]
+        },
+        {
+          "test_id": "web-server",
+          "actual": "passed",
+          "exit_code": 0,
+          "errors": [],
+          "assertions": [
+            {
+              "detail": "",
+              "name": "fixture_directory",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "loopback_server_listens_on_allocated_port",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "index_served",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "isolation_mime_and_no_cache_headers",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "binary_stream_preserves_all_bytes",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "head_has_length_without_body",
+              "passed": true
+            },
+            {
+              "detail": {
+                "code": 403.0,
+                "decoded": "/../outside.json",
+                "target": "/../outside.json"
+              },
+              "name": "path_escape_rejected_6",
+              "passed": true
+            },
+            {
+              "detail": {
+                "code": 403.0,
+                "decoded": "/2e2e2foutside.json",
+                "target": "/%2e%2e%2foutside.json"
+              },
+              "name": "path_escape_rejected_7",
+              "passed": true
+            },
+            {
+              "detail": {
+                "code": 403.0,
+                "decoded": "/%2e%2e%2foutside.json",
+                "target": "/%252e%252e%252foutside.json"
+              },
+              "name": "path_escape_rejected_8",
+              "passed": true
+            },
+            {
+              "detail": {
+                "code": 403.0,
+                "decoded": "/2e2e5coutside.json",
+                "target": "/%2e%2e%5coutside.json"
+              },
+              "name": "path_escape_rejected_9",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "missing_artifact_is_404",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "foreign_host_rejected",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "write_method_rejected",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "oversized_header_rejected",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "normal_requests_work_after_rejections",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "listener_and_clients_stopped",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "missing_export_root_rejected",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "lifetime_output_created",
+              "passed": true
+            },
+            {
+              "detail": {
+                "log": "PLUGIN/artifacts/native-improvements/final-suite/1791889590-294-9724/web-server/lifetime/engine.log",
+                "report": {
+                  "checks": [
+                    {
+                      "name": "loopback_server_completed_bounded_lifetime",
+                      "status": "passed"
+                    }
+                  ],
+                  "engine": {
+                    "build": "official",
+                    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+                    "hex": 263938.0,
+                    "major": 4.0,
+                    "minor": 7.0,
+                    "patch": 2.0,
+                    "status": "stable",
+                    "string": "4.7.2-stable (official)",
+                    "timestamp": 0.0
+                  },
+                  "limitations": [
+                    "HTTP serving alone does not prove browser gameplay, storage, audio or performance acceptance."
+                  ],
+                  "operation": "bounded_web_serving",
+                  "responses": {},
+                  "schema_version": 1.0,
+                  "status": "passed"
+                },
+                "timed_out": false
+              },
+              "name": "cli_server_exits_after_bounded_lifetime",
+              "passed": true
+            },
+            {
+              "detail": "",
+              "name": "cli_result_persisted",
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "web_export": {
+        "version": "4.7.2.stable",
+        "template": "web_nothreads_release.zip",
+        "template_sha256": "d3ee2f08cef0cf3cf6678a6355a92a8db48ccdd35cbd2e8bfd5f0e8a0b4032a0",
+        "commands": [
+          "GODOT --headless --path EXAMPLE --import --log-file OUT/import-unrestricted.log",
+          "GODOT --headless --path EXAMPLE --export-release Web BUILD/index.html --log-file OUT/export.log"
+        ],
+        "import_exit_code": 0,
+        "export_exit_code": 0,
+        "engine_error_records": [],
+        "artifacts": [
+          {
+            "name": "index.audio.position.worklet.js",
+            "bytes": 2973,
+            "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+          },
+          {
+            "name": "index.audio.worklet.js",
+            "bytes": 7298,
+            "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+          },
+          {
+            "name": "index.html",
+            "bytes": 5310,
+            "sha256": "3274641269032242df001451ebac9143197ef63450c2f4db60c4ac53c8c5f86c"
+          },
+          {
+            "name": "index.js",
+            "bytes": 279815,
+            "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+          },
+          {
+            "name": "index.pck",
+            "bytes": 4888,
+            "sha256": "388d46a2c35dd2f46bb3400d90ba895b7a8e1c478f9534f023428cecec568e4e"
+          },
+          {
+            "name": "index.png",
+            "bytes": 21443,
+            "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+          },
+          {
+            "name": "index.wasm",
+            "bytes": 39514754,
+            "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+          }
+        ]
+      },
+      "browser": {
+        "browser": "Chrome; exact version not queried",
+        "origin": "http://127.0.0.1:8080/",
+        "steps": [
+          "Rendered startup count 0, restored 0, saves 0",
+          "Actual pointer button press -> count 1",
+          "Actual Enter on focused canvas/button -> count 2",
+          "Same-origin browser reload -> count 2, restored 2, session saves 0"
+        ],
+        "native_states": [
+          {
+            "count": 0,
+            "engine": "4.7.2-stable (official)",
+            "error": "",
+            "persistent_storage_available": true,
+            "platform": "Web",
+            "ready": true,
+            "ready_since_start_usec": 39535,
+            "restored_count": 0,
+            "saves_this_session": 0
+          },
+          {
+            "count": 1,
+            "engine": "4.7.2-stable (official)",
+            "error": "",
+            "persistent_storage_available": true,
+            "platform": "Web",
+            "ready": true,
+            "ready_since_start_usec": 18509610,
+            "restored_count": 0,
+            "saves_this_session": 1
+          },
+          {
+            "count": 2,
+            "engine": "4.7.2-stable (official)",
+            "error": "",
+            "persistent_storage_available": true,
+            "platform": "Web",
+            "ready": true,
+            "ready_since_start_usec": 34821360,
+            "restored_count": 0,
+            "saves_this_session": 2
+          },
+          {
+            "count": 2,
+            "engine": "4.7.2-stable (official)",
+            "error": "",
+            "persistent_storage_available": true,
+            "platform": "Web",
+            "ready": true,
+            "ready_since_start_usec": 40780,
+            "restored_count": 2,
+            "saves_this_session": 0
+          }
+        ],
+        "errors_and_warnings": [],
+        "screenshot": {
+          "workspace_artifact": "artifacts/native-improvements/stage3/browser-reloaded.jpg",
+          "sha256": "ce3844fac16dd91c30e4f3e91d905c9f6372eaa1cb5b7ed0fc128d0c0791bbb8"
+        }
+      },
+      "server": {
+        "binding": "127.0.0.1 only",
+        "lifetime_seconds": 300,
+        "exit_code": 0,
+        "report": {
+          "checks": [
+            {
+              "name": "loopback_server_completed_bounded_lifetime",
+              "status": "passed"
+            }
+          ],
+          "engine": {
+            "build": "official",
+            "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+            "hex": 263938,
+            "major": 4,
+            "minor": 7,
+            "patch": 2,
+            "status": "stable",
+            "string": "4.7.2-stable (official)",
+            "timestamp": 0
+          },
+          "limitations": [
+            "HTTP serving alone does not prove browser gameplay, storage, audio or performance acceptance."
+          ],
+          "operation": "bounded_web_serving",
+          "responses": {
+            "200": 14,
+            "404": 1
+          },
+          "schema_version": 1,
+          "status": "passed"
+        }
+      },
+      "initial_failures": [
+        "Initial compile errors corrected with explicit types and Script resource-path access.",
+        "Restricted loopback requests timed out; unrestricted attempt exposed reads after TCP close, which were corrected.",
+        "Lowercase URI escapes decoded inconsistently on the baseline; helper rejects all percent escapes and nested paths.",
+        "Restricted import returned zero with a user-directory error; rerun with normal editor access passed. Initial failed logs retained in task artifacts."
+      ],
+      "limitations": [
+        "Chrome on Windows nonthreaded fixture only; browser version not queried.",
+        "No threaded/extension/PWA/offline/mobile/other-browser/audio/accessibility acceptance.",
+        "No browser performance improvement or download-to-interactive claim; script readiness timers are not browser load timings.",
+        "HTTP helper supports flat plain filenames only and is not a production server.",
+        "No new installed-host skill autoload evidence."
+      ],
+      "self_review": "Passed final author self-review: checked bounded loopback serving, flat allowlist/link/Host/method/path guards, partial TCP I/O, native lifetime tests, actual browser input and durable reload, source/installed relocation, synchronized manifests and honest platform/performance/host-autoload limits. Fixed compile/TCP/URI issues; failed runs retained separately.",
+      "package_candidate": {
+        "status": "passed",
+        "checks": 1612,
+        "archives": [
+          {
+            "name": "godot-plugin-0.2.1.zip",
+            "sha256": "32a66a84fba4a399ab9cd7a891f4526dd3ba08790117e29f4d846b5321c7ca7b",
+            "files": 212
+          },
+          {
+            "name": "godot-plugin-0.2.1-source.zip",
+            "sha256": "dcd76bb980e05b265f262afacc61da0a5570cb0c427ec1b04a3e11dceebdcd8f",
+            "files": 237
+          }
+        ],
+        "excluded": [
+          "AGENTS.md",
+          "artifacts",
+          "dist",
+          ".godot",
+          ".git",
+          "__pycache__"
+        ]
+      },
+      "relocation": {
+        "source_cases": 10,
+        "source_assertions": 159,
+        "source_exit_code": 0,
+        "source_engine_errors": [],
+        "source_structure_checks": 1297,
+        "installed_localization_assertions": 24,
+        "installed_localization_exit_code": 0,
+        "installed_server_exit_code": 0,
+        "installed_server_checks": [
+          {
+            "name": "loopback_server_completed_bounded_lifetime",
+            "status": "passed"
+          }
+        ],
+        "scope": "Candidate archives tested. Final archive runtime files must match these tested files; only documentation/evidence changes afterward."
+      },
+      "structure": {
+        "status": "passed",
+        "checks": 1298,
+        "command": "python -X utf8 tests/validate_structure.py --root PLUGIN --schema PLUGIN/artifacts/research/plugin.schema.json --report OUT/structure-delivery.json",
+        "schema": "Local ignored authoring schema; not a clean-checkout claim"
+      }
     }
-  ]
+  ],
+  "version": "0.2.1"
 }

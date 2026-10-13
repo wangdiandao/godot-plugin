@@ -1536,14 +1536,18 @@
         "export-example",
         "desktop_integration",
         "failure_contracts",
-        "native_download"
+        "native_download",
+        "web-server",
+        "web_browser_acceptance"
       ],
       "verification_status": "tested",
       "conditions": "确认引擎版本、目标系统/架构、渲染器和匹配模板；检查现有 export_presets.cfg 与保密凭据。",
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "export-example: preset_serialization, preset_readback, preset_platform"
+        "export-example: preset_serialization, preset_readback, preset_platform",
+        "web-server: native binary/headers/HEAD/rejection/lifetime checks",
+        "web_browser_acceptance: actual Chrome pointer and Enter increments, same-origin reload restores count 2"
       ],
       "documented_not_tested": [
         "Web 浏览器运行",
@@ -1556,7 +1560,8 @@
         "https://github.com/godotengine/godot/blob/4.7.2-stable/editor/export/editor_export.cpp#L378"
       ],
       "recipe_references": [
-        "skills/godot-export/references/native.md"
+        "skills/godot-export/references/native.md",
+        "skills/godot-export/references/web.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -1588,6 +1593,14 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "web_acceptance_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 17,
+        "observed_cases": [
+          "web-server",
+          "web_browser_acceptance"
+        ]
       }
     },
     {

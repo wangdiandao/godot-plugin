@@ -52,9 +52,15 @@ Every `skills/` and `shared/` archive member matches the bytes of the previous p
 Documentation was checked on 2026-10-12, using Context7 and the official sources. Context7 is not installed by the plugin.
 
 
-## 0.2.0 current work (2026-10-13)
+## 0.2.0 recorded work (2026-10-13)
 
 All five host manifests identify0.2.0 and discover the actual23Skill inventory. Previous0.1.1 and unpublished snapshot checks above are historical. Current subagent semantic routing and native representative tasks are recorded in [task evaluation](research/task-evaluation.md); they do not certify installed-host implicit autoload. Conditional C#/GDExtension prerequisites do not become dependencies for ordinary GDScript tasks. Current package and relocation evidence is recorded separately with this delivery; no public release is created.
 
 
 Current local0.2.0 checks: Claude strict manifest validation passed. Installation/source archive member exclusions and SHA256 readback passed; relocated source structure/schema/local-links passed1247 checks and13 research unit tests. Relocated installation architecture passed16 assertions; relocated source seven selected cases, including actual normal-editor transactions, passed expected results. Native compiled release moved from zero cache through documented bootstrap/import/runtime with13 assertions. These are current runs, separate from historical host-discovery checks above. Codex CLI0.142.5 was identified; no new installed-host autoload result is inferred.
+
+## 0.2.1 native workflow update (2026-10-13)
+
+All five host manifests identify 0.2.1 and retain the same 23 skills; the marketplace identity/source remain unchanged. Fresh evidence is in [native workflow validation](native-workflows-validation.json). Ten affected native cases passed 159 assertions on Windows Godot 4.7.2, and the same cases passed after source-archive relocation. The installation archive localization example passed 24 assertions and its native HTTP helper completed its bounded lifetime. Actual Chrome nonthreaded Web pointer/keyboard interaction and saved-count restoration after reload passed.
+
+These checks do not certify newly installed Desktop implicit autoload, other hosts, other browsers/platforms, threaded/PWA builds, audio or performance improvement. The optional loopback HTTP test process exits explicitly and introduces no MCP/editor bridge or Python/Node runtime dependency. Historical 0.2.0/0.1.1 records above remain separate. Local ZIPs are offline copies, with no tag or GitHub Release publication.
