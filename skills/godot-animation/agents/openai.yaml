@@ -1,6 +1,6 @@
 interface:
   display_name: "Godot · Animation Systems"
-  short_description: "Build and verify Godot animation systems"
-  default_prompt: "Use $godot-animation to blend between idle and walking with AnimationTree."
+  short_description: "Build and diagnose Godot clips, blends and root motion"
+  default_prompt: "Use $godot-animation to persist an animation library and verify reloaded playback plus root-motion extraction without double movement."
 policy:
   allow_implicit_invocation: true

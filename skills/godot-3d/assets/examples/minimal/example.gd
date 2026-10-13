@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -41,6 +42,20 @@ func _run() -> void:
 	camera.rotation_degrees.x = -30
 	world.add_child(camera)
 	camera.owner = world
+	var light := DirectionalLight3D.new()
+	light.name = "Sun"
+	light.rotation_degrees = Vector3(-45, -30, 0)
+	world.add_child(light)
+	light.owner = world
+	# A sibling shares mesh data until an explicit independent edit.
+	var sibling := MeshInstance3D.new()
+	sibling.name = "IndependentBox"
+	sibling.mesh = mesh.mesh.duplicate() as Mesh
+	(sibling.mesh as BoxMesh).size = Vector3(2, 1, 1)
+	sibling.position = Vector3(3, 0, 0)
+	world.add_child(sibling)
+	sibling.owner = world
+	expect((mesh.mesh as BoxMesh).size == Vector3.ONE, "independent_mesh_edit_preserves_original")
 	var scene := PackedScene.new()
 	expect(scene.pack(world) == OK, "pack_mesh_and_camera")
 	var path := output.path_join("world.tscn")
@@ -48,6 +63,8 @@ func _run() -> void:
 	var loaded := (ResourceLoader.load(path, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE) as PackedScene).instantiate()
 	expect((loaded.get_node("Box") as MeshInstance3D).mesh is BoxMesh, "native_mesh_roundtrip")
 	expect((loaded.get_node("Camera") as Camera3D).position.z == 5, "camera_roundtrip")
+	expect(loaded.get_node("Sun") is DirectionalLight3D, "light_roundtrip")
+	expect((loaded.get_node("IndependentBox") as MeshInstance3D).mesh.get_aabb().size.x == 2, "independent_size_roundtrip")
 	loaded.free()
 	world.free()
 	finish()

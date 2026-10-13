@@ -59,3 +59,8 @@ Generate PNGs natively with Image.create/fill/save_png. RGBA8 quantizes colors: 
 Automatic `.blend` import requires external Blender, outside the default Godot-only dependencies; do not pretend conversion is available when Blender is not installed. Prefer user-provided GLB/glTF or replaceable content made with Godot's native meshes. Report missing source files rather than fabricating source assets from caches. Successful texture loading does not prove correct materials, skeletons, or appearance; those require validation in their respective domains.
 
 References: [Import process](https://docs.godotengine.org/en/4.7/tutorials/assets_pipeline/import_process.html), [Importing 3D scenes](https://docs.godotengine.org/en/4.7/tutorials/assets_pipeline/importing_3d_scenes/index.html).
+
+
+## Task recipes
+
+Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.

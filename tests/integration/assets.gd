@@ -42,5 +42,18 @@ func _run() -> void:
 	restored.close()
 	await execute("repair_import", OS.get_executable_path(), ["--headless", "--path", project, "--import"])
 	await execute("repaired_texture", OS.get_executable_path(), ["--headless", "--path", project, "--script", project.path_join("check.gd"), "--", "64"], true)
+	# Exercise real model import/reimport with owned glTF CPU geometry.
+	var model_checker := FileAccess.open(project.path_join("check_model.gd"), FileAccess.WRITE)
+	model_checker.store_string('extends SceneTree\nfunc _initialize() -> void:\n\tvar scene := load("res://model.gltf") as PackedScene\n\tif scene == null:\n\t\tquit(1)\n\t\treturn\n\tvar instance := scene.instantiate()\n\tvar meshes := instance.find_children("*", "MeshInstance3D", true, false)\n\tvar expected := float(OS.get_cmdline_user_args()[0])\n\tvar ok := meshes.size() == 1 and is_equal_approx(meshes[0].mesh.get_aabb().size.x, expected)\n\tprint("GODOT_PLUGIN_RESULT:" + JSON.stringify({"status": "passed" if ok else "failed", "mesh_count": meshes.size()}))\n\tinstance.free()\n\tquit(0 if ok else 1)\n')
+	model_checker.close()
+	for width: float in [1.0, 2.0]:
+		var positions := PackedFloat32Array([0, 0, 0, width, 0, 0, 0, 1, 0]).to_byte_array()
+		var model := {"asset": {"version": "2.0"}, "buffers": [{"byteLength": positions.size(), "uri": "data:application/octet-stream;base64," + Marshalls.raw_to_base64(positions)}], "bufferViews": [{"buffer": 0, "byteOffset": 0, "byteLength": positions.size(), "target": 34962}], "accessors": [{"bufferView": 0, "componentType": 5126, "count": 3, "type": "VEC3", "min": [0, 0, 0], "max": [width, 1, 0]}], "meshes": [{"primitives": [{"attributes": {"POSITION": 0}}]}], "nodes": [{"mesh": 0, "name": "Triangle"}], "scenes": [{"nodes": [0]}], "scene": 0}
+		var model_file := FileAccess.open(project.path_join("model.gltf"), FileAccess.WRITE)
+		model_file.store_string(JSON.stringify(model))
+		model_file.close()
+		await execute("model_import_" + str(width), OS.get_executable_path(), ["--headless", "--path", project, "--import"])
+		await execute("model_dimensions_" + str(width), OS.get_executable_path(), ["--headless", "--path", project, "--script", project.path_join("check_model.gd"), "--", str(width)], true)
+	Common.check(result, "model_import_metadata", FileAccess.file_exists(project.path_join("model.gltf.import")))
 	Common.check(result, "unrelated_file_preserved", FileAccess.get_sha256(project.path_join("keep.txt")) == hash_before)
 	Common.finish(self, result, output.path_join("report.json"))

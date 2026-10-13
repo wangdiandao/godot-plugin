@@ -34,6 +34,8 @@ Report the actual engine and execution mode, changed files, verified behaviors, 
 
 ## On-Demand References and Examples
 
+- Read [complete task recipes and diagnostic paths](references/recipes.md) for developing, modifying or repairing this domain; choose the recipe matching the requested behavior.
+
 - Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
 - Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.
 - Read the [evidence standards](../../shared/references/evidence.md) when maintaining evidence. The capability index is [capabilities.json](../../docs/capabilities.json).

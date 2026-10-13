@@ -58,3 +58,8 @@ Area body_entered and area_entered refer to different types. Check monitoring, m
 In physics frames, cast rays with `get_world_2d().direct_space_state.intersect_ray(PhysicsRayQueryParameters2D.create(from, to, mask))`; use the corresponding 3D types for 3D. Set exclude to filter out the querying object. If the result is an empty Dictionary, check coordinate spaces and masks, then collision resources, rather than weakening assertions first.
 
 Acceptance must at least cover resting on the floor, continuous movement, boundaries/obstacles, repeated triggers, and restart. Test fast-moving bodies at actual speeds/time steps; enabling CCD alone does not prove all tunneling is solved.
+
+
+## Task recipes
+
+Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.

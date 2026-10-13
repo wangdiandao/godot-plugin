@@ -29,10 +29,12 @@ Read the [persistence strategy](../../shared/references/persistence.md) when per
 
 ## Acceptance and Delivery
 
-The example creates a floor and body in a physics world and verifies resting height or contact after actual simulation steps; game tests cover movement input and interaction.
+The example creates a floor and body in a physics world and verifies resting height or contact after actual simulation steps; it also measures movement, verifies an expected ray hit and wrong-mask miss, and checks one trigger enter/exit pair.
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples
+
+- Read [complete task recipes and diagnostic paths](references/recipes.md) for developing, modifying or repairing this domain; choose the recipe matching the requested behavior.
 
 - Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
 - Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.

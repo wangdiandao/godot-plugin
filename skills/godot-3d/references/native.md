@@ -68,3 +68,8 @@ if error == OK:
 ```
 
 References: [GLTFDocument](https://docs.godotengine.org/en/4.7/classes/class_gltfdocument.html), [SurfaceTool](https://docs.godotengine.org/en/4.7/classes/class_surfacetool.html).
+
+
+## Task recipes
+
+Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.

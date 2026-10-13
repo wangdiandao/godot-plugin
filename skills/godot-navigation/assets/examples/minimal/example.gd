@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -56,4 +57,45 @@ func _run() -> void:
 	expect(route.size() >= 2 and route[0].distance_to(route[-1]) > 9.0, "path_crosses_baked_region")
 	NavigationServer3D.free_rid(region)
 	NavigationServer3D.free_rid(map)
+	# Exact shared edges isolate region connectivity from bake erosion.
+	var joined_map := NavigationServer3D.map_create()
+	NavigationServer3D.map_set_active(joined_map, true)
+	var left_mesh := rectangle_mesh(-10.0, 0.0)
+	var right_mesh := rectangle_mesh(0.0, 10.0)
+	var left := NavigationServer3D.region_create()
+	var right := NavigationServer3D.region_create()
+	NavigationServer3D.region_set_map(left, joined_map)
+	NavigationServer3D.region_set_map(right, joined_map)
+	NavigationServer3D.region_set_navigation_mesh(left, left_mesh)
+	NavigationServer3D.region_set_navigation_mesh(right, right_mesh)
+	NavigationServer3D.region_set_navigation_layers(left, 1)
+	NavigationServer3D.region_set_navigation_layers(right, 2)
+	for i in range(120):
+		await physics_frame
+		if NavigationServer3D.map_get_iteration_id(joined_map) > 0 and NavigationServer3D.map_get_closest_point_owner(joined_map, Vector3(-5, 0, 0)) == left and NavigationServer3D.map_get_closest_point_owner(joined_map, Vector3(5, 0, 0)) == right:
+			break
+	var start := Vector3(-5, 0, 0)
+	var destination := Vector3(5, 0, 0)
+	var connected := NavigationServer3D.map_get_path(joined_map, start, destination, true, 3)
+	print("Cross-region path: ", connected)
+	expect(connected.size() >= 2 and connected[-1].distance_to(destination) < 0.1, "path_crosses_two_regions")
+	var excluded := NavigationServer3D.map_get_path(joined_map, start, destination, true, 1)
+	expect(excluded.is_empty() or excluded[-1].distance_to(destination) > 1.0, "excluded_region_cannot_reach_target")
+	var iteration := NavigationServer3D.map_get_iteration_id(joined_map)
+	NavigationServer3D.region_set_enabled(right, false)
+	for i in range(120):
+		await physics_frame
+		if NavigationServer3D.map_get_iteration_id(joined_map) != iteration and NavigationServer3D.map_get_closest_point_owner(joined_map, destination) != right:
+			break
+	var disconnected := NavigationServer3D.map_get_path(joined_map, start, destination, true, 3)
+	expect(disconnected.is_empty() or disconnected[-1].distance_to(destination) > 1.0, "disabled_region_cannot_reach_target")
+	NavigationServer3D.free_rid(left)
+	NavigationServer3D.free_rid(right)
+	NavigationServer3D.free_rid(joined_map)
 	finish()
+
+func rectangle_mesh(from_x: float, to_x: float) -> NavigationMesh:
+	var result := NavigationMesh.new()
+	result.vertices = PackedVector3Array([Vector3(from_x, 0, -5), Vector3(to_x, 0, -5), Vector3(to_x, 0, 5), Vector3(from_x, 0, 5)])
+	result.add_polygon(PackedInt32Array([0, 1, 2, 3]))
+	return result
