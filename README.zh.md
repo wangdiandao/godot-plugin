@@ -10,9 +10,9 @@
 
 ## 安装
 
-本次版本为 **0.2.0**，提供本地生成的安装/源码 ZIP 与源码 checkout；公开发布不属于本次工作。已有 [Releases](https://github.com/wangdiandao/godot-plugin/releases) 保留历史版本，不代表已包含23个 Skill。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
+当前版本为 **0.2.0**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
 
-对应版本的发布 ZIP 尚未上传时，可使用干净源码：`git clone https://github.com/wangdiandao/godot-plugin.git`，对该目录执行相同安装步骤。需要复制目录时，使用安装 ZIP 或干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
+本地安装使用 `git clone https://github.com/wangdiandao/godot-plugin.git`，再按下方宿主说明操作。复制目录时使用干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
 以下 PowerShell 示例假设插件解压到 `C:\Tools\godot-plugin`，请替换为实际绝对路径。macOS/Linux 使用对应路径和 shell 命令。Agent 应更新到支持所述插件机制的版本，Godot 安装在实际执行命令的机器上。
 
@@ -155,7 +155,7 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 
 贡献前阅读[贡献指南](CONTRIBUTING.md)：先提或关联 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
 
-安装包包含全部宿主清单、中英文 README、CHANGELOG、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。已有发布标签和附件保持不变，本次0.2.0仅本地交付，不创建公开发布。
+安装包包含全部宿主清单、中英文 README、CHANGELOG、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。本地归档仅用于可选的离线复制；本插件不通过 GitHub Releases 分发。
 
 阅读[扩展规范](docs/authoring.md)、[研究依据](docs/research.md)、[验证报告](docs/validation.md)和 [Godot 基线官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。
 
