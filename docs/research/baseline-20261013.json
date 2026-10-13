@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-13",
+  "scope": "existing baseline only; no new Skill acceptance",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "initial": {
+    "status": "failed",
+    "checks": 32,
+    "failed": [
+      "rendering-example",
+      "multiplayer-example",
+      "game-2d",
+      "game-3d",
+      "capture-real"
+    ]
+  },
+  "unrestricted_retry": {
+    "status": "passed",
+    "cases": [
+      "rendering-example",
+      "multiplayer-example",
+      "game-2d",
+      "game-3d",
+      "capture-real"
+    ]
+  },
+  "historical_results_modified": false
+}

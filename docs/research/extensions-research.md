@@ -1,0 +1,32 @@
+# Language and editor extension research
+
+Research date: 2026-10-12. Documentation snapshot: `godotengine/godot-docs`, branch `4.7`, commit `9adca4c1c72917bfe1b7be3108abed5ce26696a6`. This initial note records the pages actually read; it does not establish whole-documentation completion or runtime validation.
+
+Context7 resolved **Godot Engine** to `/godotengine/godot-docs/__branch__4.7` (official, high reputation). Three separate queries covered C# prerequisites, C++ extension setup, and editor plugin lifecycle. Returned master snippets were treated as leads and checked against the local 4.7 snapshot. Context7 is a research aid, never an installed runtime requirement.
+
+## Pages read and actionable decisions
+
+| Page | Original finding and implementation consequence | Intended skill |
+|---|---|---|
+| [C# basics](https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/c_sharp_basics.html) | Check both SDK and .NET Godot; standard Godot cannot execute C#. Rebuild assemblies after exports, signals, or tool changes. Match attached class and filename, use partial Godot classes, and copy-modify-reassign value-type properties. Prefer generated MethodName/SignalName values for dynamic calls. Distinguish managed profiling from native engine profiling and measure interop before changing languages. | godot-csharp |
+| [C#/.NET index](https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/index.html) | Desktop exports are supported; Android/iOS are experimental. iOS export requires macOS and official simulator templates have an x64 limitation. Web is unavailable for Godot 4 C#; route a required Web target to a language/platform decision before implementation. | godot-csharp, godot-export |
+| [C# signals](https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/c_sharp_signals.html) | Custom delegates end in EventHandler, emit with EmitSignal, and accept Variant-compatible arguments. Capturing lambdas and custom-event subscriptions can survive receiver disposal: retain delegates and disconnect on exit. Use Connect for cross-language signals or connection flags, and exercise emitter-survives-receiver behavior in tests. | godot-csharp |
+| [C++ getting started](https://docs.godotengine.org/en/4.7/tutorials/scripting/cpp/gdextension_cpp_example.html) | Pin godot-cpp for the target API; compile debug and release separately. Export an unmangled initialization entry point and register scene classes at scene initialization. Bind script-callable methods before using Callables; property registration requires correctly bound getters/setters. Demonstrate a real method/property/signal call, not just DLL existence. | godot-gdextension |
+| [About godot-cpp](https://docs.godotengine.org/en/4.7/tutorials/scripting/cpp/about_godot_cpp.html) | Choose GDExtension for separately distributable native functionality; engine modules require rebuilt engine/templates and remain outside promised execution. Earlier-minor targeting generally supports later engines, excluding 4.0 to 4.1 transition. Precision must match. Custom engine builds need their own API JSON; preserve its provenance alongside build parameters. | godot-gdextension |
+| [The .gdextension file](https://docs.godotengine.org/en/4.7/engine_details/engine_api/gdextension/gdextension_file.html) | Library feature keys match all tags and are evaluated in order, so place specific matches before generic ones. Use relative paths for movable packages. Check entry symbol, version bounds, platform, architecture, precision, build target and dependent libraries when loading fails. Export dependent DLLs explicitly; macOS dependencies require Frameworks placement. | godot-gdextension, godot-export |
+| [Making plugins](https://docs.godotengine.org/en/4.7/tutorials/plugins/editor/making_plugins.html) | Current 4.7 dock recipe wraps the Control in EditorDock and uses add_dock/remove_dock. Balance allocation and removal in tree callbacks. Add/remove project autoloads in enable/disable callbacks. Helper instances need tool scripts. Build C# plugins before enabling. Verify disable/re-enable does not leave duplicate UI or connections. | godot-editor-tools |
+| [Running code in the editor](https://docs.godotengine.org/en/4.7/tutorials/plugins/running_code_in_the_editor.html) | Separate preview and runtime work using editor-hint checks; inherited scripts still need tool annotation. Resource property mutations require changed emission and balanced replacement subscriptions. Use UndoRedo for editor transactions; direct scripts require explicit unsaved marking. Set edited-root owner for persisted new nodes and avoid modifying internal children of instantiated scenes. | godot-editor-tools, godot-scenes, godot-data |
+
+All eight entries above were read in full: first three web articles through overlapping full-page windows and remaining material through local reStructuredText; truncated local output was revisited. Images were recognized as illustrations, not runtime validation. Further page review will be recorded separately against the assigned inventory.
+
+## Local prerequisite observations
+
+Read-only commands executed: `Get-Command dotnet, scons, cl, clang, g++, godot, godot-mono`, `dotnet --list-sdks`, `g++ --version`, `python -m scons --version`, and local Godot binary inventory.
+
+- .NET SDK **10.0.300** is installed. This establishes SDK availability only; no Godot C# project was restored or built.
+- MSYS2 UCRT64 **g++ 15.1.0** is installed. Compiler presence does not establish ABI-compatible godot-cpp compilation.
+- SCons is absent from PATH and the inspected Python has no scons module. cl/clang were absent from PATH; this is not a search of every developer shell.
+- Repository tooling contains the standard **Godot 4.7.2** Windows executables and standard export templates. No Mono/.NET Godot was found in PATH, repository tooling, or `E:/godot-devtool`; other locations remain unsearched.
+- C# execution needs a matching .NET Godot editor and package restore. GDExtension builds need pinned godot-cpp plus SCons (or the separately documented supported build route). Editor plugin execution is potentially available with the standard editor, but headless resource checks alone do not prove actual editor lifecycle.
+
+No execution capability is marked tested by this research. Do not follow documentation cache-deletion suggestions by removing a user's `.godot` or global NuGet configuration: diagnose versions, restore sources and logged failure first, then reproduce in an isolated copy.
