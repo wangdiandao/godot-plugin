@@ -1,5 +1,7 @@
 # 编写与扩展规范
 
+[文档首页](README.zh.md) · [开发指南](development.zh.md) · [测试策略](testing.zh.md)
+
 ## 分层职责
 
 `SKILL.md` 是任务入口，保留完成工作必需的决策和验收条件；`references/` 承载实际 API、平台差异和长示例。`assets/examples/` 是能独立复制运行的完整项目。专用 `scripts/` 只在存在重复而领域特有的操作时增加，不创建空目录。

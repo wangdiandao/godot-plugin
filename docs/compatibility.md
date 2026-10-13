@@ -1,5 +1,9 @@
 # Host compatibility
 
+[Documentation](README.md) · [Getting started](getting-started.md) · [Evidence index](evidence.md)
+
+This file preserves versioned compatibility history. The opening 0.1.1 section describes the inventory at that time; use the [current Skill catalog](skill-catalog.md) and [evidence index](evidence.md) for the 23-Skill package and later validation batches.
+
 Version 0.1.1 adds native packaging for Claude Code, Cursor, and Gemini CLI alongside Codex Desktop/CLI. All hosts share the same 18 `skills/<name>/SKILL.md` files, GDScript helpers, examples, and relative references. No adapter server or new runtime is introduced. Codex Desktop can add the GitHub marketplace directly from its Plugins page; CLI registration is an alternative.
 
 | Host | Manifest and discovery | Installation |

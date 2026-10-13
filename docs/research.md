@@ -1,5 +1,7 @@
 # 研究基线与技术选择
 
+[文档首页](README.zh.md) · [架构](architecture.zh.md) · [研究与验证证据](evidence.zh.md)
+
 核对日期：2026-10-11。基线为 **4.7.2-stable**，官方构建提交 `ed1daf0bf001b61586d9930840f2f1394092c079`。发行信息来自[官方 release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)及[官方 API](https://api.github.com/repos/godotengine/godot/releases/tags/4.7.2-stable)，不是根据模型记忆推定版本。
 
 本机使用匹配标准 Windows 编辑器二进制、官方导出模板和官方源码归档。下载摘要与官方发行元数据核对：

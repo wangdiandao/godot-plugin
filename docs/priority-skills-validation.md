@@ -1,5 +1,7 @@
 # Priority skill implementation and validation
 
+[Documentation](README.md) · [Skill catalog](skill-catalog.md) · [Evidence index](evidence.md)
+
 Issue: [#21](https://github.com/wangdiandao/godot-plugin/issues/21). Source version: 0.2.2. This change preserves all 23 skill names and Godot-native runtime execution.
 
 ## Implemented task contracts
