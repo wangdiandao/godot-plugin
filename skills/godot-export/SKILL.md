@@ -16,10 +16,10 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 
 ## Workflow and Key Decisions
 
-1. Use prepare_templates.gd to download official release templates or accept a verified local TPZ, then extract the required templates into the specified directory.
+1. Match templates to engine/version/build and target; use prepare_templates.gd for official digest-checked download or a verified local TPZ. Keep acquisition isolated and conditional on export tasks.
 2. Create or update existing export presets; point custom template paths to matching-version files and verify options against the current platform API.
 3. Run native import first, then --headless --export-debug or --export-release; create the output directory beforehand and match the preset name exactly.
-4. Inspect export logs, executables, and data packs, and launch the native target. Record Web packaging success separately from browser runtime validation.
+4. Inspect complete logs and output pack/executable, then launch the exported artifact and exercise its real startup, resource/save paths and relevant interaction. Web packaging, browser runtime, signing and store publication are separate outcomes.
 
 ## File Changes, Saving, and Recovery
 
@@ -29,7 +29,7 @@ Read the [persistence strategy](../../shared/references/persistence.md) when per
 
 ## Acceptance and Delivery
 
-Export both example games for Windows and launch their self-tests; build Web packages and record browser validation status. Reject failed template verification before extraction.
+Choose target-specific acceptance. The minimal example checks preset readback; adding --templates enables a real Windows import/export/artifact launch smoke test. This proves exported startup and a report write, not the whole game's visuals. Existing desktop integration builds both game examples and Web packages. Reject mismatched templates/digests and mark foreign platform/browser/signing conditions untested until executed.
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples

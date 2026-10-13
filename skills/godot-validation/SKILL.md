@@ -16,10 +16,10 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 
 ## Workflow and Key Decisions
 
-1. Select the necessary parsing, import, resource loading, behavior, and rendering checks in order; --check-only covers only the specified script's parsing.
+1. Reproduce the intended failure in a bounded fixture and establish an observable success/failure contract. Select parsing, import, uncached resource reload, behavior and visual checks; --check-only covers only the specified script.
 2. Run cases.json with run_checks.gd; child processes emit explicit results, while the parent also checks logs and exit codes.
 3. Verify events with Input.parse_input_event and polled input through action state; assert observable state instead of passing after a fixed delay.
-4. Failure cases must match the expected cause; rendering checks must inspect actual screenshots, and performance results must record the measurement environment.
+4. Match negative cases to their intended cause and required artifacts/state; an unrelated error is a failed negative test. Classify timeout and missing report separately. Inspect startup/shutdown logs even when the script or engine exits 0.
 
 ## File Changes, Saving, and Recovery
 
@@ -29,7 +29,7 @@ Read the [persistence strategy](../../shared/references/persistence.md) when per
 
 ## Acceptance and Delivery
 
-The example verifies that real failures are detected; the test runner itself must cover errors printed with exit code 0, missing results, and timeouts.
+The example actually launches isolated parse-error, missing-resource, runtime-error, logged-error/exit-0, timeout, missing-report and unrelated-fault children. It asserts the expected diagnostic and rejects an unrelated fault; negative-case success means detection, never success of the faulty operation. Visual, audio and performance acceptance require their corresponding environments and measurement conditions.
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples
