@@ -10,7 +10,7 @@ The engine baseline is **Godot 4.7.2 stable**, checked on 2026-10-11 against the
 
 ## Installation
 
-Install version **0.2.1** from the repository marketplace or a clean source checkout. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
+Install version **0.2.2** from the repository marketplace or a clean source checkout. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
 
 For local installation, use `git clone https://github.com/wangdiandao/godot-plugin.git`, then follow the host-specific steps below. Use a clean checkout for directory copies; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
 
@@ -169,3 +169,5 @@ See [authoring contracts](docs/authoring.md), [research sources](docs/research.m
 中文任务覆盖与验收边界见[23 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
 
 C# tasks additionally require matching Godot.NET and a .NET SDK; GDExtension tasks require bindings, a C++ compiler/build tools and a binding generator. The default native path remains available.
+
+Priority task recipes and current scoped evidence are indexed in [priority skill validation](docs/priority-skills-validation.md). These include protected playable-example saves and ten additional isolated fixtures; the 23 skill identities remain stable.

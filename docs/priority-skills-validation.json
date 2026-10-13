@@ -1,0 +1,4152 @@
+{
+  "schema_version": 1,
+  "issue": 21,
+  "date": "2026-10-13",
+  "status": "passed",
+  "source_version": "0.2.2",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "platform": "Windows",
+  "historical_evidence_reused": false,
+  "suite_cases": 53,
+  "expected_outcomes": {
+    "passed": 42,
+    "failed": 6,
+    "timeout": 1,
+    "unsupported": 2,
+    "blocked": 2
+  },
+  "unexpected_failures": 0,
+  "commands": [
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/final-suite.log -- --manifest PLUGIN/tests/cases.json --out OUT/final-suite",
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/save-final.log -- --manifest PLUGIN/tests/cases.json --out OUT/save-final --case game-2d,game-3d",
+    "python -X utf8 PLUGIN/tests/validate_structure.py --root PLUGIN --schema PLUGIN/artifacts/research/plugin.schema.json --report OUT/structure.json",
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/navigation-final.log -- --manifest PLUGIN/tests/cases.json --out OUT/navigation-final --case navigation-moving-agent",
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/tests/package.gd --log-file OUT/package-reviewed.log -- --root PLUGIN --out OUT/package-reviewed",
+    "GODOT --headless --path MOVED/shared/host --script MOVED/shared/scripts/run_checks.gd --log-file OUT/moved-suite.log -- --manifest OUT/moved-cases.json --out OUT/moved-suite",
+    "GODOT --headless --path MOVED_REVIEWED/shared/host --script MOVED_REVIEWED/shared/scripts/run_checks.gd --log-file OUT/moved-reviewed-suite.log -- --manifest OUT/moved-reviewed-cases.json --out OUT/moved-reviewed-suite",
+    "python -X utf8 MOVED_SOURCE/tests/validate_structure.py --root MOVED_SOURCE --schema PLUGIN/artifacts/research/plugin.schema.json --report OUT/moved-structure.json"
+  ],
+  "cases": [
+    {
+      "id": "workflow-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "pack_playable_structure",
+          "status": "passed"
+        },
+        {
+          "name": "save_checkpoint",
+          "status": "passed"
+        },
+        {
+          "name": "reload_checkpoint",
+          "status": "passed"
+        },
+        {
+          "name": "checkpoint_interaction_reloaded",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/workflow-example/engine.log",
+      "log_sha256": "b9d29efce328a3d2c508e0a5ffae714c737c3ef5547e357bbecd397b8e041c8b",
+      "project": "../skills/godot-workflow/assets/examples/minimal",
+      "script": "../skills/godot-workflow/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "project-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "save_project_configuration",
+          "status": "passed"
+        },
+        {
+          "name": "reload_configuration",
+          "status": "passed"
+        },
+        {
+          "name": "input_event_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_input_map",
+          "status": "passed"
+        },
+        {
+          "name": "generated_project_launch",
+          "status": "passed"
+        },
+        {
+          "name": "autoload_and_persistent_input_live",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_probe_action_removed",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/project-example/engine.log",
+      "log_sha256": "27086765ee7b6412e15ad3254b298cc6d7b30b94e593cd72ac2112ca9d078bb7",
+      "project": "../skills/godot-project/assets/examples/minimal",
+      "script": "../skills/godot-project/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "api-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "tilemaplayer_available",
+          "status": "passed"
+        },
+        {
+          "name": "resource_save_is_public",
+          "status": "passed"
+        },
+        {
+          "name": "navigation_bake_is_public",
+          "status": "passed"
+        },
+        {
+          "name": "lightmap_bake_not_bound_in_baseline",
+          "status": "passed"
+        },
+        {
+          "name": "pack_invocation",
+          "status": "passed"
+        },
+        {
+          "name": "save_invocation",
+          "status": "passed"
+        },
+        {
+          "name": "api_saved_behavior",
+          "status": "passed"
+        },
+        {
+          "name": "api_ownership_failure_condition",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/api-example/engine.log",
+      "log_sha256": "7261d5fb56a9962d981a6803a47e8f20ded04943274d1804e03a9b7fd432bbb7",
+      "project": "../skills/godot-api/assets/examples/minimal",
+      "script": "../skills/godot-api/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "gdscript-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "typed_signal_delivered",
+          "status": "passed"
+        },
+        {
+          "name": "async_continuation",
+          "status": "passed"
+        },
+        {
+          "name": "connection_not_duplicated",
+          "status": "passed"
+        },
+        {
+          "name": "disconnected_listener_not_called",
+          "status": "passed"
+        },
+        {
+          "name": "connection_cleanup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/gdscript-example/engine.log",
+      "log_sha256": "4a3630ce8e90ebd2d9d5cbe73a20bbd00ba8d513aca59a5e7b52045bdf5ddd98",
+      "project": "../skills/godot-gdscript/assets/examples/minimal",
+      "script": "../skills/godot-gdscript/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "scenes-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "pack_owned_nodes",
+          "status": "passed"
+        },
+        {
+          "name": "save_scene",
+          "status": "passed"
+        },
+        {
+          "name": "owned_child_survives",
+          "status": "passed"
+        },
+        {
+          "name": "persistent_connection_survives",
+          "status": "passed"
+        },
+        {
+          "name": "unowned_child_excluded",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_connection_executes",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/scenes-example/engine.log",
+      "log_sha256": "ea2ea636f70901eac2a3d1d9fad1bfab344ebf5a3dbe89e5dd3f6e24acf9d790",
+      "project": "../skills/godot-scenes/assets/examples/minimal",
+      "script": "../skills/godot-scenes/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "assets-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "native_png_encoder",
+          "status": "passed"
+        },
+        {
+          "name": "native_png_decoder",
+          "status": "passed"
+        },
+        {
+          "name": "pixel_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/assets-example/engine.log",
+      "log_sha256": "8c7def84e2e1b9523de334cbcdb5b58f841368f88a24b46a38f942372f365e4d",
+      "project": "../skills/godot-assets/assets/examples/minimal",
+      "script": "../skills/godot-assets/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "2d-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "tile_cells_created",
+          "status": "passed"
+        },
+        {
+          "name": "tile_layer_pack",
+          "status": "passed"
+        },
+        {
+          "name": "tile_layer_save",
+          "status": "passed"
+        },
+        {
+          "name": "tile_cell_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/2d-example/engine.log",
+      "log_sha256": "f6e169786464a9f683db939a929cd16998e3afd8695fc7735610324570ec3b6a",
+      "project": "../skills/godot-2d/assets/examples/minimal",
+      "script": "../skills/godot-2d/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "3d-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "independent_mesh_edit_preserves_original",
+          "status": "passed"
+        },
+        {
+          "name": "pack_mesh_and_camera",
+          "status": "passed"
+        },
+        {
+          "name": "save_world",
+          "status": "passed"
+        },
+        {
+          "name": "native_mesh_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "camera_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "light_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "independent_size_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/3d-example/engine.log",
+      "log_sha256": "0081d3e48a89ff55a3ba3628dcc81edd7d1a92678de5abc767d590fdbd0d3577",
+      "project": "../skills/godot-3d/assets/examples/minimal",
+      "script": "../skills/godot-3d/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "physics-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "character_lands_on_floor",
+          "status": "passed"
+        },
+        {
+          "name": "collision_prevents_penetration",
+          "status": "passed"
+        },
+        {
+          "name": "ray_hits_expected_floor",
+          "status": "passed"
+        },
+        {
+          "name": "ray_wrong_mask_has_no_hit",
+          "status": "passed"
+        },
+        {
+          "name": "velocity_is_units_per_second",
+          "status": "passed"
+        },
+        {
+          "name": "horizontal_movement_retains_floor",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_enter_and_exit_once",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_wrong_mask_reproduced",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_mask_repair_detects_actor",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_trigger_exit",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_trigger_repeats_without_duplicate_callbacks",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_repair_preserves_excluded_layer",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_repair_preserves_other_filters",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/physics-example/engine.log",
+      "log_sha256": "30a7baad09ff43ac811ad52441c992419f0e6016a53426d541557ccd8f82e8bb",
+      "project": "../skills/godot-physics/assets/examples/minimal",
+      "script": "../skills/godot-physics/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "navigation-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "cpu_navigation_bake",
+          "status": "passed"
+        },
+        {
+          "name": "save_navigation",
+          "status": "passed"
+        },
+        {
+          "name": "navigation_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "path_crosses_baked_region",
+          "status": "passed"
+        },
+        {
+          "name": "path_crosses_two_regions",
+          "status": "passed"
+        },
+        {
+          "name": "excluded_region_cannot_reach_target",
+          "status": "passed"
+        },
+        {
+          "name": "disabled_region_cannot_reach_target",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_region_synchronizes_within_budget",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_region_reaches_target_0",
+          "status": "passed"
+        },
+        {
+          "name": "repair_preserves_excluded_navigation_layer_0",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_region_reaches_target_1",
+          "status": "passed"
+        },
+        {
+          "name": "repair_preserves_excluded_navigation_layer_1",
+          "status": "passed"
+        },
+        {
+          "name": "region_repair_preserves_layer_assignments",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/navigation-example/engine.log",
+      "log_sha256": "c83c34035deb147505cc57af2677af3aa430b333e8797d7c76d56f0dee9a493d",
+      "project": "../skills/godot-navigation/assets/examples/minimal",
+      "script": "../skills/godot-navigation/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "ui-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "theme_saved",
+          "status": "passed"
+        },
+        {
+          "name": "theme_cache_ignored_reload",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_font",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_font_size",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_theme_color",
+          "status": "passed"
+        },
+        {
+          "name": "menu_packed",
+          "status": "passed"
+        },
+        {
+          "name": "menu_saved",
+          "status": "passed"
+        },
+        {
+          "name": "saved_local_override_effective",
+          "status": "passed"
+        },
+        {
+          "name": "override_removal_restores_inheritance",
+          "status": "passed"
+        },
+        {
+          "name": "saved_inherited_style",
+          "status": "passed"
+        },
+        {
+          "name": "focused_button_input_dispatch",
+          "status": "passed"
+        },
+        {
+          "name": "container_layout",
+          "status": "passed"
+        },
+        {
+          "name": "overlay_stop_blocks_pointer_activation",
+          "status": "passed"
+        },
+        {
+          "name": "overlay_ignore_repairs_pointer_activation",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_pointer_activation_repeats_0",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_pointer_activation_repeats_1",
+          "status": "passed"
+        },
+        {
+          "name": "pointer_repair_preserves_style_and_geometry",
+          "status": "passed"
+        },
+        {
+          "name": "intentional_modal_blocking_remains_available",
+          "status": "passed"
+        },
+        {
+          "name": "translation_lookup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/ui-example/engine.log",
+      "log_sha256": "89cbf3e9bcbffa700fa2d1ea0540d12c2d4c6ba3b1fc74d907248aecbf1d32c2",
+      "project": "../skills/godot-ui/assets/examples/minimal",
+      "script": "../skills/godot-ui/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "animation-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "animation_library",
+          "status": "passed"
+        },
+        {
+          "name": "player_library",
+          "status": "passed"
+        },
+        {
+          "name": "animation_track_evaluates",
+          "status": "passed"
+        },
+        {
+          "name": "save_animation_library",
+          "status": "passed"
+        },
+        {
+          "name": "reload_animation_library",
+          "status": "passed"
+        },
+        {
+          "name": "saved_duration_and_tracks",
+          "status": "passed"
+        },
+        {
+          "name": "saved_path_and_keys",
+          "status": "passed"
+        },
+        {
+          "name": "bind_reloaded_library",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_track_evaluates",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/animation-example/engine.log",
+      "log_sha256": "a3effba081c7ead2517e6b942dd849e4facd9afefb686c2131964aa108dcfb06",
+      "project": "../skills/godot-animation/assets/examples/minimal",
+      "script": "../skills/godot-animation/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "rendering-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "shader_material_saved",
+          "status": "passed"
+        },
+        {
+          "name": "shader_uniform_saved_readback",
+          "status": "passed"
+        },
+        {
+          "name": "shader_pixel_matches",
+          "status": "passed"
+        },
+        {
+          "name": "gpu_readback_png",
+          "status": "passed"
+        },
+        {
+          "name": "local_material_change_preserves_shared_original",
+          "status": "passed"
+        },
+        {
+          "name": "modified_uniform_changes_actual_pixels",
+          "status": "passed"
+        },
+        {
+          "name": "modified_gpu_readback_png",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/rendering-example/engine.log",
+      "log_sha256": "ab686d86162f7dde8e05f479725ea438a67c009da062bf139368b632dbe18828",
+      "project": "../skills/godot-rendering/assets/examples/minimal",
+      "script": "../skills/godot-rendering/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": false,
+      "copy_project": false
+    },
+    {
+      "id": "audio-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "native_pcm_wav_save",
+          "status": "passed"
+        },
+        {
+          "name": "wav_saved_state_readback",
+          "status": "passed"
+        },
+        {
+          "name": "playback_started",
+          "status": "passed"
+        },
+        {
+          "name": "effect_routed",
+          "status": "passed"
+        },
+        {
+          "name": "save_bus_layout",
+          "status": "passed"
+        },
+        {
+          "name": "bus_layout_cache_ignored_readback",
+          "status": "passed"
+        },
+        {
+          "name": "saved_bus_routing_and_volume",
+          "status": "passed"
+        },
+        {
+          "name": "saved_limiter",
+          "status": "passed"
+        },
+        {
+          "name": "mute_state",
+          "status": "passed"
+        },
+        {
+          "name": "unmute_state",
+          "status": "passed"
+        },
+        {
+          "name": "missing_bus_detected_before_routing",
+          "status": "passed"
+        },
+        {
+          "name": "nonlooping_playback_finishes",
+          "status": "passed"
+        },
+        {
+          "name": "missing_bus_route_rejected_without_mutation",
+          "status": "passed"
+        },
+        {
+          "name": "valid_bus_route_repairs_request",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_audio_lifecycle_repeats_0",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_audio_lifecycle_repeats_1",
+          "status": "passed"
+        },
+        {
+          "name": "audio_route_repair_preserves_mix",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/audio-example/engine.log",
+      "log_sha256": "22e7185aeff81c1f5588fcf055492688df655bedc05d5f55c4ea43d5be1da6cf",
+      "project": "../skills/godot-audio/assets/examples/minimal",
+      "script": "../skills/godot-audio/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "data-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "missing_distinguished",
+          "status": "passed"
+        },
+        {
+          "name": "legacy_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "save_version_migration",
+          "status": "passed"
+        },
+        {
+          "name": "migration_commit",
+          "status": "passed"
+        },
+        {
+          "name": "saved_version_readback",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_5",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_6",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_7",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_8",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_9",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_10",
+          "status": "passed"
+        },
+        {
+          "name": "future_version_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "concurrent_change_fixture",
+          "status": "passed"
+        },
+        {
+          "name": "concurrent_write_detected",
+          "status": "passed"
+        },
+        {
+          "name": "conflict_target_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "valid_commit_backed_up",
+          "status": "passed"
+        },
+        {
+          "name": "target_backup_readback",
+          "status": "passed"
+        },
+        {
+          "name": "corruption_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "corruption_detected",
+          "status": "passed"
+        },
+        {
+          "name": "validated_backup_recovery",
+          "status": "passed"
+        },
+        {
+          "name": "corrupt_original_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "future_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "future_save_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "large_future_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "large_future_save_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "write_failure_detected",
+          "status": "passed"
+        },
+        {
+          "name": "write_failure_no_target",
+          "status": "passed"
+        },
+        {
+          "name": "both_invalid_fixture",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_backup_not_used",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/data-example/engine.log",
+      "log_sha256": "58c2ba999f0ae2e032d149d6e98d439c218e77bab7cea4d3ed2eaf331626564c",
+      "project": "../skills/godot-data/assets/examples/minimal",
+      "script": "../skills/godot-data/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "validation-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "detect_parse",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": 1.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/parse.log",
+          "name": "observation_parse",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "detect_missing",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": 0.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/missing.log",
+          "name": "observation_missing",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "detect_runtime",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": -1.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/runtime.log",
+          "name": "observation_runtime",
+          "status": "passed",
+          "timed_out": true
+        },
+        {
+          "name": "detect_logged",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": 0.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/logged.log",
+          "name": "observation_logged",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "timeout_detected",
+          "status": "passed"
+        },
+        {
+          "error_match": false,
+          "exit_code": -1.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/timeout.log",
+          "name": "observation_timeout",
+          "status": "passed",
+          "timed_out": true
+        },
+        {
+          "name": "reject_unrelated_failure",
+          "status": "passed"
+        },
+        {
+          "error_match": false,
+          "exit_code": 1.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/unrelated.log",
+          "name": "observation_unrelated",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "missing_report_is_not_success",
+          "status": "passed"
+        },
+        {
+          "error_match": false,
+          "exit_code": 0.0,
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/missing_report.log",
+          "name": "observation_missing_report",
+          "status": "passed",
+          "timed_out": false
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/validation-example/engine.log",
+      "log_sha256": "b9d67af2eb5ed76e8dc3bf9f17a9fc40e4ce4cc01b37a33336a1aa9a2268d9a3",
+      "project": "../skills/godot-validation/assets/examples/minimal",
+      "script": "../skills/godot-validation/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "export-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "preset_serialization",
+          "status": "passed"
+        },
+        {
+          "name": "preset_readback",
+          "status": "passed"
+        },
+        {
+          "name": "preset_platform",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/export-example/engine.log",
+      "log_sha256": "f46ca9c989e566b6d4077467c0c0d55e44f61820e3c0c9c385701f5f4667ff99",
+      "project": "../skills/godot-export/assets/examples/minimal",
+      "script": "../skills/godot-export/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "multiplayer-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/multiplayer-example/server.log",
+          "name": "server",
+          "passed": true
+        },
+        {
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/multiplayer-example/client1.log",
+          "name": "client1",
+          "passed": true
+        },
+        {
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/multiplayer-example/client2.log",
+          "name": "client2",
+          "passed": true
+        },
+        {
+          "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/multiplayer-example/client3.log",
+          "name": "client3",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/multiplayer-example/engine.log",
+      "log_sha256": "5ee794d44da6ee80ef317c5a568a67b6ea9db348f06e2c4462df6d7890a2b8f3",
+      "project": "../skills/godot-multiplayer/assets/examples/minimal",
+      "script": "../skills/godot-multiplayer/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "game-2d",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "initial_menu",
+          "passed": true
+        },
+        {
+          "name": "menu_keyboard_start",
+          "passed": true
+        },
+        {
+          "name": "input_moves_physics_body",
+          "passed": true
+        },
+        {
+          "name": "movement_collects_first_core",
+          "passed": true
+        },
+        {
+          "name": "audio_stream_configured",
+          "passed": true
+        },
+        {
+          "name": "win_condition",
+          "passed": true
+        },
+        {
+          "name": "save_created",
+          "passed": true
+        },
+        {
+          "name": "save_reloaded",
+          "passed": true
+        },
+        {
+          "name": "viewport_dimensions",
+          "passed": true
+        },
+        {
+          "name": "screenshot_saved",
+          "passed": true
+        },
+        {
+          "name": "restart_input",
+          "passed": true
+        },
+        {
+          "name": "protected_save_11",
+          "passed": true
+        },
+        {
+          "name": "protected_save_12",
+          "passed": true
+        },
+        {
+          "name": "protected_save_13",
+          "passed": true
+        },
+        {
+          "name": "protected_save_14",
+          "passed": true
+        },
+        {
+          "name": "protected_save_15",
+          "passed": true
+        },
+        {
+          "name": "external_save_change_preserved",
+          "passed": true
+        },
+        {
+          "name": "unexpected_backup_and_target_preserved",
+          "passed": true
+        },
+        {
+          "name": "repeated_valid_commit_readback",
+          "passed": true
+        },
+        {
+          "name": "save_io_failure_rejected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/save-final/1791892476-542-43784/game-2d/engine.log",
+      "log_sha256": "bdc5ddeb6ca7ec4aed299d3c38c13fe24a8eb4f90e91bd219c882bce46807411",
+      "project": "../skills/godot-workflow/assets/examples/game-2d",
+      "script": null,
+      "arguments": [
+        "--self-test",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": false,
+      "copy_project": false
+    },
+    {
+      "id": "game-3d",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "initial_menu",
+          "passed": true
+        },
+        {
+          "name": "menu_keyboard_start",
+          "passed": true
+        },
+        {
+          "name": "input_moves_physics_body",
+          "passed": true
+        },
+        {
+          "name": "movement_collects_first_core",
+          "passed": true
+        },
+        {
+          "name": "audio_stream_configured",
+          "passed": true
+        },
+        {
+          "name": "win_condition",
+          "passed": true
+        },
+        {
+          "name": "save_created",
+          "passed": true
+        },
+        {
+          "name": "save_reloaded",
+          "passed": true
+        },
+        {
+          "name": "viewport_dimensions",
+          "passed": true
+        },
+        {
+          "name": "screenshot_saved",
+          "passed": true
+        },
+        {
+          "name": "restart_input",
+          "passed": true
+        },
+        {
+          "name": "protected_save_11",
+          "passed": true
+        },
+        {
+          "name": "protected_save_12",
+          "passed": true
+        },
+        {
+          "name": "protected_save_13",
+          "passed": true
+        },
+        {
+          "name": "protected_save_14",
+          "passed": true
+        },
+        {
+          "name": "protected_save_15",
+          "passed": true
+        },
+        {
+          "name": "external_save_change_preserved",
+          "passed": true
+        },
+        {
+          "name": "unexpected_backup_and_target_preserved",
+          "passed": true
+        },
+        {
+          "name": "repeated_valid_commit_readback",
+          "passed": true
+        },
+        {
+          "name": "save_io_failure_rejected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/save-final/1791892476-542-43784/game-3d/engine.log",
+      "log_sha256": "5e7ed6c1d7763d44dcdf26b82cc04c88659ee6ca9b872bd473741fd3bb865d1e",
+      "project": "../skills/godot-workflow/assets/examples/game-3d",
+      "script": null,
+      "arguments": [
+        "--self-test",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": false,
+      "copy_project": false
+    },
+    {
+      "id": "fault-runtime",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "ERROR: INJECTED_RUNTIME_ERROR"
+      ],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-runtime/engine.log",
+      "log_sha256": "8c504a06791c8848f897dd4b7143ed5dcebabd2c77bca232e87362900973cb9c",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "arguments": [
+        "--mode",
+        "runtime",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "fault-missing-report",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-missing-report/engine.log",
+      "log_sha256": "a661cb5e022ac9e4ae79aff4b7ad7c8553b4927e3474ea6bf445bb97dec43ed5",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "arguments": [
+        "--mode",
+        "missing-report",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "fault-timeout",
+      "matched_expected": true,
+      "actual": "timeout",
+      "expected": "timeout",
+      "exit_code": -1,
+      "timed_out": true,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-timeout/engine.log",
+      "log_sha256": "b0043133ee64ebdd1f50adbd1fc1f0892c7931ee98dd4df988a64217b6100f5c",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "arguments": [
+        "--mode",
+        "timeout",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "fault-missing-resource",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "ERROR: Cannot open file 'res://missing-source.tres'.",
+        "ERROR: Failed loading resource: res://missing-source.tres.",
+        "ERROR: Error loading resource: 'res://missing-source.tres'."
+      ],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-missing-resource/engine.log",
+      "log_sha256": "62abcdf15f726886d7aba09f97569ec07c1b54bff549c4e1851d849adb2ef47d",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "arguments": [
+        "--mode",
+        "missing-resource",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "fault-save-failure",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "unrelated_file_preserved",
+          "passed": true
+        },
+        {
+          "name": "save_error_detected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [
+        "ERROR: Cannot save file 'PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-save-failure/missing-parent/resource.tres'."
+      ],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-save-failure/engine.log",
+      "log_sha256": "d7c312a78351762bd14161f61b08f4187e75be10c9cd6c0460395edf2e1d37dd",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "arguments": [
+        "--mode",
+        "save-failure",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "fault-parse",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "SCRIPT ERROR: Parse Error: Expected parameter name.",
+        "ERROR: Failed to load script \"res://bad-script.gd\" with error \"Parse error\"."
+      ],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-parse/engine.log",
+      "log_sha256": "25d1928ae2039225956fe300f7304f8e562b5fc339ac2e2a3b73a4972acd671d",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/bad-script.gd",
+      "arguments": [],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "scene-inheritance",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/scene-inheritance/engine.log",
+      "log_sha256": "b855775dade3fc56bfa4f62c8db239e842a0e60670f08590c971f32bf2a95694",
+      "project": "fixtures/scenes",
+      "script": "fixtures/scenes/check.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "headless-capture-refused",
+      "matched_expected": true,
+      "actual": "unsupported",
+      "expected": "unsupported",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/headless-capture-refused/engine.log",
+      "log_sha256": "485a40915b089395b7fad7219ba1414c5ccb31d98de050b4486009070f40b861",
+      "project": "../skills/godot-workflow/assets/examples/game-2d",
+      "script": "../shared/scripts/capture_scene.gd",
+      "arguments": [
+        "--scene",
+        "res://main.tscn",
+        "--out",
+        "{output}/frame.png"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "capture-real",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "detail": "",
+          "name": "rendered_image",
+          "passed": true
+        },
+        {
+          "detail": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/capture-real/frame.png",
+          "name": "save_png",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "reload_png",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/capture-real/engine.log",
+      "log_sha256": "51240f0b87843fc32d0402612a7be6b4df83ffe4b4d98772ed026ad64f70b474",
+      "project": "../skills/godot-workflow/assets/examples/game-3d",
+      "script": "../shared/scripts/capture_scene.gd",
+      "arguments": [
+        "--scene",
+        "res://main.tscn",
+        "--out",
+        "{output}/frame.png"
+      ],
+      "engine_arguments": [],
+      "headless": false,
+      "copy_project": false
+    },
+    {
+      "id": "log-parser",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "detail": "",
+          "name": "quoted_error_is_data",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "real_errors_detected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/log-parser/engine.log",
+      "log_sha256": "03b8e9487e0735a0d1b5deb2b1e7ba92af2764bd192abca213c433cf78bf1b19",
+      "project": "../shared/host",
+      "script": "fixtures/runtime/log-check.gd",
+      "arguments": [],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "fault-broken-reference",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "ERROR: Cannot open file 'res://missing-scene.tscn'.",
+        "ERROR: Failed loading resource: res://missing-scene.tscn.",
+        "ERROR: res://broken-reference.tscn:5 - Parse Error: [ext_resource] referenced non-existent resource at: res://missing-scene.tscn.",
+        "ERROR: res://broken-reference.tscn:5 - Parse Error: [ext_resource] referenced non-existent resource at: res://missing-scene.tscn.",
+        "ERROR: Failed loading resource: res://broken-reference.tscn.",
+        "ERROR: Error loading resource: 'res://broken-reference.tscn'."
+      ],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/fault-broken-reference/engine.log",
+      "log_sha256": "d9445def52c1e850866aecc669adfcaf16d911e668715d0d368ab1225ca1ea06",
+      "project": "fixtures/runtime",
+      "script": "fixtures/runtime/fault.gd",
+      "arguments": [
+        "--mode",
+        "broken-reference"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "architecture-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "missing_dependency_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "dependency_configured_before_child_ready",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_command_preserves_state",
+          "status": "passed"
+        },
+        {
+          "name": "intent_command_fact_delivery",
+          "status": "passed"
+        },
+        {
+          "name": "repeat_configure",
+          "status": "passed"
+        },
+        {
+          "name": "connection_idempotent",
+          "status": "passed"
+        },
+        {
+          "name": "replacement_dependency_accepted",
+          "status": "passed"
+        },
+        {
+          "name": "old_dependency_disconnected",
+          "status": "passed"
+        },
+        {
+          "name": "replacement_dependency_delivers",
+          "status": "passed"
+        },
+        {
+          "name": "module_pack",
+          "status": "passed"
+        },
+        {
+          "name": "module_save",
+          "status": "passed"
+        },
+        {
+          "name": "teardown_disconnects_service",
+          "status": "passed"
+        },
+        {
+          "name": "saved_signal_reloaded",
+          "status": "passed"
+        },
+        {
+          "name": "exported_component_state_saved",
+          "status": "passed"
+        },
+        {
+          "name": "fresh_service_initial_state_bound",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_intent_executes",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/architecture-example/engine.log",
+      "log_sha256": "2f672ef18d077bcf17fe14645fa6d99931467215f7a303799ab71b6935a4ae82",
+      "project": "../skills/godot-architecture/assets/examples/minimal",
+      "script": "../skills/godot-architecture/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "data-resources",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "save external",
+          "status": "passed"
+        },
+        {
+          "name": "shallow shares resources",
+          "status": "passed"
+        },
+        {
+          "name": "deep internal/external policy",
+          "status": "passed"
+        },
+        {
+          "name": "deep preserves repeated alias",
+          "status": "passed"
+        },
+        {
+          "name": "ALL copies external data",
+          "status": "passed"
+        },
+        {
+          "name": "ALL shares script definition",
+          "status": "passed"
+        },
+        {
+          "name": "deep collection independence",
+          "status": "passed"
+        },
+        {
+          "name": "save root",
+          "status": "passed"
+        },
+        {
+          "name": "uncached roundtrip state",
+          "status": "passed"
+        },
+        {
+          "name": "loaded independent source memory",
+          "status": "passed"
+        },
+        {
+          "name": "pack scene",
+          "status": "passed"
+        },
+        {
+          "name": "scene-local independent mesh",
+          "status": "passed"
+        },
+        {
+          "name": "scene-local owner root",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/data-resources/engine.log",
+      "log_sha256": "dd38c818184e8459844acc8c75520d4f9ced8d0222a7d843d2c99700b58cb389",
+      "project": "../skills/godot-data/assets/examples/resources",
+      "script": "../skills/godot-data/assets/examples/resources/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "terrain-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "terrain_painted_three_cells",
+          "status": "passed"
+        },
+        {
+          "name": "terrain_tiles_resolved",
+          "status": "passed"
+        },
+        {
+          "name": "empty_boundary_matches",
+          "status": "passed"
+        },
+        {
+          "name": "neighbor_bits_connect",
+          "status": "passed"
+        },
+        {
+          "name": "pack_terrain",
+          "status": "passed"
+        },
+        {
+          "name": "save_terrain",
+          "status": "passed"
+        },
+        {
+          "name": "reload_terrain",
+          "status": "passed"
+        },
+        {
+          "name": "saved_terrain_mode",
+          "status": "passed"
+        },
+        {
+          "name": "saved_terrain_cells",
+          "status": "passed"
+        },
+        {
+          "name": "world_local_map_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/terrain-example/engine.log",
+      "log_sha256": "b4cb3ab1f6826c930ce2e506d66dbfbb2e21794dd4bacdecc34c63069c0ddb19",
+      "project": "../skills/godot-2d/assets/examples/terrain",
+      "script": "../skills/godot-2d/assets/examples/terrain/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "root-motion-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "root_motion_delta",
+          "status": "passed"
+        },
+        {
+          "name": "extracted_motion_does_not_double_move_actor",
+          "status": "passed"
+        },
+        {
+          "name": "controller_applies_motion_once",
+          "status": "passed"
+        },
+        {
+          "name": "inactive_tree_leaves_actor",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/root-motion-example/engine.log",
+      "log_sha256": "0c9277040b649a4de8822410eb0bc4e5d94a6205597e9a343684457cddbf5545",
+      "project": "../skills/godot-animation/assets/examples/root-motion",
+      "script": "../skills/godot-animation/assets/examples/root-motion/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "performance-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "fixed_scene_actor_count",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_query_guard",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_calls_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_0.0",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_1.0",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_30.0",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_100.0",
+          "status": "passed"
+        },
+        {
+          "name": "modified_data_equivalence",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_0",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_1",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_2",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_3",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_4",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_5",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_6",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_7",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_8",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_9",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_10",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_11",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_12",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_13",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_14",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_15",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_16",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_17",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_18",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_19",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_20",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_21",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_22",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_23",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_24",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_25",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_26",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_27",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_28",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_29",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_30",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/performance-example/engine.log",
+      "log_sha256": "3230ba8126f48141989268089f9c5d65b2936592b63c57ee55bd58b9786b18b1",
+      "project": "../skills/godot-performance/assets/examples/minimal",
+      "script": "../skills/godot-performance/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "rendering-materials-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "material_scene_packed",
+          "status": "passed"
+        },
+        {
+          "name": "material_scene_saved",
+          "status": "passed"
+        },
+        {
+          "name": "material_property_readback",
+          "status": "passed"
+        },
+        {
+          "name": "light_shadow_readback",
+          "status": "passed"
+        },
+        {
+          "name": "particle_draw_and_process_contract",
+          "status": "passed"
+        },
+        {
+          "name": "local_edit_does_not_mutate_original",
+          "status": "passed"
+        },
+        {
+          "name": "missing_color_consumption_detectable",
+          "status": "passed"
+        },
+        {
+          "name": "color_consumption_repaired",
+          "status": "passed"
+        },
+        {
+          "name": "modified_scene_saved",
+          "status": "passed"
+        },
+        {
+          "name": "modified_scene_color_readback",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/rendering-materials-example/engine.log",
+      "log_sha256": "8e6f32ffd74e5169f5a14fe56133555b6b31d9ac008849b26ac05bc8fd2fb1d8",
+      "project": "../skills/godot-rendering/assets/examples/materials",
+      "script": "../skills/godot-rendering/assets/examples/materials/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "rendering-headless-unavailable",
+      "matched_expected": true,
+      "actual": "unsupported",
+      "expected": "unsupported",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/rendering-headless-unavailable/engine.log",
+      "log_sha256": "3d458dff797111d114f98490ddc6e0ed314556d205e30924ce1fd4f0e8f4f422",
+      "project": "../skills/godot-rendering/assets/examples/minimal",
+      "script": "../skills/godot-rendering/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "csharp-example",
+      "matched_expected": true,
+      "actual": "blocked",
+      "expected": "blocked",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "dotnet_engine_required",
+          "status": "unavailable"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/csharp-example/engine.log",
+      "log_sha256": "51c6f8b56321e2eb723f9d5245f8775740212f9d22d58554a32a117ab1e5c9ee",
+      "project": "../skills/godot-csharp/assets/examples/minimal",
+      "script": "../skills/godot-csharp/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "gdextension-example",
+      "matched_expected": true,
+      "actual": "blocked",
+      "expected": "blocked",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "compiled_library_required",
+          "status": "unavailable"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/gdextension-example/engine.log",
+      "log_sha256": "c4986960cf126a3252acf6053a74bdad4d3112f8a5ecf32d07be122853de3851",
+      "project": "../skills/godot-gdextension/assets/examples/minimal",
+      "script": "../skills/godot-gdextension/assets/examples/minimal/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "editor-tools-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "editor_scan_complete",
+          "status": "passed"
+        },
+        {
+          "name": "one_plugin_0",
+          "status": "passed"
+        },
+        {
+          "name": "registered_dock_0",
+          "status": "passed"
+        },
+        {
+          "name": "do_and_owner",
+          "status": "passed"
+        },
+        {
+          "name": "undo",
+          "status": "passed"
+        },
+        {
+          "name": "redo",
+          "status": "passed"
+        },
+        {
+          "name": "saved_readback",
+          "status": "passed"
+        },
+        {
+          "name": "disable_cleanup_0",
+          "status": "passed"
+        },
+        {
+          "name": "one_plugin_1",
+          "status": "passed"
+        },
+        {
+          "name": "registered_dock_1",
+          "status": "passed"
+        },
+        {
+          "name": "disable_cleanup_1",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/editor-tools-example/engine.log",
+      "log_sha256": "b8b3722303f179fe89defa8b4bf291516547fdacdbd50eef9ee1582b0ac43bf2",
+      "project": "../skills/godot-editor-tools/assets/examples/minimal",
+      "script": null,
+      "arguments": [
+        "--self-test",
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [
+        "--editor"
+      ],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "ui-localization",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "public_bindings_available",
+          "status": "passed"
+        },
+        {
+          "name": "cold_start_loads_configured_catalogs",
+          "status": "passed"
+        },
+        {
+          "name": "po_loaded_by_native_resource_loader",
+          "status": "passed"
+        },
+        {
+          "name": "catalog_required_keys_and_named_placeholders",
+          "status": "passed"
+        },
+        {
+          "name": "catalog_saved",
+          "status": "passed"
+        },
+        {
+          "name": "uncached_catalog_preserves_context",
+          "status": "passed"
+        },
+        {
+          "name": "uncached_catalog_preserves_plural_forms",
+          "status": "passed"
+        },
+        {
+          "name": "initial_label_uses_english",
+          "status": "passed"
+        },
+        {
+          "name": "locale_notification_refreshes_existing_ui",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_context_disambiguation",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_pluralization",
+          "status": "passed"
+        },
+        {
+          "name": "named_placeholder_formatting",
+          "status": "passed"
+        },
+        {
+          "name": "missing_key_fallback_does_not_prove_completeness",
+          "status": "passed"
+        },
+        {
+          "name": "unsupported_locale_uses_configured_fallback",
+          "status": "passed"
+        },
+        {
+          "name": "audit_detects_missing_entry_without_fallback",
+          "status": "passed"
+        },
+        {
+          "name": "audit_detects_changed_placeholder",
+          "status": "passed"
+        },
+        {
+          "name": "repair_keeps_original_catalog_intact",
+          "status": "passed"
+        },
+        {
+          "name": "negative_controls_preserve_source_file_hash",
+          "status": "passed"
+        },
+        {
+          "name": "pseudolocalization_changes_text",
+          "status": "passed"
+        },
+        {
+          "name": "pseudolocalization_preserves_printf_placeholder",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_es_20",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_en_21",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_es_22",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_en_23",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/ui-localization/engine.log",
+      "log_sha256": "82b3254d921c3025a998965551e0665614d411816daafa0d3579cb2243e0d0a2",
+      "project": "../skills/godot-ui/assets/examples/localization",
+      "script": "../skills/godot-ui/assets/examples/localization/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "web-server",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "detail": "",
+          "name": "fixture_directory",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "loopback_server_listens_on_allocated_port",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "index_served",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "isolation_mime_and_no_cache_headers",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "binary_stream_preserves_all_bytes",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "head_has_length_without_body",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/../outside.json",
+            "target": "/../outside.json"
+          },
+          "name": "path_escape_rejected_6",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/2e2e2foutside.json",
+            "target": "/%2e%2e%2foutside.json"
+          },
+          "name": "path_escape_rejected_7",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/%2e%2e%2foutside.json",
+            "target": "/%252e%252e%252foutside.json"
+          },
+          "name": "path_escape_rejected_8",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/2e2e5coutside.json",
+            "target": "/%2e%2e%5coutside.json"
+          },
+          "name": "path_escape_rejected_9",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "missing_artifact_is_404",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "foreign_host_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "write_method_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "oversized_header_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "normal_requests_work_after_rejections",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "listener_and_clients_stopped",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "missing_export_root_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "lifetime_output_created",
+          "passed": true
+        },
+        {
+          "detail": {
+            "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/web-server/lifetime/engine.log",
+            "report": {
+              "checks": [
+                {
+                  "name": "loopback_server_completed_bounded_lifetime",
+                  "status": "passed"
+                }
+              ],
+              "engine": {
+                "build": "official",
+                "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+                "hex": 263938.0,
+                "major": 4.0,
+                "minor": 7.0,
+                "patch": 2.0,
+                "status": "stable",
+                "string": "4.7.2-stable (official)",
+                "timestamp": 0.0
+              },
+              "limitations": [
+                "HTTP serving alone does not prove browser gameplay, storage, audio or performance acceptance."
+              ],
+              "operation": "bounded_web_serving",
+              "responses": {},
+              "schema_version": 1.0,
+              "status": "passed"
+            },
+            "timed_out": false
+          },
+          "name": "cli_server_exits_after_bounded_lifetime",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "cli_result_persisted",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/web-server/engine.log",
+      "log_sha256": "e19bb1fc44aa181a237b07aaed7fcf31c6ee674a93b56fd7ff5e4bf8c7139602",
+      "project": "../shared/host",
+      "script": "integration/web_server.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": false
+    },
+    {
+      "id": "gdscript-async-lifecycle",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "superseded_request_cannot_commit",
+          "status": "passed"
+        },
+        {
+          "name": "explicit_cancel_preserves_state",
+          "status": "passed"
+        },
+        {
+          "name": "detached_receiver_cannot_commit",
+          "status": "passed"
+        },
+        {
+          "name": "synchronous_reentry_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "freed_receiver_and_listener_cleanup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/gdscript-async-lifecycle/engine.log",
+      "log_sha256": "5b41479fda1cbbdb7cd0e5d84cfff7374b2dd70aa673cf18f5509f3de3b4b152",
+      "project": "../skills/godot-gdscript/assets/examples/async-lifecycle",
+      "script": "../skills/godot-gdscript/assets/examples/async-lifecycle/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "physics-body-3d",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "character3d_lands",
+          "status": "passed"
+        },
+        {
+          "name": "character3d_units_per_second",
+          "status": "passed"
+        },
+        {
+          "name": "wrong_ray_mask_reproduced",
+          "status": "passed"
+        },
+        {
+          "name": "ray_filter_repaired",
+          "status": "passed"
+        },
+        {
+          "name": "rigid3d_wake_and_impulse",
+          "status": "passed"
+        },
+        {
+          "name": "repair_keeps_excluded_layer",
+          "status": "passed"
+        },
+        {
+          "name": "slope_classified_as_floor",
+          "status": "passed"
+        },
+        {
+          "name": "slope_ascent_preserves_contact",
+          "status": "passed"
+        },
+        {
+          "name": "fast_point_sweep_thin_wall_0",
+          "status": "passed"
+        },
+        {
+          "name": "fast_sweep_excluded_mask_0",
+          "status": "passed"
+        },
+        {
+          "name": "fast_point_sweep_thin_wall_1",
+          "status": "passed"
+        },
+        {
+          "name": "fast_sweep_excluded_mask_1",
+          "status": "passed"
+        },
+        {
+          "name": "fast_point_sweep_thin_wall_2",
+          "status": "passed"
+        },
+        {
+          "name": "fast_sweep_excluded_mask_2",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/physics-body-3d/engine.log",
+      "log_sha256": "f4ad036949114ddd4801d5a066d49d9485371c2cbe6978308a506084d9e438a4",
+      "project": "../skills/godot-physics/assets/examples/body-3d",
+      "script": "../skills/godot-physics/assets/examples/body-3d/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "navigation-moving-agent",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "map_ready_before_movement",
+          "status": "passed"
+        },
+        {
+          "name": "excluded_route_does_not_move_actor",
+          "status": "passed"
+        },
+        {
+          "name": "collision_blocks_graph_reachable_target",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_actor_actually_arrives",
+          "status": "passed"
+        },
+        {
+          "name": "avoidance_callback_moves_actor",
+          "status": "passed"
+        },
+        {
+          "name": "one_motion_application_per_physics_tick",
+          "status": "passed"
+        },
+        {
+          "name": "patrol_second_destination",
+          "status": "passed"
+        },
+        {
+          "name": "unreachable_target_classified",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/navigation-final/1791892690-929-15748/navigation-moving-agent/engine.log",
+      "log_sha256": "8f98ac08930ba1022b8a0f28e0aee5c1eab344dcacee77c2f65806c5b7469f60",
+      "project": "../skills/godot-navigation/assets/examples/moving-agent",
+      "script": "../skills/godot-navigation/assets/examples/moving-agent/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "3d-mesh-socket",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "procedural_mesh_bounds",
+          "status": "passed"
+        },
+        {
+          "name": "normals_and_tangents_created",
+          "status": "passed"
+        },
+        {
+          "name": "socket_follows_bone_pose",
+          "status": "passed"
+        },
+        {
+          "name": "missing_bone_detected_before_binding",
+          "status": "passed"
+        },
+        {
+          "name": "socket_reset_preserves_local_offset",
+          "status": "passed"
+        },
+        {
+          "name": "mesh_socket_pack",
+          "status": "passed"
+        },
+        {
+          "name": "mesh_socket_save",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_socket_mapping_works",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/3d-mesh-socket/engine.log",
+      "log_sha256": "7c84b1167fbeba8c0be7a7364465ad1c569ecdba90905b627687c482bea2448f",
+      "project": "../skills/godot-3d/assets/examples/mesh-socket",
+      "script": "../skills/godot-3d/assets/examples/mesh-socket/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "animation-state-machine",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "idle_pose_applied",
+          "status": "passed"
+        },
+        {
+          "name": "transition_blends_actual_property",
+          "status": "passed"
+        },
+        {
+          "name": "move_pose_applied",
+          "status": "passed"
+        },
+        {
+          "name": "interrupted_action_returns_to_idle",
+          "status": "passed"
+        },
+        {
+          "name": "bad_track_target_detected_before_playback",
+          "status": "passed"
+        },
+        {
+          "name": "state_machine_pack",
+          "status": "passed"
+        },
+        {
+          "name": "state_machine_save",
+          "status": "passed"
+        },
+        {
+          "name": "saved_graph_replays_repaired_clip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/animation-state-machine/engine.log",
+      "log_sha256": "87964054f3daa728c81d6e927bea3c321136fdf7d1867c2b53d0c05844433034",
+      "project": "../skills/godot-animation/assets/examples/state-machine",
+      "script": "../skills/godot-animation/assets/examples/state-machine/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "scenes-refactor",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "rename_reproduces_stale_export_path",
+          "status": "passed"
+        },
+        {
+          "name": "renamed_instance_pack",
+          "status": "passed"
+        },
+        {
+          "name": "renamed_instance_save",
+          "status": "passed"
+        },
+        {
+          "name": "renamed_instance_reload",
+          "status": "passed"
+        },
+        {
+          "name": "refactor_preserves_scene_instance_reference",
+          "status": "passed"
+        },
+        {
+          "name": "base_internal_state_unchanged",
+          "status": "passed"
+        },
+        {
+          "name": "saved_connection_and_export_path_execute",
+          "status": "passed"
+        },
+        {
+          "name": "saved_animation_path_repaired",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_boundary_retained",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_override_and_child",
+          "status": "passed"
+        },
+        {
+          "name": "source_base_bytes_preserved",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/scenes-refactor/engine.log",
+      "log_sha256": "af7ea5594c4ae4a8b4028421a7f47e9f4d4d7d193e1620d99bb6381bb492dc4d",
+      "project": "../skills/godot-scenes/assets/examples/refactor",
+      "script": "../skills/godot-scenes/assets/examples/refactor/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "assets-import-repair",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "isolated_project_directory",
+          "status": "passed"
+        },
+        {
+          "name": "fixture_configuration",
+          "status": "passed"
+        },
+        {
+          "name": "copy_resource_checker",
+          "status": "passed"
+        },
+        {
+          "name": "source_assets_created",
+          "status": "passed"
+        },
+        {
+          "name": "native_import_creates_metadata",
+          "status": "passed"
+        },
+        {
+          "name": "native_sidecar_loaded",
+          "status": "passed"
+        },
+        {
+          "name": "set_initial_mipmap_policy",
+          "status": "passed"
+        },
+        {
+          "name": "initial_loaded_resources_and_wrapper",
+          "status": "passed"
+        },
+        {
+          "name": "change_only_mipmap_policy",
+          "status": "passed"
+        },
+        {
+          "name": "model_source_modified",
+          "status": "passed"
+        },
+        {
+          "name": "new_process_observes_reimported_content",
+          "status": "passed"
+        },
+        {
+          "name": "reimport_preserves_identity_and_importer",
+          "status": "passed"
+        },
+        {
+          "name": "reimport_preserves_authored_wrapper_and_material",
+          "status": "passed"
+        },
+        {
+          "name": "missing_source_preflight_blocks_import",
+          "status": "passed"
+        },
+        {
+          "name": "source_repair_repeats_valid_import",
+          "status": "passed"
+        },
+        {
+          "name": "repair_preserves_neighboring_authoring",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/assets-import-repair/engine.log",
+      "log_sha256": "b0068a9f634f6580da169ec78f71d4bac9e1e3db3af99ec9e57bc14ac1851a77",
+      "project": "../skills/godot-assets/assets/examples/import-repair",
+      "script": "../skills/godot-assets/assets/examples/import-repair/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "workflow-bounded-resource",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "initial_state_rendered_without_signal",
+          "status": "passed"
+        },
+        {
+          "name": "commands_update_rule_and_hud",
+          "status": "passed"
+        },
+        {
+          "name": "exhausted_command_cannot_emit_success",
+          "status": "passed"
+        },
+        {
+          "name": "restart_without_duplicate_effect_0",
+          "status": "passed"
+        },
+        {
+          "name": "restart_without_duplicate_effect_1",
+          "status": "passed"
+        },
+        {
+          "name": "restart_without_duplicate_effect_2",
+          "status": "passed"
+        },
+        {
+          "name": "restart_detaches_old_publisher",
+          "status": "passed"
+        },
+        {
+          "name": "late_old_event_cannot_change_hud",
+          "status": "passed"
+        },
+        {
+          "name": "teardown_keeps_old_service_detached",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/workflow-bounded-resource/engine.log",
+      "log_sha256": "ebacc8bc2d67aa27f89c69237e3103ac9151ccd1dfd6c43c1492ed282aa49035",
+      "project": "../skills/godot-workflow/assets/examples/bounded-resource",
+      "script": "../skills/godot-workflow/assets/examples/bounded-resource/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "animation-event-rig",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "bone_track_and_method_event",
+          "status": "passed"
+        },
+        {
+          "name": "animated_bone_socket_follows",
+          "status": "passed"
+        },
+        {
+          "name": "interruption_before_event_does_not_fire",
+          "status": "passed"
+        },
+        {
+          "name": "restarted_action_fires_once",
+          "status": "passed"
+        },
+        {
+          "name": "rig_event_pack",
+          "status": "passed"
+        },
+        {
+          "name": "rig_event_save",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_rig_and_event_execute",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/animation-event-rig/engine.log",
+      "log_sha256": "b8287f97c1857372bfaf55252576405a3da29853ffcf2746b85cd12da16729f8",
+      "project": "../skills/godot-animation/assets/examples/event-rig",
+      "script": "../skills/godot-animation/assets/examples/event-rig/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    },
+    {
+      "id": "navigation-links",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "link_fixture_map_ready",
+          "status": "passed"
+        },
+        {
+          "name": "gap_has_no_arrival_before_link",
+          "status": "passed"
+        },
+        {
+          "name": "added_link_synchronizes",
+          "status": "passed"
+        },
+        {
+          "name": "one_way_link_connects_forward",
+          "status": "passed"
+        },
+        {
+          "name": "one_way_link_excludes_reverse",
+          "status": "passed"
+        },
+        {
+          "name": "disabled_link_reproduces_gap",
+          "status": "passed"
+        },
+        {
+          "name": "link_repair_restores_forward_route",
+          "status": "passed"
+        },
+        {
+          "name": "link_repair_preserves_direction_policy",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "PLUGIN/artifacts/priority-deepening/final-suite/1791892316-335-18392/navigation-links/engine.log",
+      "log_sha256": "920f0ed1575002a106c4481298181c4f969224d7c3a358e5d2d3daa0ad980377",
+      "project": "../skills/godot-navigation/assets/examples/links",
+      "script": "../skills/godot-navigation/assets/examples/links/example.gd",
+      "arguments": [
+        "--out",
+        "{output}"
+      ],
+      "engine_arguments": [],
+      "headless": true,
+      "copy_project": true
+    }
+  ],
+  "initial_failed_attempts": [
+    {
+      "id": "game-2d",
+      "actual": "timeout",
+      "exit_code": -1,
+      "errors": [
+        "SCRIPT ERROR: Parse Error: Variable \"save_store\" has the same name as a previously declared variable.",
+        "ERROR: Failed to load script \"res://game.gd\" with error \"Parse error\"."
+      ],
+      "failed_assertions": []
+    },
+    {
+      "id": "game-3d",
+      "actual": "timeout",
+      "exit_code": -1,
+      "errors": [
+        "SCRIPT ERROR: Parse Error: Variable \"save_store\" has the same name as a previously declared variable.",
+        "ERROR: Failed to load script \"res://game.gd\" with error \"Parse error\"."
+      ],
+      "failed_assertions": []
+    },
+    {
+      "id": "gdscript-async-lifecycle",
+      "actual": "failed",
+      "exit_code": 1,
+      "errors": [
+        "SCRIPT ERROR: Parse Error: The variable type is being inferred from a Variant value, so it will be typed as Variant. (Warning treated as error.)",
+        "ERROR: Failed to load script \"PLUGIN/skills/godot-gdscript/assets/examples/async-lifecycle/example.gd\" with error \"Parse error\"."
+      ],
+      "failed_assertions": []
+    },
+    {
+      "id": "animation-state-machine",
+      "actual": "failed",
+      "exit_code": 1,
+      "errors": [],
+      "failed_assertions": [
+        {
+          "name": "transition_blends_actual_property",
+          "status": "failed"
+        },
+        {
+          "name": "interrupted_action_returns_to_idle",
+          "status": "failed"
+        }
+      ]
+    },
+    {
+      "id": "workflow-bounded-resource",
+      "actual": "failed",
+      "exit_code": 1,
+      "errors": [
+        "SCRIPT ERROR: Parse Error: Cannot infer the type of \"old_publisher\" variable because the value doesn't have a set type.",
+        "ERROR: Failed to load script \"PLUGIN/skills/godot-workflow/assets/examples/bounded-resource/example.gd\" with error \"Parse error\"."
+      ],
+      "failed_assertions": []
+    }
+  ],
+  "repairs": [
+    "Remove duplicate generated game declarations and self-test function.",
+    "Use explicit WeakRef and avoid inferring a type from a dynamic module value.",
+    "Advance the state-machine transition boundary before intermediate sampling and evaluate interruption through successive steps.",
+    "Self-review retained specific routing prompts and added unexpected-backup/repeated-commit tests."
+  ],
+  "visual_inspection": {
+    "game-2d": "Actual 960x540 GPU screenshot inspected: HUD, completion menu and restart hint visible.",
+    "game-3d": "Actual 960x540 GPU screenshot inspected: lit level, HUD, completion menu and restart hint visible.",
+    "save_warning_rendered": "not separately captured; state/byte protection tested"
+  },
+  "structure": {
+    "status": "passed",
+    "checks": 1456,
+    "schema_available": true,
+    "schema_source": "existing ignored artifacts/research/plugin.schema.json"
+  },
+  "package_validation": {
+    "status": "passed",
+    "checks": 1866,
+    "validation_archives": [
+      {
+        "files": 251,
+        "path": "PLUGIN/artifacts/priority-deepening/package-reviewed/godot-plugin-0.2.2.zip",
+        "sha256": "50486cecadbfda7de4256e122a94d0157747c083e8f56d8fbdb2c9ada6facbd7"
+      },
+      {
+        "files": 276,
+        "path": "PLUGIN/artifacts/priority-deepening/package-reviewed/godot-plugin-0.2.2-source.zip",
+        "sha256": "631300e7bac10c22010277598dd35ccbb6b05f71d1d1ad036be6b98cd10b7df7"
+      }
+    ],
+    "scope": "ZIP content/hash readback, forbidden paths and complete host metadata. Final delivery archives are regenerated after this evidence record; final hashes are recorded in the PR."
+  },
+  "relocation_validation": {
+    "status": "passed",
+    "cases": 12,
+    "source_structure_checks": 1456,
+    "results": [
+      {
+        "id": "game-2d",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "initial_menu",
+            "passed": true
+          },
+          {
+            "name": "menu_keyboard_start",
+            "passed": true
+          },
+          {
+            "name": "input_moves_physics_body",
+            "passed": true
+          },
+          {
+            "name": "movement_collects_first_core",
+            "passed": true
+          },
+          {
+            "name": "audio_stream_configured",
+            "passed": true
+          },
+          {
+            "name": "win_condition",
+            "passed": true
+          },
+          {
+            "name": "save_created",
+            "passed": true
+          },
+          {
+            "name": "save_reloaded",
+            "passed": true
+          },
+          {
+            "name": "viewport_dimensions",
+            "passed": true
+          },
+          {
+            "name": "screenshot_saved",
+            "passed": true
+          },
+          {
+            "name": "restart_input",
+            "passed": true
+          },
+          {
+            "name": "protected_save_11",
+            "passed": true
+          },
+          {
+            "name": "protected_save_12",
+            "passed": true
+          },
+          {
+            "name": "protected_save_13",
+            "passed": true
+          },
+          {
+            "name": "protected_save_14",
+            "passed": true
+          },
+          {
+            "name": "protected_save_15",
+            "passed": true
+          },
+          {
+            "name": "external_save_change_preserved",
+            "passed": true
+          },
+          {
+            "name": "unexpected_backup_and_target_preserved",
+            "passed": true
+          },
+          {
+            "name": "repeated_valid_commit_readback",
+            "passed": true
+          },
+          {
+            "name": "save_io_failure_rejected",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "game-3d",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "initial_menu",
+            "passed": true
+          },
+          {
+            "name": "menu_keyboard_start",
+            "passed": true
+          },
+          {
+            "name": "input_moves_physics_body",
+            "passed": true
+          },
+          {
+            "name": "movement_collects_first_core",
+            "passed": true
+          },
+          {
+            "name": "audio_stream_configured",
+            "passed": true
+          },
+          {
+            "name": "win_condition",
+            "passed": true
+          },
+          {
+            "name": "save_created",
+            "passed": true
+          },
+          {
+            "name": "save_reloaded",
+            "passed": true
+          },
+          {
+            "name": "viewport_dimensions",
+            "passed": true
+          },
+          {
+            "name": "screenshot_saved",
+            "passed": true
+          },
+          {
+            "name": "restart_input",
+            "passed": true
+          },
+          {
+            "name": "protected_save_11",
+            "passed": true
+          },
+          {
+            "name": "protected_save_12",
+            "passed": true
+          },
+          {
+            "name": "protected_save_13",
+            "passed": true
+          },
+          {
+            "name": "protected_save_14",
+            "passed": true
+          },
+          {
+            "name": "protected_save_15",
+            "passed": true
+          },
+          {
+            "name": "external_save_change_preserved",
+            "passed": true
+          },
+          {
+            "name": "unexpected_backup_and_target_preserved",
+            "passed": true
+          },
+          {
+            "name": "repeated_valid_commit_readback",
+            "passed": true
+          },
+          {
+            "name": "save_io_failure_rejected",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "id": "gdscript-async-lifecycle",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "superseded_request_cannot_commit",
+            "status": "passed"
+          },
+          {
+            "name": "explicit_cancel_preserves_state",
+            "status": "passed"
+          },
+          {
+            "name": "detached_receiver_cannot_commit",
+            "status": "passed"
+          },
+          {
+            "name": "synchronous_reentry_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "freed_receiver_and_listener_cleanup",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "physics-body-3d",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "character3d_lands",
+            "status": "passed"
+          },
+          {
+            "name": "character3d_units_per_second",
+            "status": "passed"
+          },
+          {
+            "name": "wrong_ray_mask_reproduced",
+            "status": "passed"
+          },
+          {
+            "name": "ray_filter_repaired",
+            "status": "passed"
+          },
+          {
+            "name": "rigid3d_wake_and_impulse",
+            "status": "passed"
+          },
+          {
+            "name": "repair_keeps_excluded_layer",
+            "status": "passed"
+          },
+          {
+            "name": "slope_classified_as_floor",
+            "status": "passed"
+          },
+          {
+            "name": "slope_ascent_preserves_contact",
+            "status": "passed"
+          },
+          {
+            "name": "fast_point_sweep_thin_wall_0",
+            "status": "passed"
+          },
+          {
+            "name": "fast_sweep_excluded_mask_0",
+            "status": "passed"
+          },
+          {
+            "name": "fast_point_sweep_thin_wall_1",
+            "status": "passed"
+          },
+          {
+            "name": "fast_sweep_excluded_mask_1",
+            "status": "passed"
+          },
+          {
+            "name": "fast_point_sweep_thin_wall_2",
+            "status": "passed"
+          },
+          {
+            "name": "fast_sweep_excluded_mask_2",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "navigation-moving-agent",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "map_ready_before_movement",
+            "status": "passed"
+          },
+          {
+            "name": "excluded_route_does_not_move_actor",
+            "status": "passed"
+          },
+          {
+            "name": "collision_blocks_graph_reachable_target",
+            "status": "passed"
+          },
+          {
+            "name": "repaired_actor_actually_arrives",
+            "status": "passed"
+          },
+          {
+            "name": "avoidance_callback_moves_actor",
+            "status": "passed"
+          },
+          {
+            "name": "one_motion_application_per_physics_tick",
+            "status": "passed"
+          },
+          {
+            "name": "patrol_second_destination",
+            "status": "passed"
+          },
+          {
+            "name": "unreachable_target_classified",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "3d-mesh-socket",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "procedural_mesh_bounds",
+            "status": "passed"
+          },
+          {
+            "name": "normals_and_tangents_created",
+            "status": "passed"
+          },
+          {
+            "name": "socket_follows_bone_pose",
+            "status": "passed"
+          },
+          {
+            "name": "missing_bone_detected_before_binding",
+            "status": "passed"
+          },
+          {
+            "name": "socket_reset_preserves_local_offset",
+            "status": "passed"
+          },
+          {
+            "name": "mesh_socket_pack",
+            "status": "passed"
+          },
+          {
+            "name": "mesh_socket_save",
+            "status": "passed"
+          },
+          {
+            "name": "reloaded_socket_mapping_works",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "animation-state-machine",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "idle_pose_applied",
+            "status": "passed"
+          },
+          {
+            "name": "transition_blends_actual_property",
+            "status": "passed"
+          },
+          {
+            "name": "move_pose_applied",
+            "status": "passed"
+          },
+          {
+            "name": "interrupted_action_returns_to_idle",
+            "status": "passed"
+          },
+          {
+            "name": "bad_track_target_detected_before_playback",
+            "status": "passed"
+          },
+          {
+            "name": "state_machine_pack",
+            "status": "passed"
+          },
+          {
+            "name": "state_machine_save",
+            "status": "passed"
+          },
+          {
+            "name": "saved_graph_replays_repaired_clip",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "scenes-refactor",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "rename_reproduces_stale_export_path",
+            "status": "passed"
+          },
+          {
+            "name": "renamed_instance_pack",
+            "status": "passed"
+          },
+          {
+            "name": "renamed_instance_save",
+            "status": "passed"
+          },
+          {
+            "name": "renamed_instance_reload",
+            "status": "passed"
+          },
+          {
+            "name": "refactor_preserves_scene_instance_reference",
+            "status": "passed"
+          },
+          {
+            "name": "base_internal_state_unchanged",
+            "status": "passed"
+          },
+          {
+            "name": "saved_connection_and_export_path_execute",
+            "status": "passed"
+          },
+          {
+            "name": "saved_animation_path_repaired",
+            "status": "passed"
+          },
+          {
+            "name": "inherited_boundary_retained",
+            "status": "passed"
+          },
+          {
+            "name": "inherited_override_and_child",
+            "status": "passed"
+          },
+          {
+            "name": "source_base_bytes_preserved",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "assets-import-repair",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "isolated_project_directory",
+            "status": "passed"
+          },
+          {
+            "name": "fixture_configuration",
+            "status": "passed"
+          },
+          {
+            "name": "copy_resource_checker",
+            "status": "passed"
+          },
+          {
+            "name": "source_assets_created",
+            "status": "passed"
+          },
+          {
+            "name": "native_import_creates_metadata",
+            "status": "passed"
+          },
+          {
+            "name": "native_sidecar_loaded",
+            "status": "passed"
+          },
+          {
+            "name": "set_initial_mipmap_policy",
+            "status": "passed"
+          },
+          {
+            "name": "initial_loaded_resources_and_wrapper",
+            "status": "passed"
+          },
+          {
+            "name": "change_only_mipmap_policy",
+            "status": "passed"
+          },
+          {
+            "name": "model_source_modified",
+            "status": "passed"
+          },
+          {
+            "name": "new_process_observes_reimported_content",
+            "status": "passed"
+          },
+          {
+            "name": "reimport_preserves_identity_and_importer",
+            "status": "passed"
+          },
+          {
+            "name": "reimport_preserves_authored_wrapper_and_material",
+            "status": "passed"
+          },
+          {
+            "name": "missing_source_preflight_blocks_import",
+            "status": "passed"
+          },
+          {
+            "name": "source_repair_repeats_valid_import",
+            "status": "passed"
+          },
+          {
+            "name": "repair_preserves_neighboring_authoring",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "workflow-bounded-resource",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "initial_state_rendered_without_signal",
+            "status": "passed"
+          },
+          {
+            "name": "commands_update_rule_and_hud",
+            "status": "passed"
+          },
+          {
+            "name": "exhausted_command_cannot_emit_success",
+            "status": "passed"
+          },
+          {
+            "name": "restart_without_duplicate_effect_0",
+            "status": "passed"
+          },
+          {
+            "name": "restart_without_duplicate_effect_1",
+            "status": "passed"
+          },
+          {
+            "name": "restart_without_duplicate_effect_2",
+            "status": "passed"
+          },
+          {
+            "name": "restart_detaches_old_publisher",
+            "status": "passed"
+          },
+          {
+            "name": "late_old_event_cannot_change_hud",
+            "status": "passed"
+          },
+          {
+            "name": "teardown_keeps_old_service_detached",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "animation-event-rig",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "bone_track_and_method_event",
+            "status": "passed"
+          },
+          {
+            "name": "animated_bone_socket_follows",
+            "status": "passed"
+          },
+          {
+            "name": "interruption_before_event_does_not_fire",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_action_fires_once",
+            "status": "passed"
+          },
+          {
+            "name": "rig_event_pack",
+            "status": "passed"
+          },
+          {
+            "name": "rig_event_save",
+            "status": "passed"
+          },
+          {
+            "name": "reloaded_rig_and_event_execute",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "id": "navigation-links",
+        "actual": "passed",
+        "exit_code": 0,
+        "full_process_errors": [],
+        "assertions": [
+          {
+            "name": "link_fixture_map_ready",
+            "status": "passed"
+          },
+          {
+            "name": "gap_has_no_arrival_before_link",
+            "status": "passed"
+          },
+          {
+            "name": "added_link_synchronizes",
+            "status": "passed"
+          },
+          {
+            "name": "one_way_link_connects_forward",
+            "status": "passed"
+          },
+          {
+            "name": "one_way_link_excludes_reverse",
+            "status": "passed"
+          },
+          {
+            "name": "disabled_link_reproduces_gap",
+            "status": "passed"
+          },
+          {
+            "name": "link_repair_restores_forward_route",
+            "status": "passed"
+          },
+          {
+            "name": "link_repair_preserves_direction_policy",
+            "status": "passed"
+          }
+        ]
+      }
+    ],
+    "source": "validated installation archive; final corrected navigation rerun from reviewed archive"
+  },
+  "self_review": {
+    "kind": "Codex self-review, not independent approval",
+    "status": "passed",
+    "scope": [
+      "all changed source and recipes",
+      "save statuses and ownership",
+      "async cancellation and subscription lifetime",
+      "scene/import boundaries",
+      "assertion scopes and retained negative controls",
+      "manifest/version/link consistency"
+    ],
+    "findings_fixed": [
+      "Generic routing replacements reverted to concrete domain tasks.",
+      "Unexpected backup and repeated valid commit behavior now checked in both games.",
+      "Removed obsolete blanket animation scope statement and empty validation heading.",
+      "Moving agent now owns a capsule and proves a graph-reachable route is physically blocked before obstacle removal restores arrival.",
+      "Navigation reference uses movement.md to avoid Windows case-insensitive AGENTS.md filename ambiguity."
+    ],
+    "remaining_actionable_findings": 0
+  },
+  "limitations": [
+    "No installed host model discovery/routing run.",
+    "No foreign-platform/alternate-backend parity, crowd-avoidance quality, arbitrary artist-rig retargeting, physical audio/HDR, gamepad or accessibility certification.",
+    "Point sweeps are not finite-width/moving-target CCD; link tests are graph checks, not jump simulation.",
+    "Save store assumes one writer; fingerprints/flush do not guarantee locking or power-loss durability.",
+    "Schema is not provided as a clean-checkout dependency."
+  ],
+  "package_preflight_attempt": {
+    "status": "failed",
+    "reason": "Restricted process could not read .agents/plugins. No archive created. The authorized full-access rerun passed; no source change was used to bypass this restriction."
+  },
+  "validated_skill_files_sha256": {
+    "skills/godot-2d/SKILL.md": "72e6ac8346edd9d145048eabebe7fa4689766d8f3353c9a02da20053dc88ca5a",
+    "skills/godot-3d/SKILL.md": "a80d91ce97550e09f7e6c0521cfe1cc93ad0110f4f2cbdcb3974dd3928705d03",
+    "skills/godot-animation/SKILL.md": "df6f54a5e90b19c7e4283db1d955400fb79e55336fd29497c1186a587d847816",
+    "skills/godot-api/SKILL.md": "7754a545361650f0e23127cd914cc9e52324e6b7e6e889aa8d5c6845128d0bdb",
+    "skills/godot-architecture/SKILL.md": "7acd5d8a7fd51ef3e67569c16ddca4be0c501d6b9b885a33d41cbe84563320e6",
+    "skills/godot-assets/SKILL.md": "99493dff29e3f341c9113fdf61d22431d4b070ad833ff0c176bfef8015f9273f",
+    "skills/godot-audio/SKILL.md": "daa53fddb6051ca83e42cdfee094fb5d15cf770dd1de311771d0d36c8ce57bd2",
+    "skills/godot-csharp/SKILL.md": "93a9d46720e321042137ad2f211bd0982c27914381a36096f2a31c0530ae8d44",
+    "skills/godot-data/SKILL.md": "c892e330944f69f838d1b116146fe7ea97f978d323bf64f8c554179d5c7ee33f",
+    "skills/godot-editor-tools/SKILL.md": "36ac1c167076821e8a63d3db34ea0230d02b570d35011a2671bbd0fe856a28be",
+    "skills/godot-export/SKILL.md": "0128fe9caa9295f41b7bb0343aedf8e8c6c37eaa7e148e70b2b8bb8591bfbb23",
+    "skills/godot-gdextension/SKILL.md": "5344cbb2f4c0ba0067cd61be8ee653f80147a3b887d27faeea407e0603a0c3d4",
+    "skills/godot-gdscript/SKILL.md": "73a127c9807a73a2fb22273f8670572612902e62f74175520f2f05b3dcf62991",
+    "skills/godot-multiplayer/SKILL.md": "2171339c9392b5342f1a13cda89fba12d1985b19e164fc396c250753595f26b8",
+    "skills/godot-navigation/SKILL.md": "891ed40b3e2896c2c5d5486633ed2bb55a149092ddbade83306803b53b886a5e",
+    "skills/godot-performance/SKILL.md": "185a90cf39c4dfb1c338b1e831450ae9ccb687919532adcfeebfaa265d65fe4a",
+    "skills/godot-physics/SKILL.md": "36564144b4c92c50311c750ab93e5781a6bc28fe7639d6b08ee27337c4b5c9d4",
+    "skills/godot-project/SKILL.md": "f1684b33abb87a8382a3f4316dffb269c97267e6d5eddcbd9e8d706bd8120f3c",
+    "skills/godot-rendering/SKILL.md": "baaa188a72a386ef0e4647e197cec1643224180a4553d4ad3e345e9d40a5bf87",
+    "skills/godot-scenes/SKILL.md": "9cc5caebf5668a8e8ce4dd47b98e0cd74bb2dfeecec7622a1b254c89c4ab6965",
+    "skills/godot-ui/SKILL.md": "b3d6e5eff2e9932f59b0eab0147abcfc74a34a0ed31132d7f28d8b633103a279",
+    "skills/godot-validation/SKILL.md": "c8b4aced22128fd91e50b5c80bcecfc95217d24b1073ac33f2520456c9ed2c62",
+    "skills/godot-workflow/SKILL.md": "2499f27c5d119ce4ebe2b1b1e632941b5ea68e45ce5a95f059889b831332e8b6",
+    "skills/godot-2d/agents/openai.yaml": "da696e7ac78d586a3c85a9c40f1e7a4cdbeff9a7b5e9b67ef3ef88c971604128",
+    "skills/godot-2d/references/native.md": "332f2287305ed8bfd800b445313cf3a1a7b15d6637d7a6a45fc60162db116824",
+    "skills/godot-2d/references/recipes.md": "a12cedd49a42241ad2339a7261c1bf4bd91925139f3c684cebf332cb6241bdfd",
+    "skills/godot-2d/assets/examples/minimal/example.gd": "2101f1a2f682759dbfa96c712fa4069d5b9af4eb479df65c7ac00801120c9f43",
+    "skills/godot-2d/assets/examples/minimal/project.godot": "a97acf7e2fc856337388e239e0e6ed79f7e389a560fc9a1d2503dee3aa427c57",
+    "skills/godot-2d/assets/examples/terrain/example.gd": "e14b65c4e402fe01fe2709f6f5fee224f6f4014f81f46b1cf0684d78f8e947f2",
+    "skills/godot-2d/assets/examples/terrain/project.godot": "a97acf7e2fc856337388e239e0e6ed79f7e389a560fc9a1d2503dee3aa427c57",
+    "skills/godot-3d/agents/openai.yaml": "3a97560696d0b4db1e8d7747b77e667399d04306ca22067f9df2f47950f2aa75",
+    "skills/godot-3d/references/models.md": "8994e5e5b82a0b2e67f50857ed3bada103471fa960e6e08c7fd9d78c409a7d71",
+    "skills/godot-3d/references/native.md": "6f4b8722c6bc476cdbd902c78332e3ca6943ab180d1c242fff36e62bc342aa55",
+    "skills/godot-3d/references/recipes.md": "67f699b506cb209e32395a106acf97995e97b298980980e4bf11978fe1c5c5b7",
+    "skills/godot-3d/assets/examples/mesh-socket/example.gd": "556c5b655d3a500d86130191ce777bd56e1db1bb3ea89bffe176a226d7d1a82a",
+    "skills/godot-3d/assets/examples/mesh-socket/project.godot": "334c4b7f98a5ffe6071e9a4e37acabcbcb04a885b4ebc2abe26900776c76655c",
+    "skills/godot-3d/assets/examples/minimal/example.gd": "89b24a3e611adf0378d5ab134eb7ce1dc270f5218bfdd9e505c96e8a3ccf17a9",
+    "skills/godot-3d/assets/examples/minimal/project.godot": "ce8ff9b6c3124f132db8a19596b2dfdbb1fde00b5940de9f25e4bb51c5cc190e",
+    "skills/godot-animation/agents/openai.yaml": "4f2a166730e926713ace22b255e3d87091d958365074b90a9a0f2e626de96b91",
+    "skills/godot-animation/references/locomotion.md": "e14909407800ea1dee0b8a9eba7aee633e606997107944f2081a276d3078c507",
+    "skills/godot-animation/references/native.md": "1e7bccb02942e28b4ab5b2d2029ca11b5a5efa8c55a81d84a49eb28af2306d29",
+    "skills/godot-animation/references/recipes.md": "49da1158edfcfea33441e993edc74cc99974c506bf65bb9b9711805cd3981062",
+    "skills/godot-animation/assets/examples/event-rig/actor.gd": "5874ff7ccd8afbc8754b91def10a1db591982405d96ed0e0815110e2de4ceafe",
+    "skills/godot-animation/assets/examples/event-rig/example.gd": "01c8ce7c9d1eff68e08b6ca966b89d47135e23a2b93c8a5d199efe1196ed94e5",
+    "skills/godot-animation/assets/examples/event-rig/project.godot": "0f6b6ae4f0d94af594f2330dbc04d7cd2b6fbe0550bd1057725ea093fd9ec62a",
+    "skills/godot-animation/assets/examples/minimal/example.gd": "597aff0432f43e4f9044df1e93111d54e175e3e000f33dd25d1c68ebbbe3811d",
+    "skills/godot-animation/assets/examples/minimal/project.godot": "247b4646fe01a5f819cd255856bca865647d484d39bbc6a6e4f375cbd29db542",
+    "skills/godot-animation/assets/examples/root-motion/example.gd": "0428a0405c12637c04db3049d66be736132efedb63b418fd9ed89f1a3c70d323",
+    "skills/godot-animation/assets/examples/root-motion/project.godot": "247b4646fe01a5f819cd255856bca865647d484d39bbc6a6e4f375cbd29db542",
+    "skills/godot-animation/assets/examples/state-machine/example.gd": "0bc8833119cbf950cbb2a3448cb76ffe1022b208ab6f24ccbacbba3f94cdf9fa",
+    "skills/godot-animation/assets/examples/state-machine/project.godot": "71647240bb657e5d6f4551a811ce0c87bf1bda001502ad336d5f301e21a06210",
+    "skills/godot-api/agents/openai.yaml": "15060b92e344d8979614398cca22cd33b37f69db7377a5722af8ffd8498cd6de",
+    "skills/godot-api/references/native.md": "6114d2c43bd596eb7e886cf933067b0c2408d4741a029d34365afd0b882b4ed9",
+    "skills/godot-api/assets/examples/minimal/example.gd": "ec7d253993e5799ddf7c2b3a06158ac326547f50f0e68cad3336075327da6a6e",
+    "skills/godot-api/assets/examples/minimal/project.godot": "bcfc82ed40e6628673284646d6bc1f037ea60f4b849097bf4e04c69f8f31162a",
+    "skills/godot-architecture/agents/openai.yaml": "04820e1ace39925d317674dcd56d27057e2cd108de29a88b8d9592ef9fb4bb28",
+    "skills/godot-architecture/references/native.md": "4f30a961f64647a095c982277fa37542ee10e5bb189f9a388436d8be1c17dc98",
+    "skills/godot-architecture/assets/examples/minimal/component.gd": "64f6d5ba73c32f314f4f53a6743a1538163ff4e31941b62c01eedd9011c546b9",
+    "skills/godot-architecture/assets/examples/minimal/example.gd": "4769de2479d955d64ce897c4f6d5851d5d68497bbc14082a312dc00d92694604",
+    "skills/godot-architecture/assets/examples/minimal/module.gd": "ef9878e5608612eb038a8e7cc4a721b03a647b913633ea5153ef92937417dc09",
+    "skills/godot-architecture/assets/examples/minimal/project.godot": "ad22cd2e0c82b6fd8f11a642b5f2652924b8d2bd50be31f3b572e847665d056d",
+    "skills/godot-architecture/assets/examples/minimal/service.gd": "9cbeac833e8e2aebff4d2e99bc8a9b1b8e3d43daa29409e96c1f2c0daa79717f",
+    "skills/godot-assets/agents/openai.yaml": "3b2c9c8c75bf1e6a3048bca371375ef8524b7f1342db622f3d94b7a8f52943ac",
+    "skills/godot-assets/references/native.md": "e84238687b95efa8b20d32fa16bb9b7b0f8a67cea87c18e4025aac40431bf535",
+    "skills/godot-assets/references/pipelines.md": "aa9f493bb6c3ef5fc3ddf664de2c83442107f650272d6e5344f3161e4cd51d8f",
+    "skills/godot-assets/references/recipes.md": "7cc2805e046da7e161eaee9437e2d8055ee09db86af6b1a6b26b7c37c6f94d9d",
+    "skills/godot-assets/assets/examples/import-repair/check.gd": "1987f5111f112b74db905ebc4ea2e1543daaa0b39f30a4bb70c94fb7723c5623",
+    "skills/godot-assets/assets/examples/import-repair/example.gd": "d7d3fed7a91fc0541c715eddcb3f83f87058a3891ef9b0704541ab4a0695e728",
+    "skills/godot-assets/assets/examples/import-repair/project.godot": "da783742333edea792c77b988a0f2498be523cdc37047d04c2646684388b11d1",
+    "skills/godot-assets/assets/examples/minimal/example.gd": "48a81fb917983e8968f2d7b2d6ec49ad32f9e95d5cfb33bc3d94ae6249d35f4d",
+    "skills/godot-assets/assets/examples/minimal/project.godot": "1f3383ac2e9e0d9c2b6214bef840ab06d221396e7eba2bf798a7480949ec1ccc",
+    "skills/godot-audio/agents/openai.yaml": "be13afc72280a3a560da6f428c216dc3b7d256ac61c1d8d8e39fc68a9c38d937",
+    "skills/godot-audio/references/native.md": "88d193a8255a633de788bac7283515ef919f8a99b1391b9754c0533a26970d2e",
+    "skills/godot-audio/assets/examples/minimal/example.gd": "83a71c5dbcc676c6253c82c425dde3b3f2ef957bfbd845775826eaa4e417d635",
+    "skills/godot-audio/assets/examples/minimal/project.godot": "e93d8616ea464bfcb15beb1c4086bdfceb2543688879d24d1c5e65aa04da6478",
+    "skills/godot-csharp/agents/openai.yaml": "97c46cd666847f95c734dd9fb4a08415000b45022fe37e93d0498fbda11f082d",
+    "skills/godot-csharp/references/native.md": "178b5f829e224e23f056dc5931812d423b9edcb20c61d297d01d2904dc72990b",
+    "skills/godot-csharp/assets/examples/minimal/example.gd": "7875b0fff3a761ce9c1f7ca1efaab142dad3d48e59a5cc27eb3b5497b16cd6e2",
+    "skills/godot-csharp/assets/examples/minimal/ExampleResource.cs": "626df73a54fa6b1b631f2911d697dd2a79f0ca79c36d257159da5aa144a4fea3",
+    "skills/godot-csharp/assets/examples/minimal/project.godot": "b1a3953e7e43664d3ce585648a04f2f1acf718e754652a87bebf68d23c24a193",
+    "skills/godot-csharp/assets/examples/minimal/Recipe.csproj": "bd4a55e4d420a7cdf6e59881bc91a62ccfc07cff72b342d7ea2b0c1f7a9a76ab",
+    "skills/godot-data/agents/openai.yaml": "879a1f89d2321218872422df76f6b26d8e8dfc6e1ea766f92b06b69be2fb3b50",
+    "skills/godot-data/references/native.md": "8a25e8ed3e8647d5d7cfa4d2a3a1af58fc0336d57bef93896d15b899e57653d4",
+    "skills/godot-data/assets/examples/minimal/example.gd": "e4b9cbd4f25361f75c4cda220549c435fff1870109076fb8a6e333aec0c97191",
+    "skills/godot-data/assets/examples/minimal/project.godot": "6efb67424635aa67fcd3026990972d0437a06070cc6589bb26b3ead8c634868e",
+    "skills/godot-data/assets/examples/resources/example.gd": "9fc7626b5c140a6813b091f2d6b54f284aa1494e4e192b71d951326e5a611cbe",
+    "skills/godot-data/assets/examples/resources/probe_data.gd": "cf1329f45f0b71110c30b85951b093fa638d914fc1849f0d89280c5e5a544b31",
+    "skills/godot-data/assets/examples/resources/project.godot": "6efb67424635aa67fcd3026990972d0437a06070cc6589bb26b3ead8c634868e",
+    "skills/godot-editor-tools/agents/openai.yaml": "a60c3f2928c274c2c9f00d781d31f310a6a47c92919ba5c5b6bc90429d588126",
+    "skills/godot-editor-tools/references/native.md": "e8240be6dab749906f8b2d39b20364a0003f7351fca58673fe58943c86f2af7a",
+    "skills/godot-editor-tools/assets/examples/minimal/example.gd": "aa7ed1a846a67a9361dce6e5a3a5ffde4b5f34433ac8a504e986c7641930a585",
+    "skills/godot-editor-tools/assets/examples/minimal/fixture.tscn": "7600601c1a86afaa16c7a0ad809952a81e5f00e442cf3ea22f7f41916b1b3217",
+    "skills/godot-editor-tools/assets/examples/minimal/project.godot": "52862b8f9c1eb65ef2fb339b42777347520b3e979933e862c1c72b30b3fed2c8",
+    "skills/godot-editor-tools/assets/examples/minimal/addons/recipe/plugin.cfg": "a9648867bd7a5b4e6b6b2dbf2c0843890b3731e9a741d0da3d78ae3ffc15a9af",
+    "skills/godot-editor-tools/assets/examples/minimal/addons/recipe/plugin.gd": "9c3adf83efa63b41c4f565197c43db0c6ae1e1f39922f69190483fd4bff763a9",
+    "skills/godot-export/agents/openai.yaml": "edf9220b4b03c2fb78287d8989c6725483fe49e39a26d95ca503f2c971895030",
+    "skills/godot-export/references/native.md": "a548085cc4644ad0e8fc5fdff6a5afc0e9fcf4a6ecd7d4246b7c323f275c2c33",
+    "skills/godot-export/references/web.md": "b1e38e3b8e435043cd444d1a51a401874bd906c51b6464eaf04c8e2c5bda4d56",
+    "skills/godot-export/scripts/serve_web.gd": "793d1dbd866d6f0ce8ce6cb939f80ee3dcac366e3cc6e03427741f35d015a5e4",
+    "skills/godot-export/assets/examples/minimal/example.gd": "e28a055a6c144eb9e0ffb6e92d8559e6cc941a815667fc7d2f863ac2d50b3c5c",
+    "skills/godot-export/assets/examples/minimal/project.godot": "466688cf0c184ccd087e5aa60cd979dbbbd71d9d8a90b880c1b223b9c49135e5",
+    "skills/godot-export/assets/examples/web/game.gd": "0d567ed3df55c911b7c160c1145ae2622ebfe1e2a72f36c665d6e657899e9b82",
+    "skills/godot-export/assets/examples/web/main.tscn": "3cc0c6762b28186836f49a5ffb2971f1863b16520a5c9fcb8b32074ce4c7df7a",
+    "skills/godot-export/assets/examples/web/project.godot": "cba81f40cca5a2c0aea2082295735d5777b6b53243c9dbdbdda55f3145e1499d",
+    "skills/godot-gdextension/agents/openai.yaml": "0a4e87707004ed120047a0932189b7497cf75d6c4b031dfd1dbcba24068a7ab6",
+    "skills/godot-gdextension/references/native.md": "138207901ed56f8f87de41bd97a8e079f5035c871498fbce8a6de765daefc108",
+    "skills/godot-gdextension/assets/examples/minimal/bootstrap.gd": "49bbb38646201758d69fda9f97de3155fff9eee61f5b8037eaad319a5221e2a7",
+    "skills/godot-gdextension/assets/examples/minimal/build-profile.json": "63559a8301b607f5ebb3baaabf672c111292909b5dd8b59ed3eaa189df4d7ce0",
+    "skills/godot-gdextension/assets/examples/minimal/CMakeLists.txt": "96ef497190903c2a1255dd56730d5eb868556294653733e9b639188a5530915a",
+    "skills/godot-gdextension/assets/examples/minimal/example.gd": "a10c310afcab44109fd1d73778a3059f9128458635517013982222a8b22b3737",
+    "skills/godot-gdextension/assets/examples/minimal/native.cpp": "046f75dc712a5ecc2d8c5566d788d061b55d81e628ea6d377e4ab91531174647",
+    "skills/godot-gdextension/assets/examples/minimal/project.godot": "c237216a8ede1d613ef73882cd8bd2e75f7294f2afa7616fda81f0f3a65568e9",
+    "skills/godot-gdextension/assets/examples/minimal/recipe.gdextension.in": "db9c75f08f83c95ee56240cad40356b3752c6c5cc7496127b29ca5b4cefce1a9",
+    "skills/godot-gdscript/agents/openai.yaml": "cbf1f7ea85d0af3c0e118929d23747dcb2de3bcaed5dad581f5ad636f0559c18",
+    "skills/godot-gdscript/references/native.md": "7ed9c7a3acb4a2c77b6d21fa0dda48447674c7ba5654e6099744c482eabde1c1",
+    "skills/godot-gdscript/references/tasks.md": "cbcabfb0fd590035839aa63ffc83a918d340a41bc336398e7b0806c335c6f9cf",
+    "skills/godot-gdscript/assets/examples/async-lifecycle/example.gd": "37c8f041a188f037204aca8d7c5a5eb6e604cdc4a305b456e6b66bc947085fe3",
+    "skills/godot-gdscript/assets/examples/async-lifecycle/project.godot": "2b8fe04c6d032cbdb2986100f57d2311a0a20818d9efd99e2fe23b194d5ede10",
+    "skills/godot-gdscript/assets/examples/minimal/example.gd": "76923a004a42880f677c92a5387ecc581098842076fca483696f97fa475cda1a",
+    "skills/godot-gdscript/assets/examples/minimal/project.godot": "17ad4d2d2c99eed8fac98f56c8f9bfc53c2610cbbc2f27c6a5f16c30aaf67d47",
+    "skills/godot-multiplayer/agents/openai.yaml": "6db2b73a97194c84e1e2642f7b03f32ca788de693283a69303943bf70a59100b",
+    "skills/godot-multiplayer/references/native.md": "a8ed54d6a2cfafc2485ac06f259dee18d33c4ba5b94d43f3d255490c271d168a",
+    "skills/godot-multiplayer/assets/examples/minimal/example.gd": "8061c2ae94843e3f92dbe6921d81ee8ab6333a25e2bbb29f5451d1f2e14ddc5c",
+    "skills/godot-multiplayer/assets/examples/minimal/net.gd": "ae6c6263c28667ab3752abc1698f7a9f4e3e41ed66a1e77cbff5b7646c359b04",
+    "skills/godot-multiplayer/assets/examples/minimal/project.godot": "82ce215ce1c359b4c5ceb907ec03950e5b6e869d48722f56ebdf9389d1a2b322",
+    "skills/godot-multiplayer/assets/examples/minimal/worker.gd": "b0a8f804f90779359b7f05f177146b5cd44e5f46ce644024c951e802a5583a0b",
+    "skills/godot-navigation/agents/openai.yaml": "667175e1e357d8e7c9be36b694e40ede84c5839200ac1e4d78d4a27d01ba0d58",
+    "skills/godot-navigation/references/movement.md": "8229e4ef53a0a054fbef9ef8416ab842e522d27deb34fd1d547cc7028f1b0872",
+    "skills/godot-navigation/references/native.md": "76c19b816e12d1a35fc385e98317af7e89cd2b494a72f581cfe41df64bac2d7d",
+    "skills/godot-navigation/references/recipes.md": "fc864327682f5f6de85a7802df196c3f2c7d9bfa354430d3d3ad87bd96c522a1",
+    "skills/godot-navigation/assets/examples/links/example.gd": "6866405b383c24447d03e3c9f1cd212770f9a8cf2aa6b08e5b510050e0028741",
+    "skills/godot-navigation/assets/examples/links/project.godot": "a13c63a64ea6d759be009a8f957e4d101bfdf0d68130a22497fb08d436cfb3cc",
+    "skills/godot-navigation/assets/examples/minimal/example.gd": "edee763ed8241da0006a1dabb6bf8e8b3c8ffc9bf9b0b9e9b8e809c52e4ac7e7",
+    "skills/godot-navigation/assets/examples/minimal/project.godot": "e0d0eebabec5e4f893174db44c8f306f675a47e3997aff278de0b26784cfe53a",
+    "skills/godot-navigation/assets/examples/moving-agent/actor.gd": "c31fa2975e6e65a236be297c7cad77babac8a434d095297450d7d2cc93b0a06d",
+    "skills/godot-navigation/assets/examples/moving-agent/example.gd": "8cd583ad244ce6972d2eedd8fe0acdcb6f28547e0eb81edcc867051caf23750d",
+    "skills/godot-navigation/assets/examples/moving-agent/project.godot": "8abaf89dbb9a6eed2eddf68aa4a7dcb0b7bbe4695279537529eeec7c62ff756e",
+    "skills/godot-performance/agents/openai.yaml": "c6bd9084421b1c2ca1b3b0e26b551d70ee955834db3cfaa353b51c6baca0375e",
+    "skills/godot-performance/references/native.md": "1bfc5e7b326819426afa8a22e940f8baa3fde0ac4a84fd5faa6b4e7f839ae207",
+    "skills/godot-performance/assets/examples/minimal/example.gd": "02c10b08f8a5bb3def9a54e950dbc756106e2f10e5dfbbb80b1892d19722e755",
+    "skills/godot-performance/assets/examples/minimal/project.godot": "27cd203b6fc224a50158fc4abf83ac07c713bae8d72889fd336b6f25c3913855",
+    "skills/godot-physics/agents/openai.yaml": "ecc535a4a167ae67d038ab6b75ed2f7e091bf50f5a935b83dc9e9a2739624194",
+    "skills/godot-physics/references/controllers.md": "61b0acc98db900b0fcf108fc935afb67de9ca4bbd66aed59361a1ecda1b5c72f",
+    "skills/godot-physics/references/native.md": "71af091ad75ef64998b0e483229fe7f2e3d089a784d37c813a6784fe18eaed7a",
+    "skills/godot-physics/references/recipes.md": "e26209182d74e8f0821c3b09a59f114a954a79c0284e3e9898d0ed841b7d59b6",
+    "skills/godot-physics/assets/examples/body-3d/example.gd": "e73000770bffd0f2c8fcc7ff7c927c6ca5d78d5c9d1cae042e82265c3292e716",
+    "skills/godot-physics/assets/examples/body-3d/project.godot": "731f844f28e82157787a38a34cb3bc26920755e47b6e57c90e1f63bcc70e4fc4",
+    "skills/godot-physics/assets/examples/minimal/example.gd": "d998a178ec1a83c5e7d000531f0b2c63da351899f92156d87e43309149f404e2",
+    "skills/godot-physics/assets/examples/minimal/project.godot": "e81666ba802a1caabb73c0d6c8ad51d4f4247b613bd6aaf5bd57648777cb64dc",
+    "skills/godot-project/agents/openai.yaml": "092903fb3ba450b22a08a8bf317d004d6a708cfe787ca35d099da23dfe496e11",
+    "skills/godot-project/references/native.md": "fb845aa7ce1923aa86a6eb9a293428555bff654ae751b9a20caf1cff2d529e1d",
+    "skills/godot-project/assets/examples/minimal/example.gd": "dcce7545bb7e249708d82d4e30b12d5fb4842fb32d68f1eabb659f801dc08abb",
+    "skills/godot-project/assets/examples/minimal/project.godot": "d32268bedf6b3b41020e32e88a2bbc74bd9c8722c429726819319052a1894fd3",
+    "skills/godot-rendering/agents/openai.yaml": "5816b5b193a4ae8e1ff68d9b09207f0c3450575a8fb86f56af611fbf41c83346",
+    "skills/godot-rendering/references/native.md": "66714fcf9d44248dee2fbcd6e4525d6a720bdc976a2b4b38e4a03b3cb0d77983",
+    "skills/godot-rendering/assets/examples/materials/example.gd": "335604c2e94b8cdeb5c4ff157704a06018ab16b0a711d501d4e1bc5951da8c3f",
+    "skills/godot-rendering/assets/examples/materials/project.godot": "a66b4bf0195eeadce2fc2049fda9192766c38aaa4b2b2b6247adae00f8db399a",
+    "skills/godot-rendering/assets/examples/minimal/example.gd": "ab360430b431eb15949d45a9ecf73812d829d3318ce3a7f7b81869bf6a5c3098",
+    "skills/godot-rendering/assets/examples/minimal/project.godot": "a66b4bf0195eeadce2fc2049fda9192766c38aaa4b2b2b6247adae00f8db399a",
+    "skills/godot-scenes/agents/openai.yaml": "a6d981755c013ef2ed343fc1b905bff9ce31c86bdc19253e21e030736c11d9fc",
+    "skills/godot-scenes/references/native.md": "2b52c71131e926414337b735d3e804d24ae7148b05a5ff05d716d94226046ed2",
+    "skills/godot-scenes/references/refactoring.md": "24394e0c326e121d1b50cae043fd0df660b55d451cd4a792256cbbcfd51565eb",
+    "skills/godot-scenes/assets/examples/minimal/example.gd": "7d7a344d3698cc178cab90179526c063c4ab659c7295c6854df449e3b17ad77c",
+    "skills/godot-scenes/assets/examples/minimal/project.godot": "1715b63b8067cc59f9c3eb626cff57677d5b2780351f999fd2dee6f36fddf59a",
+    "skills/godot-scenes/assets/examples/refactor/base.tscn": "a54b0b5b78eecf9f89b1380b617b4bd938e6d8512cf0e66b31adc3ba9815061a",
+    "skills/godot-scenes/assets/examples/refactor/controller.gd": "225b15030d88838a0ac8309929b18eb78c55ce2305ab6c07705b7b2240f02629",
+    "skills/godot-scenes/assets/examples/refactor/example.gd": "37e0949369299452d64d072b68d00de3202108400de801a4268eae535da034b5",
+    "skills/godot-scenes/assets/examples/refactor/project.godot": "790018143fcec7285d1613c2348994e8102e8b9356711845475a042d2bdcec91",
+    "skills/godot-scenes/assets/examples/refactor/variant.tscn": "7bece2a98d48e7ded670f794c33225526fdbfb3b9d94b3aabb79b8b775624a8d",
+    "skills/godot-ui/agents/openai.yaml": "48266d5f7f912a06da7df60d904f399df37a63cb0c1d37432a92e94b5bad9ab1",
+    "skills/godot-ui/references/localization.md": "69d884b20d484778459883c36a91dd913ead5c0e62f35f780eb88182f7b1ab30",
+    "skills/godot-ui/references/native.md": "9b918d9b96e2a1f71030008491d3d4208cf82b132080032fe84adb7eaebc2710",
+    "skills/godot-ui/assets/examples/localization/example.gd": "9efc59ab6e76db182f64f598ad441c8be4bff4ef7a0b27957e87509bd2d80324",
+    "skills/godot-ui/assets/examples/localization/project.godot": "b1d82b354283576da039a54ef2b1314d2ead45ccaa5231dcf392dd988cb12dcd",
+    "skills/godot-ui/assets/examples/minimal/example.gd": "95abe7c398a0fdebe3f372ea3e175f831dca0e457c4ce77963082dd290a5506e",
+    "skills/godot-ui/assets/examples/minimal/project.godot": "6b9caa8936fa491b71b52cfa6816e62f0216ebf69a25f636ce8092a53b361b61",
+    "skills/godot-ui/assets/examples/localization/locale/en.po": "c59093d540f66da1c2dca887a091b0affd854b97564d481c898a6e9f6a0187c9",
+    "skills/godot-ui/assets/examples/localization/locale/es.po": "64348a1d67d244121426df39c26d85dccf23ab042985e22cd2a030cb7bb52033",
+    "skills/godot-validation/agents/openai.yaml": "4bd2be675e1952f3fbc2deb77df8434d14271891f38c00fbfcdb73ac58c4bfa6",
+    "skills/godot-validation/references/native.md": "9eeb12c8354757e0c1e2a0424e50115b2035475846290eb589fb3050af838beb",
+    "skills/godot-validation/assets/examples/minimal/example.gd": "917843ec9287a1d659b717767e10c39be641ca0bf02b3ddb9435848fccbe0eb1",
+    "skills/godot-validation/assets/examples/minimal/project.godot": "7dfe12889117e01c0142c9813973a41e78581304463ce09faf8c4229e76c48ab",
+    "skills/godot-workflow/agents/openai.yaml": "06264b6bf2b18112bfdfef24fc04316bbe5fc2f9890f00833461222e6a8beb22",
+    "skills/godot-workflow/references/native.md": "4044a6648651de20d8db273c611dc7491c11bd745bcee99a12f414e91806d2f9",
+    "skills/godot-workflow/references/vertical-slice.md": "7d10eb671d103ac81229e018f3695fbd58d362bce3c2f5354ede0fd0cfbe0203",
+    "skills/godot-workflow/assets/examples/bounded-resource/example.gd": "80e84e7123d137c59eb856c25df9b00d07af25ecabb0f3e114fca9ee33de36c9",
+    "skills/godot-workflow/assets/examples/bounded-resource/module.gd": "9b114f69ca54790b5be0334c47d2caa7c2fcff89bb1fcf7d2751eb003a1ba8f0",
+    "skills/godot-workflow/assets/examples/bounded-resource/project.godot": "6c3060191b38141ea40eab45b5e7ac292ba98c17817a4ed6a1b185c320fd45a4",
+    "skills/godot-workflow/assets/examples/game-2d/game.gd": "39b9a5656100f8b4112277e8ab88acca384a29499e27f723d100f0d3dca2a64c",
+    "skills/godot-workflow/assets/examples/game-2d/main.tscn": "97c080e27e6e438fd651a664dafc1a047653a41a6a43ec3f5cc90c71c8ff91d2",
+    "skills/godot-workflow/assets/examples/game-2d/project.godot": "974f6ad0129977804d12fe11f0c8c85db18cd53e444d01e6d6bc98dc0d52211f",
+    "skills/godot-workflow/assets/examples/game-2d/save_store.gd": "8dd604447b7a8002f26346beed0f48c3d70bd4857b90d20f18acbe4e6665b726",
+    "skills/godot-workflow/assets/examples/game-3d/game.gd": "89aeb7f9f2d7c135206475bcfac3b194a0a81f748655642da746090958486ed8",
+    "skills/godot-workflow/assets/examples/game-3d/main.tscn": "97c080e27e6e438fd651a664dafc1a047653a41a6a43ec3f5cc90c71c8ff91d2",
+    "skills/godot-workflow/assets/examples/game-3d/project.godot": "ae6e5a22161e6a0e7eee1cd4a955e7cd8432ccce8c6fe9e5477b1a871766506b",
+    "skills/godot-workflow/assets/examples/game-3d/save_store.gd": "8dd604447b7a8002f26346beed0f48c3d70bd4857b90d20f18acbe4e6665b726",
+    "skills/godot-workflow/assets/examples/minimal/example.gd": "b8b65b327077f1dfdb9cbeecf4f743319053e73c91e8d1affad1eb475ccb1c9f",
+    "skills/godot-workflow/assets/examples/minimal/project.godot": "8cd0e66c61807e8b62a883d1d19fac26da0501f93a0e7475b39393efb4753d6b"
+  }
+}

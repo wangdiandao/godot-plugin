@@ -15,14 +15,14 @@ Record the engine binary/version, renderer, main scene, Autoload paths, input ac
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Select the renderer by target hardware and required features, not dimension alone. Preserve existing choices unless the task requires a change. Persist input/* dictionaries and Autoload paths; runtime InputMap edits are session-only. Migrate an isolated copy before changing engine feature tags.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+1. For a new project, select renderer, main scene, persisted inputs and Autoload order from the stated platform and loop.
+2. For takeover, inspect the existing main scene/configuration and reproduce startup before changing one setting.
+3. For startup failures, follow path/UID, parser, input registration and Autoload branches in native.md.
+4. Import and launch a fresh process; distinguish runtime InputMap changes from persisted configuration.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+Preserve unrelated settings, UID/import metadata and Autoload order. Review normalization diffs; restore only task edits when startup or persisted input regresses. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 

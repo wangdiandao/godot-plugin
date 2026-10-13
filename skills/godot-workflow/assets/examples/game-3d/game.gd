@@ -10,6 +10,8 @@ var start_button: Button
 var hud: Label
 var hint: Label
 var sound: AudioStreamPlayer
+var save_store = preload("res://save_store.gd").new()
+var save_failure := ""
 var save_path := "user://progress.json"
 var test_output := ""
 var checks: Array = []
@@ -159,40 +161,18 @@ func _collect(body: Node, pickup: Node) -> void:
 	_update_hud()
 
 func _update_hud() -> void:
+	hint.text = save_failure if not save_failure.is_empty() else "ARROW KEYS  Move     ENTER  Start     R  Restart"
 	hud.text = ("ORBIT GARDEN" if MODE == 2 else "BEACON ISLAND") + "     /     CORES  %d / 3     /     BEST  %d" % [score, best]
 
 func _load_best() -> void:
-	if not FileAccess.file_exists(save_path):
-		return
-	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(save_path))
-	if data is Dictionary and data.get("version") == 1 and data.get("best") is float:
-		best = clampi(int(data.best), 0, 3)
+	var loaded: Dictionary = save_store.load_path(save_path)
+	best = int(loaded.best) if loaded.status == "ok" else 0
+	save_failure = "" if loaded.status in ["ok", "missing"] else "Save protected: " + str(loaded.status)
 
 func _save_best() -> bool:
-	var temporary := save_path + ".tmp"
-	var backup := save_path + ".bak"
-	var file := FileAccess.open(temporary, FileAccess.WRITE)
-	if file == null:
-		return false
-	file.store_string(JSON.stringify({"version": 1, "best": best}))
-	file.flush()
-	var ok := file.get_error() == OK
-	file.close()
-	if not ok or not JSON.parse_string(FileAccess.get_file_as_string(temporary)) is Dictionary:
-		return false
-	# Preserve an existing save before replacing it. Unexpected backup -> no overwrite.
-	if FileAccess.file_exists(backup):
-		return false
-	var had_save := FileAccess.file_exists(save_path)
-	if had_save and DirAccess.rename_absolute(save_path, backup) != OK:
-		return false
-	if DirAccess.rename_absolute(temporary, save_path) != OK:
-		if had_save:
-			DirAccess.rename_absolute(backup, save_path)
-		return false
-	if had_save:
-		DirAccess.remove_absolute(backup)
-	return true
+	var outcome: String = save_store.commit(best)
+	save_failure = "" if outcome == "ok" else "Save protected: " + outcome
+	return outcome == "ok"
 
 func _expect(value: bool, label: String) -> void:
 	checks.append({"name": label, "passed": value})
@@ -246,6 +226,7 @@ func _self_test() -> void:
 	_key(KEY_R, false)
 	await get_tree().process_frame
 	_expect(playing and score == 0, "restart_input")
+	_save_contract_checks()
 	var ok := true
 	for item: Dictionary in checks:
 		ok = ok and item.passed
@@ -323,3 +304,43 @@ func _spawn_pickup(point: Vector2) -> void:
 	area.body_entered.connect(_collect.bind(area))
 	add_child(area)
 	pickups.append(area)
+
+func _save_contract_checks() -> void:
+	var original_path := save_path
+	var original_best := best
+	var guard_path := test_output.path_join("guard.json")
+	for bad: String in ['{broken', '{"version":99,"new_data":"keep"}', '{"version":1,"best":1.5}', '{"version":1,"best":-1}', 'null']:
+		var file := FileAccess.open(guard_path, FileAccess.WRITE)
+		file.store_string(bad)
+		file.close()
+		save_path = guard_path
+		_load_best()
+		var hash_before := FileAccess.get_sha256(guard_path)
+		best = 3
+		_expect(not _save_best() and FileAccess.get_sha256(guard_path) == hash_before, "protected_save_" + str(checks.size()))
+	var file := FileAccess.open(guard_path, FileAccess.WRITE)
+	file.store_string('{"version":1,"best":1}')
+	file.close()
+	_load_best()
+	file = FileAccess.open(guard_path, FileAccess.WRITE)
+	file.store_string('{"version":1,"best":2}')
+	file.close()
+	var changed_hash := FileAccess.get_sha256(guard_path)
+	_expect(not _save_best() and FileAccess.get_sha256(guard_path) == changed_hash, "external_save_change_preserved")
+	var protected := preload("res://save_store.gd").new()
+	protected.load_path(guard_path)
+	var backup := FileAccess.open(guard_path + ".bak",FileAccess.WRITE)
+	backup.store_string("UNEXPECTED_BACKUP_KEEP")
+	backup.close()
+	var target_before := FileAccess.get_sha256(guard_path)
+	var backup_before := FileAccess.get_sha256(guard_path + ".bak")
+	_expect(protected.commit(3) == "backup_conflict" and FileAccess.get_sha256(guard_path) == target_before and FileAccess.get_sha256(guard_path + ".bak") == backup_before,"unexpected_backup_and_target_preserved")
+	var normal := preload("res://save_store.gd").new()
+	normal.load_path(test_output.path_join("repeat-save.json"))
+	_expect(normal.commit(1) == "ok" and normal.commit(2) == "ok" and normal.read_file(normal.path).best == 2,"repeated_valid_commit_readback")
+	var missing := preload("res://save_store.gd").new()
+	missing.load_path(test_output.path_join("missing-parent/save.json"))
+	_expect(missing.commit(2) == "write_failed", "save_io_failure_rejected")
+	save_path = original_path
+	_load_best()
+	best = original_best

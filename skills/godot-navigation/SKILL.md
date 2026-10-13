@@ -16,6 +16,8 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 
 ## Workflow and Key Decisions
 
+For actual agent movement, patrol and avoidance callbacks, read [Actual agent movement, patrol and avoidance callbacks](references/movement.md) and run the [moving-agent example](assets/examples/moving-agent/project.godot).
+
 1. Configure NavigationPolygon or NavigationMesh; prefer source geometry arrays or collision geometry so headless execution does not depend on reading GPU meshes.
 2. Use NavigationServer parse_source_geometry_data and bake_from_source_geometry_data; parse scenes on the main thread and wait for asynchronous baking to complete.
 3. Assign resources to navigation regions and wait for map synchronization before querying paths; keep map changes and agent movement aligned with physics frames.
@@ -35,6 +37,10 @@ The example builds navigation geometry from CPU vertices, bakes and saves it, th
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples
+
+- [Directional link example](assets/examples/links/project.godot): disconnected, enabled, disabled and reverse-route controls.
+
+- [Actual agent movement, patrol and avoidance callbacks](references/movement.md): complete task selection, ordered failures and fixture boundaries.
 
 - Read [complete task recipes and diagnostic paths](references/recipes.md) for developing, modifying or repairing this domain; choose the recipe matching the requested behavior.
 

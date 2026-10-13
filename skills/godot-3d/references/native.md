@@ -25,12 +25,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Build verifiable geometry with MeshInstance3D, PrimitiveMesh, or ArrayMesh. Reuse resources for runtime objects and duplicate them when independent parameters are needed.
-2. Create physical shapes separately from visual meshes; do not assume a mesh participates in collisions by itself.
-3. Configure an active Camera3D, lights, and WorldEnvironment; use the official glTF importer and preserve relationships between source models and externalized resources.
-4. When a skeleton is needed, inspect bone names and local poses and ensure animation tracks match node paths; do not invent rig structure.
 
 ## Saving and Validation
 
@@ -73,3 +67,7 @@ References: [GLTFDocument](https://docs.godotengine.org/en/4.7/classes/class_glt
 ## Task recipes
 
 Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.
+
+## Task-specific implementation
+
+Read [Procedural normals/tangents and persisted bone sockets](models.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

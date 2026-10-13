@@ -24,12 +24,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Place source assets in the project directory and run native --import to create real .import configuration before changing verified params fields.
-2. Invoke native reimport; do not edit .godot/imported directly. Respect editor lifecycle requirements when EditorFileSystem is needed.
-3. Generate task-appropriate basic assets with Image, GradientTexture, ArrayMesh, or AudioStreamWAV; do not require image or DCC tools unnecessarily.
-4. Load imported resources with ResourceLoader.load using source paths, then check resource types, dimensions, or audio parameters.
 
 ## Saving and Validation
 
@@ -64,3 +58,7 @@ References: [Import process](https://docs.godotengine.org/en/4.7/tutorials/asset
 ## Task recipes
 
 Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.
+
+## Task-specific implementation
+
+Read [Native import settings and preserved authored wrappers](pipelines.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

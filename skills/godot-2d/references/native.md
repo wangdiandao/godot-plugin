@@ -24,12 +24,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Place sprites with Sprite2D/AnimatedSprite2D. Configure filtering and integer scaling for the specific pixel art project; do not force pixel art settings on all 2D games.
-2. Create a TileSetAtlasSource, assign a unique source_id, then create tiles and TileMapLayer cells; terrain connections require a complete set of terrain combinations first.
-3. Convert cell coordinates with map_to_local/local_to_map, distinguishing node-local, world, and screen coordinates.
-4. Configure Camera2D bounds and a separate UI CanvasLayer; test multiple resolutions and map boundaries.
 
 ## Saving and Validation
 

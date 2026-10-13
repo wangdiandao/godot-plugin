@@ -15,14 +15,14 @@ Record documentation commit separately from actual engine/build/platform; state 
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Research one concept at a time with Context7 when available, then inspect fixed official sources. Check public ClassDB binding, argument/property types, editor/runtime restriction and a real behavioral call. Separate existence, invocation and correct result.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+1. Classify the question as CLI, script binding, editor-only operation or generated language binding; choose the corresponding evidence path in native.md.
+2. State the exact version/context and verify existence, invocation and observable result independently.
+3. For a version change, compare old/new signatures and search callers plus serialized property names before changing them.
+4. Deliver the verified public signature and minimal call, or the unsupported boundary and a tested alternative.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+If sources disagree, retain each version/context and reduce to a focused call; do not convert an internal C++ method into a script promise. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 

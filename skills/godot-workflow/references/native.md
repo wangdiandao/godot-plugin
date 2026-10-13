@@ -45,3 +45,7 @@ Ship a minimal coherent slice per checkpoint rather than leaving several disconn
 The minimal fixture is a persistence checkpoint; it must not be reported as complete gameplay validation. Headless, visual, hearing, export and natural-language host routing are separate evidence categories. Sources: [first 2D game](https://docs.godotengine.org/en/4.7/getting_started/first_2d_game/index.html), [first 3D game](https://docs.godotengine.org/en/4.7/getting_started/first_3d_game/index.html), [best practices](https://docs.godotengine.org/en/4.7/tutorials/best_practices/index.html).
 
 Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.
+
+## Task-specific implementation
+
+Read [Cross-system resource commands, HUD and repeated restart](vertical-slice.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

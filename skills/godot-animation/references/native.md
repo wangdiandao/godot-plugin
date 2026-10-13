@@ -24,12 +24,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Create an AnimationLibrary and Animation, then add tracks of the correct type and NodePaths; verify paths against actual target properties or bones.
-2. Configure length, looping, and keyframes, and reference animations by library/animation name; preserve unrelated tracks in existing resources.
-3. Configure an AnimationTree state machine or blend space; let one system own playback state to avoid contention with AnimationPlayer.play.
-4. Verify properties at key times through playback, advance, or seek; additionally check rest pose, bone mapping, and root motion for skeletal animation.
 
 ## Saving and Validation
 
@@ -56,9 +50,13 @@ Animation.length uses seconds. After `add_track(Animation.TYPE_VALUE)`, call `tr
 
 Point AnimationTree to an existing AnimationPlayer and set tree_root and active. For state machines, obtain AnimationNodeStateMachinePlayback through `parameters/playback`, then call `travel(state)`. Configure transition edges, blend parameters, and conditions in the graph; travel alone is insufficient without a valid state machine. Record RESET, initial pose, and root motion usage before changing the animation system.
 
-The minimal example actually verifies property-track interpolation and library persistence. AnimationTree blending and skeletal retargeting/root motion are documented workflows that need separate behavior tests on the target skeleton. Avoid having AnimationPlayer and AnimationTree actively drive the same property. `advance(delta)` supports explicit sampling but does not replace acceptance checks for coordinated behavior in actual physics frames.
+The minimal example actually verifies property-track interpolation and library persistence. The state-machine and event-rig examples additionally verify selected blends and an original bone track/event. Retargeting and collision-aware root motion still require behavior tests on the target skeleton. Avoid having AnimationPlayer and AnimationTree actively drive the same property. `advance(delta)` supports explicit sampling but does not replace acceptance checks for coordinated behavior in actual physics frames.
 
 
 ## Task recipes
 
 Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.
+
+## Task-specific implementation
+
+Read [State transitions, blends and interrupted actions](locomotion.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

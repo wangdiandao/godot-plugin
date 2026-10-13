@@ -15,14 +15,14 @@ Identify trusted authored resources versus untrusted basic save data, current/ol
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Choose Resource for authored data, ConfigFile for Variant settings and versioned JSON or a specified binary format for player saves. Validate before migration; distinguish missing, corrupt, unsupported future and I/O failure. Validate a temporary write before committing and preserve conflict evidence.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+1. Choose authored Resource, independent ConfigFile settings or a strict versioned player-save schema.
+2. Classify missing, corrupt, invalid, future-version and I/O failures before selecting recovery; preserve future data.
+3. Migrate in memory, validate staged bytes and compare the existing fingerprint before commit.
+4. For shared Resources, select duplication semantics explicitly and mutate two instances to verify independence.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+Preserve original bytes, schema and validated backup. Never replace unsupported or corrupt progress with defaults; failed staging/conflict must leave the target unchanged. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 

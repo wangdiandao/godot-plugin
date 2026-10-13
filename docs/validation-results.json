@@ -646,5 +646,14 @@
       "browser": "Windows Chrome: actual pointer, Enter and saved count restored after reload",
       "scope": "No other-browser, threaded/PWA, audio or installed-host discovery claim"
     }
+  },
+  "priority_skills_20261013": {
+    "report": "docs/priority-skills-validation.json",
+    "status": "passed",
+    "cases": 53,
+    "matched_expected": 53,
+    "unexpected_failures": 0,
+    "relocated_cases": 12,
+    "note": "Fresh task run; older groups retain their original dates and scope."
   }
 }

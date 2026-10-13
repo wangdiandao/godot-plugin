@@ -43,3 +43,7 @@ Use `--headless --path PROJECT --import` for project parse/import checks, then r
 Sources: [static typing](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/static_typing.html), [GDScript basics](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/gdscript_basics.html), [Object connections](https://docs.godotengine.org/en/4.7/classes/class_object.html), [Node lifecycle](https://docs.godotengine.org/en/4.7/classes/class_node.html).
 
 Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.
+
+## Task-specific implementation
+
+Read [Async cancellation, replacement and signal reentry](tasks.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

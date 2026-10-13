@@ -1,0 +1,4 @@
+[gd_scene format=3]
+[node name="Base" type="Node2D"]
+[node name="Part" type="Node2D" parent="."]
+position = Vector2(5, 6)

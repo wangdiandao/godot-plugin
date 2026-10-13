@@ -24,12 +24,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Select the necessary parsing, import, resource loading, behavior, and rendering checks in order; --check-only covers only the specified script's parsing.
-2. Run cases.json with run_checks.gd; child processes emit explicit results, while the parent also checks logs and exit codes.
-3. Verify events with Input.parse_input_event and polled input through action state; assert observable state instead of passing after a fixed delay.
-4. Failure cases must match the expected cause; rendering checks must inspect actual screenshots, and performance results must record the measurement environment.
 
 ## Saving and Validation
 
@@ -49,8 +43,6 @@ Timeouts, missing results, and error logs are failures. Rerun affected cases aft
 - [Pinned source version](https://github.com/godotengine/godot/tree/4.7.2-stable)
 - The API links above provide interface evidence; use actual examples to validate behavior. A call in source code does not imply a public binding.
 
-
-## Evidence Levels
 
 ## Develop a repeatable check
 

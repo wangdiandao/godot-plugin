@@ -16,6 +16,8 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 
 ## Workflow and Key Decisions
 
+For native import settings and preserved authored wrappers, read [Native import settings and preserved authored wrappers](references/pipelines.md) and run the [import-repair example](assets/examples/import-repair/project.godot).
+
 1. Place source assets in the project directory and run native --import to create real .import configuration before changing verified params fields.
 2. Invoke native reimport; do not edit .godot/imported directly. Respect editor lifecycle requirements when EditorFileSystem is needed.
 3. Generate task-appropriate basic assets with Image, GradientTexture, ArrayMesh, or AudioStreamWAV; do not require image or DCC tools unnecessarily.
@@ -33,6 +35,8 @@ The example generates a PNG and verifies image reload; integration tests invoke 
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples
+
+- [Native import settings and preserved authored wrappers](references/pipelines.md): complete task selection, ordered failures and fixture boundaries.
 
 - Read [complete task recipes and diagnostic paths](references/recipes.md) for developing, modifying or repairing this domain; choose the recipe matching the requested behavior.
 

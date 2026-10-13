@@ -1,5 +1,5 @@
 {
   "name": "godot-plugin",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Godot 游戏开发 Skills：原生 CLI/GDScript、模块架构、性能、编辑器工具与条件式 C#/GDExtension 工作流。"
 }
