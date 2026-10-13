@@ -18,7 +18,8 @@
       "test_ids": [
         "workflow-example",
         "game-2d",
-        "game-3d"
+        "game-3d",
+        "workflow-bounded-resource"
       ],
       "verification_status": "tested",
       "conditions": "确认项目目录、游戏目标和主机平台；检查 Godot 标准编辑器发行版。已有项目先运行现状检查并记录已知失败。",
@@ -100,7 +101,8 @@
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
       },
       "recipe_references": [
-        "skills/godot-workflow/references/native.md"
+        "skills/godot-workflow/references/native.md",
+        "skills/godot-workflow/references/vertical-slice.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -117,6 +119,220 @@
         "observed_cases": [
           "workflow-example"
         ]
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "workflow-bounded-resource"
+        ],
+        "scope": "Cross-system resource commands, HUD and repeated restart",
+        "actual_assertions": {
+          "workflow-bounded-resource": [
+            {
+              "name": "initial_state_rendered_without_signal",
+              "status": "passed"
+            },
+            {
+              "name": "commands_update_rule_and_hud",
+              "status": "passed"
+            },
+            {
+              "name": "exhausted_command_cannot_emit_success",
+              "status": "passed"
+            },
+            {
+              "name": "restart_without_duplicate_effect_0",
+              "status": "passed"
+            },
+            {
+              "name": "restart_without_duplicate_effect_1",
+              "status": "passed"
+            },
+            {
+              "name": "restart_without_duplicate_effect_2",
+              "status": "passed"
+            },
+            {
+              "name": "restart_detaches_old_publisher",
+              "status": "passed"
+            },
+            {
+              "name": "late_old_event_cannot_change_hud",
+              "status": "passed"
+            },
+            {
+              "name": "teardown_keeps_old_service_detached",
+              "status": "passed"
+            }
+          ],
+          "game-2d": [
+            {
+              "name": "initial_menu",
+              "passed": true
+            },
+            {
+              "name": "menu_keyboard_start",
+              "passed": true
+            },
+            {
+              "name": "input_moves_physics_body",
+              "passed": true
+            },
+            {
+              "name": "movement_collects_first_core",
+              "passed": true
+            },
+            {
+              "name": "audio_stream_configured",
+              "passed": true
+            },
+            {
+              "name": "win_condition",
+              "passed": true
+            },
+            {
+              "name": "save_created",
+              "passed": true
+            },
+            {
+              "name": "save_reloaded",
+              "passed": true
+            },
+            {
+              "name": "viewport_dimensions",
+              "passed": true
+            },
+            {
+              "name": "screenshot_saved",
+              "passed": true
+            },
+            {
+              "name": "restart_input",
+              "passed": true
+            },
+            {
+              "name": "protected_save_11",
+              "passed": true
+            },
+            {
+              "name": "protected_save_12",
+              "passed": true
+            },
+            {
+              "name": "protected_save_13",
+              "passed": true
+            },
+            {
+              "name": "protected_save_14",
+              "passed": true
+            },
+            {
+              "name": "protected_save_15",
+              "passed": true
+            },
+            {
+              "name": "external_save_change_preserved",
+              "passed": true
+            },
+            {
+              "name": "unexpected_backup_and_target_preserved",
+              "passed": true
+            },
+            {
+              "name": "repeated_valid_commit_readback",
+              "passed": true
+            },
+            {
+              "name": "save_io_failure_rejected",
+              "passed": true
+            }
+          ],
+          "game-3d": [
+            {
+              "name": "initial_menu",
+              "passed": true
+            },
+            {
+              "name": "menu_keyboard_start",
+              "passed": true
+            },
+            {
+              "name": "input_moves_physics_body",
+              "passed": true
+            },
+            {
+              "name": "movement_collects_first_core",
+              "passed": true
+            },
+            {
+              "name": "audio_stream_configured",
+              "passed": true
+            },
+            {
+              "name": "win_condition",
+              "passed": true
+            },
+            {
+              "name": "save_created",
+              "passed": true
+            },
+            {
+              "name": "save_reloaded",
+              "passed": true
+            },
+            {
+              "name": "viewport_dimensions",
+              "passed": true
+            },
+            {
+              "name": "screenshot_saved",
+              "passed": true
+            },
+            {
+              "name": "restart_input",
+              "passed": true
+            },
+            {
+              "name": "protected_save_11",
+              "passed": true
+            },
+            {
+              "name": "protected_save_12",
+              "passed": true
+            },
+            {
+              "name": "protected_save_13",
+              "passed": true
+            },
+            {
+              "name": "protected_save_14",
+              "passed": true
+            },
+            {
+              "name": "protected_save_15",
+              "passed": true
+            },
+            {
+              "name": "external_save_change_preserved",
+              "passed": true
+            },
+            {
+              "name": "unexpected_backup_and_target_preserved",
+              "passed": true
+            },
+            {
+              "name": "repeated_valid_commit_readback",
+              "passed": true
+            },
+            {
+              "name": "save_io_failure_rejected",
+              "passed": true
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -273,7 +489,8 @@
       ],
       "example": "skills/godot-gdscript/assets/examples/minimal/project.godot",
       "test_ids": [
-        "gdscript-example"
+        "gdscript-example",
+        "gdscript-async-lifecycle"
       ],
       "verification_status": "tested",
       "conditions": "读取调用方、节点生命周期、导出的属性和序列化依赖；首次导入后再验证 class_name。",
@@ -313,7 +530,8 @@
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
       },
       "recipe_references": [
-        "skills/godot-gdscript/references/native.md"
+        "skills/godot-gdscript/references/native.md",
+        "skills/godot-gdscript/references/tasks.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -322,6 +540,40 @@
         ],
         "tested_version": "4.7.2-stable",
         "tested_platform": "Windows"
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "gdscript-async-lifecycle"
+        ],
+        "scope": "Async cancellation, replacement and signal reentry",
+        "actual_assertions": {
+          "gdscript-async-lifecycle": [
+            {
+              "name": "superseded_request_cannot_commit",
+              "status": "passed"
+            },
+            {
+              "name": "explicit_cancel_preserves_state",
+              "status": "passed"
+            },
+            {
+              "name": "detached_receiver_cannot_commit",
+              "status": "passed"
+            },
+            {
+              "name": "synchronous_reentry_rejected",
+              "status": "passed"
+            },
+            {
+              "name": "freed_receiver_and_listener_cleanup",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -340,7 +592,8 @@
       "test_ids": [
         "scenes-example",
         "scene-inheritance",
-        "fault-save-failure"
+        "fault-save-failure",
+        "scenes-refactor"
       ],
       "verification_status": "tested",
       "conditions": "读取现有场景、外部资源、实例关系、节点所有权和信号；导入完成后再加载。",
@@ -390,7 +643,8 @@
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
       },
       "recipe_references": [
-        "skills/godot-scenes/references/native.md"
+        "skills/godot-scenes/references/native.md",
+        "skills/godot-scenes/references/refactoring.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -400,6 +654,64 @@
         ],
         "tested_version": "4.7.2-stable",
         "tested_platform": "Windows"
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "scenes-refactor"
+        ],
+        "scope": "Rename exported/animation paths without flattening instances",
+        "actual_assertions": {
+          "scenes-refactor": [
+            {
+              "name": "rename_reproduces_stale_export_path",
+              "status": "passed"
+            },
+            {
+              "name": "renamed_instance_pack",
+              "status": "passed"
+            },
+            {
+              "name": "renamed_instance_save",
+              "status": "passed"
+            },
+            {
+              "name": "renamed_instance_reload",
+              "status": "passed"
+            },
+            {
+              "name": "refactor_preserves_scene_instance_reference",
+              "status": "passed"
+            },
+            {
+              "name": "base_internal_state_unchanged",
+              "status": "passed"
+            },
+            {
+              "name": "saved_connection_and_export_path_execute",
+              "status": "passed"
+            },
+            {
+              "name": "saved_animation_path_repaired",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_boundary_retained",
+              "status": "passed"
+            },
+            {
+              "name": "inherited_override_and_child",
+              "status": "passed"
+            },
+            {
+              "name": "source_base_bytes_preserved",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -417,7 +729,8 @@
       "example": "skills/godot-assets/assets/examples/minimal/project.godot",
       "test_ids": [
         "assets-example",
-        "asset_import_recovery"
+        "asset_import_recovery",
+        "assets-import-repair"
       ],
       "verification_status": "tested",
       "conditions": "确认源格式、授权来源、目标平台和渲染器；优先 Godot 直接支持的 PNG/SVG/WAV/glTF 等格式。",
@@ -437,7 +750,8 @@
       ],
       "recipe_references": [
         "skills/godot-assets/references/native.md",
-        "skills/godot-assets/references/recipes.md"
+        "skills/godot-assets/references/recipes.md",
+        "skills/godot-assets/references/pipelines.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -468,6 +782,84 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "assets-import-repair"
+        ],
+        "scope": "Native import settings and preserved authored wrappers",
+        "actual_assertions": {
+          "assets-import-repair": [
+            {
+              "name": "isolated_project_directory",
+              "status": "passed"
+            },
+            {
+              "name": "fixture_configuration",
+              "status": "passed"
+            },
+            {
+              "name": "copy_resource_checker",
+              "status": "passed"
+            },
+            {
+              "name": "source_assets_created",
+              "status": "passed"
+            },
+            {
+              "name": "native_import_creates_metadata",
+              "status": "passed"
+            },
+            {
+              "name": "native_sidecar_loaded",
+              "status": "passed"
+            },
+            {
+              "name": "set_initial_mipmap_policy",
+              "status": "passed"
+            },
+            {
+              "name": "initial_loaded_resources_and_wrapper",
+              "status": "passed"
+            },
+            {
+              "name": "change_only_mipmap_policy",
+              "status": "passed"
+            },
+            {
+              "name": "model_source_modified",
+              "status": "passed"
+            },
+            {
+              "name": "new_process_observes_reimported_content",
+              "status": "passed"
+            },
+            {
+              "name": "reimport_preserves_identity_and_importer",
+              "status": "passed"
+            },
+            {
+              "name": "reimport_preserves_authored_wrapper_and_material",
+              "status": "passed"
+            },
+            {
+              "name": "missing_source_preflight_blocks_import",
+              "status": "passed"
+            },
+            {
+              "name": "source_repair_repeats_valid_import",
+              "status": "passed"
+            },
+            {
+              "name": "repair_preserves_neighboring_authoring",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -573,7 +965,8 @@
       ],
       "example": "skills/godot-3d/assets/examples/minimal/project.godot",
       "test_ids": [
-        "3d-example"
+        "3d-example",
+        "3d-mesh-socket"
       ],
       "verification_status": "tested",
       "conditions": "确认米制尺度、轴向、摄像机视角和目标 GPU；导入模型先检查 transform 与材质。",
@@ -591,7 +984,8 @@
       ],
       "recipe_references": [
         "skills/godot-3d/references/native.md",
-        "skills/godot-3d/references/recipes.md"
+        "skills/godot-3d/references/recipes.md",
+        "skills/godot-3d/references/models.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -626,6 +1020,52 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "3d-mesh-socket"
+        ],
+        "scope": "Procedural normals/tangents and persisted bone sockets",
+        "actual_assertions": {
+          "3d-mesh-socket": [
+            {
+              "name": "procedural_mesh_bounds",
+              "status": "passed"
+            },
+            {
+              "name": "normals_and_tangents_created",
+              "status": "passed"
+            },
+            {
+              "name": "socket_follows_bone_pose",
+              "status": "passed"
+            },
+            {
+              "name": "missing_bone_detected_before_binding",
+              "status": "passed"
+            },
+            {
+              "name": "socket_reset_preserves_local_offset",
+              "status": "passed"
+            },
+            {
+              "name": "mesh_socket_pack",
+              "status": "passed"
+            },
+            {
+              "name": "mesh_socket_save",
+              "status": "passed"
+            },
+            {
+              "name": "reloaded_socket_mapping_works",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -643,7 +1083,8 @@
       "test_ids": [
         "physics-example",
         "game-2d",
-        "game-3d"
+        "game-3d",
+        "physics-body-3d"
       ],
       "verification_status": "tested",
       "conditions": "确认 2D/3D、物理后端、物体类型、碰撞层/掩码、形状和单位；读取已有角色控制器。",
@@ -662,7 +1103,8 @@
       ],
       "recipe_references": [
         "skills/godot-physics/references/native.md",
-        "skills/godot-physics/references/recipes.md"
+        "skills/godot-physics/references/recipes.md",
+        "skills/godot-physics/references/controllers.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -704,6 +1146,76 @@
         "observed_cases": [
           "physics-example"
         ]
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "physics-body-3d"
+        ],
+        "scope": "3D motion, slopes, rigid wake/impulse and fast point sweeps",
+        "actual_assertions": {
+          "physics-body-3d": [
+            {
+              "name": "character3d_lands",
+              "status": "passed"
+            },
+            {
+              "name": "character3d_units_per_second",
+              "status": "passed"
+            },
+            {
+              "name": "wrong_ray_mask_reproduced",
+              "status": "passed"
+            },
+            {
+              "name": "ray_filter_repaired",
+              "status": "passed"
+            },
+            {
+              "name": "rigid3d_wake_and_impulse",
+              "status": "passed"
+            },
+            {
+              "name": "repair_keeps_excluded_layer",
+              "status": "passed"
+            },
+            {
+              "name": "slope_classified_as_floor",
+              "status": "passed"
+            },
+            {
+              "name": "slope_ascent_preserves_contact",
+              "status": "passed"
+            },
+            {
+              "name": "fast_point_sweep_thin_wall_0",
+              "status": "passed"
+            },
+            {
+              "name": "fast_sweep_excluded_mask_0",
+              "status": "passed"
+            },
+            {
+              "name": "fast_point_sweep_thin_wall_1",
+              "status": "passed"
+            },
+            {
+              "name": "fast_sweep_excluded_mask_1",
+              "status": "passed"
+            },
+            {
+              "name": "fast_point_sweep_thin_wall_2",
+              "status": "passed"
+            },
+            {
+              "name": "fast_sweep_excluded_mask_2",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -719,7 +1231,9 @@
       ],
       "example": "skills/godot-navigation/assets/examples/minimal/project.godot",
       "test_ids": [
-        "navigation-example"
+        "navigation-example",
+        "navigation-moving-agent",
+        "navigation-links"
       ],
       "verification_status": "tested",
       "conditions": "确认 2D/3D、几何来源、代理半径、导航图层和目标平台；烘焙应使用可获取的源几何。",
@@ -738,7 +1252,8 @@
       ],
       "recipe_references": [
         "skills/godot-navigation/references/native.md",
-        "skills/godot-navigation/references/recipes.md"
+        "skills/godot-navigation/references/recipes.md",
+        "skills/godot-navigation/references/movement.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -779,6 +1294,87 @@
         "observed_cases": [
           "navigation-example"
         ]
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "navigation-moving-agent",
+          "navigation-links"
+        ],
+        "scope": "Actual agent movement, patrol and avoidance callbacks",
+        "actual_assertions": {
+          "navigation-moving-agent": [
+            {
+              "name": "map_ready_before_movement",
+              "status": "passed"
+            },
+            {
+              "name": "excluded_route_does_not_move_actor",
+              "status": "passed"
+            },
+            {
+              "name": "collision_blocks_graph_reachable_target",
+              "status": "passed"
+            },
+            {
+              "name": "repaired_actor_actually_arrives",
+              "status": "passed"
+            },
+            {
+              "name": "avoidance_callback_moves_actor",
+              "status": "passed"
+            },
+            {
+              "name": "one_motion_application_per_physics_tick",
+              "status": "passed"
+            },
+            {
+              "name": "patrol_second_destination",
+              "status": "passed"
+            },
+            {
+              "name": "unreachable_target_classified",
+              "status": "passed"
+            }
+          ],
+          "navigation-links": [
+            {
+              "name": "link_fixture_map_ready",
+              "status": "passed"
+            },
+            {
+              "name": "gap_has_no_arrival_before_link",
+              "status": "passed"
+            },
+            {
+              "name": "added_link_synchronizes",
+              "status": "passed"
+            },
+            {
+              "name": "one_way_link_connects_forward",
+              "status": "passed"
+            },
+            {
+              "name": "one_way_link_excludes_reverse",
+              "status": "passed"
+            },
+            {
+              "name": "disabled_link_reproduces_gap",
+              "status": "passed"
+            },
+            {
+              "name": "link_repair_restores_forward_route",
+              "status": "passed"
+            },
+            {
+              "name": "link_repair_preserves_direction_policy",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {
@@ -891,7 +1487,9 @@
       "example": "skills/godot-animation/assets/examples/minimal/project.godot",
       "test_ids": [
         "animation-example",
-        "root-motion-example"
+        "root-motion-example",
+        "animation-state-machine",
+        "animation-event-rig"
       ],
       "verification_status": "tested",
       "conditions": "确认节点路径、AnimationPlayer root_node、资源共享关系以及目标骨架；导入动画先列出现有库。",
@@ -911,7 +1509,8 @@
       ],
       "recipe_references": [
         "skills/godot-animation/references/native.md",
-        "skills/godot-animation/references/recipes.md"
+        "skills/godot-animation/references/recipes.md",
+        "skills/godot-animation/references/locomotion.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -961,6 +1560,83 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "priority_task_evidence": {
+        "status": "tested",
+        "report": "docs/priority-skills-validation.json",
+        "test_ids": [
+          "animation-state-machine",
+          "animation-event-rig"
+        ],
+        "scope": "State transitions, blends and interrupted actions",
+        "actual_assertions": {
+          "animation-state-machine": [
+            {
+              "name": "idle_pose_applied",
+              "status": "passed"
+            },
+            {
+              "name": "transition_blends_actual_property",
+              "status": "passed"
+            },
+            {
+              "name": "move_pose_applied",
+              "status": "passed"
+            },
+            {
+              "name": "interrupted_action_returns_to_idle",
+              "status": "passed"
+            },
+            {
+              "name": "bad_track_target_detected_before_playback",
+              "status": "passed"
+            },
+            {
+              "name": "state_machine_pack",
+              "status": "passed"
+            },
+            {
+              "name": "state_machine_save",
+              "status": "passed"
+            },
+            {
+              "name": "saved_graph_replays_repaired_clip",
+              "status": "passed"
+            }
+          ],
+          "animation-event-rig": [
+            {
+              "name": "bone_track_and_method_event",
+              "status": "passed"
+            },
+            {
+              "name": "animated_bone_socket_follows",
+              "status": "passed"
+            },
+            {
+              "name": "interruption_before_event_does_not_fire",
+              "status": "passed"
+            },
+            {
+              "name": "restarted_action_fires_once",
+              "status": "passed"
+            },
+            {
+              "name": "rig_event_pack",
+              "status": "passed"
+            },
+            {
+              "name": "rig_event_save",
+              "status": "passed"
+            },
+            {
+              "name": "reloaded_rig_and_event_execute",
+              "status": "passed"
+            }
+          ]
+        },
+        "engine": "4.7.2-stable",
+        "platform": "Windows x86_64"
       }
     },
     {

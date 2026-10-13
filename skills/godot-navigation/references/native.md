@@ -23,12 +23,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Configure NavigationPolygon or NavigationMesh; prefer source geometry arrays or collision geometry so headless execution does not depend on reading GPU meshes.
-2. Use NavigationServer parse_source_geometry_data and bake_from_source_geometry_data; parse scenes on the main thread and wait for asynchronous baking to complete.
-3. Assign resources to navigation regions and wait for map synchronization before querying paths; keep map changes and agent movement aligned with physics frames.
-4. The character controller still performs movement after avoidance callbacks produce safe_velocity; test unreachable targets, narrow entrances, and different navigation layers.
 
 ## Saving and Validation
 
@@ -63,3 +57,7 @@ Sources: [Source geometry winding](https://docs.godotengine.org/en/4.7/classes/c
 ## Task recipes
 
 Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.
+
+## Task-specific implementation
+
+Read [Actual agent movement, patrol and avoidance callbacks](movement.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

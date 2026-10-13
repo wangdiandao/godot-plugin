@@ -16,6 +16,8 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 
 ## Workflow and Key Decisions
 
+For 3d motion, slopes, rigid wake/impulse and fast point sweeps, read [3D motion, slopes, rigid wake/impulse and fast point sweeps](references/controllers.md) and run the [body-3d example](assets/examples/body-3d/project.godot).
+
 1. Use CharacterBody velocity and move_and_slide in _physics_process for characters; use forces, impulses, or official integration callbacks for RigidBody.
 2. Configure both objects' layer/mask and the Area's monitoring; check shape nodes, transforms, and enabled states individually.
 3. Schedule physics queries at a safe point in physics processing and use PhysicsRayQueryParameters; defer structural changes in interaction callbacks when necessary.
@@ -33,6 +35,8 @@ The example creates a floor and body in a physics world and verifies resting hei
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples
+
+- [3D motion, slopes, rigid wake/impulse and fast point sweeps](references/controllers.md): complete task selection, ordered failures and fixture boundaries.
 
 - Read [complete task recipes and diagnostic paths](references/recipes.md) for developing, modifying or repairing this domain; choose the recipe matching the requested behavior.
 

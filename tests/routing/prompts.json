@@ -10,12 +10,14 @@
     "adjacent_expected": "godot-project",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Build and verify a complete Godot 2D loop with start, movement/collision, collection, win, save/readback and keyboard restart.",
-      "modify": "Add a limited jump resource to the playable loop and propagate it through HUD, command checks and restart reset.",
-      "diagnose": "Restart duplicates scoring and sound across several systems; trace the whole loop and verify repeated restart restores a coherent game."
+      "develop": "Build a playable loop with input, rules, HUD, best progress, restart and visible save failures.",
+      "modify": "Add two consumable charges with exhausted-command rejection and explicit HUD initialization across three restarts.",
+      "diagnose": "Future or corrupt progress is silently replaced after winning; preserve original bytes, block writes and report the protected status."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-workflow/references/vertical-slice.md",
+    "representative_case": "workflow-bounded-resource"
   },
   {
     "skill": "godot-project",
@@ -64,12 +66,14 @@
     "adjacent_expected": "godot-physics",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Implement a typed Godot counter with signal delivery and asynchronous continuation; verify reconnect and disconnect behavior.",
-      "modify": "Refactor the counter to typed GDScript and ensure a disconnected receiver is not called after an update.",
-      "diagnose": "An awaited gameplay continuation does not resume; inspect node lifetime and the actual awaited signal."
+      "develop": "Implement an asynchronous scene request owner that commits only the current generation to a live active receiver.",
+      "modify": "Replace a pending request, cancel another and detach the receiver without allowing stale results to update it.",
+      "diagnose": "A listener reenters the command while its completion signal is emitted; reject nested mutation and verify notification counts."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-gdscript/references/tasks.md",
+    "representative_case": "gdscript-async-lifecycle"
   },
   {
     "skill": "godot-scenes",
@@ -82,12 +86,14 @@
     "adjacent_expected": "godot-2d",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Create a Godot packed scene with an owned child and persistent signal; verify reload executes the signal and excludes an unowned preview.",
-      "modify": "Add a persistent child and connection to an existing scene while preserving ownership and instance boundaries.",
-      "diagnose": "A generated child vanishes after saving; inspect owner versus parent and verify PackedScene readback."
+      "develop": "Create a reusable instanced scene with exported paths, persistent connections and an animation track.",
+      "modify": "Rename its outer instance and repair exported/animation paths without flattening the source or inherited variant.",
+      "diagnose": "A refactor leaves a stale NodePath; reproduce it, repair owned consumers and invoke the saved behavior after reload."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-scenes/references/refactoring.md",
+    "representative_case": "scenes-refactor"
   },
   {
     "skill": "godot-assets",
@@ -100,12 +106,14 @@
     "adjacent_expected": "godot-rendering",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Generate a Godot texture, import it, change its source width and reimport, then recover a missing source and verify glTF bounds.",
-      "modify": "Change a texture source from 32 to 64 pixels and a glTF triangle width from one to two; preserve unrelated files during reimport.",
-      "diagnose": "A source image disappeared while its import metadata remains; restore only that source and verify the texture loads."
+      "develop": "Import a texture and glTF into a wrapper, then inspect native metadata and loaded content.",
+      "modify": "Enable texture mipmaps and change model dimensions while preserving importer identity and authored wrapper/material bytes.",
+      "diagnose": "A source image disappeared while its import metadata remains; block the dependent import, restore only that source and recheck in a fresh process."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-assets/references/pipelines.md",
+    "representative_case": "assets-import-repair"
   },
   {
     "skill": "godot-2d",
@@ -136,12 +144,14 @@
     "adjacent_expected": "godot-navigation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Build a Godot 3D scene with a box, camera and sun, independently resize a second mesh and verify saved dimensions.",
-      "modify": "Resize one box instance without resizing the shared original model, and preserve camera and light nodes.",
-      "diagnose": "My 3D scene is black; inspect the current camera, clipping and visibility before changing lighting."
+      "develop": "Build a UV mesh with generated normals/tangents and a bone socket that follows poses after saving and reloading.",
+      "modify": "Reimport a model while preserving wrapper nodes and re-resolving its item socket by bone name.",
+      "diagnose": "An item socket targets a missing bone; reject that mapping and verify neutral, moving and reset poses."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-3d/references/models.md",
+    "representative_case": "3d-mesh-socket"
   },
   {
     "skill": "godot-physics",
@@ -154,15 +164,17 @@
     "adjacent_expected": "godot-navigation",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Create a Godot character that lands on a floor, moves at units per second, raycasts with masks and crosses a trigger exactly once.",
-      "modify": "Change horizontal movement speed without losing floor contact or applying delta twice.",
-      "diagnose": "A ray misses a visible floor; inspect collision masks and verify that the wrong mask intentionally produces no hit."
+      "develop": "Create a 3D controller that lands, climbs a slope, moves in units per second and interacts with a rigid body.",
+      "modify": "Add point-projectile sweeps against thin walls while retaining excluded-mask misses.",
+      "diagnose": "A settled rigid body ignores the intended impact; inspect freeze/sleep and verify wake/impulse with actual displacement."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
     "installed_host_autoload_tested": false,
     "repair_prompt": "The Area2D trigger has the wrong mask. Repair only that mask, repeat entry/exit and keep another layer excluded.",
     "repair_expected": "godot-physics",
-    "repair_host_model_routing": "not_run"
+    "repair_host_model_routing": "not_run",
+    "task_recipe": "skills/godot-physics/references/controllers.md",
+    "representative_case": "physics-body-3d"
   },
   {
     "skill": "godot-navigation",
@@ -175,15 +187,17 @@
     "adjacent_expected": "godot-physics",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Bake Godot navigation, save it and verify paths across two regions and rejection of excluded or disabled destinations.",
-      "modify": "Disable a navigation region and adjust layer masks while preserving routes through the remaining connected region.",
-      "diagnose": "A path stops before the destination across a region boundary; inspect synchronization, connectivity and navigation masks."
+      "develop": "Build a CharacterBody3D agent that actually reaches its target through direct and avoidance callback movement.",
+      "modify": "Turn a move-to controller into a patrol and add a one-way link without allowing reverse traversal.",
+      "diagnose": "A moving agent cannot reach an excluded region; repair only its navigation mask and retain an unreachable-target control."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
     "installed_host_autoload_tested": false,
     "repair_prompt": "A disabled destination region prevents arrival. Restore it, await map synchronization and preserve navigation-layer exclusions.",
     "repair_expected": "godot-navigation",
-    "repair_host_model_routing": "not_run"
+    "repair_host_model_routing": "not_run",
+    "task_recipe": "skills/godot-navigation/references/movement.md",
+    "representative_case": "navigation-moving-agent"
   },
   {
     "skill": "godot-ui",
@@ -220,12 +234,14 @@
     "adjacent_expected": "godot-rendering",
     "host_model_routing": "not_run",
     "tasks": {
-      "develop": "Create a position animation library in Godot, evaluate its midpoint and reload its stored track and keyframes.",
-      "modify": "Change a movement clip's duration without editing unrelated animation tracks or contending with AnimationTree playback.",
-      "diagnose": "An AnimationPlayer plays but the target does not move; inspect its root and property track paths."
+      "develop": "Build persisted idle/move/action transitions and verify actual blended pose, interruption and method-event behavior.",
+      "modify": "Add an interruptible action without duplicate events or a competing AnimationPlayer writer.",
+      "diagnose": "A saved clip targets a renamed node; detect the broken track, repair it and replay the graph after fresh loading."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-animation/references/locomotion.md",
+    "representative_case": "animation-state-machine"
   },
   {
     "skill": "godot-rendering",

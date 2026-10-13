@@ -26,12 +26,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Use prepare_templates.gd to download official release templates or accept a verified local TPZ, then extract the required templates into the specified directory.
-2. Create or update existing export presets; point custom template paths to matching-version files and verify options against the current platform API.
-3. Run native import first, then --headless --export-debug or --export-release; create the output directory beforehand and match the preset name exactly.
-4. Inspect export logs, executables, and data packs, and launch the native target. Record Web packaging success separately from browser runtime validation.
 
 ## Saving and Validation
 

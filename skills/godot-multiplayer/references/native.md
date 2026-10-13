@@ -54,12 +54,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Configure MultiplayerAPI with native peers such as ENetMultiplayerPeer; send data only after receiving connection signals.
-2. Explicitly specify authority/any_peer, call_local/call_remote, and transfer mode for RPC methods; validate senders and game rules on the server.
-3. Express scene spawning and property replication with MultiplayerSpawner/Synchronizer, with explicit paths and authority assignments.
-4. Start a server and two independent clients; verify round trips, authoritative state, disconnects, and shutdown, preserving logs and PIDs for each process.
 
 ## Saving and Validation
 

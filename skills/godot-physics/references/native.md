@@ -23,12 +23,6 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
 
-## Implementation Notes
-
-1. Use CharacterBody velocity and move_and_slide in _physics_process for characters; use forces, impulses, or official integration callbacks for RigidBody.
-2. Configure both objects' layer/mask and the Area's monitoring; check shape nodes, transforms, and enabled states individually.
-3. Schedule physics queries at a safe point in physics processing and use PhysicsRayQueryParameters; defer structural changes in interaction callbacks when necessary.
-4. Test rest, movement, edges, collisions, and triggers with tolerances and state assertions; do not assume physics is identical frame by frame across platforms.
 
 ## Saving and Validation
 
@@ -63,3 +57,7 @@ Acceptance must at least cover resting on the floor, continuous movement, bounda
 ## Task recipes
 
 Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.
+
+## Task-specific implementation
+
+Read [3D motion, slopes, rigid wake/impulse and fast point sweeps](controllers.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

@@ -15,14 +15,14 @@ Map current scene roots, shared Resources, Autoloads, signal flows, ownership an
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Place reusable data/algorithms below gameplay systems and let content/UI depend on systems. Use direct typed calls for required commands, signals for completed facts and a composition root for dependency wiring. Make lifecycle and teardown explicit. Add a module only when its contract removes actual coupling.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+1. Map the concrete coupling: readiness ordering, shared runtime state, command validation, event delivery or teardown.
+2. Choose Node/Resource/RefCounted from lifetime and authored-state needs; wire required dependencies from a composition root.
+3. For refactors, retain node/export contracts while moving one responsibility; exercise both isolated and original callers.
+4. On service replacement or tree exit, detach the old publisher and cancel owned work; count notifications across reentry.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+Preserve exported fields and node paths while moving responsibilities. Restore wiring on a failed refactor; disconnect replaced services and invalidate pending work before teardown. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 

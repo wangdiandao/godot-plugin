@@ -10,7 +10,7 @@
 
 ## 安装
 
-当前版本为 **0.2.1**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
+当前版本为 **0.2.2**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
 
 本地安装使用 `git clone https://github.com/wangdiandao/godot-plugin.git`，再按下方宿主说明操作。复制目录时使用干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
@@ -169,3 +169,5 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 中文任务覆盖与验收边界见[23 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
 
 C#任务额外需要匹配的Godot.NET与.NET SDK；GDExtension任务额外需要绑定、C++编译器、构建工具及绑定生成器。默认原生路径保留。
+
+优先任务流程和本次范围内的执行证据见[优先 Skill 验证](docs/priority-skills-validation.md)。包含游戏示例存档保护和十个新增隔离案例，保留现有 23 个 Skill 名称。

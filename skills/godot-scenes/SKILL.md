@@ -15,20 +15,24 @@ Inspect inherited and instantiated scene boundaries, node names/paths, owner val
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Separate parentage from serialization ownership. Add children before assigning a valid ancestor owner. Choose external versus built-in resources and a duplication policy explicitly; avoid flattening imported or inherited scenes to make one edit.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+For rename exported/animation paths without flattening instances, read [Rename exported/animation paths without flattening instances](references/refactoring.md) and run the [refactor example](assets/examples/refactor/project.godot).
+
+1. Classify the target as a new scene, ordinary instance, inherited variant or imported generated subtree.
+2. For new scenes, assign valid owners and persistent named connections; save and exercise the reloaded scene.
+3. For a rename or move, read [scene refactoring](references/refactoring.md), inventory NodePaths/tracks/connections, then update only the owned references.
+4. For missing saved nodes or shared state, inspect SceneState and resource identity; preserve the base and instance boundaries.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+Keep base scenes, instance references and source hashes intact. A failed rename must restore dependent paths together; changing every owner or flattening the subtree is not recovery. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 
 Reload without reusing the root cache, inspect saved nodes and connections, instantiate and invoke the saved behavior; verify excluded transient nodes are absent. Inspect engine logs, exit status and the structured result together. Report exact commands, versions, changed files and untested environments; historical results are not this run's evidence.
 
 ## On-Demand References and Examples
+
+- [Rename exported/animation paths without flattening instances](references/refactoring.md): complete task selection, ordered failures and fixture boundaries.
 
 - [Task recipes, decisions and diagnosis](references/native.md): load only the section needed for the current task.
 - [Isolated native example](assets/examples/minimal/project.godot): copy the whole directory, run `example.gd` with an explicit output directory as documented in the reference.

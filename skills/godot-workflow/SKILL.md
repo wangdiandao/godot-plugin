@@ -15,14 +15,16 @@ Inspect existing playable behavior, project/version evidence, platform constrain
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Build one vertical slice with a runnable main scene before adding breadth. Route only the next needed domain. Keep rules, presentation and persistence boundaries clear, and use observable checkpoints to locate cross-system regressions.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+For cross-system resource commands, hud and repeated restart, read [Cross-system resource commands, HUD and repeated restart](references/vertical-slice.md) and run the [bounded-resource example](assets/examples/bounded-resource/project.godot).
+
+1. Write an action/checkpoint table covering input, rules, visible state, failure, restart and requested persistence.
+2. Use the playable 2D/3D examples for full loops; the minimal example proves only scene persistence.
+3. Read [vertical-slice recipes](references/vertical-slice.md) for a bounded-resource modification and failure/restart integration; pass concrete contracts to domain skills.
+4. Run the original player loop after specialist checks, preserving unsupported/corrupt saves and reporting save failures visibly.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+Save coherent runnable checkpoints. Keep authored scenes separate from player progress; display persistence failures and preserve blocked files while gameplay continues. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 
@@ -30,6 +32,9 @@ Demonstrate the requested player loop and reload/restart behavior. Visual, audio
 
 ## On-Demand References and Examples
 
+- [Cross-system resource commands, HUD and repeated restart](references/vertical-slice.md): complete task selection, ordered failures and fixture boundaries.
+
 - [Task recipes, decisions and diagnosis](references/native.md): load only the section needed for the current task.
-- [Isolated native example](assets/examples/minimal/project.godot): copy the whole directory, run `example.gd` with an explicit output directory as documented in the reference.
+- [Playable 2D game](assets/examples/game-2d/project.godot) and [playable 3D game](assets/examples/game-3d/project.godot): copy either complete project and run with `--self-test --out OUT`; remove headless for real pixels.
+- [Isolated persistence-only example](assets/examples/minimal/project.godot): copy the whole directory, run `example.gd` with an explicit output directory as documented in the reference.
 - [Evidence conventions](../../shared/references/evidence.md) and [capability index](../../docs/capabilities.json): use when updating delivery evidence.

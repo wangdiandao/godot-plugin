@@ -15,20 +15,24 @@ Read callers, exported fields, signal wiring, process modes and warning policy; 
 
 ## Workflow and Key Decisions
 
-1. Define the observable task and run the relevant baseline before editing.
-2. Choose Node for tree-owned behavior, Resource for editor-authored data and RefCounted for non-tree services. Keep Variant at validated boundaries. Connect events once, account for synchronous delivery and verify instance lifetime after await.
-3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
-4. Follow callers across the changed contract and verify persistence when files or serialized state change.
+For async cancellation, replacement and signal reentry, read [Async cancellation, replacement and signal reentry](references/tasks.md) and run the [async-lifecycle example](assets/examples/async-lifecycle/project.godot).
+
+1. For new behavior, implement a typed command that validates before mutation and emits a completed fact.
+2. For asynchronous work, read [async tasks](references/tasks.md) and use a request generation plus a weak target; cancel on exit or replacement.
+3. For duplicate effects or recursion, inspect connection ownership and synchronous callbacks before changing gameplay rules.
+4. Run the command and async-lifecycle fixtures, including superseded requests, detached targets and listener-triggered reentry.
 
 ## File Changes, Saving, and Recovery
 
-Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
+Keep exported names and caller types stable. On failed async changes, restore the command contract and cancel owned generations; do not hide required dependencies behind unconditional null guards. Use [persistence](../../shared/references/persistence.md) for disk readback and [recovery](../../shared/references/recovery.md) for task-owned restoration.
 
 ## Acceptance and Delivery
 
 Verify behavior, failure handling and cleanup, including a meaningful modification to the implementation; parser success alone is insufficient. Inspect engine logs, exit status and the structured result together. Report exact commands, versions, changed files and untested environments; historical results are not this run's evidence.
 
 ## On-Demand References and Examples
+
+- [Async cancellation, replacement and signal reentry](references/tasks.md): complete task selection, ordered failures and fixture boundaries.
 
 - [Task recipes, decisions and diagnosis](references/native.md): load only the section needed for the current task.
 - [Isolated native example](assets/examples/minimal/project.godot): copy the whole directory, run `example.gd` with an explicit output directory as documented in the reference.

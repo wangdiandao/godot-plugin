@@ -41,3 +41,7 @@ Changing `resource_local_to_scene` after an instance already exists does not ret
 Sources: [PackedScene](https://docs.godotengine.org/en/4.7/classes/class_packedscene.html), [Resource](https://docs.godotengine.org/en/4.7/classes/class_resource.html), [ResourceLoader](https://docs.godotengine.org/en/4.7/classes/class_resourceloader.html).
 
 Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.
+
+## Task-specific implementation
+
+Read [Rename exported/animation paths without flattening instances](refactoring.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.

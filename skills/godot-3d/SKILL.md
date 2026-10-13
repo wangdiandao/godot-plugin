@@ -16,6 +16,8 @@ Read the [execution conventions](../../shared/references/execution.md) before fi
 
 ## Workflow and Key Decisions
 
+For procedural normals/tangents and persisted bone sockets, read [Procedural normals/tangents and persisted bone sockets](references/models.md) and run the [mesh-socket example](assets/examples/mesh-socket/project.godot).
+
 1. Build verifiable geometry with MeshInstance3D, PrimitiveMesh, or ArrayMesh. Reuse resources for runtime objects and duplicate them when independent parameters are needed.
 2. Create physical shapes separately from visual meshes; do not assume a mesh participates in collisions by itself.
 3. Configure an active Camera3D, lights, and WorldEnvironment; use the official glTF importer and preserve relationships between source models and externalized resources.
@@ -33,6 +35,8 @@ The example generates and reloads a scene containing a camera, meshes, and light
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 
 ## On-Demand References and Examples
+
+- [Procedural normals/tangents and persisted bone sockets](references/models.md): complete task selection, ordered failures and fixture boundaries.
 
 - Read [complete task recipes and diagnostic paths](references/recipes.md) for developing, modifying or repairing this domain; choose the recipe matching the requested behavior.
 

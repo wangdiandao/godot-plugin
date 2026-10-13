@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.2] - 2026-10-13
+
+Source and local archive update; no version tag or GitHub Release published.
+
+- Replace repeated entry workflows with domain task routing; remove duplicated native-reference steps (#21).
+- Protect both playable examples from overwriting corrupt, invalid, future-version or concurrently changed progress.
+- Add eight task guides and ten isolated fixtures for asynchronous lifetime, moving agents/links, state-machine/rig events, 3D motion/sockets, importer repair, scene refactoring and bounded gameplay resources.
+- Record fresh scoped assertions, regression and package-portability evidence separately from historical results.
+
 ## [0.2.1] - 2026-10-13
 
 Source update and local archives; no version tag or GitHub Release published.
