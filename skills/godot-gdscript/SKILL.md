@@ -1,39 +1,35 @@
 ---
 name: godot-gdscript
-description: "Write or refactor GDScript, including types, signals, asynchronous flows, resource classes, and code organization; prefer the corresponding domain skill for specific game systems."
+description: "Implement, modify or diagnose GDScript gameplay and tool logic, typed interfaces, signals, asynchronous flow and script lifecycle."
 ---
 
 # GDScript Implementation
 
 ## Purpose and Scope
 
-Script design, types, signals, asynchronous execution, and refactoring. Let the corresponding domain skill lead specific UI, navigation, and similar tasks.
+Implement behavior in the existing scene and resource contracts. Use C# or GDExtension for their language-specific toolchains.
 
 ## Prerequisite Checks
 
-Inspect callers, node lifecycles, exported properties, and serialized dependencies; verify class_name after the first import.
-Read the [execution conventions](../../shared/references/execution.md) before first launching the engine or changing execution modes. The research baseline is Godot 4.7.2; actual capabilities depend on the corresponding version, build, and runtime verification.
+Read callers, exported fields, signal wiring, process modes and warning policy; distinguish script construction from entry into SceneTree. Read [execution conventions](../../shared/references/execution.md) before launching an unfamiliar engine. Research uses the fixed 4.7 documentation snapshot; bundled native validation uses 4.7.2 standard builds. Verify the user's actual binary rather than assuming these match.
 
 ## Workflow and Key Decisions
 
-1. Express interfaces with explicit types; do not change everything to Variant to suppress warnings. Give null branches for resource and node references meaningful behavior.
-2. Use signals for events and wait for the appropriate nodes or signals for deferred initialization; decide whether mutable shared Resource data needs an independent copy.
-3. Before refactoring, inspect script paths, NodePaths, signal method names, and serialized properties in scenes; preserve public contracts or migrate callers together.
-4. Check individual files with --check-only --script, then execute real call paths covering await completion, disconnection, and object freeing.
+1. Define the observable task and run the relevant baseline before editing.
+2. Choose Node for tree-owned behavior, Resource for editor-authored data and RefCounted for non-tree services. Keep Variant at validated boundaries. Connect events once, account for synchronous delivery and verify instance lifetime after await.
+3. Read the matching development, modification or diagnosis recipe in [native.md](references/native.md), implement a minimal reviewable change and run the relevant behavioral case.
+4. Follow callers across the changed contract and verify persistence when files or serialized state change.
 
 ## File Changes, Saving, and Recovery
 
-Preserve script .uid files and external resource references. Node scripts cannot serve as --script entry points; test wrappers should extend SceneTree.
-For circular dependencies, adjust data/behavior boundaries first; for type cache issues, import first; for suspended awaits, add lifecycle and timeout checks.
-Read the [persistence strategy](../../shared/references/persistence.md) when persisting existing resources; follow the [recovery conventions](../../shared/references/recovery.md) on failure.
+Preserve user changes, scene identities and unrelated settings. Record the pre-change content/hash before replacing existing files. Reload the saved state rather than using only the modified in-memory object. Follow [persistence](../../shared/references/persistence.md) and [recovery](../../shared/references/recovery.md) for conflicts or failed writes; stop repeating the same fix after two evidence-based attempts.
 
 ## Acceptance and Delivery
 
-Verify at least one signal's arguments and call count, one asynchronous completion path, and reloaded values of persisted resources.
-Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
+Verify behavior, failure handling and cleanup, including a meaningful modification to the implementation; parser success alone is insufficient. Inspect engine logs, exit status and the structured result together. Report exact commands, versions, changed files and untested environments; historical results are not this run's evidence.
 
 ## On-Demand References and Examples
 
-- Read [native interfaces, commands, and pitfalls](references/native.md) before implementing specific operations.
-- Run the [minimal executable example](assets/examples/minimal/project.godot); see the domain reference for its entry point and outputs. Examples write to a specified output directory and can run from a clean copy.
-- Read the [evidence standards](../../shared/references/evidence.md) when maintaining evidence. The capability index is [capabilities.json](../../docs/capabilities.json).
+- [Task recipes, decisions and diagnosis](references/native.md): load only the section needed for the current task.
+- [Isolated native example](assets/examples/minimal/project.godot): copy the whole directory, run `example.gd` with an explicit output directory as documented in the reference.
+- [Evidence conventions](../../shared/references/evidence.md) and [capability index](../../docs/capabilities.json): use when updating delivery evidence.

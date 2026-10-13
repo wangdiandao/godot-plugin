@@ -14,47 +14,32 @@ Create OUT first. In PowerShell, use `& $godot @args`; in POSIX shells, quote ea
 
 Inputs: scripts and native resources in the example. Outputs: generated resources and check reports in OUT; the engine may also generate the example's .godot cache and .uid metadata. Read the script before applying it to your own project; examples do not directly modify existing projects.
 
-## Related APIs
+## Develop a typed gameplay command
 
-- [GDScript](https://docs.godotengine.org/en/4.7/classes/class_gdscript.html)
-- [Signal](https://docs.godotengine.org/en/4.7/classes/class_signal.html)
-- [Resource](https://docs.godotengine.org/en/4.7/classes/class_resource.html)
-- [Object](https://docs.godotengine.org/en/4.7/classes/class_object.html)
+Identify scene-owned state and detached data first. Put frame callbacks on Node, authored configuration on Resource and a detached rules service on RefCounted. Export only data intended for Inspector/serialization. Required arguments in a Resource `_init()` can prevent duplication/loading; use default construction plus validated setup for serializable resources.
 
-Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
+Give the command a typed return value or explicit result Dictionary. Validate all input before mutating state, then emit a typed signal with the completed value. Use direct calls for required commands; an unobserved signal cannot establish that an operation succeeded. Types are useful for internal contracts; incoming JSON/RPC values remain Variant until checked. `as` can return null rather than proving a cast is valid.
 
-## Implementation Notes
+Connect signals once and test reentrancy: delivery is synchronous unless a deferred connection is chosen. Mutating subscribers can call back into the publisher. Keep state consistent before emit, or defer a callback when the operation requires a completed iteration. Do not connect a persistent scene signal to a lambda: lambda connections cannot serialize.
 
-1. Express interfaces with explicit types; do not change everything to Variant to suppress warnings. Give null branches for resource and node references meaningful behavior.
-2. Use signals for events and wait for the appropriate nodes or signals for deferred initialization; decide whether mutable shared Resource data needs an independent copy.
-3. Before refactoring, inspect script paths, NodePaths, signal method names, and serialized properties in scenes; preserve public contracts or migrate callers together.
-4. Check individual files with --check-only --script, then execute real call paths covering await completion, disconnection, and object freeing.
+## Modify asynchronous or shared logic
 
-## Saving and Validation
+Read callers and warning settings before changing a signature. Preserve exported names or migrate saved data. Distinguish Array/Dictionary reference sharing from packed-array getters on built-in properties, which return copies. Duplicate data when independent ownership is required and test two consumers.
 
-Preserve script .uid files and external resource references. Node scripts cannot serve as --script entry points; test wrappers should extend SceneTree.
-Verify at least one signal's arguments and call count, one asynchronous completion path, and reloaded values of persisted resources.
+After `await`, confirm a referenced object is valid and the operation still belongs to the active scene/request. A generation token is useful when a later request supersedes an earlier one. Coroutine completion must not reopen a closed screen or modify an unloaded level. For nodes leaving the tree, disconnect long-lived publishers and cancel owned work; do not simply suppress all errors with null guards that hide missing required setup.
 
-## Common Pitfalls and Recovery
+Use `--headless --path PROJECT --import` for project parse/import checks, then run a deterministic script that exercises the command. The minimal case checks typed signal values, async continuation and connection ownership; add a project-specific cancellation fixture for real async operations.
 
-- --check-only does not execute _ready or prove correct behavior.
-- Runtime lambda connections are not portable persistent scene connections.
+## Diagnose script behavior
 
-For circular dependencies, adjust data/behavior boundaries first; for type cache issues, import first; for suspended awaits, add lifecycle and timeout checks.
+| Symptom | Check → cause → fix → retest |
+|---|---|
+| Invalid access after await | Check lifetime/request generation → scene freed or request superseded → verify validity and cancellation → exit scene while waiting. |
+| Typed variable inferred from Variant warning | Inspect API return contract → unvalidated dynamic boundary → explicit Variant then validate/cast → malformed input plus normal input. |
+| Resource duplication fails | Inspect required constructor args and STORAGE properties → object cannot be default constructed → default init plus configure → duplicate/save/reload. |
+| Shared array changes elsewhere | Compare identity and property getter semantics → alias or copy mismatch → duplicate or reassign deliberately → mutate two owners. |
+| Signal recursion or duplicate effects | Inspect synchronous callbacks and reentry → inconsistent state or repeated connect → establish state before emit/guard connection → count effects and reattach. |
 
-## Official Sources
+Sources: [static typing](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/static_typing.html), [GDScript basics](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/gdscript_basics.html), [Object connections](https://docs.godotengine.org/en/4.7/classes/class_object.html), [Node lifecycle](https://docs.godotengine.org/en/4.7/classes/class_node.html).
 
-- [CLI and build types](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html)
-- [Pinned source version](https://github.com/godotengine/godot/tree/4.7.2-stable)
-- The API links above provide interface evidence; use actual examples to validate behavior. A call in source code does not imply a public binding.
-
-
-## Authoring and Checking
-
-Use clear node responsibilities, typed parameters, and named signals; expose design parameters through `@export`. Persistable custom data resources should extend Resource in separate `.gd` files; do not define types that must survive across processes only as inner classes in temporary scripts. Run native import for new `class_name` dependencies to generate the class cache before checking consumers.
-
-`await signal` suspends the current function until that signal fires; do not expect successful completion if the object is freed or the signal stops firing. Add timeout/cancellation states for tests and external I/O, and check `is_instance_valid()` in callbacks. Check for existing connections before connecting; use `CONNECT_ONE_SHOT` for one-time waits when appropriate.
-
-`--check-only --script res://file.gd` checks parsing; afterward, instantiate dependent scenes and execute the relevant branches. Simply checking `load(script) != null` does not guarantee a valid script; inspect the logs as well. Explicitly type variables when inference encounters Dictionary.get/Variant expressions to avoid "Cannot infer the type" errors. Do not disable warnings-as-errors to hide new problems.
-
-References: [GDScript basics](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/gdscript_basics.html), [Static typing](https://docs.godotengine.org/en/4.7/tutorials/scripting/gdscript/static_typing.html).
+Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.

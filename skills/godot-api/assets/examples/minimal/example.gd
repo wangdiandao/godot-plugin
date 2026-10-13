@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -35,4 +36,24 @@ func _run() -> void:
 	var file := FileAccess.open(output.path_join("api.json"), FileAccess.WRITE)
 	file.store_string(JSON.stringify(ClassDB.class_get_method_list("PackedScene"), "	"))
 	file.close()
+	var parent := Node.new()
+	parent.name = "Contract"
+	var saved := Node.new()
+	saved.name = "Owned"
+	parent.add_child(saved)
+	saved.owner = parent
+	var omitted := Node.new()
+	omitted.name = "Unowned"
+	parent.add_child(omitted)
+	var packed := PackedScene.new()
+	expect(packed.pack(parent) == OK, "pack_invocation")
+	var scene_path := output.path_join("contract.tscn")
+	expect(ResourceSaver.save(packed, scene_path) == OK, "save_invocation")
+	var loaded := ResourceLoader.load(scene_path, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE) as PackedScene
+	expect(loaded != null and loaded.get_state().get_node_count() == 2, "api_saved_behavior")
+	if loaded != null:
+		var instance := loaded.instantiate()
+		expect(instance.has_node("Owned") and not instance.has_node("Unowned"), "api_ownership_failure_condition")
+		instance.free()
+	parent.free()
 	finish()

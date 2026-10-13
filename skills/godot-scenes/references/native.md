@@ -14,48 +14,30 @@ Create OUT first. In PowerShell, use `& $godot @args`; in POSIX shells, quote ea
 
 Inputs: scripts and native resources in the example. Outputs: generated resources and check reports in OUT; the engine may also generate the example's .godot cache and .uid metadata. Read the script before applying it to your own project; examples do not directly modify existing projects.
 
-## Related APIs
+## Develop and save a reusable scene
 
-- [PackedScene](https://docs.godotengine.org/en/4.7/classes/class_packedscene.html)
-- [SceneState](https://docs.godotengine.org/en/4.7/classes/class_scenestate.html)
-- [ResourceSaver](https://docs.godotengine.org/en/4.7/classes/class_resourcesaver.html)
-- [ResourceLoader](https://docs.godotengine.org/en/4.7/classes/class_resourceloader.html)
-- [Node](https://docs.godotengine.org/en/4.7/classes/class_node.html)
+Choose a root that owns the module's public interface. Add children with stable descriptive names; configure paths and exported values before entering the tree when ready callbacks need them. Set each persisted descendant's `owner` to the scene root only after adding it under a valid ancestor. Parentage controls runtime hierarchy; owner controls inclusion in PackedScene. Leave temporary previews/helpers unowned when they should not save.
 
-Do not invent methods from class names. For specific signatures, run the shared `inspect_environment.gd -- --class CLASS --report OUT/api.json` or read the matching-version documentation above. Generate the complete API with `--dump-extension-api-with-docs` and write it to an isolated directory.
+Use a named method target with `CONNECT_PERSIST` for a connection that must survive serialization. Runtime-only connections can be made during initialization; keep them separate from saved wiring to avoid duplicate effects on reload. Pack, check its Error, save to an explicit path, then reload with `CACHE_MODE_IGNORE` to avoid validating only an in-memory root. Instantiate the saved scene and invoke the connected action. Inspect SceneState node/connection counts when diagnosing missing content, but also test the actual resulting behavior.
 
-## Implementation Notes
+## Modify instances and resource ownership
 
-1. Edit .tscn/.tres directly for simple property changes; create complex new resources through official Node and Resource APIs.
-2. Call add_child first, then assign the correct owner to new nodes that must persist; preserve internal ownership boundaries in existing child scenes.
-3. Use named methods and CONNECT_PERSIST for signals that must be saved; call PackedScene.pack and ResourceSaver.save and check Error.
-4. Reload saved results with CACHE_MODE_IGNORE and inspect nodes, properties, connections, and dependencies with SceneState; instantiate for validation when necessary.
+Inspect whether the source is imported, inherited or an editable instance. Make overrides on the intended instance rather than flattening the hierarchy. Preserve external resource references and inherited identities. For runtime per-instance data choose an explicit duplicate or `resource_local_to_scene` before instantiation. A built-in resource is still shared between instances unless scene-local duplication applies.
 
-## Saving and Validation
+`duplicate(true)` recursively copies collections and internal resources in the tested 4.7.2 policy, while externally saved subresources remain shared. `duplicate_deep(DEEP_DUPLICATE_ALL)` copies external data too but retains script definitions. Alias preservation matters: two references to the same nested object should remain two references to the same cloned object when deep copying. See the data resource fixture for actual assertions; do not replace these rules with the vague instruction “deep copy everything”.
 
-Preserve UIDs, ext_resource entries, instances, and inheritance information. Do not recursively assign the outer root as owner of an entire instance tree; do not fabricate import caches.
-The example saves nested nodes and persistent signals and verifies them after reload. Regression tests also cover instance preservation, inheritance overrides, and unwritable targets.
+Changing `resource_local_to_scene` after an instance already exists does not retroactively separate its existing resource. Save authored modifications, reload and compare a pair of instances. `CACHE_MODE_IGNORE` ignores the root cache without automatically ignoring every external dependency; use deeper cache modes only when the target verification requires them.
 
-## Common Pitfalls and Recovery
+## Diagnose scene persistence
 
-- ResourceSaver does not guarantee persistence of newly generated UIDs at runtime; use native editor import to establish metadata when necessary.
-- Expanding and repacking scene instances can lose editable inheritance relationships.
+| Symptom | Check → cause → fix → retest |
+|---|---|
+| Child disappears after reload | Compare owner chain and packed SceneState → unowned transient child → assign valid root owner → save, fresh load, inspect node. |
+| Connected button does nothing after reload | Inspect persistent connection and method target → runtime/lambda connection not serialized → named persistent method or explicit runtime setup → emit on reloaded instance. |
+| Two instances share mutable material/data | Compare resource identity and local flag timing → shared definition → scene-local or deliberate copy → mutate one, inspect other. |
+| Save appears to ignore changes | Check path/cache and Error result → wrong target or cached root → explicit save and uncached reload → inspect value from new object. |
+| NodePath breaks after refactor | Search callers/tracks/exported references → moved node contract → preserve name or update all dependent paths → original scene and isolated instance. |
 
-For missing nodes, check owner first; for missing signals, check persistence flags. Restore only this operation's files after save failure, and stop overwriting when the user has made concurrent changes.
+Sources: [PackedScene](https://docs.godotengine.org/en/4.7/classes/class_packedscene.html), [Resource](https://docs.godotengine.org/en/4.7/classes/class_resource.html), [ResourceLoader](https://docs.godotengine.org/en/4.7/classes/class_resourceloader.html).
 
-## Official Sources
-
-- [CLI and build types](https://docs.godotengine.org/en/4.7/tutorials/editor/command_line_tutorial.html)
-- [Pinned source version](https://github.com/godotengine/godot/tree/4.7.2-stable)
-- The API links above provide interface evidence; use actual examples to validate behavior. A call in source code does not imply a public binding.
-
-
-## What to Check After Saving
-
-`PackedScene.pack(root) -> Error` packs root and the nodes it owns; `ResourceSaver.save(resource, path, flags=0) -> Error` writes the file. The owner must be an ancestor: call add_child before setting owner. Ordinary `Signal.connect(callable)` connections exist at runtime; use `Object.CONNECT_PERSIST` and reconstructible named methods for connections that must be saved.
-
-After reloading, inspect structure with `SceneState.get_node_count()`, `get_node_path()`, `get_node_instance()`, `get_base_scene_state()`, and connection lists; then instantiate to verify key properties and actual signal execution. Engine resource caches can hide disk errors: use `ResourceLoader.CACHE_MODE_IGNORE` for readback and a fresh process to validate the complete dependency graph when external dependencies change.
-
-Preserve `instance=ExtResource(...)` when changing an existing instance property, and preserve base state in inherited scenes. The example proves creation and signals; the source test `scene-inheritance` separately verifies instance persistence, local inheritance overrides, and an unchanged base. Do not "fix" missing nodes by assigning the outer owner to every internal instance node.
-
-Write complex changes to temporary `.tscn/.tres` files in the same directory. After successful reload validation, verify that the original file's hash still matches its pre-operation value, then commit the replacement. Keep targets, temporary files, and backups within the current project; save resources before updating references for cross-file changes. Preserve diagnostic files if replacement fails; do not delete originals to retry.
+Version evidence: [fixed documentation snapshot](https://github.com/godotengine/godot-docs/tree/9adca4c1c72917bfe1b7be3108abed5ce26696a6) and [tested engine source](https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079). API links use the 4.7 version branch; recheck the actual target engine.

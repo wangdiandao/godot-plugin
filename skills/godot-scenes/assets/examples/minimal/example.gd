@@ -5,6 +5,7 @@ func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	var i := args.find("--out")
 	output = args[i + 1] if i >= 0 and i + 1 < args.size() else ProjectSettings.globalize_path("res://.godot-plugin/example")
+	output = output.replace("\\", "/")
 	if DirAccess.make_dir_recursive_absolute(output) != OK:
 		push_error("OUTPUT_DIRECTORY_FAILED")
 		quit(1)
@@ -35,6 +36,9 @@ func _run() -> void:
 	parent.add_child(button)
 	button.owner = parent
 	button.pressed.connect(parent.hide, CONNECT_PERSIST)
+	var transient := Node.new()
+	transient.name = "PreviewOnly"
+	parent.add_child(transient)
 	var packed := PackedScene.new()
 	expect(packed.pack(parent) == OK, "pack_owned_nodes")
 	var path := output.path_join("saved.tscn")
@@ -45,6 +49,7 @@ func _run() -> void:
 		expect(loaded.get_state().get_node_count() == 2, "owned_child_survives")
 		expect(loaded.get_state().get_connection_count() == 1, "persistent_connection_survives")
 		var instance := loaded.instantiate() as Node2D
+		expect(not instance.has_node("PreviewOnly"), "unowned_child_excluded")
 		(instance.get_node("Hide") as Button).pressed.emit()
 		expect(not instance.visible, "reloaded_connection_executes")
 		instance.free()

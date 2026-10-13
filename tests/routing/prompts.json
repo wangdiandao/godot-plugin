@@ -8,7 +8,12 @@
     "negative_expected": "godot-ui",
     "adjacent_prompt": "只建立项目目录与输入配置。",
     "adjacent_expected": "godot-project",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "创建一个有菜单、计分、音效和存档的 2D 收集游戏。",
+      "modify": "修改与当前任务对应的 godot-workflow 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-workflow 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-project",
@@ -19,7 +24,12 @@
     "negative_expected": "godot-physics",
     "adjacent_prompt": "给现有 HUD 改布局。",
     "adjacent_expected": "godot-ui",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "初始化 Godot 项目并配置 WASD 和暂停输入。",
+      "modify": "修改与当前任务对应的 godot-project 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-project 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-api",
@@ -30,7 +40,12 @@
     "negative_expected": "godot-workflow",
     "adjacent_prompt": "核查完接口后实现导航烘焙。",
     "adjacent_expected": "godot-navigation",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "核查当前版本是否能从 GDScript 烘焙 LightmapGI。",
+      "modify": "修改与当前任务对应的 godot-api 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-api 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-gdscript",
@@ -41,7 +56,12 @@
     "negative_expected": "godot-2d",
     "adjacent_prompt": "为角色实现跳跃与落地。",
     "adjacent_expected": "godot-physics",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "重构状态组件的类型和信号，保持已有场景兼容。",
+      "modify": "修改与当前任务对应的 godot-gdscript 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-gdscript 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-scenes",
@@ -52,7 +72,12 @@
     "negative_expected": "godot-audio",
     "adjacent_prompt": "创建带地形连接的 TileMapLayer。",
     "adjacent_expected": "godot-2d",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "给现有场景增加一个有碰撞的子场景并保存信号。",
+      "modify": "修改与当前任务对应的 godot-scenes 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-scenes 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-assets",
@@ -63,7 +88,12 @@
     "negative_expected": "godot-navigation",
     "adjacent_prompt": "调节已导入材质的透明 Shader。",
     "adjacent_expected": "godot-rendering",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "批量调整像素贴图导入参数并验证重新导入。",
+      "modify": "修改与当前任务对应的 godot-assets 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-assets 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-2d",
@@ -74,7 +104,12 @@
     "negative_expected": "godot-export",
     "adjacent_prompt": "修复 2D 角色的碰撞 mask。",
     "adjacent_expected": "godot-physics",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "用 TileMapLayer 创建一张带障碍物的地图。",
+      "modify": "修改与当前任务对应的 godot-2d 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-2d 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-3d",
@@ -85,7 +120,12 @@
     "negative_expected": "godot-data",
     "adjacent_prompt": "给 3D 场景烘焙寻路数据。",
     "adjacent_expected": "godot-navigation",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "搭建一个带相机、光照和可交互物体的 3D 房间。",
+      "modify": "修改与当前任务对应的 godot-3d 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-3d 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-physics",
@@ -96,7 +136,12 @@
     "negative_expected": "godot-rendering",
     "adjacent_prompt": "让敌人按导航路径移动。",
     "adjacent_expected": "godot-navigation",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "排查角色穿过地面和触发器不响应的问题。",
+      "modify": "修改与当前任务对应的 godot-physics 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-physics 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-navigation",
@@ -107,7 +152,12 @@
     "negative_expected": "godot-ui",
     "adjacent_prompt": "角色沿路径移动时穿墙。",
     "adjacent_expected": "godot-physics",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "自动烘焙关卡导航并让敌人绕过障碍。",
+      "modify": "修改与当前任务对应的 godot-navigation 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-navigation 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-ui",
@@ -118,7 +168,12 @@
     "negative_expected": "godot-navigation",
     "adjacent_prompt": "把已完成的 UI 动画制作成动画库。",
     "adjacent_expected": "godot-animation",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "做一个支持键盘导航和中英文切换的暂停菜单。",
+      "modify": "修改与当前任务对应的 godot-ui 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-ui 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-animation",
@@ -129,7 +184,12 @@
     "negative_expected": "godot-export",
     "adjacent_prompt": "修复动画材质的 Shader 编译错误。",
     "adjacent_expected": "godot-rendering",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "用 AnimationTree 实现待机和行走之间的混合。",
+      "modify": "修改与当前任务对应的 godot-animation 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-animation 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-rendering",
@@ -140,7 +200,12 @@
     "negative_expected": "godot-data",
     "adjacent_prompt": "减少音频内存与总线峰值。",
     "adjacent_expected": "godot-audio",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "为物体添加溶解 Shader 并验证实际渲染。",
+      "modify": "修改与当前任务对应的 godot-rendering 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-rendering 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-audio",
@@ -151,7 +216,12 @@
     "negative_expected": "godot-navigation",
     "adjacent_prompt": "为音量设置实现存档迁移。",
     "adjacent_expected": "godot-data",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "添加音乐和音效总线以及可保存的音量设置。",
+      "modify": "修改与当前任务对应的 godot-audio 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-audio 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-data",
@@ -162,7 +232,12 @@
     "negative_expected": "godot-physics",
     "adjacent_prompt": "同步多人权威状态。",
     "adjacent_expected": "godot-multiplayer",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "实现带版本号的存档并兼容旧版本。",
+      "modify": "修改与当前任务对应的 godot-data 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-data 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-multiplayer",
@@ -173,7 +248,12 @@
     "negative_expected": "godot-ui",
     "adjacent_prompt": "只做单机分数保存。",
     "adjacent_expected": "godot-data",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "实现双人联机并在本机运行两个客户端验证。",
+      "modify": "修改与当前任务对应的 godot-multiplayer 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-multiplayer 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-validation",
@@ -184,7 +264,12 @@
     "negative_expected": "godot-scenes",
     "adjacent_prompt": "完成诊断后导出 Windows 安装目录。",
     "adjacent_expected": "godot-export",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "为项目建立自动冒烟、输入和截图验证。",
+      "modify": "修改与当前任务对应的 godot-validation 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-validation 示例中复现一项关键失败条件，定位并验证修复。"
+    }
   },
   {
     "skill": "godot-export",
@@ -195,6 +280,27 @@
     "negative_expected": "godot-physics",
     "adjacent_prompt": "诊断构建后黑屏并采集画面证据。",
     "adjacent_expected": "godot-validation",
-    "host_model_routing": "not_run"
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "导出 Windows 游戏并启动检查。",
+      "modify": "修改与当前任务对应的 godot-export 实现，保持持久化数据和已有调用兼容。",
+      "diagnose": "在 godot-export 示例中复现一项关键失败条件，定位并验证修复。"
+    }
+  },
+  {
+    "skill": "godot-architecture",
+    "positive": "为背包和拾取模块设计显式依赖、生命周期与信号契约。",
+    "negative": "只调整菜单按钮边距。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-architecture",
+    "negative_expected": "godot-ui",
+    "adjacent_prompt": "给现有场景增加一个有碰撞的子场景并保存信号。",
+    "adjacent_expected": "godot-scenes",
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "为背包和拾取模块设计显式依赖、生命周期与信号契约。",
+      "modify": "把依赖全局玩家的库存模块改为可独立实例化组件。",
+      "diagnose": "修复场景切换后旧信号监听仍更新已释放界面的问题。"
+    }
   }
 ]

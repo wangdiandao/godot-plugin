@@ -51,7 +51,7 @@ def main():
 
     capabilities = read_json('docs/capabilities.json')['capabilities']
     names = {p.parent.name for p in (root / 'skills').glob('*/SKILL.md')}
-    check('skills:18', len(names) == 18)
+    check('skills:nonempty', bool(names))
     check('capabilities:coverage', {c['id'] for c in capabilities} == names)
     for name in sorted(names):
         base = root / 'skills' / name

@@ -1,6 +1,6 @@
 interface:
-  display_name: "Godot · Official API Verification"
-  short_description: "Verify Godot APIs against official sources and actual behavior"
-  default_prompt: "Use $godot-api to check whether the current version can bake LightmapGI from GDScript."
+  display_name: "Godot · API and Version Verification"
+  short_description: "Verify versioned interfaces and actual behavior"
+  default_prompt: "Use $godot-api to develop, modify and diagnose a practical api task in my Godot project."
 policy:
   allow_implicit_invocation: true

@@ -565,6 +565,42 @@
         "headless"
       ],
       "acceptance": "Expected failed with matching cause and any specified child report"
+    },
+    {
+      "id": "architecture-example",
+      "project": "../skills/godot-architecture/assets/examples/minimal",
+      "script": "../skills/godot-architecture/assets/examples/minimal/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 45,
+      "skill": "godot-architecture",
+      "capability_id": "godot-architecture",
+      "conditions": [
+        "Godot 4.7.2 standard",
+        "headless"
+      ],
+      "acceptance": "Behavioral assertions, explicit report, exact expected status, clean log and exit code"
+    },
+    {
+      "id": "data-resources",
+      "project": "../skills/godot-data/assets/examples/resources",
+      "script": "../skills/godot-data/assets/examples/resources/example.gd",
+      "headless": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 30,
+      "skill": "godot-data",
+      "capability_id": "godot-data",
+      "conditions": [
+        "Godot 4.7.2 standard",
+        "headless"
+      ],
+      "acceptance": "Resource duplication, identity, persisted state and scene-local isolation assertions"
     }
   ],
   "integration_suites": [

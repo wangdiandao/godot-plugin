@@ -122,7 +122,7 @@ func _start() -> void:
 			_spawn_pickup(point)
 	_update_hud()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode == KEY_R:
 		_start()
 
@@ -241,15 +241,20 @@ func _self_test() -> void:
 		_expect(image.get_width() == 960 and image.get_height() == 540, "viewport_dimensions")
 		_expect(image.save_png(test_output.path_join("game.png")) == OK, "screenshot_saved")
 	_key(KEY_R, true)
-	await get_tree().process_frame
+	for i in range(3):
+		await get_tree().process_frame
 	_key(KEY_R, false)
+	await get_tree().process_frame
 	_expect(playing and score == 0, "restart_input")
 	var ok := true
 	for item: Dictionary in checks:
 		ok = ok and item.passed
 	var result := {"schema_version": 1, "status": "passed" if ok else "failed", "engine": Engine.get_version_info(), "mode": MODE, "display": DisplayServer.get_name(), "checks": checks, "artifacts": [test_output]}
 	print("GODOT_PLUGIN_RESULT:" + JSON.stringify(result))
-	get_tree().quit(0 if ok else 1)
+	sound.stop()
+	sound.stream = null
+	await get_tree().create_timer(0.05).timeout
+	get_tree().quit.call_deferred(0 if ok else 1)
 
 func polygon(points: PackedVector2Array, color: Color, parent: Node) -> Polygon2D:
 	var node := Polygon2D.new()
