@@ -796,14 +796,16 @@
       ],
       "example": "skills/godot-ui/assets/examples/minimal/project.godot",
       "test_ids": [
-        "ui-example"
+        "ui-example",
+        "ui-localization"
       ],
       "verification_status": "tested",
       "conditions": "确认目标分辨率、长宽比、输入设备、语言和字体覆盖；读取现有 Theme 与 UI 场景。",
       "tested_version": "4.7.2-stable",
       "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "ui-example: theme_saved, theme_cache_ignored_reload, inherited_font, inherited_font_size, inherited_theme_color, menu_packed, menu_saved, saved_local_override_effective, override_removal_restores_inheritance, saved_inherited_style, focused_button_input_dispatch, container_layout, overlay_stop_blocks_pointer_activation, overlay_ignore_repairs_pointer_activation, repaired_pointer_activation_repeats_0, repaired_pointer_activation_repeats_1, pointer_repair_preserves_style_and_geometry, intentional_modal_blocking_remains_available, translation_lookup"
+        "ui-example: theme_saved, theme_cache_ignored_reload, inherited_font, inherited_font_size, inherited_theme_color, menu_packed, menu_saved, saved_local_override_effective, override_removal_restores_inheritance, saved_inherited_style, focused_button_input_dispatch, container_layout, overlay_stop_blocks_pointer_activation, overlay_ignore_repairs_pointer_activation, repaired_pointer_activation_repeats_0, repaired_pointer_activation_repeats_1, pointer_repair_preserves_style_and_geometry, intentional_modal_blocking_remains_available, translation_lookup",
+        "ui-localization: public_bindings_available, cold_start_loads_configured_catalogs, po_loaded_by_native_resource_loader, catalog_required_keys_and_named_placeholders, catalog_saved, uncached_catalog_preserves_context, uncached_catalog_preserves_plural_forms, initial_label_uses_english, locale_notification_refreshes_existing_ui, runtime_context_disambiguation, runtime_pluralization, named_placeholder_formatting, missing_key_fallback_does_not_prove_completeness, unsupported_locale_uses_configured_fallback, audit_detects_missing_entry_without_fallback, audit_detects_changed_placeholder, repair_keeps_original_catalog_intact, negative_controls_preserve_source_file_hash, pseudolocalization_changes_text, pseudolocalization_preserves_printf_placeholder, repeated_locale_switch_es_20, repeated_locale_switch_en_21, repeated_locale_switch_es_22, repeated_locale_switch_en_23"
       ],
       "documented_not_tested": [
         "中文字体渲染覆盖",
@@ -814,7 +816,8 @@
         "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/scene/gui/control.cpp"
       ],
       "recipe_references": [
-        "skills/godot-ui/references/native.md"
+        "skills/godot-ui/references/native.md",
+        "skills/godot-ui/references/localization.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -863,6 +866,13 @@
         "stage": 15,
         "observed_cases": [
           "ui-example"
+        ]
+      },
+      "localization_evidence": {
+        "report": "docs/native-workflows-validation.json",
+        "stage": 16,
+        "observed_cases": [
+          "ui-localization"
         ]
       }
     },

@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "READY"
+msgstr "Listo"
+
+msgid "WELCOME"
+msgstr "Bienvenido, {player}"
+
+msgctxt "menu"
+msgid "Open"
+msgstr "Abrir"
+
+msgctxt "state"
+msgid "Open"
+msgstr "Abierto"
+
+msgid "%d apple"
+msgid_plural "%d apples"
+msgstr[0] "%d manzana"
+msgstr[1] "%d manzanas"

@@ -63,6 +63,8 @@ Save Theme and scene with checked ResourceSaver results; reread CACHE_MODE_IGNOR
 
 ## Localization, font and rich-text recipe
 
+For catalog authoring, runtime refresh, missing-key/placeholder diagnosis and standalone native checks, read [localization.md](localization.md). The minimal menu's lookup is only a smoke check.
+
 Choose stable semantic message IDs or source text, extract messages and retain interpolation placeholders/plurals. Use TranslationServer.add_translation and set_locale for runtime switching; persist locale preferences separately in checked ConfigFile. Signal translation change to update text, including text assembled from data. A lookup assertion is independent from visual text shaping.
 
 Package fonts whose licenses permit redistribution; do not redistribute discovered system fonts by assumption. Configure a project font/fallback stack with actual glyph coverage. Disable or audit system fallback during acceptance so the development machine does not hide missing glyphs. Test mixed Latin/CJK/Arabic, combining marks, emoji, numbers, RTL reading order and long strings. Text language controls breaking/shaping; direction controls BiDi. Locale syntax includes optional Hans/Hant script and country fields, not only language_country.

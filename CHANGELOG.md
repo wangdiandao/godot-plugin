@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Add native persisted-catalog localization checks for runtime language refresh, context/plural messages, fallback and missing-entry/placeholder repair in the existing UI skill (#16).
+
 - Deepen native trigger, navigation, pointer and audio-route diagnosis with repair/repeat/exclusion checks; clarify project setup and playable-task handoffs (#15).
 - Preserve all 23 skill names and Godot-native CLI/GDScript execution. Fresh evidence is separate from historical validation in docs/native-workflows-validation.json.
 
