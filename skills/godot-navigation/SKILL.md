@@ -29,6 +29,8 @@ Read the [persistence strategy](../../shared/references/persistence.md) when per
 
 ## Acceptance and Delivery
 
+For route repair, verify synchronization and final-point arrival twice while retaining an excluded-layer control. Keep graph-query evidence separate from actual controller/avoidance movement. Follow the ordered diagnostic branch in recipes.md.
+
 The example builds navigation geometry from CPU vertices, bakes and saves it, then verifies nonempty polygons after reload; the two-region checks assert arrival at the target and reject excluded or disabled regions. Avoidance movement requires its own target-scene acceptance.
 Report the actual engine and execution mode, changed files, verified behaviors, artifacts, and unmet conditions. Child script reports prove only the checks they executed; inspect logs and exit codes for the complete process as well.
 

@@ -91,6 +91,15 @@ Validate text independently of virtual keyboard type. max_length can truncate pa
 
 ## Acceptance boundaries
 
+### Repair pointer interception
+
+1. Reproduce a real pointer press/release at the button's viewport coordinates; record root/SubViewport size, pause state and whether the button is disabled. Keyboard success does not prove pointer reachability.
+2. Inspect Controls above the button, their visible rectangles and `mouse_filter`. A transparent overlay can still receive input. Keep modal blockers intentional; do not change every Control to IGNORE.
+3. Change only the unintended interceptor. Repeat pointer activation twice and check that style, geometry and keyboard focus remain intact.
+4. Retest an intentional modal blocker. If input still fails, inspect coordinate transforms and event handling before changing hierarchy or scene-wide pause policy.
+
+The menu fixture exercises STOP -> IGNORE -> repeated activation -> STOP, preserving button style and overlay size. Headless dispatch establishes event behavior; real viewport composition and physical pointer interaction need rendered acceptance.
+
 Input dispatch, resource persistence and translation lookup are independently testable headlessly. Layout screenshots, CJK shaping, pointer coordinates in Viewports, screen readers and virtual keyboards require their actual environment. AccessibilityServer.is_supported is not proof that assistive processing is active; test semantic labels/actions and keyboard operation with a screen reader. [AccessibilityServer](https://docs.godotengine.org/en/4.7/classes/class_accessibilityserver.html) are on-demand low-level references; Nodes already own their accessibility elements.
 
 

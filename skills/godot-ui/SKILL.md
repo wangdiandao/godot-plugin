@@ -29,6 +29,8 @@ Set scene owners for generated children. Duplicate shared StyleBoxes before loca
 
 ## Acceptance and Delivery
 
+For pointer interception, reproduce actual press/release, repair only the unintended blocker, repeat activation and retain an intentional modal-blocking control. Read the pointer diagnosis in native.md; preserve styling and geometry.
+
 The minimal example saves and reloads Theme and PackedScene, checks inherited font/style/color, persisted local overrides and removal, then verifies layout, focused button input and translation lookup. This does not prove CJK glyph coverage, screen-reader behavior or layout at every resolution; collect actual rendered/input evidence for those conditions. Deliver changed files, exact commands/version/mode, assertions, artifacts, failures and explicit untested scope. Logs and exit codes must agree with reports.
 
 ## On-Demand References and Examples

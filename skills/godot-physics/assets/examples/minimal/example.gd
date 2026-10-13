@@ -85,6 +85,49 @@ func _run() -> void:
 	for i in range(3):
 		await physics_frame
 	expect(entered == 1 and exited == 1, "trigger_enter_and_exit_once")
+	# Reproduce a broken mask, repair only that mask, then repeat the interaction.
+	trigger.collision_mask = 8
+	actor.position = trigger.position
+	for i in range(4):
+		await physics_frame
+	expect(entered == 1 and not trigger.get_overlapping_bodies().has(actor), "trigger_wrong_mask_reproduced")
+	# Leave under the broken filter before repairing: repairing an overlapping
+	# pair can itself generate entry and exit callbacks during synchronization.
+	actor.position = Vector2(70, 80)
+	for i in range(4):
+		await physics_frame
+	trigger.collision_mask = actor.collision_layer
+	for i in range(4):
+		await physics_frame
+	actor.position = trigger.position
+	for i in range(4):
+		await physics_frame
+	expect(entered == 2 and trigger.get_overlapping_bodies().has(actor), "trigger_mask_repair_detects_actor")
+	actor.position = Vector2(70, 80)
+	for i in range(4):
+		await physics_frame
+	expect(exited == 2, "repaired_trigger_exit")
+	for cycle in range(2):
+		actor.position = trigger.position
+		for i in range(4):
+			await physics_frame
+		actor.position = Vector2(70, 80)
+		for i in range(4):
+			await physics_frame
+	expect(entered == 4 and exited == 4, "repaired_trigger_repeats_without_duplicate_callbacks")
+	var excluded_body := StaticBody2D.new()
+	excluded_body.collision_layer = 8
+	excluded_body.collision_mask = 0
+	excluded_body.position = trigger.position
+	var excluded_shape := CollisionShape2D.new()
+	excluded_shape.shape = circle.duplicate()
+	excluded_body.add_child(excluded_shape)
+	root.add_child(excluded_body)
+	for i in range(4):
+		await physics_frame
+	expect(not trigger.get_overlapping_bodies().has(excluded_body), "trigger_repair_preserves_excluded_layer")
+	expect(trigger.collision_layer == 4 and actor.collision_layer == 1, "trigger_repair_preserves_other_filters")
+	excluded_body.queue_free()
 	trigger.queue_free()
 	actor.queue_free()
 	floor_body.queue_free()

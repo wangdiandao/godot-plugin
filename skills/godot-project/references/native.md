@@ -16,6 +16,10 @@ Inputs: scripts and native resources in the example. Outputs: generated resource
 
 ## Develop a runnable project
 
+For a new project, reuse the user's stated genre/core action, target platforms, 2D/3D presentation and smallest deliverable. Ask only for missing choices that change renderer, controls or toolchain; choose reversible defaults for minor omissions. Record a short project brief and the selected engine before creating files. An existing-project takeover starts from its configuration and current main scene instead.
+
+Project setup ends at import/startup, persisted input and Autoload readiness. Route requested playable rules to godot-workflow, target artifacts to godot-export and architecture decisions to godot-architecture. Do not add monetization, cloud services, packages or a replacement engine merely because another plugin includes them.
+
 Record `GODOT --version` and `--help`; inspect existing `project.godot` before writing. For a new project set `config_version=5`, a name, a real `run/main_scene`, renderer and explicit input actions. Pick Compatibility when its hardware reach and feature set fit; 3D does not automatically require Forward+ and 2D can require advanced rendering. Preserve the user's target and available GPU constraints.
 
 Author the main scene and an Autoload script before registering their paths. Autoload values beginning `*` instantiate the singleton; ordering matters when one service depends on another. Keep registration names distinct from global script class names. Input dictionaries contain `deadzone` and `events` with real InputEvent resources. Decide logical `keycode` versus layout-independent `physical_keycode` for the requested controls; provide alternatives appropriate to controllers/touch through the input domain.

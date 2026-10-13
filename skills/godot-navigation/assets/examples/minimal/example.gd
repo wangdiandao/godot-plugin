@@ -89,6 +89,21 @@ func _run() -> void:
 			break
 	var disconnected := NavigationServer3D.map_get_path(joined_map, start, destination, true, 3)
 	expect(disconnected.is_empty() or disconnected[-1].distance_to(destination) > 1.0, "disabled_region_cannot_reach_target")
+	iteration = NavigationServer3D.map_get_iteration_id(joined_map)
+	NavigationServer3D.region_set_enabled(right, true)
+	var synchronized := false
+	for i in range(120):
+		await physics_frame
+		if NavigationServer3D.map_get_iteration_id(joined_map) != iteration and NavigationServer3D.map_get_closest_point_owner(joined_map, destination) == right:
+			synchronized = true
+			break
+	expect(synchronized, "repaired_region_synchronizes_within_budget")
+	for cycle in range(2):
+		var repaired := NavigationServer3D.map_get_path(joined_map, start, destination, true, 3)
+		expect(repaired.size() >= 2 and repaired[-1].distance_to(destination) < 0.1, "repaired_region_reaches_target_" + str(cycle))
+		var still_excluded := NavigationServer3D.map_get_path(joined_map, start, destination, true, 1)
+		expect(still_excluded.is_empty() or still_excluded[-1].distance_to(destination) > 1.0, "repair_preserves_excluded_navigation_layer_" + str(cycle))
+	expect(NavigationServer3D.region_get_navigation_layers(left) == 1 and NavigationServer3D.region_get_navigation_layers(right) == 2, "region_repair_preserves_layer_assignments")
 	NavigationServer3D.free_rid(left)
 	NavigationServer3D.free_rid(right)
 	NavigationServer3D.free_rid(joined_map)

@@ -23,6 +23,16 @@ For 2D, use NavigationPolygon outlines with valid winding, geometry/source bakin
 
 ## Diagnose and retest
 
+For an agent that will not reach its target, diagnose reachability before changing movement:
+
+1. Record map identity, active state, region enablement, agent/query layers and requested start/target. Check map iteration and closest-point owners with a bounded wait; stop on timeout with those observations.
+2. Query the path independently of the controller. Compare its final point with the requested destination using a stated tolerance. A partial nonempty path is a failed arrival.
+3. If the destination's region is disabled or excluded, repair the intended enablement/query mask only. Wait for the changed map iteration and destination owner before retesting; keep region layer assignments and other routes intact.
+4. If reachability is already correct, inspect one next-path update and one movement application per physics tick, stopping distance and target reassignment. Only then inspect avoidance; avoidance cannot repair disconnected topology.
+5. Query the repaired route twice and retain an intentionally excluded route as a negative control. For movement changes, additionally observe actual arrival, collisions and velocity; server queries alone do not prove a moving agent works.
+
+The bundled case reenables a failed region, waits for synchronization, proves repeated arrival and keeps its layer exclusion working. It isolates graph repair from controller/avoidance acceptance.
+
 | Symptom | Check | Cause | Repair | Retest |
 |---|---|---|---|---|
 | Empty bake | Bounds, triangle winding, parse filters, clearance | No usable source or erosion removed it | Fix geometry/filters and justified agent parameters | Reload nonempty mesh and query endpoints |

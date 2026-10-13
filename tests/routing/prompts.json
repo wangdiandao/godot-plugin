@@ -159,7 +159,10 @@
       "diagnose": "A ray misses a visible floor; inspect collision masks and verify that the wrong mask intentionally produces no hit."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "repair_prompt": "The Area2D trigger has the wrong mask. Repair only that mask, repeat entry/exit and keep another layer excluded.",
+    "repair_expected": "godot-physics",
+    "repair_host_model_routing": "not_run"
   },
   {
     "skill": "godot-navigation",
@@ -177,7 +180,10 @@
       "diagnose": "A path stops before the destination across a region boundary; inspect synchronization, connectivity and navigation masks."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "repair_prompt": "A disabled destination region prevents arrival. Restore it, await map synchronization and preserve navigation-layer exclusions.",
+    "repair_expected": "godot-navigation",
+    "repair_host_model_routing": "not_run"
   },
   {
     "skill": "godot-ui",
@@ -195,7 +201,10 @@
       "diagnose": "An invisible Control blocks button clicks; inspect mouse_filter and verify activation after the overlay ignores input."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "repair_prompt": "A transparent overlay blocks button clicks. Repair pointer interception while keeping an intentional modal blocker.",
+    "repair_expected": "godot-ui",
+    "repair_host_model_routing": "not_run"
   },
   {
     "skill": "godot-animation",
@@ -249,7 +258,10 @@
       "diagnose": "A player targets a nonexistent bus; detect the missing route before playback and verify nonlooping completion."
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
-    "installed_host_autoload_tested": false
+    "installed_host_autoload_tested": false,
+    "repair_prompt": "A requested bus is missing. Preserve the prior route, select the intended existing bus and verify repeated playback without changing the mix.",
+    "repair_expected": "godot-audio",
+    "repair_host_model_routing": "not_run"
   },
   {
     "skill": "godot-data",
