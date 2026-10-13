@@ -1,5 +1,7 @@
 # Godot Skill 覆盖总览
 
+[文档首页](README.zh.md) · [双语 Skill 目录](skill-catalog.zh.md) · [验证证据](evidence.zh.md)
+
 固定文档：4.7，提交9adca4c1c72917bfe1b7be3108abed5ce26696a6；本机标准/ .NET引擎：4.7.2。全文档1,596源页与2生成页面已读，页面记录见[研究入口](research/README.md)。阅读不是能力运行验收。
 
 23个入口保留原18个调用名称，新增架构、性能、编辑器工具、C#与GDExtension。每个入口连接对应操作配方、诊断路径和隔离案例。具体能力范围以[能力索引](capabilities.json)与本次证据为准。

@@ -1,5 +1,7 @@
 # 实际验证报告
 
+[文档首页](README.zh.md) · [测试策略](testing.zh.md) · [各版本证据索引](evidence.zh.md)
+
 2026-10-13 的 0.2.1 分段新增证据见 [native-workflows-validation.json](native-workflows-validation.json)：故障修复闭环、本地化目录与语言刷新、原生 HTTP 协议/退出，以及真实 Chrome 输入和刷新后存档恢复。下面的 2026-10-11 结果仍保留为历史记录，不作为本次复测；其他浏览器、线程/PWA、真实听感和宿主安装后隐式触发仍未验证。
 
 0.1.1 新增宿主包装及 2026-10-12 的开发/发布检查见 [compatibility.md](compatibility.md)。下文保留 2026-10-11 的引擎行为证据，不代表在所有 Agent 中重新验证。

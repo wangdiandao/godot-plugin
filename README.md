@@ -2,6 +2,8 @@
 
 **English** | [简体中文](README.zh.md)
 
+[Documentation](docs/README.md) · [Getting started](docs/getting-started.md) · [Skill catalog](docs/skill-catalog.md) · [Validation evidence](docs/evidence.md)
+
 Native Godot development skills for **Codex Desktop / CLI, Claude Code, Cursor, and Gemini CLI**. Includes 23 focused Skills, native GDScript helpers, and runnable examples for GDScript2D/3D games plus architecture, performance, editor tools and conditional C#/GDExtension tasks.
 
 Use your chosen agent, the **standard Godot editor distribution**, and operating-system tools. The default game workflow adds no MCP server, Python or Node runtime dependency; editor-tool and language-extension tasks use their explicitly documented prerequisites. Context7 is an author research tool, not a runtime dependency.

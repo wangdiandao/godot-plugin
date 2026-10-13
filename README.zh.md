@@ -2,6 +2,8 @@
 
 [English](README.md) | **简体中文**
 
+[文档首页](docs/README.zh.md) · [快速开始](docs/getting-started.zh.md) · [Skill 目录](docs/skill-catalog.zh.md) · [验证证据](docs/evidence.zh.md)
+
 面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：23 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 开发，并提供架构、性能、编辑器工具及条件式 C#/GDExtension 工作流。
 
 运行需要所选 Agent、**Godot 标准编辑器发行版和操作系统自带能力**。插件不新增 MCP Server、Godot 编辑器插件、Python 或 Node 运行依赖；Agent 本身的安装要求仍然适用。Context7 仅用于作者研究，不是用户运行依赖。
