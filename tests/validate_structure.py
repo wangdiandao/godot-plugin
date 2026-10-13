@@ -53,6 +53,18 @@ def main():
     names = {p.parent.name for p in (root / 'skills').glob('*/SKILL.md')}
     check('skills:nonempty', bool(names))
     check('capabilities:coverage', {c['id'] for c in capabilities} == names)
+    check('capabilities:unique', len({c['id'] for c in capabilities}) == len(capabilities))
+    case_manifest = read_json('tests/cases.json')
+    declared_cases = {item['id'] for section in ('cases', 'integration_suites') for item in case_manifest.get(section, [])}
+    check('cases:skill_coverage', {item.get('skill') for item in case_manifest['cases'] if item.get('skill')} == names)
+    for capability in capabilities:
+        check(capability['id'] + ':test_references', bool(capability.get('test_ids')) and all(value in declared_cases for value in capability['test_ids']))
+        for relative in [capability['skill'], capability['example'], capability['evidence']] + capability.get('recipe_references', []):
+            resolved = (root / relative).resolve()
+            check(capability['id'] + ':capability_reference:' + relative, resolved.is_relative_to(root) and resolved.is_file())
+    for item in case_manifest['cases']:
+        if item.get('skill'):
+            check(item['id'] + ':capability_id', item.get('capability_id') == item['skill'])
     for name in sorted(names):
         base = root / 'skills' / name
         text = (base / 'SKILL.md').read_text(encoding='utf-8')

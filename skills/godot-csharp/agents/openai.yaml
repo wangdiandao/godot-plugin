@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · C#"
+  short_description: "Build and diagnose managed Godot gameplay and resources"
+  default_prompt: "Use $godot-csharp to implement and build C# behavior, then test it with the .NET Godot editor."
+policy:
+  allow_implicit_invocation: true

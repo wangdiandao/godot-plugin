@@ -23,27 +23,93 @@
       "verification_status": "tested",
       "conditions": "确认项目目录、游戏目标和主机平台；检查 Godot 标准编辑器发行版。已有项目先运行现状检查并记录已知失败。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "2D/3D 原生示例：菜单、输入、物理收集、音效配置、胜利、重开、存档与截图",
-        "干净中文空格目录导入，Windows release 导出并运行"
+        "workflow-example: pack_playable_structure, save_checkpoint, reload_checkpoint, checkpoint_interaction_reloaded",
+        "game-2d: initial_menu, menu_keyboard_start, input_moves_physics_body, movement_collects_first_core, audio_stream_configured, win_condition, save_created, save_reloaded, viewport_dimensions, screenshot_saved, restart_input",
+        "game-3d: initial_menu, menu_keyboard_start, input_moves_physics_body, movement_collects_first_core, audio_stream_configured, win_condition, save_created, save_reloaded, viewport_dimensions, screenshot_saved, restart_input"
       ],
       "documented_not_tested": [
         "大型完整商业游戏质量",
         "所有游戏类型"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ProjectSettings.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneTree.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PackedScene.xml"
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "workflow-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "pack_playable_structure",
+              "save_checkpoint",
+              "reload_checkpoint",
+              "checkpoint_interaction_reloaded"
+            ]
+          },
+          {
+            "test_id": "game-2d",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "initial_menu",
+              "menu_keyboard_start",
+              "input_moves_physics_body",
+              "movement_collects_first_core",
+              "audio_stream_configured",
+              "win_condition",
+              "save_created",
+              "save_reloaded",
+              "viewport_dimensions",
+              "screenshot_saved",
+              "restart_input"
+            ]
+          },
+          {
+            "test_id": "game-3d",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "initial_menu",
+              "menu_keyboard_start",
+              "input_moves_physics_body",
+              "movement_collects_first_core",
+              "audio_stream_configured",
+              "win_condition",
+              "save_created",
+              "save_reloaded",
+              "viewport_dimensions",
+              "screenshot_saved",
+              "restart_input"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "recipe_references": [
+        "skills/godot-workflow/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "2D/3D 原生示例：菜单、输入、物理收集、音效配置、胜利、重开、存档与截图",
+          "干净中文空格目录导入，Windows release 导出并运行"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
       }
     },
     {
@@ -64,27 +130,54 @@
       "verification_status": "tested",
       "conditions": "读取 project.godot、主场景、Autoload 和已有版本证据；用 --version、--help 确认实际二进制。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "ConfigFile 输入事件与 Autoload 配置读回",
-        "完整示例项目原生导入"
+        "project-example: save_project_configuration, reload_configuration, input_event_roundtrip, runtime_input_map, generated_project_launch, autoload_and_persistent_input_live, runtime_probe_action_removed"
       ],
       "documented_not_tested": [
         "既有大型项目版本迁移",
         "所有安装布局的自动发现"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ProjectSettings.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/InputMap.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/InputEventKey.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ConfigFile.xml"
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "project-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "save_project_configuration",
+              "reload_configuration",
+              "input_event_roundtrip",
+              "runtime_input_map",
+              "generated_project_launch",
+              "autoload_and_persistent_input_live",
+              "runtime_probe_action_removed"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "recipe_references": [
+        "skills/godot-project/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "ConfigFile 输入事件与 Autoload 配置读回",
+          "完整示例项目原生导入"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
       }
     },
     {
@@ -104,24 +197,53 @@
       "verification_status": "tested",
       "conditions": "获得实际引擎版本、构建类型和目标功能；优先已固定版本的官方类文档。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "本机 ClassDB 方法列表和 LightmapGI 未绑定检查"
+        "api-example: tilemaplayer_available, resource_save_is_public, navigation_bake_is_public, lightmap_bake_not_bound_in_baseline, pack_invocation, save_invocation, api_saved_behavior, api_ownership_failure_condition"
       ],
       "documented_not_tested": [
         "所有公开接口的行为"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ClassDB.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Engine.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Object.xml"
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "api-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "tilemaplayer_available",
+              "resource_save_is_public",
+              "navigation_bake_is_public",
+              "lightmap_bake_not_bound_in_baseline",
+              "pack_invocation",
+              "save_invocation",
+              "api_saved_behavior",
+              "api_ownership_failure_condition"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "recipe_references": [
+        "skills/godot-api/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "本机 ClassDB 方法列表和 LightmapGI 未绑定检查"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
       }
     },
     {
@@ -142,25 +264,50 @@
       "verification_status": "tested",
       "conditions": "读取调用方、节点生命周期、导出的属性和序列化依赖；首次导入后再验证 class_name。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "类型化信号、状态和跨帧异步流程"
+        "gdscript-example: typed_signal_delivered, async_continuation, connection_not_duplicated, disconnected_listener_not_called, connection_cleanup"
       ],
       "documented_not_tested": [
         "任意代码自动正确重构"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gdscript/doc_classes/GDScript.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Signal.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Resource.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Object.xml"
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "gdscript-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "typed_signal_delivered",
+              "async_continuation",
+              "connection_not_duplicated",
+              "disconnected_listener_not_called",
+              "connection_cleanup"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "recipe_references": [
+        "skills/godot-gdscript/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "类型化信号、状态和跨帧异步流程"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
       }
     },
     {
@@ -184,27 +331,61 @@
       "verification_status": "tested",
       "conditions": "读取现有场景、外部资源、实例关系、节点所有权和信号；导入完成后再加载。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "owner 子节点、持久化信号保存后执行",
-        "实例保留、继承覆盖和基底未变"
+        "scenes-example: pack_owned_nodes, save_scene, owned_child_survives, persistent_connection_survives, unowned_child_excluded, reloaded_connection_executes",
+        "scene-inheritance: passed"
       ],
       "documented_not_tested": [
         "复杂导入场景任意重写"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PackedScene.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneState.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceSaver.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceLoader.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Node.xml"
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "scenes-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "pack_owned_nodes",
+              "save_scene",
+              "owned_child_survives",
+              "persistent_connection_survives",
+              "unowned_child_excluded",
+              "reloaded_connection_executes"
+            ]
+          },
+          {
+            "test_id": "scene-inheritance",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": []
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "recipe_references": [
+        "skills/godot-scenes/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "owner 子节点、持久化信号保存后执行",
+          "实例保留、继承覆盖和基底未变"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
       }
     },
     {
@@ -227,23 +408,53 @@
       "verification_status": "tested",
       "conditions": "确认源格式、授权来源、目标平台和渲染器；优先 Godot 直接支持的 PNG/SVG/WAV/glTF 等格式。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "原生 PNG 编码解码",
-        "32→64 像素重导入、恢复指定源文件和保留无关内容"
+        "assets-example: native_png_encoder, native_png_decoder, pixel_roundtrip"
       ],
       "documented_not_tested": [
         "字体文件导入",
         "GLB/FBX 导入完整动画链"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Image.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ResourceLoader.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/EditorFileSystem.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gltf/doc_classes/GLTFDocument.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioStreamWAV.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable",
+        "https://github.com/godotengine/godot/blob/4.7.2-stable/editor/import/resource_importer_texture.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-assets/references/native.md",
+        "skills/godot-assets/references/recipes.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "原生 PNG 编码解码",
+          "32→64 像素重导入、恢复指定源文件和保留无关内容"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "assets-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "native_png_encoder",
+              "native_png_decoder",
+              "pixel_roundtrip"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-2d",
@@ -259,28 +470,79 @@
       ],
       "example": "skills/godot-2d/assets/examples/minimal/project.godot",
       "test_ids": [
-        "2d-example"
+        "2d-example",
+        "terrain-example"
       ],
       "verification_status": "tested",
       "conditions": "确认世界单位、图块尺寸、纹理尺寸、坐标系和渲染缩放；新地图使用 TileMapLayer。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "TileSet 图集与 TileMapLayer 保存读回",
-        "2D 完整收集游戏"
+        "2d-example: tile_cells_created, tile_layer_pack, tile_layer_save, tile_cell_roundtrip",
+        "terrain-example: terrain_painted_three_cells, terrain_tiles_resolved, empty_boundary_matches, neighbor_bits_connect, pack_terrain, save_terrain, reload_terrain, saved_terrain_mode, saved_terrain_cells, world_local_map_roundtrip"
       ],
       "documented_not_tested": [
         "复杂地形邻接组合",
         "像素完美相机所有分辨率"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TileMapLayer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TileSet.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TileSetAtlasSource.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Camera2D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Sprite2D.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-2d/references/native.md",
+        "skills/godot-2d/references/recipes.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "TileSet 图集与 TileMapLayer 保存读回",
+          "2D 完整收集游戏"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "2d-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "tile_cells_created",
+              "tile_layer_pack",
+              "tile_layer_save",
+              "tile_cell_roundtrip"
+            ]
+          },
+          {
+            "test_id": "terrain-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "terrain_painted_three_cells",
+              "terrain_tiles_resolved",
+              "empty_boundary_matches",
+              "neighbor_bits_connect",
+              "pack_terrain",
+              "save_terrain",
+              "reload_terrain",
+              "saved_terrain_mode",
+              "saved_terrain_cells",
+              "world_local_map_roundtrip"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-3d",
@@ -302,23 +564,55 @@
       "verification_status": "tested",
       "conditions": "确认米制尺度、轴向、摄像机视角和目标 GPU；导入模型先检查 transform 与材质。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "BoxMesh 与 Camera3D 保存读回",
-        "3D 角色、地面和收集关卡"
+        "3d-example: independent_mesh_edit_preserves_original, pack_mesh_and_camera, save_world, native_mesh_roundtrip, camera_roundtrip, light_roundtrip, independent_size_roundtrip"
       ],
       "documented_not_tested": [
         "复杂骨骼与导入模型编辑"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Node3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/MeshInstance3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/BoxMesh.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Camera3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Skeleton3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gltf/doc_classes/GLTFDocument.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-3d/references/native.md",
+        "skills/godot-3d/references/recipes.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "BoxMesh 与 Camera3D 保存读回",
+          "3D 角色、地面和收集关卡"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "3d-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "independent_mesh_edit_preserves_original",
+              "pack_mesh_and_camera",
+              "save_world",
+              "native_mesh_roundtrip",
+              "camera_roundtrip",
+              "light_roundtrip",
+              "independent_size_roundtrip"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-physics",
@@ -340,22 +634,56 @@
       "verification_status": "tested",
       "conditions": "确认 2D/3D、物理后端、物体类型、碰撞层/掩码、形状和单位；读取已有角色控制器。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "CharacterBody2D 落地与防穿透",
-        "2D/3D 游戏物理移动及 Area 收集"
+        "physics-example: character_lands_on_floor, collision_prevents_penetration, ray_hits_expected_floor, ray_wrong_mask_has_no_hit, velocity_is_units_per_second, horizontal_movement_retains_floor, trigger_enter_and_exit_once"
       ],
       "documented_not_tested": [
         "高速刚体/CCD",
         "所有形状和后端"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/CharacterBody2D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/CharacterBody3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Area2D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/PhysicsRayQueryParameters3D.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-physics/references/native.md",
+        "skills/godot-physics/references/recipes.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "CharacterBody2D 落地与防穿透",
+          "2D/3D 游戏物理移动及 Area 收集"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "physics-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "character_lands_on_floor",
+              "collision_prevents_penetration",
+              "ray_hits_expected_floor",
+              "ray_wrong_mask_has_no_hit",
+              "velocity_is_units_per_second",
+              "horizontal_movement_retains_floor",
+              "trigger_enter_and_exit_once"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-navigation",
@@ -375,21 +703,55 @@
       "verification_status": "tested",
       "conditions": "确认 2D/3D、几何来源、代理半径、导航图层和目标平台；烘焙应使用可获取的源几何。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "CPU 几何烘焙、保存、异步同步后跨区域寻路"
+        "navigation-example: cpu_navigation_bake, save_navigation, navigation_roundtrip, path_crosses_baked_region, path_crosses_two_regions, excluded_region_cannot_reach_target, disabled_region_cannot_reach_target"
       ],
       "documented_not_tested": [
         "NavigationAgent 避障",
         "动态多地图导航"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationServer3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationMesh.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationMeshSourceGeometryData3D.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/NavigationAgent3D.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-navigation/references/native.md",
+        "skills/godot-navigation/references/recipes.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "CPU 几何烘焙、保存、异步同步后跨区域寻路"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "navigation-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "cpu_navigation_bake",
+              "save_navigation",
+              "navigation_roundtrip",
+              "path_crosses_baked_region",
+              "path_crosses_two_regions",
+              "excluded_region_cannot_reach_target",
+              "disabled_region_cannot_reach_target"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-ui",
@@ -411,24 +773,63 @@
       "verification_status": "tested",
       "conditions": "确认目标分辨率、长宽比、输入设备、语言和字体覆盖；读取现有 Theme 与 UI 场景。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "Container 布局、焦点按钮输入、中英文翻译查询",
-        "游戏菜单真实截图"
+        "ui-example: theme_saved, theme_cache_ignored_reload, inherited_font, inherited_font_size, inherited_theme_color, menu_packed, menu_saved, saved_local_override_effective, override_removal_restores_inheritance, saved_inherited_style, focused_button_input_dispatch, container_layout, overlay_stop_blocks_pointer_activation, overlay_ignore_repairs_pointer_activation, translation_lookup"
       ],
       "documented_not_tested": [
         "中文字体渲染覆盖",
         "所有分辨率布局"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Control.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Container.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Theme.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Translation.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/TranslationServer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml"
-      ]
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/scene/gui/control.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-ui/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "Container 布局、焦点按钮输入、中英文翻译查询",
+          "游戏菜单真实截图"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "ui-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "theme_saved",
+              "theme_cache_ignored_reload",
+              "inherited_font",
+              "inherited_font_size",
+              "inherited_theme_color",
+              "menu_packed",
+              "menu_saved",
+              "saved_local_override_effective",
+              "override_removal_restores_inheritance",
+              "saved_inherited_style",
+              "focused_button_input_dispatch",
+              "container_layout",
+              "overlay_stop_blocks_pointer_activation",
+              "overlay_ignore_repairs_pointer_activation",
+              "translation_lookup"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-animation",
@@ -444,28 +845,78 @@
       ],
       "example": "skills/godot-animation/assets/examples/minimal/project.godot",
       "test_ids": [
-        "animation-example"
+        "animation-example",
+        "root-motion-example"
       ],
       "verification_status": "tested",
       "conditions": "确认节点路径、AnimationPlayer root_node、资源共享关系以及目标骨架；导入动画先列出现有库。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "AnimationLibrary 保存",
-        "AnimationPlayer 属性轨道中间帧插值"
+        "animation-example: animation_library, player_library, animation_track_evaluates, save_animation_library, reload_animation_library, saved_duration_and_tracks, saved_path_and_keys, bind_reloaded_library, reloaded_track_evaluates",
+        "root-motion-example: root_motion_delta, extracted_motion_does_not_double_move_actor, controller_applies_motion_once, inactive_tree_leaves_actor"
       ],
       "documented_not_tested": [
         "AnimationTree 状态混合",
         "骨骼重定向/root motion"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Animation.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AnimationLibrary.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AnimationPlayer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AnimationTree.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SpriteFrames.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-animation/references/native.md",
+        "skills/godot-animation/references/recipes.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "AnimationLibrary 保存",
+          "AnimationPlayer 属性轨道中间帧插值"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "animation-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "animation_library",
+              "player_library",
+              "animation_track_evaluates",
+              "save_animation_library",
+              "reload_animation_library",
+              "saved_duration_and_tracks",
+              "saved_path_and_keys",
+              "bind_reloaded_library",
+              "reloaded_track_evaluates"
+            ]
+          },
+          {
+            "test_id": "root-motion-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "root_motion_delta",
+              "extracted_motion_does_not_double_move_actor",
+              "controller_applies_motion_once",
+              "inactive_tree_leaves_actor"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-rendering",
@@ -484,16 +935,18 @@
       "test_ids": [
         "rendering-example",
         "capture-real",
-        "headless-capture-refused"
+        "headless-capture-refused",
+        "rendering-materials-example",
+        "rendering-headless-unavailable"
       ],
       "verification_status": "tested",
       "conditions": "读取 rendering_method、真实渲染设备、目标平台和效果需求；headless 无法证明图像正确。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "真实 GPU canvas_item Shader 像素断言",
-        "Viewport 截图和 PNG 读回",
-        "headless 截图明确拒绝"
+        "rendering-example: shader_material_saved, shader_uniform_saved_readback, shader_pixel_matches, gpu_readback_png, local_material_change_preserves_shared_original, modified_uniform_changes_actual_pixels, modified_gpu_readback_png",
+        "rendering-materials-example: material_scene_packed, material_scene_saved, material_property_readback, light_shadow_readback, particle_draw_and_process_contract, local_edit_does_not_mutate_original, missing_color_consumption_detectable, color_consumption_repaired, modified_scene_saved, modified_scene_color_readback",
+        "rendering-headless-unavailable: unsupported"
       ],
       "documented_not_tested": [
         "Forward+/Mobile 特效",
@@ -501,15 +954,76 @@
         "compute",
         "LightmapGI 烘焙"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Shader.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ShaderMaterial.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/WorldEnvironment.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/RenderingServer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Viewport.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/GPUParticles3D.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable",
+        "https://github.com/godotengine/godot/blob/4.7.2-stable/scene/main/window.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-rendering/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "真实 GPU canvas_item Shader 像素断言",
+          "Viewport 截图和 PNG 读回",
+          "headless 截图明确拒绝"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "rendering-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "shader_material_saved",
+              "shader_uniform_saved_readback",
+              "shader_pixel_matches",
+              "gpu_readback_png",
+              "local_material_change_preserves_shared_original",
+              "modified_uniform_changes_actual_pixels",
+              "modified_gpu_readback_png"
+            ]
+          },
+          {
+            "test_id": "rendering-materials-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "material_scene_packed",
+              "material_scene_saved",
+              "material_property_readback",
+              "light_shadow_readback",
+              "particle_draw_and_process_contract",
+              "local_edit_does_not_mutate_original",
+              "missing_color_consumption_detectable",
+              "color_consumption_repaired",
+              "modified_scene_saved",
+              "modified_scene_color_readback"
+            ]
+          },
+          {
+            "test_id": "rendering-headless-unavailable",
+            "actual": "unsupported",
+            "expected": "unsupported",
+            "exit_code": 2,
+            "passed": true,
+            "checks": []
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-audio",
@@ -530,23 +1044,60 @@
       "verification_status": "tested",
       "conditions": "确认音频格式、循环需求、采样率、总线路由及目标设备；保留现有音频总线。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "16-bit PCM WAV 保存",
-        "音频总线、Limiter 和播放状态"
+        "audio-example: native_pcm_wav_save, wav_saved_state_readback, playback_started, effect_routed, save_bus_layout, bus_layout_cache_ignored_readback, saved_bus_routing_and_volume, saved_limiter, mute_state, unmute_state, missing_bus_detected_before_routing, nonlooping_playback_finishes"
       ],
       "documented_not_tested": [
         "主观听感",
         "空间音频遮挡"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioServer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioBusLayout.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioStreamWAV.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioStreamPlayer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/AudioEffectCapture.xml"
-      ]
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/scene/audio/audio_stream_player.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-audio/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "16-bit PCM WAV 保存",
+          "音频总线、Limiter 和播放状态"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "audio-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "native_pcm_wav_save",
+              "wav_saved_state_readback",
+              "playback_started",
+              "effect_routed",
+              "save_bus_layout",
+              "bus_layout_cache_ignored_readback",
+              "saved_bus_routing_and_volume",
+              "saved_limiter",
+              "mute_state",
+              "unmute_state",
+              "missing_bus_detected_before_routing",
+              "nonlooping_playback_finishes"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-data",
@@ -562,33 +1113,105 @@
       ],
       "example": "skills/godot-data/assets/examples/minimal/project.godot",
       "test_ids": [
-        "data-example"
+        "data-example",
+        "data-resources"
       ],
       "verification_status": "tested",
       "conditions": "确认数据结构、保存范围、版本和兼容目标；测试使用隔离路径，不覆盖玩家现有存档。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "JSON v1→v2 迁移、异常结构/未来版本/损坏数据检测",
-        "完整游戏存档写入和读回"
+        "data-example: missing_distinguished, legacy_fixture_written, save_version_migration, migration_commit, saved_version_readback, invalid_schema_rejected_5, invalid_schema_rejected_6, invalid_schema_rejected_7, invalid_schema_rejected_8, invalid_schema_rejected_9, invalid_schema_rejected_10, future_version_rejected, concurrent_change_fixture, concurrent_write_detected, conflict_target_preserved, valid_commit_backed_up, target_backup_readback, corruption_fixture_written, corruption_detected, validated_backup_recovery, corrupt_original_preserved, future_fixture_written, future_save_preserved, large_future_fixture_written, large_future_save_preserved, write_failure_detected, write_failure_no_target, both_invalid_fixture, invalid_backup_not_used",
+        "data-resources: save external, shallow shares resources, deep internal/external policy, deep preserves repeated alias, ALL copies external data, ALL shares script definition, deep collection independence, save root, uncached roundtrip state, loaded independent source memory, pack scene, scene-local independent mesh, scene-local owner root"
       ],
       "documented_not_tested": [
         "断电事务",
         "多进程同时写同一存档"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/FileAccess.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/DirAccess.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/JSON.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/ConfigFile.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Resource.xml"
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "data-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "missing_distinguished",
+              "legacy_fixture_written",
+              "save_version_migration",
+              "migration_commit",
+              "saved_version_readback",
+              "invalid_schema_rejected_5",
+              "invalid_schema_rejected_6",
+              "invalid_schema_rejected_7",
+              "invalid_schema_rejected_8",
+              "invalid_schema_rejected_9",
+              "invalid_schema_rejected_10",
+              "future_version_rejected",
+              "concurrent_change_fixture",
+              "concurrent_write_detected",
+              "conflict_target_preserved",
+              "valid_commit_backed_up",
+              "target_backup_readback",
+              "corruption_fixture_written",
+              "corruption_detected",
+              "validated_backup_recovery",
+              "corrupt_original_preserved",
+              "future_fixture_written",
+              "future_save_preserved",
+              "large_future_fixture_written",
+              "large_future_save_preserved",
+              "write_failure_detected",
+              "write_failure_no_target",
+              "both_invalid_fixture",
+              "invalid_backup_not_used"
+            ]
+          },
+          {
+            "test_id": "data-resources",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "save external",
+              "shallow shares resources",
+              "deep internal/external policy",
+              "deep preserves repeated alias",
+              "ALL copies external data",
+              "ALL shares script definition",
+              "deep collection independence",
+              "save root",
+              "uncached roundtrip state",
+              "loaded independent source memory",
+              "pack scene",
+              "scene-local independent mesh",
+              "scene-local owner root"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "recipe_references": [
+        "skills/godot-data/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "JSON v1→v2 迁移、异常结构/未来版本/损坏数据检测",
+          "完整游戏存档写入和读回"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
       }
     },
     {
@@ -610,22 +1233,53 @@
       "verification_status": "tested",
       "conditions": "确认传输方式、服务端权威范围、端口和节点路径；测试仅绑定回环地址和临时端口。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "回环 1 服务端 + 2 客户端",
-        "ENet 生成、属性复制、可靠 RPC、权威回执与断线"
+        "multiplayer-example: server, client1, client2, client3"
       ],
       "documented_not_tested": [
         "公网/NAT/丢包",
         "生产身份认证"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/enet/doc_classes/ENetMultiplayerPeer.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/MultiplayerAPI.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/multiplayer/doc_classes/MultiplayerSpawner.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/multiplayer/doc_classes/MultiplayerSynchronizer.xml"
-      ]
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/gdscript/gdscript_parser.cpp#L187",
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-multiplayer/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "回环 1 服务端 + 2 客户端",
+          "ENet 生成、属性复制、可靠 RPC、权威回执与断线"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "multiplayer-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "server",
+              "client1",
+              "client2",
+              "client3"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-validation",
@@ -647,28 +1301,171 @@
         "fault-missing-report",
         "fault-timeout",
         "fault-parse",
-        "fault-broken-reference"
+        "fault-broken-reference",
+        "fault-missing-resource",
+        "fault-save-failure",
+        "headless-capture-refused",
+        "capture-real"
       ],
       "verification_status": "tested",
       "conditions": "记录引擎版本、平台、渲染器、当前失败与目标行为；所有测试有超时和隔离输出位置。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "31 项套件含超时、错误退出0、无报告、解析失败、保存失败和截图拒绝",
-        "嵌套负例日志不误报"
+        "validation-example: detect_parse, observation_parse, detect_missing, observation_missing, detect_runtime, observation_runtime, detect_logged, observation_logged, timeout_detected, observation_timeout, reject_unrelated_failure, observation_unrelated, missing_report_is_not_success, observation_missing_report",
+        "fault-runtime: failed",
+        "fault-missing-report: failed",
+        "fault-timeout: timeout",
+        "fault-missing-resource: failed",
+        "fault-save-failure: unrelated_file_preserved, save_error_detected",
+        "fault-parse: failed",
+        "headless-capture-refused: unsupported",
+        "capture-real: rendered_image, save_png, reload_png",
+        "log-parser: quoted_error_is_data, real_errors_detected",
+        "fault-broken-reference: failed"
       ],
       "documented_not_tested": [
         "宿主模型语义触发",
         "性能指标采样与优化收益"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Logger.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/OS.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Input.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/Performance.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/SceneTree.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable"
+      ],
+      "recipe_references": [
+        "skills/godot-validation/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "31 项套件含超时、错误退出0、无报告、解析失败、保存失败和截图拒绝",
+          "嵌套负例日志不误报"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "validation-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "detect_parse",
+              "observation_parse",
+              "detect_missing",
+              "observation_missing",
+              "detect_runtime",
+              "observation_runtime",
+              "detect_logged",
+              "observation_logged",
+              "timeout_detected",
+              "observation_timeout",
+              "reject_unrelated_failure",
+              "observation_unrelated",
+              "missing_report_is_not_success",
+              "observation_missing_report"
+            ]
+          },
+          {
+            "test_id": "fault-runtime",
+            "actual": "failed",
+            "expected": "failed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": []
+          },
+          {
+            "test_id": "fault-missing-report",
+            "actual": "failed",
+            "expected": "failed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": []
+          },
+          {
+            "test_id": "fault-timeout",
+            "actual": "timeout",
+            "expected": "timeout",
+            "exit_code": -1,
+            "passed": true,
+            "checks": []
+          },
+          {
+            "test_id": "fault-missing-resource",
+            "actual": "failed",
+            "expected": "failed",
+            "exit_code": 1,
+            "passed": true,
+            "checks": []
+          },
+          {
+            "test_id": "fault-save-failure",
+            "actual": "failed",
+            "expected": "failed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "unrelated_file_preserved",
+              "save_error_detected"
+            ]
+          },
+          {
+            "test_id": "fault-parse",
+            "actual": "failed",
+            "expected": "failed",
+            "exit_code": 1,
+            "passed": true,
+            "checks": []
+          },
+          {
+            "test_id": "headless-capture-refused",
+            "actual": "unsupported",
+            "expected": "unsupported",
+            "exit_code": 2,
+            "passed": true,
+            "checks": []
+          },
+          {
+            "test_id": "capture-real",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "rendered_image",
+              "save_png",
+              "reload_png"
+            ]
+          },
+          {
+            "test_id": "log-parser",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "quoted_error_is_data",
+              "real_errors_detected"
+            ]
+          },
+          {
+            "test_id": "fault-broken-reference",
+            "actual": "failed",
+            "expected": "failed",
+            "exit_code": 1,
+            "passed": true,
+            "checks": []
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-export",
@@ -692,25 +1489,54 @@
       "verification_status": "tested",
       "conditions": "确认引擎版本、目标系统/架构、渲染器和匹配模板；检查现有 export_presets.cfg 与保密凭据。",
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows",
+      "tested_platform": "Windows x86_64",
       "tested_scope": [
-        "官方模板原生下载、SHA256/版本校验及冲突保护",
-        "Windows release 构建并运行",
-        "Web 单线程构建产物"
+        "export-example: preset_serialization, preset_readback, preset_platform"
       ],
       "documented_not_tested": [
         "Web 浏览器运行",
         "Linux/macOS",
         "Android/iOS/签名"
       ],
-      "evidence": "docs/validation-results.json",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/EditorExportPlatform.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/windows/doc_classes/EditorExportPlatformWindows.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/doc_classes/EditorExportPlatformWeb.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/zip/doc_classes/ZIPReader.xml",
-        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/doc/classes/HTTPRequest.xml"
-      ]
+        "https://github.com/godotengine/godot/tree/4.7.2-stable",
+        "https://github.com/godotengine/godot/blob/4.7.2-stable/editor/export/editor_export.cpp#L378"
+      ],
+      "recipe_references": [
+        "skills/godot-export/references/native.md"
+      ],
+      "historical_validation": {
+        "evidence": "docs/validation-results.json",
+        "tested_scope": [
+          "官方模板原生下载、SHA256/版本校验及冲突保护",
+          "Windows release 构建并运行",
+          "Web 单线程构建产物"
+        ],
+        "tested_version": "4.7.2-stable",
+        "tested_platform": "Windows"
+      },
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "export-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "preset_serialization",
+              "preset_readback",
+              "preset_platform"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     },
     {
       "id": "godot-architecture",
@@ -729,23 +1555,54 @@
       "verification_status": "tested",
       "conditions": "See the Skill prerequisite checks and exact task toolchain.",
       "tested_scope": [
-        "Composition lifecycle, validated commands, signal teardown and saved scene readback"
+        "architecture-example: missing_dependency_rejected, dependency_configured_before_child_ready, invalid_command_preserves_state, intent_command_fact_delivery, repeat_configure, connection_idempotent, replacement_dependency_accepted, old_dependency_disconnected, replacement_dependency_delivers, module_pack, module_save, teardown_disconnects_service, saved_signal_reloaded, exported_component_state_saved, fresh_service_initial_state_bound, reloaded_intent_executes"
       ],
       "documented_not_tested": [
         "Platforms and devices not explicitly recorded in fresh evidence"
       ],
-      "evidence": "docs/research/foundation-implementation.md",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
         "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
       ],
       "fresh_evidence": {
         "date": "2026-10-13",
-        "report": "docs/research/foundation-implementation.md",
-        "runtime_report": "artifacts/foundation-pr-runtime/cases/1791879319-432-17188/report.json",
-        "scope": "Named behavioral assertions only; see report for untested target environments"
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "architecture-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "missing_dependency_rejected",
+              "dependency_configured_before_child_ready",
+              "invalid_command_preserves_state",
+              "intent_command_fact_delivery",
+              "repeat_configure",
+              "connection_idempotent",
+              "replacement_dependency_accepted",
+              "old_dependency_disconnected",
+              "replacement_dependency_delivers",
+              "module_pack",
+              "module_save",
+              "teardown_disconnects_service",
+              "saved_signal_reloaded",
+              "exported_component_state_saved",
+              "fresh_service_initial_state_bound",
+              "reloaded_intent_executes"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
       },
       "tested_version": "4.7.2-stable",
-      "tested_platform": "Windows"
+      "tested_platform": "Windows x86_64",
+      "recipe_references": [
+        "skills/godot-architecture/references/native.md"
+      ]
     },
     {
       "id": "godot-performance",
@@ -764,16 +1621,254 @@
       "test_ids": [
         "performance-example"
       ],
-      "verification_status": "pending_final_validation",
+      "verification_status": "tested",
       "conditions": "See the Skill prerequisite checks and exact task toolchain.",
-      "tested_scope": [],
+      "tested_scope": [
+        "performance-example: fixed_scene_actor_count, invalid_query_guard, invalid_calls_rejected, equivalent_radius_0.0, equivalent_radius_1.0, equivalent_radius_30.0, equivalent_radius_100.0, modified_data_equivalence, sample_equivalence_0, sample_equivalence_1, sample_equivalence_2, sample_equivalence_3, sample_equivalence_4, sample_equivalence_5, sample_equivalence_6, sample_equivalence_7, sample_equivalence_8, sample_equivalence_9, sample_equivalence_10, sample_equivalence_11, sample_equivalence_12, sample_equivalence_13, sample_equivalence_14, sample_equivalence_15, sample_equivalence_16, sample_equivalence_17, sample_equivalence_18, sample_equivalence_19, sample_equivalence_20, sample_equivalence_21, sample_equivalence_22, sample_equivalence_23, sample_equivalence_24, sample_equivalence_25, sample_equivalence_26, sample_equivalence_27, sample_equivalence_28, sample_equivalence_29, sample_equivalence_30"
+      ],
       "documented_not_tested": [
         "Platforms and devices not explicitly recorded in fresh evidence"
       ],
-      "evidence": "docs/research/README.md",
+      "evidence": "docs/deepening-validation.json",
       "fixed_source_references": [
         "https://github.com/godotengine/godot/tree/4.7.2-stable"
-      ]
+      ],
+      "recipe_references": [
+        "skills/godot-performance/references/native.md"
+      ],
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows x86_64",
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "performance-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "fixed_scene_actor_count",
+              "invalid_query_guard",
+              "invalid_calls_rejected",
+              "equivalent_radius_0.0",
+              "equivalent_radius_1.0",
+              "equivalent_radius_30.0",
+              "equivalent_radius_100.0",
+              "modified_data_equivalence",
+              "sample_equivalence_0",
+              "sample_equivalence_1",
+              "sample_equivalence_2",
+              "sample_equivalence_3",
+              "sample_equivalence_4",
+              "sample_equivalence_5",
+              "sample_equivalence_6",
+              "sample_equivalence_7",
+              "sample_equivalence_8",
+              "sample_equivalence_9",
+              "sample_equivalence_10",
+              "sample_equivalence_11",
+              "sample_equivalence_12",
+              "sample_equivalence_13",
+              "sample_equivalence_14",
+              "sample_equivalence_15",
+              "sample_equivalence_16",
+              "sample_equivalence_17",
+              "sample_equivalence_18",
+              "sample_equivalence_19",
+              "sample_equivalence_20",
+              "sample_equivalence_21",
+              "sample_equivalence_22",
+              "sample_equivalence_23",
+              "sample_equivalence_24",
+              "sample_equivalence_25",
+              "sample_equivalence_26",
+              "sample_equivalence_27",
+              "sample_equivalence_28",
+              "sample_equivalence_29",
+              "sample_equivalence_30"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
+    },
+    {
+      "id": "godot-editor-tools",
+      "skill": "skills/godot-editor-tools/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_editorplugin.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_editordock.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_editorundoredomanager.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/plugins/running_code_in_the_editor.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/plugins/editor/import_plugins.html"
+      ],
+      "example": "skills/godot-editor-tools/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "editor-tools-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "See the Skill prerequisite checks and exact task toolchain.",
+      "tested_scope": [
+        "editor-tools-example: editor_scan_complete, one_plugin_0, registered_dock_0, do_and_owner, undo, redo, saved_readback, disable_cleanup_0, one_plugin_1, registered_dock_1, disable_cleanup_1"
+      ],
+      "documented_not_tested": [
+        "Platforms and devices not explicitly recorded in fresh evidence",
+        "Visual dock/focus/accessibility",
+        "Import plugins and gizmo interaction beyond current transaction fixture"
+      ],
+      "evidence": "docs/deepening-validation.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/editor/plugins/editor_plugin.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-editor-tools/references/native.md"
+      ],
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows x86_64",
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "editor-tools-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "editor_scan_complete",
+              "one_plugin_0",
+              "registered_dock_0",
+              "do_and_owner",
+              "undo",
+              "redo",
+              "saved_readback",
+              "disable_cleanup_0",
+              "one_plugin_1",
+              "registered_dock_1",
+              "disable_cleanup_1"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
+    },
+    {
+      "id": "godot-csharp",
+      "skill": "skills/godot-csharp/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/c_sharp_basics.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/c_sharp_differences.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/c_sharp_signals.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/c_sharp/index.html"
+      ],
+      "example": "skills/godot-csharp/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "csharp-example"
+      ],
+      "verification_status": "conditional_tested",
+      "conditions": "See the Skill prerequisite checks and exact task toolchain.",
+      "tested_scope": [
+        "csharp-example: dotnet_engine_required",
+        "Conditional managed build and14 bounds/signal/persistence assertions; SDK10.0.300, matching Godot.NET4.7.2."
+      ],
+      "documented_not_tested": [
+        "Platforms and devices not explicitly recorded in fresh evidence"
+      ],
+      "evidence": "docs/deepening-validation.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/modules/mono/csharp_script.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-csharp/references/native.md"
+      ],
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows x86_64",
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "csharp-example",
+            "actual": "blocked",
+            "expected": "blocked",
+            "exit_code": 2,
+            "passed": true,
+            "checks": [
+              "dotnet_engine_required"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "additional_build_and_runtime": "docs/research/extension-implementation.md",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
+    },
+    {
+      "id": "godot-gdextension",
+      "skill": "skills/godot-gdextension/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/cpp/gdextension_cpp_example.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/cpp/build_system/cmake.html",
+        "https://docs.godotengine.org/en/4.7/tutorials/scripting/cpp/about_godot_cpp.html",
+        "https://docs.godotengine.org/en/4.7/engine_details/engine_api/gdextension/gdextension_file.html"
+      ],
+      "example": "skills/godot-gdextension/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "gdextension-example"
+      ],
+      "verification_status": "conditional_tested",
+      "conditions": "See the Skill prerequisite checks and exact task toolchain.",
+      "tested_scope": [
+        "gdextension-example: compiled_library_required",
+        "Conditional Debug/Release native build and13 bounds/signal/persistence assertions; MinGW15.1, pinned bindings, single precision; clean moved bootstrap/import/runtime."
+      ],
+      "documented_not_tested": [
+        "Platforms and devices not explicitly recorded in fresh evidence",
+        "Unseeded cold4.7.2 editor import fails; isolated verified startup-discovery bootstrap required."
+      ],
+      "evidence": "docs/deepening-validation.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/core/extension/gdextension.cpp"
+      ],
+      "recipe_references": [
+        "skills/godot-gdextension/references/native.md"
+      ],
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows x86_64",
+      "fresh_evidence": {
+        "date": "2026-10-13",
+        "report": "docs/deepening-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "gdextension-example",
+            "actual": "blocked",
+            "expected": "blocked",
+            "exit_code": 2,
+            "passed": true,
+            "checks": [
+              "compiled_library_required"
+            ]
+          }
+        ],
+        "task_evaluation": "tests/routing/actual-results.json",
+        "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
+        "additional_build_and_runtime": "docs/research/extension-implementation.md",
+        "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      }
     }
   ],
   "limitations": [
@@ -799,9 +1894,10 @@
     },
     {
       "id": "semantic-routing",
-      "status": "not_run",
-      "description": "18×3 触发请求已人工评审；尚未在安装后的宿主模型中测量自动选择准确率。"
+      "status": "conditional_tested",
+      "description": "69 independent subagent semantic selections and23explicit/23natural representative tasks executed; installed-host autoload and arbitrary-project modification tasks remain untested."
     }
   ],
-  "documentation_commit": "9adca4c1c72917bfe1b7be3108abed5ce26696a6"
+  "documentation_commit": "9adca4c1c72917bfe1b7be3108abed5ce26696a6",
+  "version": "0.2.0"
 }

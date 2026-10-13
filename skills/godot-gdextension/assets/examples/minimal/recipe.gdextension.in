@@ -1,0 +1,11 @@
+[configuration]
+entry_symbol="native_recipe_init"
+compatibility_minimum="4.5"
+reloadable=false
+[libraries]
+windows.debug.x86_64="./bin/native_recipe.dll"
+windows.release.x86_64="./bin/native_recipe.dll"
+linux.debug.x86_64="./bin/native_recipe.so"
+linux.release.x86_64="./bin/native_recipe.so"
+macos.debug="./bin/native_recipe.dylib"
+macos.release="./bin/native_recipe.dylib"

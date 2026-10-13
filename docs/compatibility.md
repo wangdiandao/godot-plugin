@@ -50,3 +50,11 @@ Every `skills/` and `shared/` archive member matches the bytes of the previous p
 - [Gemini CLI extension manifests, Skills, and installation](https://geminicli.com/docs/extensions/reference/)
 
 Documentation was checked on 2026-10-12, using Context7 and the official sources. Context7 is not installed by the plugin.
+
+
+## 0.2.0 current work (2026-10-13)
+
+All five host manifests identify0.2.0 and discover the actual23Skill inventory. Previous0.1.1 and unpublished snapshot checks above are historical. Current subagent semantic routing and native representative tasks are recorded in [task evaluation](research/task-evaluation.md); they do not certify installed-host implicit autoload. Conditional C#/GDExtension prerequisites do not become dependencies for ordinary GDScript tasks. Current package and relocation evidence is recorded separately with this delivery; no public release is created.
+
+
+Current local0.2.0 checks: Claude strict manifest validation passed. Installation/source archive member exclusions and SHA256 readback passed; relocated source structure/schema/local-links passed1247 checks and13 research unit tests. Relocated installation architecture passed16 assertions; relocated source seven selected cases, including actual normal-editor transactions, passed expected results. Native compiled release moved from zero cache through documented bootstrap/import/runtime with13 assertions. These are current runs, separate from historical host-discovery checks above. Codex CLI0.142.5 was identified; no new installed-host autoload result is inferred.

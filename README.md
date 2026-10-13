@@ -2,15 +2,15 @@
 
 **English** | [简体中文](README.zh.md)
 
-Native Godot development skills for **Codex Desktop / CLI, Claude Code, Cursor, and Gemini CLI**. Includes 20 focused Skills, native GDScript helpers, and runnable examples for creating, diagnosing, testing, and exporting GDScript 2D/3D games.
+Native Godot development skills for **Codex Desktop / CLI, Claude Code, Cursor, and Gemini CLI**. Includes 23 focused Skills, native GDScript helpers, and runnable examples for GDScript2D/3D games plus architecture, performance, editor tools and conditional C#/GDExtension tasks.
 
-Use your chosen agent, the **standard Godot editor distribution**, and operating-system tools. The plugin adds no MCP server, Godot editor add-on, Python, or Node runtime dependency; your agent's own installation requirements still apply. Context7 is an author research tool, not a runtime dependency.
+Use your chosen agent, the **standard Godot editor distribution**, and operating-system tools. The default game workflow adds no MCP server, Python or Node runtime dependency; editor-tool and language-extension tasks use their explicitly documented prerequisites. Context7 is an author research tool, not a runtime dependency.
 
 The engine baseline is **Godot 4.7.2 stable**, checked on 2026-10-11 against the official release, version-matched documentation, source, and binary. See the [validation report](docs/validation.md), [capability index](docs/capabilities.json), and [host compatibility notes](docs/compatibility.md). Host packaging support does not imply tested model-driven workflows in every agent.
 
 ## Installation
 
-Download the **0.1.1** installation ZIP from [Releases](https://github.com/wangdiandao/godot-plugin/releases), then extract it. Version 0.1.1 introduces the additional hosts; the older 0.1.0 package only provides Codex packaging. See [CHANGELOG](CHANGELOG.md) for release notes. Keep the complete `godot-plugin/` directory, including hidden directories, `skills/`, `shared/`, and `docs/`. Copying only `SKILL.md` files breaks shared resource references.
+This change prepares **0.2.0** installation/source ZIPs locally; public publication is outside this task. Existing [Releases](https://github.com/wangdiandao/godot-plugin/releases) remain historical and may contain fewer Skills. Keep the entire `godot-plugin/` directory, including hidden manifests, `skills/`, `shared/`, and `docs/`. Copying entrypoints alone breaks references. See [CHANGELOG](CHANGELOG.md).
 
 If the matching release ZIP has not been published yet, use a clean source checkout: `git clone https://github.com/wangdiandao/godot-plugin.git`. The same installation steps apply to that directory. For directory copies, use the installation ZIP or a clean checkout; do not copy a development workspace containing `artifacts/`, `dist/`, or engine caches.
 
@@ -46,7 +46,7 @@ From your game project, load the complete plugin for a session:
 claude --plugin-dir "C:\Tools\godot-plugin"
 ```
 
-The `.claude-plugin/plugin.json` manifest identifies the plugin; Claude Code discovers the 20 Skills under `skills/`. Invoke `/godot-plugin:godot-workflow`, `/godot-plugin:godot-physics`, or describe a task naturally.
+The `.claude-plugin/plugin.json` manifest identifies the plugin; Claude Code discovers the 23 Skills under `skills/`. Invoke `/godot-plugin:godot-workflow`, `/godot-plugin:godot-physics`, or describe a task naturally.
 
 For persistence on current versions that support plugins in skills directories, copy the **complete extracted installation directory** to `~/.claude/skills/godot-plugin`, then start a new session. Preserve its nested manifests and shared directories. Check `/plugin` for loading errors; older clients can use `--plugin-dir` on each launch. See [local development](https://code.claude.com/docs/en/plugin-marketplaces) and the [manifest reference](https://code.claude.com/docs/en/plugins-reference).
 
@@ -121,6 +121,9 @@ Use a domain Skill for isolated tasks and `godot-workflow` for complete games or
 | [godot-multiplayer](skills/godot-multiplayer/SKILL.md) | Native networking, RPC, spawning, replication |
 | [godot-validation](skills/godot-validation/SKILL.md) | Parsing, behavior, input, screenshots, diagnostics |
 | [godot-export](skills/godot-export/SKILL.md) | Official templates, presets, builds, artifact checks |
+| [godot-gdextension](skills/godot-gdextension/SKILL.md) | Native extension builds, ABI and loading diagnosis |
+| [godot-csharp](skills/godot-csharp/SKILL.md) | Godot.NET builds, bindings and managed debugging |
+| [godot-editor-tools](skills/godot-editor-tools/SKILL.md) | Tool scripts, EditorPlugin transactions and lifecycle |
 | [godot-performance](skills/godot-performance/SKILL.md) | Measured CPU/GPU/memory diagnosis and comparison |
 | [godot-architecture](skills/godot-architecture/SKILL.md) | Module contracts, composition, lifecycle and signals |
 
@@ -152,6 +155,11 @@ Each Skill has an independently runnable `assets/examples/minimal/` project. Com
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated PRs implemented by Codex receive recorded Codex self-review. Code and original examples use the [MIT license](LICENSE).
 
-The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Existing published tags and assets remain immutable; these additions are released as version 0.1.1.
+The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Existing published tags and assets remain immutable; version0.2.0 is prepared locally without publishing.
 
 See [authoring contracts](docs/authoring.md), [research sources](docs/research.md), [validation](docs/validation.md), and the [official Godot baseline release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable).
+
+
+中文任务覆盖与验收边界见[23 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
+
+C# tasks additionally require matching Godot.NET and a .NET SDK; GDExtension tasks require bindings, a C++ compiler/build tools and a binding generator. The default native path remains available.

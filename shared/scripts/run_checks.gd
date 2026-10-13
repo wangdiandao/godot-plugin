@@ -50,7 +50,15 @@ func _run() -> void:
 		var case_dir: String = run_dir.path_join(case_id)
 		DirAccess.make_dir_recursive_absolute(case_dir)
 		var log_path: String = case_dir.path_join("engine.log")
-		var child_args: PackedStringArray = ["--path", Common.absolute(str(item.get("project", ".")), base), "--log-file", log_path]
+		var project_path := Common.absolute(str(item.get("project", ".")), base)
+		if item.get("copy_project", false):
+			var isolated_project := case_dir.path_join("project")
+			var copy_error := copy_project(project_path, isolated_project)
+			Common.check(result, case_id + ":isolated_project", copy_error == OK, copy_error)
+			if copy_error != OK:
+				continue
+			project_path = isolated_project
+		var child_args: PackedStringArray = ["--path", project_path, "--log-file", log_path]
 		if item.get("headless", true):
 			child_args.append("--headless")
 		for flag: Variant in item.get("engine_args", []):
@@ -99,3 +107,24 @@ func _run() -> void:
 		Common.check(result, "selected:" + requested, requested in seen)
 	result.artifacts.append(run_dir)
 	Common.finish(self, result, run_dir.path_join("report.json"))
+
+func copy_project(source: String, destination: String) -> Error:
+	var directory := DirAccess.open(source)
+	if directory == null:
+		return ERR_FILE_NOT_FOUND
+	var error := DirAccess.make_dir_recursive_absolute(destination)
+	if error != OK:
+		return error
+	for name: String in directory.get_files():
+		if directory.is_link(name):
+			continue
+		error = DirAccess.copy_absolute(source.path_join(name), destination.path_join(name))
+		if error != OK:
+			return error
+	for name: String in directory.get_directories():
+		if name in [".godot", ".godot-plugin", ".git", "bin", "obj", "build"] or directory.is_link(name):
+			continue
+		error = copy_project(source.path_join(name), destination.path_join(name))
+		if error != OK:
+			return error
+	return OK

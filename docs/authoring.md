@@ -4,7 +4,7 @@
 
 `SKILL.md` 是任务入口，保留完成工作必需的决策和验收条件；`references/` 承载实际 API、平台差异和长示例。`assets/examples/` 是能独立复制运行的完整项目。专用 `scripts/` 只在存在重复而领域特有的操作时增加，不创建空目录。
 
-共享执行、保存、恢复、证据约定位于 `shared/references/`。只在首次执行、持久化、故障或证据更新时按需加载相关文件。所有工具使用 Godot 原生能力；能直接用 `--import` / `--export-release` 完成的操作不再创建包装服务。
+共享执行、保存、恢复、证据约定位于 `shared/references/`。只在首次执行、持久化、故障或证据更新时按需加载相关文件。默认共享执行工具使用 Godot 原生能力；C# 与 GDExtension 仅为对应任务启用其必要工具链；能直接用 `--import` / `--export-release` 完成的操作不再创建包装服务。
 
 ## 每个 Skill 的十项合同
 
@@ -50,7 +50,7 @@ desktop 集成测试需要 Windows、真实 GPU 和匹配的 Windows/Web 模板�
 
 作者结构检查 `python -X utf8 tests/validate_structure.py --root PLUGIN --schema artifacts/research/plugin.schema.json` 使用 Python、PyYAML 和 jsonschema，PLUGIN 替换为绝对路径；仅用于维护，不进入安装包或成为游戏开发运行条件。也可用 skill-creator 的 quick_validate.py 复核单个 Skill；Windows 下使用 Python UTF-8 模式读取中文。结构检查不能替代行为测试。
 
-新增宿主包装时，结构检查核对全部清单的 name/version/description、双语切换链接和 18 个 Skill 链接。Claude Code 可用 `claude plugin validate --strict PLUGIN/.claude-plugin/plugin.json` 校验宿主清单。打包器核对全部清单与 README 的存在、禁入目录及逐文件哈希；随后将两份 ZIP 解压到新的隔离目录，运行源码结构检查与随包原生示例。宿主发现/模型触发与 GDScript 运行证据分开记录，不能仅凭清单校验宣称完整 Agent 流程通过。详见 [compatibility.md](compatibility.md)。
+新增宿主包装时，结构检查核对全部清单的 name/version/description、双语切换链接和实际 Skill 清单的全部链接。Claude Code 可用 `claude plugin validate --strict PLUGIN/.claude-plugin/plugin.json` 校验宿主清单。打包器核对全部清单与 README 的存在、禁入目录及逐文件哈希；随后将两份 ZIP 解压到新的隔离目录，运行源码结构检查与随包原生示例。宿主发现/模型触发与 GDScript 运行证据分开记录，不能仅凭清单校验宣称完整 Agent 流程通过。详见 [compatibility.md](compatibility.md)。
 
 ## 保存、清理与证据更新
 
