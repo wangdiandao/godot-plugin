@@ -6,7 +6,7 @@
 
 | 路径 | 职责 |
 |---|---|
-| `plugin.json`、宿主清单和市场条目 | 宿主发现、身份和展示，见[兼容说明](compatibility.md) |
+| `plugin.json`、宿主清单和市场条目 | 宿主发现、身份和展示，见[兼容说明](compatibility.zh.md) |
 | `skills/<name>/SKILL.md` | 任务触发、前置条件、决策、保存/恢复和验收 |
 | `skills/<name>/references/` | 原生 API/CLI 详细合同及领域任务流程 |
 | `skills/<name>/assets/examples/` | 由该 Skill 负责、能独立运行的项目 |
@@ -36,4 +36,4 @@
 
 ## 权威位置
 
-Skill 入口负责选路和任务验收，原生参考负责详细操作。[编写规范](authoring.md)负责贡献技术合同。[能力索引](capabilities.json)关联 Skill、来源、示例与测试。[证据索引](evidence.zh.md)按日期和范围整理观察结果。主题页通过链接引用这些合同，避免重复长流程，也不把历史运行重新解释为当前验证。
+Skill 入口负责选路和任务验收，原生参考负责详细操作。[编写规范](authoring.zh.md)负责贡献技术合同。[能力索引](capabilities.json)关联 Skill、来源、示例与测试。[证据索引](evidence.zh.md)按日期和范围整理观察结果。主题页通过链接引用这些合同，避免重复长流程，也不把历史运行重新解释为当前验证。

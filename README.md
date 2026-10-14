@@ -167,7 +167,7 @@ See [icon attribution](assets/README.md). This community plugin is not affiliate
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated changes are reviewed, corrected, and validated before merging, with findings and results recorded. Code and original examples use the [MIT license](LICENSE).
 
-The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Local archives remain optional offline copies; GitHub Releases are not used to distribute this plugin.
+The installation ZIP includes all host manifests, both READMEs, both changelog and contribution-guide versions, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Local archives remain optional offline copies; GitHub Releases are not used to distribute this plugin.
 
 See [authoring contracts](docs/authoring.md), [research sources](docs/research.md), [validation](docs/validation.md), and the [official Godot baseline release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable).
 

@@ -4,13 +4,13 @@
 
 ## Contribution path
 
-Use a source checkout for contribution work; installation archives do not include the tests or contribution templates. Read [CONTRIBUTING.md](../CONTRIBUTING.md) (Chinese) before editing. Open or associate an upstream Issue, check for duplicates and define observable acceptance. External contributors fork; maintainers may use an issue-linked branch from current upstream `main`. Submit completed work through a PR with `Closes #number`, actual validation and untested scope.
+Use a source checkout for contribution work; installation archives do not include the tests or contribution templates. Read [CONTRIBUTING.md](../CONTRIBUTING.md) before editing. Open or associate an upstream Issue, check for duplicates and define observable acceptance. External contributors fork; maintainers may use an issue-linked branch from current upstream `main`. Submit completed work through a PR with `Closes #number`, actual validation and untested scope.
 
 External contributions receive maintainer review. For owner-initiated work implemented by Codex, Codex reviews the final changes, fixes findings, runs relevant checks and records a self-review before merging under the owner's authorization and repository protection rules. A self-review comment is not independent approval.
 
 ## Skill contract
 
-Prefer extending an existing Skill. Add a Skill only when its responsibility and trigger boundary are distinct. The authoritative [authoring specification](authoring.md) (Chinese) defines required sections, native references, runnable examples, persistence/recovery and acceptance.
+Prefer extending an existing Skill. Add a Skill only when its responsibility and trigger boundary are distinct. The authoritative [authoring specification](authoring.md) defines required sections, native references, runnable examples, persistence/recovery and acceptance.
 
 | Component | Required synchronization |
 |---|---|
@@ -26,7 +26,7 @@ For API research, resolve Godot Engine through Context7 and query each concept s
 
 ## Documentation changes
 
-Keep English and Chinese topic pages paired, with reciprocal language links and a link back to the matching documentation home. Synchronize meanings, path names, counts and limitations. Preserve existing public paths when adding navigation. Historical reports retain their dates, recorded outcomes and original language; index them through [evidence](evidence.md) rather than rewriting their results.
+Keep English and Chinese topic pages paired, with reciprocal language links and a link back to the matching documentation home. Synchronize meanings, path names, counts and limitations. Preserve existing public paths when adding navigation. Top-level reports also use language pairs, preserving their dates and recorded outcomes. Historical records under `research/` retain their original language; index them through [evidence](evidence.md).
 
 Run [structure and link checks](testing.md) for documentation changes. Behavioral changes also need affected normal/negative cases; packaging changes need archive readback and relocation. Keep generated reports, downloads and caches out of Git. Local `AGENTS.md` remains untracked and excluded from distribution.
 

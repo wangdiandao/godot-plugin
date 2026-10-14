@@ -33,6 +33,6 @@
 
 ## 从入口到可运行示例
 
-每个入口链接到 `references/native.md` 合同及 `assets/examples/minimal/` 项目，领域专用参考进一步扩展操作合同。[重点任务报告](priority-skills-validation.md)将深入流程映射到命名案例。完整 2D/3D 游戏位于 `godot-workflow/assets/examples/`。
+每个入口链接到 `references/native.md` 合同及 `assets/examples/minimal/` 项目，领域专用参考进一步扩展操作合同。[重点任务报告](priority-skills-validation.zh.md)将深入流程映射到命名案例。完整 2D/3D 游戏位于 `godot-workflow/assets/examples/`。
 
 [能力索引](capabilities.json)记录来源、条件、测试 ID 和已测/未测范围。[中文覆盖总览](coverage.zh.md)提供创建、修改及诊断请求示例。通过[证据索引](evidence.zh.md)区分可运行示例与实际验证过的平台或宿主流程。

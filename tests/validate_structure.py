@@ -85,7 +85,14 @@ def main():
         for item in route:
             check(item['skill'] + ':routing', item['positive_expected'] == item['skill'] and item['negative_expected'] != item['skill'] and item['adjacent_expected'] in names and bool(item['adjacent_prompt']))
 
-    published = [root / 'README.md', root / 'README.zh.md', root / 'CHANGELOG.md']
+    published = [root / name for name in ['README.md', 'README.zh.md', 'CHANGELOG.md', 'CHANGELOG.zh.md', 'CONTRIBUTING.md', 'CONTRIBUTING.zh.md']]
+    # Public guides and top-level reports are paired; research archives retain their original language.
+    published.extend((root / 'assets').glob('*.md'))
+    paired_docs = published + list((root / 'docs').glob('*.md'))
+    for path in paired_docs:
+        counterpart = path.with_name(path.name[:-6] + '.md' if path.name.endswith('.zh.md') else path.stem + '.zh.md')
+        check(str(path.relative_to(root)) + ':language_pair', counterpart.is_file())
+        check(str(path.relative_to(root)) + ':language_switch', '](' + counterpart.name + ')' in path.read_text(encoding='utf-8'))
     changelog = (root / 'CHANGELOG.md').read_text(encoding='utf-8')
     check('changelog:current_version', '## [' + portable['version'] + ']' in changelog)
     for filename, other in [('README.md', 'README.zh.md'), ('README.zh.md', 'README.md')]:

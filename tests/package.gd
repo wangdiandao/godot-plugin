@@ -50,7 +50,7 @@ func archive(path: String, manifest: Dictionary) -> void:
 			forbidden = forbidden or ("/" + directory + "/") in member
 		Common.check(result, "excluded:" + member, not forbidden)
 	Common.check(result, "member_count", file_count == files.size())
-	for required: String in ["plugin.json", ".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", ".claude-plugin/plugin.json", ".cursor-plugin/plugin.json", "gemini-extension.json", "README.md", "README.zh.md", "CHANGELOG.md", "LICENSE", "assets/godot-icon.svg", "assets/GODOT-LOGO-LICENSE.txt", "assets/README.md", "shared/scripts/common.gd", "shared/host/project.godot", "docs/capabilities.json"]:
+	for required: String in ["plugin.json", ".codex-plugin/plugin.json", ".agents/plugins/marketplace.json", ".claude-plugin/plugin.json", ".cursor-plugin/plugin.json", "gemini-extension.json", "README.md", "README.zh.md", "CHANGELOG.md", "CHANGELOG.zh.md", "CONTRIBUTING.md", "CONTRIBUTING.zh.md", "LICENSE", "assets/godot-icon.svg", "assets/GODOT-LOGO-LICENSE.txt", "assets/README.md", "shared/scripts/common.gd", "shared/host/project.godot", "docs/capabilities.json"]:
 		Common.check(result, "required:" + required, reader.file_exists(str(manifest.name).path_join(required)))
 	for relative: String in files:
 		var hash := HashingContext.new()
@@ -75,7 +75,7 @@ func _run() -> void:
 		Common.check(result, "manifest", false)
 		Common.finish(self, result)
 		return
-	files = ["plugin.json", "gemini-extension.json", "README.md", "README.zh.md", "CHANGELOG.md", "LICENSE", "CONTRIBUTING.md"]
+	files = ["plugin.json", "gemini-extension.json", "README.md", "README.zh.md", "CHANGELOG.md", "CHANGELOG.zh.md", "LICENSE", "CONTRIBUTING.md", "CONTRIBUTING.zh.md"]
 	for directory: String in [".codex-plugin", ".agents/plugins", ".claude-plugin", ".cursor-plugin", "assets", "skills", "shared", "docs"]:
 		collect(directory)
 	if result.status != "passed":

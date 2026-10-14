@@ -1,5 +1,7 @@
 # Host compatibility
 
+**English** | [简体中文](compatibility.zh.md)
+
 [Documentation](README.md) · [Getting started](getting-started.md) · [Evidence index](evidence.md)
 
 This file preserves versioned compatibility history. The opening 0.1.1 section describes the inventory at that time; use the [current Skill catalog](skill-catalog.md) and [evidence index](evidence.md) for the 23-Skill package and later validation batches.
@@ -13,7 +15,7 @@ Version 0.1.1 adds native packaging for Claude Code, Cursor, and Gemini CLI alon
 | Cursor | `.cursor-plugin/plugin.json`; default `skills/` discovery; also supports the root Agent Plugins manifest | Copy the complete package into `~/.cursor/plugins/local/godot-plugin` and reload |
 | Gemini CLI | `gemini-extension.json`; extension `skills/` discovery | `gemini extensions install` or development `link` |
 
-See [English installation instructions](../README.md) or [简体中文安装说明](../README.zh.md). Commands and UI names depend on the installed host version. Keep the complete plugin root readable: references such as `../../shared/references/execution.md` intentionally reach shared resources inside the same package. Copying individual Skills to another layout is unsupported. Resolve paths from the loaded Skill's actual location, not from the game project's working directory.
+See [English installation instructions](../README.md) or [Simplified Chinese installation instructions](../README.zh.md). Commands and UI names depend on the installed host version. Keep the complete plugin root readable: references such as `../../shared/references/execution.md` intentionally reach shared resources inside the same package. Copying individual Skills to another layout is unsupported. Resolve paths from the loaded Skill's actual location, not from the game project's working directory.
 
 Gemini's Skill activation adds the individual Skill directory to allowed paths. Include the loaded extension root with `--include-directories` (or `/directory add` in supported sessions) to read the sibling shared resources. Installed copies normally live under `~/.gemini/extensions/godot-plugin`; links use their source directory. See [Skill activation](https://geminicli.com/docs/cli/skills/) and [workspace directory commands](https://geminicli.com/docs/reference/commands/).
 
