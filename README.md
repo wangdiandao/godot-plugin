@@ -169,8 +169,6 @@ The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skill
 See [authoring contracts](docs/authoring.md), [research sources](docs/research.md), [validation](docs/validation.md), and the [official Godot baseline release](https://github.com/godotengine/godot/releases/tag/4.7.2-stable).
 
 
-中文任务覆盖与验收边界见[24 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
-
 C# tasks additionally require matching Godot.NET and a .NET SDK; GDExtension tasks require bindings, a C++ compiler/build tools and a binding generator. The default native path remains available.
 
 Priority task recipes and current scoped evidence are indexed in [priority skill validation](docs/priority-skills-validation.md). These include protected playable-example saves and ten additional isolated fixtures; the original 23 skill identities remain stable.
