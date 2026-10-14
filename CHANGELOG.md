@@ -1,13 +1,27 @@
-# Changelog
+# Changelog / 更新日志
+
+Each version includes equivalent English and Simplified Chinese entries.
+每个版本均提供内容对应的英文和简体中文记录。
 
 ## [0.3.0] - 2026-10-14
+
+### English
 
 - Add godot-ai for enemy decisions, utility scoring and bounded planning; preserve all existing skill names.
 - Absorb attributed community practices into terminal waits, tile-grid paths, protected inventory state, branching dialogue and staged shader/popup recipes with seven original native example projects.
 - Clarify adjacent routing and add custom monitoring, undo lifetime, same-tree multiplayer diagnostic and target-build acceptance guidance.
-- Keep research claims separate from current native/GPU evidence and untested device/host workflows. See docs/community-practices.md.
+- Keep research claims separate from current native/GPU evidence and untested device/host workflows. See [community-practices.md](docs/community-practices.md).
+
+### 简体中文
+
+- 新增 godot-ai，支持敌人决策、效用评分和有界规划；保留全部既有 skill 名称。
+- 将注明来源的社区实践融入终端等待、瓦片网格路径、受保护的背包状态、分支对话及分阶段着色器/弹窗配方，并提供七个原创原生示例项目。
+- 明确相邻领域的路由边界，补充自定义监控、撤销操作生命周期、同一场景树内的多人诊断及目标构建验收指南。
+- 将研究结论与本次原生/GPU 证据及未测试的设备/宿主工作流分开记录。参见 [community-practices.md](docs/community-practices.md)。
 
 ## [0.2.2] - 2026-10-13
+
+### English
 
 Source and local archive update; no version tag or GitHub Release published.
 
@@ -16,7 +30,18 @@ Source and local archive update; no version tag or GitHub Release published.
 - Add eight task guides and ten isolated fixtures for asynchronous lifetime, moving agents/links, state-machine/rig events, 3D motion/sockets, importer repair, scene refactoring and bounded gameplay resources.
 - Record fresh scoped assertions, regression and package-portability evidence separately from historical results.
 
+### 简体中文
+
+源码及本地归档更新；未发布版本标签或 GitHub Release。
+
+- 用领域任务路由替换重复的入口工作流，移除原生参考文档中的重复步骤（#21）。
+- 保护两个可玩示例，避免覆盖损坏、无效、未来版本或被并发修改的进度数据。
+- 新增八份任务指南和十个隔离夹具，覆盖异步生命周期、移动代理/链接、状态机/骨骼事件、3D 运动/挂点、导入器修复、场景重构和有界游戏资源。
+- 将本次限定范围的断言、回归和包可移植性证据与历史结果分开记录。
+
 ## [0.2.1] - 2026-10-13
+
+### English
 
 Source update and local archives; no version tag or GitHub Release published.
 
@@ -25,34 +50,70 @@ Source update and local archives; no version tag or GitHub Release published.
 - Add native persisted-catalog localization checks for runtime language refresh, context/plural messages, fallback and missing-entry/placeholder repair in the existing UI skill (#16).
 
 - Deepen native trigger, navigation, pointer and audio-route diagnosis with repair/repeat/exclusion checks; clarify project setup and playable-task handoffs (#15).
-- Preserve all 23 skill names and Godot-native CLI/GDScript execution. Fresh evidence is separate from historical validation in docs/native-workflows-validation.json.
+- Preserve all 23 skill names and Godot-native CLI/GDScript execution. Fresh evidence is separate from historical validation in [native-workflows-validation.json](docs/native-workflows-validation.json).
+
+### 简体中文
+
+源码更新及本地归档；未发布版本标签或 GitHub Release。
+
+- 新增有界的本机回环 Godot HTTP 服务及 Web 输入/存储夹具；验证实际 Chrome 指针/键盘交互及重新加载后的存档恢复（#17）。
+- 在既有 UI skill 中新增原生持久化翻译目录的本地化检查，覆盖运行时语言刷新、上下文/复数消息、回退以及缺失条目/占位符修复（#16）。
+- 通过修复、重复验证和排除检查深化原生触发器、导航、指针和音频路由诊断；明确项目设置与可玩任务的交接边界（#15）。
+- 保留全部 23 个 skill 名称和 Godot 原生 CLI/GDScript 执行方式。[native-workflows-validation.json](docs/native-workflows-validation.json) 将本次证据与历史验证分开记录。
 
 ## [0.2.0] - 2026-10-13
 
+### English
+
 Prepared locally; public publication is outside this change.
 
-### Added
+#### Added
 
-- Architecture, performance, editor-tools, C# and GDExtension Skills, bringing the inventory to23 without renaming existing calls.
+- Architecture, performance, editor-tools, C# and GDExtension Skills, bringing the inventory to 23 without renaming existing calls.
 - Complete development/modification/diagnosis recipes, task-specific decisions, failure paths and meaningful isolated fixtures.
-- Pinned1596source-page and2generated-page research records, hash/coverage gate, Chinese task overview and independent task evidence.
+- Pinned 1596 source-page and 2 generated-page research records, hash/coverage gate, Chinese task overview and independent task evidence.
 - Actual editor transactions, managed/native builds, fixed-condition CPU samples and conditional platform/HDR/audio procedures.
 
-### Fixed
+#### Fixed
 
 - UI Theme persistence/overrides, Windows resource-path serialization, animation saved readback, cross-region navigation and intended-fault detection.
-- Managed/native64-bit integer binding boundaries and ORM versus StandardMaterial3D texture semantics.
-- Structure validation now checks actual inventory/reference consistency rather than a fixed18-Skill count.
+- Managed/native 64-bit integer binding boundaries and ORM versus StandardMaterial3D texture semantics.
+- Structure validation now checks actual inventory/reference consistency rather than a fixed 18-Skill count.
 
-### Validation boundaries
+#### Validation boundaries
 
 - Current native/domain/integration results are recorded separately from historical release evidence.
-- Standard-engine dependency blocks do not count as managed/native compilation passes; visualHDR, real listening and other devices require their actual environments.
+- Standard-engine dependency blocks do not count as managed/native compilation passes; visual HDR, real listening and other devices require their actual environments.
 - Engine-internal source research does not promise engine-source modification capability.
+
+### 简体中文
+
+已在本地准备；公开发布不在本次变更范围内。
+
+#### 新增
+
+- 新增架构、性能、编辑器工具、C# 和 GDExtension Skills，总数达到 23 个，保留既有调用名称。
+- 补齐开发/修改/诊断配方、任务专属决策、失败路径及有实际验证价值的隔离夹具。
+- 固定 1596 个源码页面和 2 个生成页面的研究记录，增加哈希/覆盖率门槛、中文任务概览及独立任务证据。
+- 增加实际编辑器事务、托管/原生构建、固定条件 CPU 采样及附带条件的平台/HDR/音频流程。
+
+#### 修复
+
+- 修复 UI Theme 持久化/覆盖、Windows 资源路径序列化、动画保存后读回、跨区域导航及预期故障检测。
+- 修复托管/原生 64 位整数绑定边界及 ORM 与 StandardMaterial3D 的纹理语义。
+- 结构校验改为检查实际清单/引用的一致性，不再断言固定的 18 个 Skill。
+
+#### 验证边界
+
+- 本次原生/领域/集成结果与历史发布证据分开记录。
+- 标准引擎的依赖阻塞不算托管/原生编译通过；HDR 视觉、真实听感及其他设备验收需要各自的实际环境。
+- 引擎内部源码研究不代表承诺具备修改引擎源码的能力。
 
 ## [0.1.1] - 2026-10-12
 
-### Added
+### English
+
+#### Added
 
 - Agent Plugin support for **Claude Code, Cursor, and Gemini CLI**, sharing the existing 18 Godot Skills, native GDScript helpers, and examples.
 - Host-specific plugin/extension manifests and installation, discovery, update, and shared-resource access instructions.
@@ -60,22 +121,37 @@ Prepared locally; public publication is outside this change.
 - Host compatibility notes separating packaging/discovery checks from untested model-driven workflows.
 - Manifest consistency, bilingual documentation, changelog, archive contents, and exclusion checks; both release ZIPs include all host manifests and the changelog.
 
-### Changed
+#### Changed
 
 - Codex Desktop installation now starts in **Plugins → Add marketplace**, using the repository URL. Codex CLI registration remains an alternative.
 - Synchronize all host manifests and release archives to **0.1.1**. The earlier 0.2.0 development version was not published as a release.
 
 ### 简体中文
 
+#### 新增
+
 - 新增 **Claude Code、Cursor、Gemini CLI 等 Agent Plugin 支持**，共用原有 18 个 Godot Skills、原生 GDScript 工具与示例。
-- 新增宿主清单、安装与更新说明，以及带语言切换链接的中英文 README。
-- 修正 Codex Desktop 安装教程：在插件页直接添加市场，CLI 作为替代方式。
-- 发布版本统一为 **0.1.1**，两份安装/源码 ZIP 均包含 CHANGELOG 与全部宿主清单。
+- 新增宿主专属插件/扩展清单，以及安装、发现、更新和共享资源访问说明。
+- 新增英文 `README.md` 和简体中文 `README.zh.md`，附语言切换链接。
+- 新增宿主兼容性说明，将打包/发现检查与未测试的模型驱动工作流分开记录。
+- 新增清单一致性、双语文档、更新日志、归档内容及排除项检查；两份发布 ZIP 均包含更新日志与全部宿主清单。
+
+#### 变更
+
+- Codex Desktop 安装改为从 **Plugins → Add marketplace** 入口添加仓库 URL。Codex CLI 注册仍作为替代方式。
+- 将全部宿主清单和发布归档同步为 **0.1.1**。此前的 0.2.0 开发版本未作为正式版本发布。
 
 ## [0.1.0] - 2026-10-12
 
+### English
+
 - Initial Godot native development baseline for Codex with 18 Skills, GDScript helpers, runnable examples, and validation/export workflows.
 - Contribution guidelines, Issue/PR templates, and MIT licensing.
+
+### 简体中文
+
+- 为 Codex 建立 Godot 原生开发基线，包含 18 个 Skills、GDScript 工具、可运行示例及验证/导出工作流。
+- 新增贡献指南、Issue/PR 模板及 MIT 许可。
 
 [0.1.1]: https://github.com/wangdiandao/godot-plugin/releases/tag/v0.1.1
 [0.1.0]: https://github.com/wangdiandao/godot-plugin/tree/v0.1.0

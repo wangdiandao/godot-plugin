@@ -1,6 +1,79 @@
-# 贡献指南
+# Contributing / 贡献指南
 
-## 工作流与职责
+[English](#english) · [简体中文](#简体中文)
+
+## English
+
+### Workflow and responsibilities
+
+Open or associate an Issue in the [upstream repository](https://github.com/wangdiandao/godot-plugin/issues) before editing anything, including documentation, fixes, new skills, and releases. Search for duplicates first. Each Issue should have one clear goal; avoid unrelated changes. The initial import of `main` and `v0.1.0` is the only initialization exception.
+
+1. Use the Issue template to describe the problem, scope, and observable acceptance criteria. For a new skill, first explain why existing skills cannot cover its responsibility.
+2. External contributors fork the upstream repository and configure upstream; maintainers may develop directly on repository branches.
+3. Create `type/<issue-number>-<summary>` from the latest upstream `main`, for example `docs/1-contribution-workflow`. Do not push directly to `main`.
+4. Complete the implementation, examples, and relevant validation before submitting a PR. Use a Draft PR for unfinished work.
+5. Link the Issue with `Closes #<number>` in the PR and include execution evidence, untested scope, and compatibility impact.
+6. Address review findings and update evidence. Maintainers review external contributions. For owner-initiated PRs implemented by Codex, Codex reviews the final changes, addresses findings, and records the result without waiting for additional human review. If GitHub prevents authors from approving their own PRs, record the self-review in a review comment; do not claim independent approval. Merging must comply with the owner's authorization and repository protection rules.
+
+Use commit subjects in the form `type: imperative summary (#issue)`, for example `fix: detect import errors (#12)`. Supported types are `feat`, `fix`, `docs`, `test`, and `chore`. This is a newly established convention, not an inference from historical commits.
+
+### Issue standards
+
+Summarize the action or failure in the title. Include the problem and user goal, type, affected paths/skills, scope and non-goals, current and expected behavior, reproduction steps, Godot/Codex versions and platform, acceptance checklist, and validation plan in the body. For failures, attach a minimal project and logs; for new capabilities, include official sources and runtime requirements. Explicitly mark unknown conditions as unknown. Do not submit credentials, personal paths, or private resources from user projects.
+
+### Creating and modifying skills
+
+Read the [authoring specification](docs/authoring.md) first and prefer extending existing skills. A new skill must have an independent responsibility and clear boundaries for positive triggers, non-goals, and adjacent requests.
+
+```text
+skills/godot-<domain>/
+  SKILL.md
+  agents/openai.yaml
+  references/native.md
+  assets/examples/minimal/
+    project.godot
+    example.gd
+```
+
+Add `scripts/` only when repeated, domain-specific operations require it. Put general tools in `shared/scripts/`. Do not create empty directories or introduce default runtime dependencies.
+
+`SKILL.md` must contain frontmatter with `name` and a trigger `description`. The name must match the directory, and the following validator-required sections must remain:
+
+- `Purpose and Scope`
+- `Prerequisite Checks`
+- `Workflow and Key Decisions`
+- `File Changes, Saving, and Recovery`
+- `Acceptance and Delivery`
+- `On-Demand References and Examples`
+
+The entry document explains decisions, saving, failure recovery, and acceptance. Put detailed APIs and complete commands in `references/native.md`. The default prompt in `agents/openai.yaml` includes `$skill-name`, and UI descriptions reflect the actual boundaries. Minimal examples must run when copied to a clean directory, accept an output directory, emit explicit results, and exit.
+
+Update `tests/cases.json`, `tests/routing/prompts.json`, and `docs/capabilities.json` together. When adding a skill, also check the actual directory inventory, case/capability references, and README inventory checked by `tests/validate_structure.py`; fixed-count assertions are no longer used. Deletions or renames must explain compatibility impact and update all references. Research interfaces with Context7, then verify version-matched official documentation, source bindings, and a minimal call. Research tools must not become plugin runtime dependencies.
+
+### Validation and review requirements
+
+See [authoring.md](docs/authoring.md) for commands. Maintenance structure checks require Python and PyYAML; schema validation also requires jsonschema and the corresponding schema. The schema is currently in an ignored research directory, so do not claim that this check has run in a clean checkout.
+
+- Every PR must pass structure checks and check Markdown links and inventory consistency.
+- Behavior changes run affected cases and negative cases; shared executor changes run the core suite; packaging changes verify both ZIPs' contents, hash readback, and execution after relocation.
+- Screenshots/rendering use a real GPU. Desktop exports identify the Windows and template versions. Headless or audio-state checks cannot replace visual or listening acceptance.
+- Positive cases combine logs, exit codes, assertions, and actual outputs. A passing negative case means only that the expected failure was detected. Do not remove assertions, ignore errors, or clear user caches to obtain a pass.
+
+PRs state the actual commands executed, engine version, platform, results, and untested scope. Raw evidence may be attached to the PR/Release or provided through accessible links; do not refer only to ignored local `artifacts/`. Record historical reports separately from current validation, and never include unexecuted checks in the tested scope.
+
+### Licensing, releases, and remaining governance work
+
+Code and original examples use the [MIT License](LICENSE). Identify third-party resources' sources, licenses, and redistribution conditions; do not include unauthorized material.
+
+Before release, synchronize the root manifest, Codex/Claude Code/Cursor compatibility manifests, Gemini extension manifest, marketplace entry, and necessary version notes. Keep README.md as the primary English version and README.zh.md as the Simplified Chinese version; cross-link both and synchronize installation methods and boundaries. Generate installation/source ZIPs, read back SHA256 hashes, and validate relocation before maintainers publish the version tag and attachments. Source archives include the contribution guide and templates. Both ZIPs include LICENSE, both READMEs, and all host manifests. Published tags and attachments remain unchanged; subsequent changes ship through new releases.
+
+`AGENTS.md` contains the owner's local development rules. It is excluded by `.gitignore`, is not committed to the remote, and is not included in release packages. Public contribution procedures belong in this guide, Issue/PR formats in `.github/` templates, skill technical contracts and validation commands in `docs/authoring.md`, and license terms in `LICENSE`.
+
+Structure CI, protected branches, and independent reviewers are not currently configured. Documented rules do not mean GitHub already enforces them. Separate Issues should configure CI with minimum permissions, required checks, and review protection, and add reproducible maintenance dependencies/schema. Real GPU and desktop tests still require suitable execution environments.
+
+## 简体中文
+
+### 工作流与职责
 
 所有修改先在 [上游仓库](https://github.com/wangdiandao/godot-plugin/issues) 建立或关联一个 Issue，再开始编辑，包括文档、修复、新 skill 和版本发布。先查重；一个 Issue 对应一个清晰目标，不顺带改动无关领域。首次导入 `main` 与 `v0.1.0` 是唯一初始化例外。
 
@@ -13,11 +86,11 @@
 
 提交主题采用 `type: imperative summary (#issue)`，例如 `fix: detect import errors (#12)`。type 可为 `feat`、`fix`、`docs`、`test`、`chore`。这是新确立的规范，不是历史推断。
 
-## Issue 标准
+### Issue 标准
 
 标题概括动作或故障；正文包括：问题与用户目标、类型、涉及路径/skill、范围与非目标、当前和预期行为、复现步骤、Godot/Codex 版本及平台、验收清单、验证计划。故障附最小项目和日志；新能力附官方资料与运行条件。未知条件明确标为未知。不要提交凭据、个人路径或用户项目中的私密资源。
 
-## Skill 创建与修改
+### Skill 创建与修改
 
 先阅读 [扩展规范](docs/authoring.md)，优先扩展既有 skill。新增 skill 必须有独立职责和清晰的正向、非目标及相邻触发边界。
 
@@ -46,7 +119,7 @@ skills/godot-<domain>/
 
 同步修改 `tests/cases.json`、`tests/routing/prompts.json`、`docs/capabilities.json`。新增 skill 还须核对 `tests/validate_structure.py` 所检查的实际目录清单、案例/能力引用及 README 清单，不再设置固定数量断言。删除或改名须说明兼容性影响并更新全部引用。使用 Context7 研究接口，随后核对版本匹配的官方文档、源码绑定与最小调用；研究工具不能成为插件运行依赖。
 
-## 验证与审核门槛
+### 验证与审核门槛
 
 运行命令见 [authoring.md](docs/authoring.md)。维护结构检查需要 Python 与 PyYAML；schema 校验还需要 jsonschema 及对应 schema。schema 当前位于被忽略的研究目录，不能宣称干净 checkout 已执行此项。
 
@@ -57,7 +130,7 @@ skills/godot-<domain>/
 
 PR 写明实际执行的命令、引擎版本、平台、结果及未测部分。原始证据可作为 PR/Release 附件或可访问链接；不要只引用被忽略的本地 `artifacts/`。历史报告与本次验证分开记录，未执行不得写入 tested 范围。
 
-## 许可、发布与剩余治理
+### 许可、发布与剩余治理
 
 代码和自有示例采用 [MIT](LICENSE)。第三方资源注明来源、许可和再分发条件；不纳入未授权素材。
 
