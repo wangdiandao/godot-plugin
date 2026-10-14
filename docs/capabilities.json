@@ -19,7 +19,8 @@
         "workflow-example",
         "game-2d",
         "game-3d",
-        "workflow-bounded-resource"
+        "workflow-bounded-resource",
+        "workflow-story-inventory"
       ],
       "verification_status": "tested",
       "conditions": "确认项目目录、游戏目标和主机平台；检查 Godot 标准编辑器发行版。已有项目先运行现状检查并记录已知失败。",
@@ -102,6 +103,7 @@
       },
       "recipe_references": [
         "skills/godot-workflow/references/native.md",
+        "skills/godot-workflow/references/vertical-slice.md",
         "skills/godot-workflow/references/vertical-slice.md"
       ],
       "historical_validation": {
@@ -333,6 +335,28 @@
         },
         "engine": "4.7.2-stable",
         "platform": "Windows x86_64"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "workflow-story-inventory",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "keyboard_dialogue_rule_reward_and_hud",
+              "duplicate_completion_cannot_duplicate_reward",
+              "combined_progress_reloaded",
+              "restarted_conversation_preserves_claimed_reward",
+              "restarted_conversation_preserves_claimed_reward",
+              "restarted_conversation_preserves_claimed_reward",
+              "invalid_quest_progress_rejected_without_partial_inventory_commit"
+            ]
+          }
+        ]
       }
     },
     {
@@ -490,7 +514,8 @@
       "example": "skills/godot-gdscript/assets/examples/minimal/project.godot",
       "test_ids": [
         "gdscript-example",
-        "gdscript-async-lifecycle"
+        "gdscript-async-lifecycle",
+        "gdscript-terminal-waits"
       ],
       "verification_status": "tested",
       "conditions": "读取调用方、节点生命周期、导出的属性和序列化依赖；首次导入后再验证 class_name。",
@@ -531,7 +556,8 @@
       },
       "recipe_references": [
         "skills/godot-gdscript/references/native.md",
-        "skills/godot-gdscript/references/tasks.md"
+        "skills/godot-gdscript/references/tasks.md",
+        "skills/godot-gdscript/references/terminal-waits.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -574,6 +600,34 @@
         },
         "engine": "4.7.2-stable",
         "platform": "Windows x86_64"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "gdscript-terminal-waits",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "normal_tween_completion",
+              "terminal_result_is_exactly_once",
+              "synchronous_completion_cannot_be_missed",
+              "nested_caller_cleanup_after_explicit_cancel",
+              "external_kill_has_bounded_terminal_wait",
+              "tree_exit_cancels_before_target_disappears",
+              "batch_accepts_distinct_signals",
+              "all_waits_for_every_event",
+              "all_completes_before_wait_registration",
+              "batch_reentry_rejected",
+              "empty_batch_completes",
+              "duplicate_signal_rejected",
+              "lost_emitter_timeout_and_subscription_cleanup"
+            ]
+          }
+        ]
       }
     },
     {
@@ -877,7 +931,8 @@
       "example": "skills/godot-2d/assets/examples/minimal/project.godot",
       "test_ids": [
         "2d-example",
-        "terrain-example"
+        "terrain-example",
+        "navigation-tile-grid"
       ],
       "verification_status": "tested",
       "conditions": "确认世界单位、图块尺寸、纹理尺寸、坐标系和渲染缩放；新地图使用 TileMapLayer。",
@@ -948,6 +1003,33 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "navigation-tile-grid",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "negative_origin_route_detours_authored_wall",
+              "transformed_world_cell_roundtrip",
+              "dynamic_blocker_disconnects_route",
+              "opening_restores_route_without_shape_update",
+              "unblock_preserves_authored_wall",
+              "empty_cell_policy_is_solid",
+              "out_of_bounds_rejected_without_engine_error",
+              "resize_replays_runtime_blockers",
+              "point_weight_does_not_require_update",
+              "resize_replays_runtime_costs",
+              "weighted_route_avoids_expensive_cell",
+              "invalid_cost_preserves_prior_weight"
+            ]
+          }
+        ]
       }
     },
     {
@@ -1233,7 +1315,8 @@
       "test_ids": [
         "navigation-example",
         "navigation-moving-agent",
-        "navigation-links"
+        "navigation-links",
+        "navigation-tile-grid"
       ],
       "verification_status": "tested",
       "conditions": "确认 2D/3D、几何来源、代理半径、导航图层和目标平台；烘焙应使用可获取的源几何。",
@@ -1253,7 +1336,8 @@
       "recipe_references": [
         "skills/godot-navigation/references/native.md",
         "skills/godot-navigation/references/recipes.md",
-        "skills/godot-navigation/references/movement.md"
+        "skills/godot-navigation/references/movement.md",
+        "skills/godot-navigation/references/grid.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -1375,6 +1459,33 @@
         },
         "engine": "4.7.2-stable",
         "platform": "Windows x86_64"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "navigation-tile-grid",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "negative_origin_route_detours_authored_wall",
+              "transformed_world_cell_roundtrip",
+              "dynamic_blocker_disconnects_route",
+              "opening_restores_route_without_shape_update",
+              "unblock_preserves_authored_wall",
+              "empty_cell_policy_is_solid",
+              "out_of_bounds_rejected_without_engine_error",
+              "resize_replays_runtime_blockers",
+              "point_weight_does_not_require_update",
+              "resize_replays_runtime_costs",
+              "weighted_route_avoids_expensive_cell",
+              "invalid_cost_preserves_prior_weight"
+            ]
+          }
+        ]
       }
     },
     {
@@ -1393,7 +1504,9 @@
       "example": "skills/godot-ui/assets/examples/minimal/project.godot",
       "test_ids": [
         "ui-example",
-        "ui-localization"
+        "ui-localization",
+        "ui-dialogue",
+        "rendering-portal-popup"
       ],
       "verification_status": "tested",
       "conditions": "确认目标分辨率、长宽比、输入设备、语言和字体覆盖；读取现有 Theme 与 UI 场景。",
@@ -1413,7 +1526,8 @@
       ],
       "recipe_references": [
         "skills/godot-ui/references/native.md",
-        "skills/godot-ui/references/localization.md"
+        "skills/godot-ui/references/localization.md",
+        "skills/godot-ui/references/dialogue.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -1470,6 +1584,58 @@
         "observed_cases": [
           "ui-localization"
         ]
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "ui-dialogue",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "valid_branch_graph_opens",
+              "typewriter_progress",
+              "skip_reveals_choices_and_keyboard_focus",
+              "invalid_choice_cannot_change_line",
+              "keyboard_activation_selects_branch",
+              "old_choice_callback_cannot_change_new_line",
+              "completion_exactly_once",
+              "dangling_branch_rejected",
+              "invalid_graph_shape_rejected",
+              "closed_dialogue_cannot_advance_or_complete",
+              "closed_dialogue_cannot_advance_or_complete",
+              "closed_dialogue_cannot_advance_or_complete",
+              "reopen_preserves_single_completion_per_run"
+            ]
+          },
+          {
+            "test_id": "rendering-portal-popup",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "capture_distance",
+              "distance_stage_center_to_edge",
+              "capture_mask",
+              "mask_stage_inside_outside",
+              "capture_portal",
+              "capture_portal_modified",
+              "phase_changes_actual_portal_pixels",
+              "portal_material_saved",
+              "portal_material_uncached_readback",
+              "capture_popup_excluded",
+              "negative_control_low_layer_misses_popup",
+              "capture_popup_processed",
+              "high_layer_processes_embedded_popup",
+              "capture_popup_closed",
+              "popup_close_restores_underlying_content"
+            ]
+          }
+        ]
       }
     },
     {
@@ -1489,7 +1655,8 @@
         "animation-example",
         "root-motion-example",
         "animation-state-machine",
-        "animation-event-rig"
+        "animation-event-rig",
+        "gdscript-terminal-waits"
       ],
       "verification_status": "tested",
       "conditions": "确认节点路径、AnimationPlayer root_node、资源共享关系以及目标骨架；导入动画先列出现有库。",
@@ -1637,6 +1804,34 @@
         },
         "engine": "4.7.2-stable",
         "platform": "Windows x86_64"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "gdscript-terminal-waits",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "normal_tween_completion",
+              "terminal_result_is_exactly_once",
+              "synchronous_completion_cannot_be_missed",
+              "nested_caller_cleanup_after_explicit_cancel",
+              "external_kill_has_bounded_terminal_wait",
+              "tree_exit_cancels_before_target_disappears",
+              "batch_accepts_distinct_signals",
+              "all_waits_for_every_event",
+              "all_completes_before_wait_registration",
+              "batch_reentry_rejected",
+              "empty_batch_completes",
+              "duplicate_signal_rejected",
+              "lost_emitter_timeout_and_subscription_cleanup"
+            ]
+          }
+        ]
       }
     },
     {
@@ -1658,7 +1853,9 @@
         "capture-real",
         "headless-capture-refused",
         "rendering-materials-example",
-        "rendering-headless-unavailable"
+        "rendering-headless-unavailable",
+        "rendering-portal-popup",
+        "rendering-portal-popup-headless"
       ],
       "verification_status": "tested",
       "conditions": "读取 rendering_method、真实渲染设备、目标平台和效果需求；headless 无法证明图像正确。",
@@ -1681,7 +1878,8 @@
         "https://github.com/godotengine/godot/blob/4.7.2-stable/scene/main/window.cpp"
       ],
       "recipe_references": [
-        "skills/godot-rendering/references/native.md"
+        "skills/godot-rendering/references/native.md",
+        "skills/godot-rendering/references/portal-popup.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -1744,6 +1942,44 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "rendering-portal-popup",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "capture_distance",
+              "distance_stage_center_to_edge",
+              "capture_mask",
+              "mask_stage_inside_outside",
+              "capture_portal",
+              "capture_portal_modified",
+              "phase_changes_actual_portal_pixels",
+              "portal_material_saved",
+              "portal_material_uncached_readback",
+              "capture_popup_excluded",
+              "negative_control_low_layer_misses_popup",
+              "capture_popup_processed",
+              "high_layer_processes_embedded_popup",
+              "capture_popup_closed",
+              "popup_close_restores_underlying_content"
+            ]
+          },
+          {
+            "test_id": "rendering-portal-popup-headless",
+            "actual": "unsupported",
+            "expected": "unsupported",
+            "exit_code": 2,
+            "passed": true,
+            "checks": []
+          }
+        ]
       }
     },
     {
@@ -1842,7 +2078,8 @@
       "example": "skills/godot-data/assets/examples/minimal/project.godot",
       "test_ids": [
         "data-example",
-        "data-resources"
+        "data-resources",
+        "data-inventory"
       ],
       "verification_status": "tested",
       "conditions": "确认数据结构、保存范围、版本和兼容目标；测试使用隔离路径，不覆盖玩家现有存档。",
@@ -1930,7 +2167,8 @@
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
       },
       "recipe_references": [
-        "skills/godot-data/references/native.md"
+        "skills/godot-data/references/native.md",
+        "skills/godot-data/references/inventory.md"
       ],
       "historical_validation": {
         "evidence": "docs/validation-results.json",
@@ -1940,6 +2178,38 @@
         ],
         "tested_version": "4.7.2-stable",
         "tested_platform": "Windows"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "data-inventory",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "hud_reads_initial_state",
+              "pickup_stack_use_updates_rules",
+              "independent_runtime_state_shared_definition",
+              "invalid_commands_preserve_state",
+              "staged_inventory_commit",
+              "json_roundtrip_stable_ids_not_resource_objects",
+              "future_save_preserved_against_commit",
+              "invalid_snapshot_rejected_atomically",
+              "invalid_snapshot_rejected_atomically",
+              "invalid_snapshot_rejected_atomically",
+              "invalid_snapshot_rejected_atomically",
+              "invalid_snapshot_rejected_atomically",
+              "old_inventory_disconnected",
+              "repeat_reset_and_use",
+              "repeat_reset_and_use",
+              "repeat_reset_and_use",
+              "hud_teardown_disconnects"
+            ]
+          }
+        ]
       }
     },
     {
@@ -2360,7 +2630,8 @@
       ],
       "example": "skills/godot-performance/assets/examples/minimal/project.godot",
       "test_ids": [
-        "performance-example"
+        "performance-example",
+        "ai-example"
       ],
       "verification_status": "tested",
       "conditions": "See the Skill prerequisite checks and exact task toolchain.",
@@ -2435,6 +2706,49 @@
         "task_evaluation": "tests/routing/actual-results.json",
         "limits": "Only named assertions and explicitly recorded target environments; dependency blocks are not compilation passes.",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
+      },
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "ai-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "no_target_falls_back_to_idle",
+              "visible_distant_target_chased",
+              "visible_in_range_target_attacked",
+              "low_health_flee_outranks_attack",
+              "occluded_target_not_attacked",
+              "nonfinite_health_rejected",
+              "target_tie_has_stable_identity_order",
+              "repeated_state_does_not_reenter",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_exits_at_outer_boundary",
+              "state_transition_pairs_exit_enter",
+              "lost_target_before_decision_falls_back",
+              "queued_for_deletion_target_rejected",
+              "missing_actor_rejected",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "budgeted_plan_matches_serial_snapshot",
+              "pending_monitor_reaches_zero",
+              "monitor_teardown",
+              "stale_generation_cannot_commit_plan",
+              "empty_plan_has_no_action"
+            ]
+          }
+        ]
       }
     },
     {
@@ -2610,6 +2924,87 @@
         "additional_build_and_runtime": "docs/research/extension-implementation.md",
         "develop_modify_diagnose_tasks": "tests/routing/prompts.json"
       }
+    },
+    {
+      "id": "godot-ai",
+      "skill": "skills/godot-ai/SKILL.md",
+      "baseline": "4.7.2-stable",
+      "documentation_version": "4.7",
+      "sources": [
+        "https://docs.godotengine.org/en/4.7/classes/class_node.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_refcounted.html",
+        "https://docs.godotengine.org/en/4.7/classes/class_performance.html"
+      ],
+      "example": "skills/godot-ai/assets/examples/minimal/project.godot",
+      "test_ids": [
+        "ai-example"
+      ],
+      "verification_status": "tested",
+      "conditions": "Supplied perception snapshots and legal commands; actual sensors/navigation have separate acceptance.",
+      "tested_scope": [
+        "ai-example: no_target_falls_back_to_idle, visible_distant_target_chased, visible_in_range_target_attacked, low_health_flee_outranks_attack, occluded_target_not_attacked, nonfinite_health_rejected, target_tie_has_stable_identity_order, repeated_state_does_not_reenter, hysteresis_preserves_attack_at_entry_boundary, hysteresis_preserves_attack_at_entry_boundary, hysteresis_preserves_attack_at_entry_boundary, hysteresis_preserves_attack_at_entry_boundary, hysteresis_exits_at_outer_boundary, state_transition_pairs_exit_enter, lost_target_before_decision_falls_back, queued_for_deletion_target_rejected, missing_actor_rejected, bounded_candidates_per_tick, bounded_candidates_per_tick, bounded_candidates_per_tick, bounded_candidates_per_tick, bounded_candidates_per_tick, bounded_candidates_per_tick, budgeted_plan_matches_serial_snapshot, pending_monitor_reaches_zero, monitor_teardown, stale_generation_cannot_commit_plan, empty_plan_has_no_action"
+      ],
+      "documented_not_tested": [
+        "raycast perception",
+        "actual enemy movement/combat",
+        "team action reservations",
+        "behavior tree integration",
+        "cross-run replay identity",
+        "installed host routing",
+        "target frame-time latency"
+      ],
+      "evidence": "docs/community-validation.json",
+      "fixed_source_references": [
+        "https://github.com/godotengine/godot/tree/ed1daf0bf001b61586d9930840f2f1394092c079"
+      ],
+      "recipe_references": [
+        "skills/godot-ai/references/native.md"
+      ],
+      "community_evidence": {
+        "date": "2026-10-14",
+        "report": "docs/community-validation.json",
+        "observed_cases": [
+          {
+            "test_id": "ai-example",
+            "actual": "passed",
+            "expected": "passed",
+            "exit_code": 0,
+            "passed": true,
+            "checks": [
+              "no_target_falls_back_to_idle",
+              "visible_distant_target_chased",
+              "visible_in_range_target_attacked",
+              "low_health_flee_outranks_attack",
+              "occluded_target_not_attacked",
+              "nonfinite_health_rejected",
+              "target_tie_has_stable_identity_order",
+              "repeated_state_does_not_reenter",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_preserves_attack_at_entry_boundary",
+              "hysteresis_exits_at_outer_boundary",
+              "state_transition_pairs_exit_enter",
+              "lost_target_before_decision_falls_back",
+              "queued_for_deletion_target_rejected",
+              "missing_actor_rejected",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "bounded_candidates_per_tick",
+              "budgeted_plan_matches_serial_snapshot",
+              "pending_monitor_reaches_zero",
+              "monitor_teardown",
+              "stale_generation_cannot_commit_plan",
+              "empty_plan_has_no_action"
+            ]
+          }
+        ]
+      },
+      "tested_version": "4.7.2-stable",
+      "tested_platform": "Windows x86_64"
     }
   ],
   "limitations": [

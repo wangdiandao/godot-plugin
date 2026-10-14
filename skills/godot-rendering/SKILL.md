@@ -17,6 +17,8 @@ Baseline: Godot 4.7 documentation and locally verified Godot 4.7.2. Read [execut
 
 ## Workflow and Key Decisions
 
+For staged shader effects and embedded popup postprocessing, read the [task recipe](references/portal-popup.md).
+
 1. Choose renderer from target capability and required effects; verify effective method/driver after fallback.
 2. Read the relevant material/shader, lighting/particles, Viewport or HDR recipe in native.md. Preserve artistic intent while changing one relevant setting or resource.
 3. Use shared materials for common appearance; duplicate only for instance exceptions or use supported instance uniforms. Check normal/tangent data, color encoding and transparent-pass behavior.

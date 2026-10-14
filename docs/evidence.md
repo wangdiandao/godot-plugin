@@ -31,3 +31,5 @@ Raw local logs/downloads live in ignored `artifacts/` and are not shipped. Repro
 ## Boundaries that still matter
 
 Recorded native behavior is Windows-specific. Real rendering and audio listening are separate from headless/state checks. Manifest/package validation does not certify installed-host implicit Skill selection. Browser, public networking, mobile and other platform variants require their own evidence. See the individual batch reports for exact conditions, exceptions and commands, and [testing](testing.md) for selecting a new verification run.
+
+[Community gameplay practices / 社区玩法实践与本次证据](community-practices.md) · [Current native results](community-validation.json).

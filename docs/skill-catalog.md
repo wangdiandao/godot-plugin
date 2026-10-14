@@ -16,6 +16,7 @@ Choose by the requested outcome. Cross-system game work belongs to `godot-workfl
 | Content | [godot-3d](../skills/godot-3d/SKILL.md) | Meshes, models, cameras and 3D content |
 | Interaction | [godot-physics](../skills/godot-physics/SKILL.md) | Movement, collision, triggers and raycasts |
 | Interaction | [godot-navigation](../skills/godot-navigation/SKILL.md) | Baking, connectivity, paths and moving agents |
+| Interaction | [godot-ai](../skills/godot-ai/SKILL.md) | Enemy target/action decisions, utility scoring and bounded planning |
 | Interaction | [godot-ui](../skills/godot-ui/SKILL.md) | Layout, focus, themes, pointer input and localization |
 | Presentation | [godot-animation](../skills/godot-animation/SKILL.md) | Libraries, tracks, blends and state transitions |
 | Presentation | [godot-rendering](../skills/godot-rendering/SKILL.md) | Materials, shaders, lighting and visual checks |

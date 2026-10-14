@@ -60,3 +60,7 @@ Use [recipes.md](recipes.md) for complete development, modification and diagnosi
 ## Task-specific implementation
 
 Read [State transitions, blends and interrupted actions](locomotion.md) before implementing that task. Its example directory is copied in full and its assertions do not replace target-device acceptance.
+
+## Interrupted animation and terminal waits
+
+When replacing/killing a Tween or exiting its bound Node, distinguish cancellation from finished playback. Use an external completion ticket and bounded wait; do not emit Tween.finished to pretend it completed. Read the [terminal-wait recipe](../../godot-gdscript/references/terminal-waits.md) and its executable example for nested caller cleanup. Keep combat/AI decision state separate from animation playback state.

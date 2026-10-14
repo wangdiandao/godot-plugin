@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh.md)
 
-This plugin provides 23 Godot development Skills, runnable examples and shared native helpers. Start with the page that matches your task; detailed execution contracts live beside the Skills that own them.
+This plugin provides 24 Godot development Skills, runnable examples and shared native helpers. Start with the page that matches your task; detailed execution contracts live beside the Skills that own them.
 
 ## Read by goal
 
@@ -23,3 +23,5 @@ The topic pages above use English `*.md` and Simplified Chinese `*.zh.md` pairs 
 Existing [authoring contracts](authoring.md) (Chinese), [compatibility history](compatibility.md) (English), [coverage overview](coverage.zh.md) (Chinese), validation reports and `research/` records retain their original paths and languages. The [evidence index](evidence.md) explains their dates and roles. JSON files remain machine-readable records; translation must not change test IDs, source hashes or recorded outcomes.
 
 The bilingual topic organization is inspired by [DeepSeek Harness docs](https://github.com/deepseek-ai/deepseek-harness/tree/master/docs). The content and layout here describe this plugin's own responsibilities.
+
+[Community gameplay practices / 社区玩法实践与本次证据](community-practices.md) · [Current native results](community-validation.json).

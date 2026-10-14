@@ -31,3 +31,5 @@
 ## 仍需遵守的边界
 
 已记录的原生行为限于 Windows。真实渲染和实际听感分别区别于 headless/状态检查。清单及包装验证不能证明安装宿主后的隐式 Skill 选择。浏览器、公网、移动端与其他平台变体需各自证据。具体条件、例外及命令见各批次报告；选择新的验证流程见[测试策略](testing.zh.md)。
+
+[Community gameplay practices / 社区玩法实践与本次证据](community-practices.md) · [Current native results](community-validation.json).

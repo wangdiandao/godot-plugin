@@ -15,6 +15,8 @@ Identify trusted authored resources versus untrusted basic save data, current/ol
 
 ## Workflow and Key Decisions
 
+For inventory IDs, command validation and protected snapshots, read the [task recipe](references/inventory.md).
+
 1. Choose authored Resource, independent ConfigFile settings or a strict versioned player-save schema.
 2. Classify missing, corrupt, invalid, future-version and I/O failures before selecting recovery; preserve future data.
 3. Migrate in memory, validate staged bytes and compare the existing fingerprint before commit.

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0] - 2026-10-14
+
+- Add godot-ai for enemy decisions, utility scoring and bounded planning; preserve all existing skill names.
+- Absorb attributed community practices into terminal waits, tile-grid paths, protected inventory state, branching dialogue and staged shader/popup recipes with seven original native example projects.
+- Clarify adjacent routing and add custom monitoring, undo lifetime, same-tree multiplayer diagnostic and target-build acceptance guidance.
+- Keep research claims separate from current native/GPU evidence and untested device/host workflows. See docs/community-practices.md.
+
 ## [0.2.2] - 2026-10-13
 
 Source and local archive update; no version tag or GitHub Release published.

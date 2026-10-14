@@ -15,6 +15,8 @@ Read callers, exported fields, signal wiring, process modes and warning policy; 
 
 ## Workflow and Key Decisions
 
+For nested wait termination and multi-signal ownership, read the [task recipe](references/terminal-waits.md).
+
 For async cancellation, replacement and signal reentry, read [Async cancellation, replacement and signal reentry](references/tasks.md) and run the [async-lifecycle example](assets/examples/async-lifecycle/project.godot).
 
 1. For new behavior, implement a typed command that validates before mutation and emits a completed fact.

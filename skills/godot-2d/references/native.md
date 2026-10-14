@@ -56,3 +56,7 @@ Configure Camera2D.enabled, position_smoothing_enabled, and limits through node 
 ## Task recipes
 
 Use [recipes.md](recipes.md) for complete development, modification and diagnosis flows. Fixture assertions and visual/platform checks have separate acceptance scopes.
+
+## Tile maps as gameplay rules
+
+For TileMapLayer custom data driving grid paths, negative cell IDs and transformed coordinates, use the [grid bridge recipe](../../godot-navigation/references/grid.md). Art/collision, walkability and attack visibility can represent different rules. Navigation owns the path query; this skill owns authored tiles and map content.
