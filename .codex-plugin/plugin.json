@@ -12,6 +12,8 @@
     "longDescription": "24 个领域 Skills，基于完整 Godot 4.7 文档研究，提供开发、修改、诊断配方及原生行为验证。C# 与 GDExtension 使用对应额外工具链；实际平台边界见能力和验证记录。",
     "developerName": "godot-plugin contributors",
     "category": "Developer Tools",
+    "logo": "./assets/godot-icon.svg",
+    "composerIcon": "./assets/godot-icon.svg",
     "defaultPrompt": [
       "创建一个完整的 Godot 2D 游戏并验证",
       "检查并修复当前 Godot 项目",

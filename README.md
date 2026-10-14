@@ -162,6 +162,9 @@ The existing UI skill also includes a [native localization workflow](skills/godo
 
 ## Contributing and distribution
 
+The plugin uses the official Godot Engine icon (Andrea Calabró, CC BY 4.0).
+See [icon attribution](assets/README.md). This community plugin is not affiliated with or endorsed by the Godot developers or the Godot Foundation.
+
 Read [CONTRIBUTING.md](CONTRIBUTING.md): open/associate an Issue before editing; external contributors fork and submit a PR. Maintainers review external contributions. Owner-initiated changes are reviewed, corrected, and validated before merging, with findings and results recorded. Code and original examples use the [MIT license](LICENSE).
 
 The installation ZIP includes all host manifests, both READMEs, CHANGELOG, Skills, shared files, examples, and capability/validation documentation. The source ZIP also includes tests and contribution templates. Generated artifacts, research downloads, `dist/`, engine caches, and local `AGENTS.md` are excluded. Local archives remain optional offline copies; GitHub Releases are not used to distribute this plugin.
