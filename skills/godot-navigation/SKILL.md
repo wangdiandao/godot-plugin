@@ -1,13 +1,13 @@
 ---
 name: godot-navigation
-description: "Create or fix Godot navigation data, navigation baking, path queries, navigation agents, and avoidance behavior."
+description: "Create or fix Godot navigation data, navigation baking, path queries, navigation agents, and avoidance behavior; use godot-ai for enemy target/action decisions."
 ---
 
 # Navigation and Pathfinding
 
 ## Purpose and Scope
 
-Paths and navigation generation. Decision state machines belong to game logic, and avoidance does not automatically move characters.
+Paths and navigation generation. Enemy decisions and decision state machines belong to godot-ai, and avoidance does not automatically move characters.
 
 ## Prerequisite Checks
 
@@ -15,6 +15,8 @@ Confirm 2D/3D, geometry sources, agent radius, navigation layers, and target pla
 Read the [execution conventions](../../shared/references/execution.md) before first launching the engine or changing execution modes. The research baseline is Godot 4.7.2; actual capabilities depend on the corresponding version, build, and runtime verification.
 
 ## Workflow and Key Decisions
+
+For TileMapLayer grid paths and dynamic blockers, read the [task recipe](references/grid.md).
 
 For actual agent movement, patrol and avoidance callbacks, read [Actual agent movement, patrol and avoidance callbacks](references/movement.md) and run the [moving-agent example](assets/examples/moving-agent/project.godot).
 

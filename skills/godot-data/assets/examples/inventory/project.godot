@@ -1,0 +1,7 @@
+config_version=5
+[application]
+config/name="Community contract example"
+[display]
+window/subwindows/embed_subwindows=true
+[rendering]
+renderer/rendering_method="gl_compatibility"

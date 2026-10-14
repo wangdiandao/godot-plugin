@@ -101,7 +101,7 @@
     "negative": "给角色实现追踪 AI。",
     "evaluation": "author_reviewed",
     "positive_expected": "godot-assets",
-    "negative_expected": "godot-navigation",
+    "negative_expected": "godot-ai",
     "adjacent_prompt": "调节已导入材质的透明 Shader。",
     "adjacent_expected": "godot-rendering",
     "host_model_routing": "not_run",
@@ -183,8 +183,8 @@
     "evaluation": "author_reviewed",
     "positive_expected": "godot-navigation",
     "negative_expected": "godot-ui",
-    "adjacent_prompt": "角色沿路径移动时穿墙。",
-    "adjacent_expected": "godot-physics",
+    "adjacent_prompt": "让敌人在攻击、追逐与逃跑之间选择动作。",
+    "adjacent_expected": "godot-ai",
     "host_model_routing": "not_run",
     "tasks": {
       "develop": "Build a CharacterBody3D agent that actually reaches its target through direct and avoidance callback movement.",
@@ -446,5 +446,24 @@
     },
     "codex_task_evaluation": "tests/routing/actual-results.json",
     "installed_host_autoload_tested": false
+  },
+  {
+    "skill": "godot-ai",
+    "positive": "让敌人根据血量、视线和攻击范围选择攻击、追逐或逃跑，并限制每帧规划量。",
+    "negative": "烘焙导航网格并验证跨区域路径。",
+    "evaluation": "author_reviewed",
+    "positive_expected": "godot-ai",
+    "negative_expected": "godot-navigation",
+    "adjacent_prompt": "让AnimationTree在走路和攻击动画之间混合切换。",
+    "adjacent_expected": "godot-animation",
+    "host_model_routing": "not_run",
+    "tasks": {
+      "develop": "Create legal enemy choices from supplied perception and utility scores.",
+      "modify": "Bound candidate planning across frames without changing its winner.",
+      "diagnose": "A lost target or stale world revision must cancel planning before commitment."
+    },
+    "installed_host_autoload_tested": false,
+    "task_recipe": "skills/godot-ai/references/native.md",
+    "representative_case": "ai-example"
   }
 ]

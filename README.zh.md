@@ -4,7 +4,7 @@
 
 [文档首页](docs/README.zh.md) · [快速开始](docs/getting-started.zh.md) · [Skill 目录](docs/skill-catalog.zh.md) · [验证证据](docs/evidence.zh.md)
 
-面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：23 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 开发，并提供架构、性能、编辑器工具及条件式 C#/GDExtension 工作流。
+面向 **Codex Desktop / CLI、Claude Code、Cursor 和 Gemini CLI** 的 Godot 原生开发插件：24 个可独立触发的 Skills、原生 GDScript 辅助脚本和可运行示例，覆盖 GDScript 2D/3D 开发，并提供架构、性能、编辑器工具及条件式 C#/GDExtension 工作流。
 
 运行需要所选 Agent、**Godot 标准编辑器发行版和操作系统自带能力**。插件不新增 MCP Server、Godot 编辑器插件、Python 或 Node 运行依赖；Agent 本身的安装要求仍然适用。Context7 仅用于作者研究，不是用户运行依赖。
 
@@ -12,7 +12,7 @@
 
 ## 安装
 
-当前版本为 **0.2.2**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
+当前版本为 **0.3.0**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
 
 本地安装使用 `git clone https://github.com/wangdiandao/godot-plugin.git`，再按下方宿主说明操作。复制目录时使用干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
@@ -48,7 +48,7 @@ codex plugin list --marketplace godot-native-local --json
 claude --plugin-dir "C:\Tools\godot-plugin"
 ```
 
-`.claude-plugin/plugin.json` 标识插件，Claude Code 自动发现 `skills/` 下的 23 个 Skills。使用 `/godot-plugin:godot-workflow`、`/godot-plugin:godot-physics` 或自然语言发起任务。
+`.claude-plugin/plugin.json` 标识插件，Claude Code 自动发现 `skills/` 下的 24 个 Skills。使用 `/godot-plugin:godot-workflow`、`/godot-plugin:godot-physics` 或自然语言发起任务。
 
 支持 Skills 目录内插件的当前版本，也可将**完整解压后的安装目录**复制到 `~/.claude/skills/godot-plugin`，新会话中自动加载。保留内部清单与共享目录。通过 `/plugin` 检查加载错误；旧客户端可每次使用 `--plugin-dir` 启动。参见[本地开发说明](https://code.claude.com/docs/en/plugin-marketplaces)和[清单规范](https://code.claude.com/docs/en/plugins-reference)。
 
@@ -128,6 +128,7 @@ gemini --include-directories "$env:USERPROFILE\.gemini\extensions\godot-plugin"
 | [godot-editor-tools](skills/godot-editor-tools/SKILL.md) | 工具脚本、EditorPlugin 事务与生命周期 |
 | [godot-performance](skills/godot-performance/SKILL.md) | CPU/GPU/内存测量、定位与优化对照 |
 | [godot-architecture](skills/godot-architecture/SKILL.md) | 模块契约、组件组合、生命周期与信号 |
+| [godot-ai](skills/godot-ai/SKILL.md) | 敌人决策、感知合同、效用评分与分帧规划 |
 
 Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的要求。
 
@@ -168,8 +169,10 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 阅读[扩展规范](docs/authoring.md)、[研究依据](docs/research.md)、[验证报告](docs/validation.md)和 [Godot 基线官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。
 
 
-中文任务覆盖与验收边界见[23 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
+中文任务覆盖与验收边界见[24 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
 
 C#任务额外需要匹配的Godot.NET与.NET SDK；GDExtension任务额外需要绑定、C++编译器、构建工具及绑定生成器。默认原生路径保留。
 
-优先任务流程和本次范围内的执行证据见[优先 Skill 验证](docs/priority-skills-validation.md)。包含游戏示例存档保护和十个新增隔离案例，保留现有 23 个 Skill 名称。
+此前优先任务流程与执行证据见[优先 Skill 验证](docs/priority-skills-validation.md)。该批次包含游戏示例存档保护和十个新增隔离案例；原有 23 个 Skill 名称在本次继续保留。
+
+社区实践吸收范围与本次验证见[实施记录](docs/community-practices.md)。

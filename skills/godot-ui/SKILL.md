@@ -17,6 +17,8 @@ Baseline: Godot 4.7 documentation and locally verified Godot 4.7.2. Read [execut
 
 ## Workflow and Key Decisions
 
+For branching dialogue, reveal/skip and choice input, read the [task recipe](references/dialogue.md).
+
 1. Choose Container flow versus anchored overlays; set logical base size, aspect policy and minimum window size before laying out children.
 2. Follow the relevant native.md recipe for new menus, existing-theme modifications or input/text failures. Use project/parent Themes for shared styling and local overrides for exceptions.
 3. Define initial focus, focus neighbors, mouse filtering and pause processing. Exercise press and release through real input dispatch rather than emitting widget signals.

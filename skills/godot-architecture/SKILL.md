@@ -7,7 +7,7 @@ description: "Design or refactor Godot module boundaries, component composition,
 
 ## Purpose and Scope
 
-Build the smallest architecture that supports the requested iteration and testing. Use workflow for complete game delivery and scenes for serialization mechanics.
+Enemy action selection belongs to godot-ai; this skill owns module structure and coupling. Build the smallest architecture that supports the requested iteration and testing. Use workflow for complete game delivery and scenes for serialization mechanics.
 
 ## Prerequisite Checks
 

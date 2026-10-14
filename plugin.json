@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "godot-plugin",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Godot 游戏开发 Skills：原生 CLI/GDScript、模块架构、性能、编辑器工具与条件式 C#/GDExtension 工作流。",
   "author": {
     "name": "godot-plugin contributors"
@@ -11,7 +11,7 @@
       "interface": {
         "displayName": "Godot Native Development",
         "shortDescription": "原生 Godot 游戏开发与验证",
-        "longDescription": "23 个领域 Skills，基于完整 Godot 4.7 文档研究，提供开发、修改、诊断配方及原生行为验证。C# 与 GDExtension 使用对应额外工具链；实际平台边界见能力和验证记录。",
+        "longDescription": "24 个领域 Skills，基于完整 Godot 4.7 文档研究，提供开发、修改、诊断配方及原生行为验证。C# 与 GDExtension 使用对应额外工具链；实际平台边界见能力和验证记录。",
         "developerName": "godot-plugin contributors",
         "category": "Developer Tools",
         "defaultPrompt": [

@@ -1,0 +1,4344 @@
+{
+  "schema_version": 1,
+  "issue": 25,
+  "date": "2026-10-14",
+  "status": "passed",
+  "source_version": "0.3.0",
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "platform": "Windows",
+  "historical_evidence_reused": false,
+  "suite_cases": 61,
+  "new_cases": [
+    "gdscript-terminal-waits",
+    "navigation-tile-grid",
+    "data-inventory",
+    "ui-dialogue",
+    "rendering-portal-popup",
+    "rendering-portal-popup-headless",
+    "ai-example",
+    "workflow-story-inventory"
+  ],
+  "expected_outcomes": {
+    "passed": 49,
+    "failed": 6,
+    "timeout": 1,
+    "unsupported": 3,
+    "blocked": 2
+  },
+  "unexpected_failures": 0,
+  "cases": [
+    {
+      "id": "workflow-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "pack_playable_structure",
+          "status": "passed"
+        },
+        {
+          "name": "save_checkpoint",
+          "status": "passed"
+        },
+        {
+          "name": "reload_checkpoint",
+          "status": "passed"
+        },
+        {
+          "name": "checkpoint_interaction_reloaded",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/workflow-example/engine.log",
+      "log_sha256": "aedfbcca4cea6b7e0128ad02d93f319865e6cb95340edf268cf298650114eff5"
+    },
+    {
+      "id": "project-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "save_project_configuration",
+          "status": "passed"
+        },
+        {
+          "name": "reload_configuration",
+          "status": "passed"
+        },
+        {
+          "name": "input_event_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_input_map",
+          "status": "passed"
+        },
+        {
+          "name": "generated_project_launch",
+          "status": "passed"
+        },
+        {
+          "name": "autoload_and_persistent_input_live",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_probe_action_removed",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/project-example/engine.log",
+      "log_sha256": "c2004a608e2aa14c334b7cab375543b753d81e34cb4de1ac2514100d32a3ff1a"
+    },
+    {
+      "id": "api-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "tilemaplayer_available",
+          "status": "passed"
+        },
+        {
+          "name": "resource_save_is_public",
+          "status": "passed"
+        },
+        {
+          "name": "navigation_bake_is_public",
+          "status": "passed"
+        },
+        {
+          "name": "lightmap_bake_not_bound_in_baseline",
+          "status": "passed"
+        },
+        {
+          "name": "pack_invocation",
+          "status": "passed"
+        },
+        {
+          "name": "save_invocation",
+          "status": "passed"
+        },
+        {
+          "name": "api_saved_behavior",
+          "status": "passed"
+        },
+        {
+          "name": "api_ownership_failure_condition",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/api-example/engine.log",
+      "log_sha256": "84f475ef7994e8622edf09c61598a33ef59669fc350b38f8d4774e1ec8c05d86"
+    },
+    {
+      "id": "gdscript-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "typed_signal_delivered",
+          "status": "passed"
+        },
+        {
+          "name": "async_continuation",
+          "status": "passed"
+        },
+        {
+          "name": "connection_not_duplicated",
+          "status": "passed"
+        },
+        {
+          "name": "disconnected_listener_not_called",
+          "status": "passed"
+        },
+        {
+          "name": "connection_cleanup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/gdscript-example/engine.log",
+      "log_sha256": "fcb238fd0c9ca02b685c8a39497572fe991a7da5a9cc51ccc543fa21a77c6893"
+    },
+    {
+      "id": "scenes-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "pack_owned_nodes",
+          "status": "passed"
+        },
+        {
+          "name": "save_scene",
+          "status": "passed"
+        },
+        {
+          "name": "owned_child_survives",
+          "status": "passed"
+        },
+        {
+          "name": "persistent_connection_survives",
+          "status": "passed"
+        },
+        {
+          "name": "unowned_child_excluded",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_connection_executes",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/scenes-example/engine.log",
+      "log_sha256": "a9db6372037cd55c6a34e0f4bba7d23590fbbf3235319f7fd67bc524244cbc33"
+    },
+    {
+      "id": "assets-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "native_png_encoder",
+          "status": "passed"
+        },
+        {
+          "name": "native_png_decoder",
+          "status": "passed"
+        },
+        {
+          "name": "pixel_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/assets-example/engine.log",
+      "log_sha256": "213cf0da78e38ceb50d267c9d528aa2c9e02bce937a19bac5d9d1c6525e31407"
+    },
+    {
+      "id": "2d-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "tile_cells_created",
+          "status": "passed"
+        },
+        {
+          "name": "tile_layer_pack",
+          "status": "passed"
+        },
+        {
+          "name": "tile_layer_save",
+          "status": "passed"
+        },
+        {
+          "name": "tile_cell_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/2d-example/engine.log",
+      "log_sha256": "e03aff2eccc55cfc77a2decdaefd74f618636517e75ecbe3d9e54fb70f3595b7"
+    },
+    {
+      "id": "3d-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "independent_mesh_edit_preserves_original",
+          "status": "passed"
+        },
+        {
+          "name": "pack_mesh_and_camera",
+          "status": "passed"
+        },
+        {
+          "name": "save_world",
+          "status": "passed"
+        },
+        {
+          "name": "native_mesh_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "camera_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "light_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "independent_size_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/3d-example/engine.log",
+      "log_sha256": "8c8b8b968520b6ba520cf777db0f7346476ee4059dae95701168cfc03b116a1d"
+    },
+    {
+      "id": "physics-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "character_lands_on_floor",
+          "status": "passed"
+        },
+        {
+          "name": "collision_prevents_penetration",
+          "status": "passed"
+        },
+        {
+          "name": "ray_hits_expected_floor",
+          "status": "passed"
+        },
+        {
+          "name": "ray_wrong_mask_has_no_hit",
+          "status": "passed"
+        },
+        {
+          "name": "velocity_is_units_per_second",
+          "status": "passed"
+        },
+        {
+          "name": "horizontal_movement_retains_floor",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_enter_and_exit_once",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_wrong_mask_reproduced",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_mask_repair_detects_actor",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_trigger_exit",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_trigger_repeats_without_duplicate_callbacks",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_repair_preserves_excluded_layer",
+          "status": "passed"
+        },
+        {
+          "name": "trigger_repair_preserves_other_filters",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/physics-example/engine.log",
+      "log_sha256": "691e635b6103559d6ea0ab74abab31e60c2791fe185232018c4c6dca2ebce282"
+    },
+    {
+      "id": "navigation-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "cpu_navigation_bake",
+          "status": "passed"
+        },
+        {
+          "name": "save_navigation",
+          "status": "passed"
+        },
+        {
+          "name": "navigation_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "path_crosses_baked_region",
+          "status": "passed"
+        },
+        {
+          "name": "path_crosses_two_regions",
+          "status": "passed"
+        },
+        {
+          "name": "excluded_region_cannot_reach_target",
+          "status": "passed"
+        },
+        {
+          "name": "disabled_region_cannot_reach_target",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_region_synchronizes_within_budget",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_region_reaches_target_0",
+          "status": "passed"
+        },
+        {
+          "name": "repair_preserves_excluded_navigation_layer_0",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_region_reaches_target_1",
+          "status": "passed"
+        },
+        {
+          "name": "repair_preserves_excluded_navigation_layer_1",
+          "status": "passed"
+        },
+        {
+          "name": "region_repair_preserves_layer_assignments",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/navigation-example/engine.log",
+      "log_sha256": "59d7fdb7797b16e6292774027c764d9a27de66da8a9bd9784ebfdafbf5724d83"
+    },
+    {
+      "id": "ui-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "theme_saved",
+          "status": "passed"
+        },
+        {
+          "name": "theme_cache_ignored_reload",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_font",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_font_size",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_theme_color",
+          "status": "passed"
+        },
+        {
+          "name": "menu_packed",
+          "status": "passed"
+        },
+        {
+          "name": "menu_saved",
+          "status": "passed"
+        },
+        {
+          "name": "saved_local_override_effective",
+          "status": "passed"
+        },
+        {
+          "name": "override_removal_restores_inheritance",
+          "status": "passed"
+        },
+        {
+          "name": "saved_inherited_style",
+          "status": "passed"
+        },
+        {
+          "name": "focused_button_input_dispatch",
+          "status": "passed"
+        },
+        {
+          "name": "container_layout",
+          "status": "passed"
+        },
+        {
+          "name": "overlay_stop_blocks_pointer_activation",
+          "status": "passed"
+        },
+        {
+          "name": "overlay_ignore_repairs_pointer_activation",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_pointer_activation_repeats_0",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_pointer_activation_repeats_1",
+          "status": "passed"
+        },
+        {
+          "name": "pointer_repair_preserves_style_and_geometry",
+          "status": "passed"
+        },
+        {
+          "name": "intentional_modal_blocking_remains_available",
+          "status": "passed"
+        },
+        {
+          "name": "translation_lookup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/ui-example/engine.log",
+      "log_sha256": "442007082ad5edf731563b119ded775a84368699d1c20c9d15e65fc6f7de1d9c"
+    },
+    {
+      "id": "animation-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "animation_library",
+          "status": "passed"
+        },
+        {
+          "name": "player_library",
+          "status": "passed"
+        },
+        {
+          "name": "animation_track_evaluates",
+          "status": "passed"
+        },
+        {
+          "name": "save_animation_library",
+          "status": "passed"
+        },
+        {
+          "name": "reload_animation_library",
+          "status": "passed"
+        },
+        {
+          "name": "saved_duration_and_tracks",
+          "status": "passed"
+        },
+        {
+          "name": "saved_path_and_keys",
+          "status": "passed"
+        },
+        {
+          "name": "bind_reloaded_library",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_track_evaluates",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/animation-example/engine.log",
+      "log_sha256": "09f4ecfddb736bd126add880e7725ecc94d32cc5477ec87db06f2319eb123343"
+    },
+    {
+      "id": "rendering-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "shader_material_saved",
+          "status": "passed"
+        },
+        {
+          "name": "shader_uniform_saved_readback",
+          "status": "passed"
+        },
+        {
+          "name": "shader_pixel_matches",
+          "status": "passed"
+        },
+        {
+          "name": "gpu_readback_png",
+          "status": "passed"
+        },
+        {
+          "name": "local_material_change_preserves_shared_original",
+          "status": "passed"
+        },
+        {
+          "name": "modified_uniform_changes_actual_pixels",
+          "status": "passed"
+        },
+        {
+          "name": "modified_gpu_readback_png",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/rendering-example/engine.log",
+      "log_sha256": "425b496fff41967414f92e60b03ef220ba5a65adbe106c187757912500071e7e"
+    },
+    {
+      "id": "audio-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "native_pcm_wav_save",
+          "status": "passed"
+        },
+        {
+          "name": "wav_saved_state_readback",
+          "status": "passed"
+        },
+        {
+          "name": "playback_started",
+          "status": "passed"
+        },
+        {
+          "name": "effect_routed",
+          "status": "passed"
+        },
+        {
+          "name": "save_bus_layout",
+          "status": "passed"
+        },
+        {
+          "name": "bus_layout_cache_ignored_readback",
+          "status": "passed"
+        },
+        {
+          "name": "saved_bus_routing_and_volume",
+          "status": "passed"
+        },
+        {
+          "name": "saved_limiter",
+          "status": "passed"
+        },
+        {
+          "name": "mute_state",
+          "status": "passed"
+        },
+        {
+          "name": "unmute_state",
+          "status": "passed"
+        },
+        {
+          "name": "missing_bus_detected_before_routing",
+          "status": "passed"
+        },
+        {
+          "name": "nonlooping_playback_finishes",
+          "status": "passed"
+        },
+        {
+          "name": "missing_bus_route_rejected_without_mutation",
+          "status": "passed"
+        },
+        {
+          "name": "valid_bus_route_repairs_request",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_audio_lifecycle_repeats_0",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_audio_lifecycle_repeats_1",
+          "status": "passed"
+        },
+        {
+          "name": "audio_route_repair_preserves_mix",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/audio-example/engine.log",
+      "log_sha256": "be95d6d7338b02103962601141101e484512897f0563dcaf246f684331146e1b"
+    },
+    {
+      "id": "data-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "missing_distinguished",
+          "status": "passed"
+        },
+        {
+          "name": "legacy_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "save_version_migration",
+          "status": "passed"
+        },
+        {
+          "name": "migration_commit",
+          "status": "passed"
+        },
+        {
+          "name": "saved_version_readback",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_5",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_6",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_7",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_8",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_9",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_schema_rejected_10",
+          "status": "passed"
+        },
+        {
+          "name": "future_version_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "concurrent_change_fixture",
+          "status": "passed"
+        },
+        {
+          "name": "concurrent_write_detected",
+          "status": "passed"
+        },
+        {
+          "name": "conflict_target_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "valid_commit_backed_up",
+          "status": "passed"
+        },
+        {
+          "name": "target_backup_readback",
+          "status": "passed"
+        },
+        {
+          "name": "corruption_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "corruption_detected",
+          "status": "passed"
+        },
+        {
+          "name": "validated_backup_recovery",
+          "status": "passed"
+        },
+        {
+          "name": "corrupt_original_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "future_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "future_save_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "large_future_fixture_written",
+          "status": "passed"
+        },
+        {
+          "name": "large_future_save_preserved",
+          "status": "passed"
+        },
+        {
+          "name": "write_failure_detected",
+          "status": "passed"
+        },
+        {
+          "name": "write_failure_no_target",
+          "status": "passed"
+        },
+        {
+          "name": "both_invalid_fixture",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_backup_not_used",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/data-example/engine.log",
+      "log_sha256": "05e128db5537c99d7540805afed2ac775c1493c5478ea794e0187de9e42395e9"
+    },
+    {
+      "id": "validation-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "detect_parse",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": 1.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/parse.log",
+          "name": "observation_parse",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "detect_missing",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": 0.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/missing.log",
+          "name": "observation_missing",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "detect_runtime",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": -1.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/runtime.log",
+          "name": "observation_runtime",
+          "status": "passed",
+          "timed_out": true
+        },
+        {
+          "name": "detect_logged",
+          "status": "passed"
+        },
+        {
+          "error_match": true,
+          "exit_code": 0.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/logged.log",
+          "name": "observation_logged",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "timeout_detected",
+          "status": "passed"
+        },
+        {
+          "error_match": false,
+          "exit_code": -1.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/timeout.log",
+          "name": "observation_timeout",
+          "status": "passed",
+          "timed_out": true
+        },
+        {
+          "name": "reject_unrelated_failure",
+          "status": "passed"
+        },
+        {
+          "error_match": false,
+          "exit_code": 1.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/unrelated.log",
+          "name": "observation_unrelated",
+          "status": "passed",
+          "timed_out": false
+        },
+        {
+          "name": "missing_report_is_not_success",
+          "status": "passed"
+        },
+        {
+          "error_match": false,
+          "exit_code": 0.0,
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/validation-example/missing_report.log",
+          "name": "observation_missing_report",
+          "status": "passed",
+          "timed_out": false
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/validation-example/engine.log",
+      "log_sha256": "babacccfa0306ae0c3deadb8c4e43acd4a8e9d9f828ab592fa4b890b1bfa92f6"
+    },
+    {
+      "id": "export-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "preset_serialization",
+          "status": "passed"
+        },
+        {
+          "name": "preset_readback",
+          "status": "passed"
+        },
+        {
+          "name": "preset_platform",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/export-example/engine.log",
+      "log_sha256": "b99510e3575c9bda67e978e3f98f14f61ca6638b3eac1bf19511e27e3a868b8d"
+    },
+    {
+      "id": "multiplayer-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/multiplayer-example/server.log",
+          "name": "server",
+          "passed": true
+        },
+        {
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/multiplayer-example/client1.log",
+          "name": "client1",
+          "passed": true
+        },
+        {
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/multiplayer-example/client2.log",
+          "name": "client2",
+          "passed": true
+        },
+        {
+          "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/multiplayer-example/client3.log",
+          "name": "client3",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/multiplayer-example/engine.log",
+      "log_sha256": "6e506c6f9ec65af5d112306f7dfe4303ff27d999e60dede367a1492cb02d49bb"
+    },
+    {
+      "id": "game-2d",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "initial_menu",
+          "passed": true
+        },
+        {
+          "name": "menu_keyboard_start",
+          "passed": true
+        },
+        {
+          "name": "input_moves_physics_body",
+          "passed": true
+        },
+        {
+          "name": "movement_collects_first_core",
+          "passed": true
+        },
+        {
+          "name": "audio_stream_configured",
+          "passed": true
+        },
+        {
+          "name": "win_condition",
+          "passed": true
+        },
+        {
+          "name": "save_created",
+          "passed": true
+        },
+        {
+          "name": "save_reloaded",
+          "passed": true
+        },
+        {
+          "name": "viewport_dimensions",
+          "passed": true
+        },
+        {
+          "name": "screenshot_saved",
+          "passed": true
+        },
+        {
+          "name": "restart_input",
+          "passed": true
+        },
+        {
+          "name": "protected_save_11",
+          "passed": true
+        },
+        {
+          "name": "protected_save_12",
+          "passed": true
+        },
+        {
+          "name": "protected_save_13",
+          "passed": true
+        },
+        {
+          "name": "protected_save_14",
+          "passed": true
+        },
+        {
+          "name": "protected_save_15",
+          "passed": true
+        },
+        {
+          "name": "external_save_change_preserved",
+          "passed": true
+        },
+        {
+          "name": "unexpected_backup_and_target_preserved",
+          "passed": true
+        },
+        {
+          "name": "repeated_valid_commit_readback",
+          "passed": true
+        },
+        {
+          "name": "save_io_failure_rejected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/game-2d/engine.log",
+      "log_sha256": "fe5616c51c32e969cc1d9e9ed8a81e2c5df062f3318744ba1ecd9237bf885c86"
+    },
+    {
+      "id": "game-3d",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "initial_menu",
+          "passed": true
+        },
+        {
+          "name": "menu_keyboard_start",
+          "passed": true
+        },
+        {
+          "name": "input_moves_physics_body",
+          "passed": true
+        },
+        {
+          "name": "movement_collects_first_core",
+          "passed": true
+        },
+        {
+          "name": "audio_stream_configured",
+          "passed": true
+        },
+        {
+          "name": "win_condition",
+          "passed": true
+        },
+        {
+          "name": "save_created",
+          "passed": true
+        },
+        {
+          "name": "save_reloaded",
+          "passed": true
+        },
+        {
+          "name": "viewport_dimensions",
+          "passed": true
+        },
+        {
+          "name": "screenshot_saved",
+          "passed": true
+        },
+        {
+          "name": "restart_input",
+          "passed": true
+        },
+        {
+          "name": "protected_save_11",
+          "passed": true
+        },
+        {
+          "name": "protected_save_12",
+          "passed": true
+        },
+        {
+          "name": "protected_save_13",
+          "passed": true
+        },
+        {
+          "name": "protected_save_14",
+          "passed": true
+        },
+        {
+          "name": "protected_save_15",
+          "passed": true
+        },
+        {
+          "name": "external_save_change_preserved",
+          "passed": true
+        },
+        {
+          "name": "unexpected_backup_and_target_preserved",
+          "passed": true
+        },
+        {
+          "name": "repeated_valid_commit_readback",
+          "passed": true
+        },
+        {
+          "name": "save_io_failure_rejected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/game-3d/engine.log",
+      "log_sha256": "7d3bfcade65722fadd477a3c82bfba144e3cb1bc17166ffe612b78ff56a34401"
+    },
+    {
+      "id": "fault-runtime",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "ERROR: INJECTED_RUNTIME_ERROR"
+      ],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-runtime/engine.log",
+      "log_sha256": "8c504a06791c8848f897dd4b7143ed5dcebabd2c77bca232e87362900973cb9c"
+    },
+    {
+      "id": "fault-missing-report",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-missing-report/engine.log",
+      "log_sha256": "a661cb5e022ac9e4ae79aff4b7ad7c8553b4927e3474ea6bf445bb97dec43ed5"
+    },
+    {
+      "id": "fault-timeout",
+      "matched_expected": true,
+      "actual": "timeout",
+      "expected": "timeout",
+      "exit_code": -1,
+      "timed_out": true,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-timeout/engine.log",
+      "log_sha256": "b0043133ee64ebdd1f50adbd1fc1f0892c7931ee98dd4df988a64217b6100f5c"
+    },
+    {
+      "id": "fault-missing-resource",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "ERROR: Cannot open file 'res://missing-source.tres'.",
+        "ERROR: Failed loading resource: res://missing-source.tres.",
+        "ERROR: Error loading resource: 'res://missing-source.tres'."
+      ],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-missing-resource/engine.log",
+      "log_sha256": "62abcdf15f726886d7aba09f97569ec07c1b54bff549c4e1851d849adb2ef47d"
+    },
+    {
+      "id": "fault-save-failure",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "unrelated_file_preserved",
+          "passed": true
+        },
+        {
+          "name": "save_error_detected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [
+        "ERROR: Cannot save file 'PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/fault-save-failure/missing-parent/resource.tres'."
+      ],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-save-failure/engine.log",
+      "log_sha256": "af3719461577234ad9a322fc0aec4eb4699ec72b5671654e8119b97b56132820"
+    },
+    {
+      "id": "fault-parse",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "SCRIPT ERROR: Parse Error: Expected parameter name.",
+        "ERROR: Failed to load script \"res://bad-script.gd\" with error \"Parse error\"."
+      ],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-parse/engine.log",
+      "log_sha256": "25d1928ae2039225956fe300f7304f8e562b5fc339ac2e2a3b73a4972acd671d"
+    },
+    {
+      "id": "scene-inheritance",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/scene-inheritance/engine.log",
+      "log_sha256": "b855775dade3fc56bfa4f62c8db239e842a0e60670f08590c971f32bf2a95694"
+    },
+    {
+      "id": "headless-capture-refused",
+      "matched_expected": true,
+      "actual": "unsupported",
+      "expected": "unsupported",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/headless-capture-refused/engine.log",
+      "log_sha256": "cd523b08f13340326442a09c83bae88de6e2577423ebb5853ea80af5f3d97f36"
+    },
+    {
+      "id": "capture-real",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "detail": "",
+          "name": "rendered_image",
+          "passed": true
+        },
+        {
+          "detail": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/capture-real/frame.png",
+          "name": "save_png",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "reload_png",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/capture-real/engine.log",
+      "log_sha256": "eb812484bf4e9d0df0d231fc779160469b865ec5387f632b9ff706e65fe2fd4e"
+    },
+    {
+      "id": "log-parser",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "detail": "",
+          "name": "quoted_error_is_data",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "real_errors_detected",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/log-parser/engine.log",
+      "log_sha256": "48762b77acde89fd8135e42bbce242d717cf6085591795007a476d7c27a85021"
+    },
+    {
+      "id": "fault-broken-reference",
+      "matched_expected": true,
+      "actual": "failed",
+      "expected": "failed",
+      "exit_code": 1,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [
+        "ERROR: Cannot open file 'res://missing-scene.tscn'.",
+        "ERROR: Failed loading resource: res://missing-scene.tscn.",
+        "ERROR: res://broken-reference.tscn:5 - Parse Error: [ext_resource] referenced non-existent resource at: res://missing-scene.tscn.",
+        "ERROR: res://broken-reference.tscn:5 - Parse Error: [ext_resource] referenced non-existent resource at: res://missing-scene.tscn.",
+        "ERROR: Failed loading resource: res://broken-reference.tscn.",
+        "ERROR: Error loading resource: 'res://broken-reference.tscn'."
+      ],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/fault-broken-reference/engine.log",
+      "log_sha256": "d9445def52c1e850866aecc669adfcaf16d911e668715d0d368ab1225ca1ea06"
+    },
+    {
+      "id": "architecture-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "missing_dependency_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "dependency_configured_before_child_ready",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_command_preserves_state",
+          "status": "passed"
+        },
+        {
+          "name": "intent_command_fact_delivery",
+          "status": "passed"
+        },
+        {
+          "name": "repeat_configure",
+          "status": "passed"
+        },
+        {
+          "name": "connection_idempotent",
+          "status": "passed"
+        },
+        {
+          "name": "replacement_dependency_accepted",
+          "status": "passed"
+        },
+        {
+          "name": "old_dependency_disconnected",
+          "status": "passed"
+        },
+        {
+          "name": "replacement_dependency_delivers",
+          "status": "passed"
+        },
+        {
+          "name": "module_pack",
+          "status": "passed"
+        },
+        {
+          "name": "module_save",
+          "status": "passed"
+        },
+        {
+          "name": "teardown_disconnects_service",
+          "status": "passed"
+        },
+        {
+          "name": "saved_signal_reloaded",
+          "status": "passed"
+        },
+        {
+          "name": "exported_component_state_saved",
+          "status": "passed"
+        },
+        {
+          "name": "fresh_service_initial_state_bound",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_intent_executes",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/architecture-example/engine.log",
+      "log_sha256": "e59b02b0dd9f31ac696df8ac4d53ccc052cdd68f98cd48847f764ce3e9f1ba83"
+    },
+    {
+      "id": "data-resources",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "save external",
+          "status": "passed"
+        },
+        {
+          "name": "shallow shares resources",
+          "status": "passed"
+        },
+        {
+          "name": "deep internal/external policy",
+          "status": "passed"
+        },
+        {
+          "name": "deep preserves repeated alias",
+          "status": "passed"
+        },
+        {
+          "name": "ALL copies external data",
+          "status": "passed"
+        },
+        {
+          "name": "ALL shares script definition",
+          "status": "passed"
+        },
+        {
+          "name": "deep collection independence",
+          "status": "passed"
+        },
+        {
+          "name": "save root",
+          "status": "passed"
+        },
+        {
+          "name": "uncached roundtrip state",
+          "status": "passed"
+        },
+        {
+          "name": "loaded independent source memory",
+          "status": "passed"
+        },
+        {
+          "name": "pack scene",
+          "status": "passed"
+        },
+        {
+          "name": "scene-local independent mesh",
+          "status": "passed"
+        },
+        {
+          "name": "scene-local owner root",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/data-resources/engine.log",
+      "log_sha256": "8fe9cd812d3ddcce741ec1331ea49f8351f836d16d5fc9ba2b5f792476408d27"
+    },
+    {
+      "id": "terrain-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "terrain_painted_three_cells",
+          "status": "passed"
+        },
+        {
+          "name": "terrain_tiles_resolved",
+          "status": "passed"
+        },
+        {
+          "name": "empty_boundary_matches",
+          "status": "passed"
+        },
+        {
+          "name": "neighbor_bits_connect",
+          "status": "passed"
+        },
+        {
+          "name": "pack_terrain",
+          "status": "passed"
+        },
+        {
+          "name": "save_terrain",
+          "status": "passed"
+        },
+        {
+          "name": "reload_terrain",
+          "status": "passed"
+        },
+        {
+          "name": "saved_terrain_mode",
+          "status": "passed"
+        },
+        {
+          "name": "saved_terrain_cells",
+          "status": "passed"
+        },
+        {
+          "name": "world_local_map_roundtrip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/terrain-example/engine.log",
+      "log_sha256": "2e6a60a442d6726d8414ba5e4d5376e125487eb67ddf62a13e1d1e8abb97840c"
+    },
+    {
+      "id": "root-motion-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "root_motion_delta",
+          "status": "passed"
+        },
+        {
+          "name": "extracted_motion_does_not_double_move_actor",
+          "status": "passed"
+        },
+        {
+          "name": "controller_applies_motion_once",
+          "status": "passed"
+        },
+        {
+          "name": "inactive_tree_leaves_actor",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/root-motion-example/engine.log",
+      "log_sha256": "d993784db3b85725dc01fb0c827d15b3560168a53e76a967c2517a765163bea7"
+    },
+    {
+      "id": "performance-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "fixed_scene_actor_count",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_query_guard",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_calls_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_0.0",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_1.0",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_30.0",
+          "status": "passed"
+        },
+        {
+          "name": "equivalent_radius_100.0",
+          "status": "passed"
+        },
+        {
+          "name": "modified_data_equivalence",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_0",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_1",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_2",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_3",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_4",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_5",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_6",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_7",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_8",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_9",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_10",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_11",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_12",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_13",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_14",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_15",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_16",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_17",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_18",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_19",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_20",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_21",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_22",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_23",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_24",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_25",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_26",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_27",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_28",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_29",
+          "status": "passed"
+        },
+        {
+          "name": "sample_equivalence_30",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/performance-example/engine.log",
+      "log_sha256": "88cbff878edb24329a9fe7629e2b6c6c821e9c9293f91e5a51610b0a84f56881"
+    },
+    {
+      "id": "rendering-materials-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "material_scene_packed",
+          "status": "passed"
+        },
+        {
+          "name": "material_scene_saved",
+          "status": "passed"
+        },
+        {
+          "name": "material_property_readback",
+          "status": "passed"
+        },
+        {
+          "name": "light_shadow_readback",
+          "status": "passed"
+        },
+        {
+          "name": "particle_draw_and_process_contract",
+          "status": "passed"
+        },
+        {
+          "name": "local_edit_does_not_mutate_original",
+          "status": "passed"
+        },
+        {
+          "name": "missing_color_consumption_detectable",
+          "status": "passed"
+        },
+        {
+          "name": "color_consumption_repaired",
+          "status": "passed"
+        },
+        {
+          "name": "modified_scene_saved",
+          "status": "passed"
+        },
+        {
+          "name": "modified_scene_color_readback",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/rendering-materials-example/engine.log",
+      "log_sha256": "306b0ec81c53b387e112d002361dbef55814b634640c080527e062651439ff1a"
+    },
+    {
+      "id": "rendering-headless-unavailable",
+      "matched_expected": true,
+      "actual": "unsupported",
+      "expected": "unsupported",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/rendering-headless-unavailable/engine.log",
+      "log_sha256": "3d458dff797111d114f98490ddc6e0ed314556d205e30924ce1fd4f0e8f4f422"
+    },
+    {
+      "id": "csharp-example",
+      "matched_expected": true,
+      "actual": "blocked",
+      "expected": "blocked",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "dotnet_engine_required",
+          "status": "unavailable"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/csharp-example/engine.log",
+      "log_sha256": "51c6f8b56321e2eb723f9d5245f8775740212f9d22d58554a32a117ab1e5c9ee"
+    },
+    {
+      "id": "gdextension-example",
+      "matched_expected": true,
+      "actual": "blocked",
+      "expected": "blocked",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "compiled_library_required",
+          "status": "unavailable"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/gdextension-example/engine.log",
+      "log_sha256": "c4986960cf126a3252acf6053a74bdad4d3112f8a5ecf32d07be122853de3851"
+    },
+    {
+      "id": "editor-tools-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "editor_scan_complete",
+          "status": "passed"
+        },
+        {
+          "name": "one_plugin_0",
+          "status": "passed"
+        },
+        {
+          "name": "registered_dock_0",
+          "status": "passed"
+        },
+        {
+          "name": "do_and_owner",
+          "status": "passed"
+        },
+        {
+          "name": "undo",
+          "status": "passed"
+        },
+        {
+          "name": "redo",
+          "status": "passed"
+        },
+        {
+          "name": "saved_readback",
+          "status": "passed"
+        },
+        {
+          "name": "disable_cleanup_0",
+          "status": "passed"
+        },
+        {
+          "name": "one_plugin_1",
+          "status": "passed"
+        },
+        {
+          "name": "registered_dock_1",
+          "status": "passed"
+        },
+        {
+          "name": "disable_cleanup_1",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/editor-tools-example/engine.log",
+      "log_sha256": "b8b3722303f179fe89defa8b4bf291516547fdacdbd50eef9ee1582b0ac43bf2"
+    },
+    {
+      "id": "ui-localization",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "public_bindings_available",
+          "status": "passed"
+        },
+        {
+          "name": "cold_start_loads_configured_catalogs",
+          "status": "passed"
+        },
+        {
+          "name": "po_loaded_by_native_resource_loader",
+          "status": "passed"
+        },
+        {
+          "name": "catalog_required_keys_and_named_placeholders",
+          "status": "passed"
+        },
+        {
+          "name": "catalog_saved",
+          "status": "passed"
+        },
+        {
+          "name": "uncached_catalog_preserves_context",
+          "status": "passed"
+        },
+        {
+          "name": "uncached_catalog_preserves_plural_forms",
+          "status": "passed"
+        },
+        {
+          "name": "initial_label_uses_english",
+          "status": "passed"
+        },
+        {
+          "name": "locale_notification_refreshes_existing_ui",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_context_disambiguation",
+          "status": "passed"
+        },
+        {
+          "name": "runtime_pluralization",
+          "status": "passed"
+        },
+        {
+          "name": "named_placeholder_formatting",
+          "status": "passed"
+        },
+        {
+          "name": "missing_key_fallback_does_not_prove_completeness",
+          "status": "passed"
+        },
+        {
+          "name": "unsupported_locale_uses_configured_fallback",
+          "status": "passed"
+        },
+        {
+          "name": "audit_detects_missing_entry_without_fallback",
+          "status": "passed"
+        },
+        {
+          "name": "audit_detects_changed_placeholder",
+          "status": "passed"
+        },
+        {
+          "name": "repair_keeps_original_catalog_intact",
+          "status": "passed"
+        },
+        {
+          "name": "negative_controls_preserve_source_file_hash",
+          "status": "passed"
+        },
+        {
+          "name": "pseudolocalization_changes_text",
+          "status": "passed"
+        },
+        {
+          "name": "pseudolocalization_preserves_printf_placeholder",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_es_20",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_en_21",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_es_22",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_locale_switch_en_23",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/ui-localization/engine.log",
+      "log_sha256": "321f3d008279cb19580acd26f818be67ad6b745133af555d6a84c3ce997fe0f9"
+    },
+    {
+      "id": "web-server",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "detail": "",
+          "name": "fixture_directory",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "loopback_server_listens_on_allocated_port",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "index_served",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "isolation_mime_and_no_cache_headers",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "binary_stream_preserves_all_bytes",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "head_has_length_without_body",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/../outside.json",
+            "target": "/../outside.json"
+          },
+          "name": "path_escape_rejected_6",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/2e2e2foutside.json",
+            "target": "/%2e%2e%2foutside.json"
+          },
+          "name": "path_escape_rejected_7",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/%2e%2e%2foutside.json",
+            "target": "/%252e%252e%252foutside.json"
+          },
+          "name": "path_escape_rejected_8",
+          "passed": true
+        },
+        {
+          "detail": {
+            "code": 403.0,
+            "decoded": "/2e2e5coutside.json",
+            "target": "/%2e%2e%5coutside.json"
+          },
+          "name": "path_escape_rejected_9",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "missing_artifact_is_404",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "foreign_host_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "write_method_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "oversized_header_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "normal_requests_work_after_rejections",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "listener_and_clients_stopped",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "missing_export_root_rejected",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "lifetime_output_created",
+          "passed": true
+        },
+        {
+          "detail": {
+            "log": "PLUGIN/artifacts/community-20261014/full/1791957228-161-56276/web-server/lifetime/engine.log",
+            "report": {
+              "checks": [
+                {
+                  "name": "loopback_server_completed_bounded_lifetime",
+                  "status": "passed"
+                }
+              ],
+              "engine": {
+                "build": "official",
+                "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+                "hex": 263938.0,
+                "major": 4.0,
+                "minor": 7.0,
+                "patch": 2.0,
+                "status": "stable",
+                "string": "4.7.2-stable (official)",
+                "timestamp": 0.0
+              },
+              "limitations": [
+                "HTTP serving alone does not prove browser gameplay, storage, audio or performance acceptance."
+              ],
+              "operation": "bounded_web_serving",
+              "responses": {},
+              "schema_version": 1.0,
+              "status": "passed"
+            },
+            "timed_out": false
+          },
+          "name": "cli_server_exits_after_bounded_lifetime",
+          "passed": true
+        },
+        {
+          "detail": "",
+          "name": "cli_result_persisted",
+          "passed": true
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/web-server/engine.log",
+      "log_sha256": "c0c3adf3c27512c3afc1d25d0fb63a3d8fa80a35b35394846d389f4c073ac006"
+    },
+    {
+      "id": "gdscript-async-lifecycle",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "superseded_request_cannot_commit",
+          "status": "passed"
+        },
+        {
+          "name": "explicit_cancel_preserves_state",
+          "status": "passed"
+        },
+        {
+          "name": "detached_receiver_cannot_commit",
+          "status": "passed"
+        },
+        {
+          "name": "synchronous_reentry_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "freed_receiver_and_listener_cleanup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/gdscript-async-lifecycle/engine.log",
+      "log_sha256": "f550566b7372511eff2acbef0fa5ff905154ff60a5262bcb521ee45b42a70664"
+    },
+    {
+      "id": "physics-body-3d",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "character3d_lands",
+          "status": "passed"
+        },
+        {
+          "name": "character3d_units_per_second",
+          "status": "passed"
+        },
+        {
+          "name": "wrong_ray_mask_reproduced",
+          "status": "passed"
+        },
+        {
+          "name": "ray_filter_repaired",
+          "status": "passed"
+        },
+        {
+          "name": "rigid3d_wake_and_impulse",
+          "status": "passed"
+        },
+        {
+          "name": "repair_keeps_excluded_layer",
+          "status": "passed"
+        },
+        {
+          "name": "slope_classified_as_floor",
+          "status": "passed"
+        },
+        {
+          "name": "slope_ascent_preserves_contact",
+          "status": "passed"
+        },
+        {
+          "name": "fast_point_sweep_thin_wall_0",
+          "status": "passed"
+        },
+        {
+          "name": "fast_sweep_excluded_mask_0",
+          "status": "passed"
+        },
+        {
+          "name": "fast_point_sweep_thin_wall_1",
+          "status": "passed"
+        },
+        {
+          "name": "fast_sweep_excluded_mask_1",
+          "status": "passed"
+        },
+        {
+          "name": "fast_point_sweep_thin_wall_2",
+          "status": "passed"
+        },
+        {
+          "name": "fast_sweep_excluded_mask_2",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/physics-body-3d/engine.log",
+      "log_sha256": "7a92bffb9ab1c3258211d13ca73598a1a44af518fbba8eb6aed440de51b8f4ac"
+    },
+    {
+      "id": "navigation-moving-agent",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "map_ready_before_movement",
+          "status": "passed"
+        },
+        {
+          "name": "excluded_route_does_not_move_actor",
+          "status": "passed"
+        },
+        {
+          "name": "collision_blocks_graph_reachable_target",
+          "status": "passed"
+        },
+        {
+          "name": "repaired_actor_actually_arrives",
+          "status": "passed"
+        },
+        {
+          "name": "avoidance_callback_moves_actor",
+          "status": "passed"
+        },
+        {
+          "name": "one_motion_application_per_physics_tick",
+          "status": "passed"
+        },
+        {
+          "name": "patrol_second_destination",
+          "status": "passed"
+        },
+        {
+          "name": "unreachable_target_classified",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/navigation-moving-agent/engine.log",
+      "log_sha256": "ff5e1364e7103e0c4f61dfc39f12ad09c2eb974d93c841f53bc3eb1270ba05df"
+    },
+    {
+      "id": "3d-mesh-socket",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "procedural_mesh_bounds",
+          "status": "passed"
+        },
+        {
+          "name": "normals_and_tangents_created",
+          "status": "passed"
+        },
+        {
+          "name": "socket_follows_bone_pose",
+          "status": "passed"
+        },
+        {
+          "name": "missing_bone_detected_before_binding",
+          "status": "passed"
+        },
+        {
+          "name": "socket_reset_preserves_local_offset",
+          "status": "passed"
+        },
+        {
+          "name": "mesh_socket_pack",
+          "status": "passed"
+        },
+        {
+          "name": "mesh_socket_save",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_socket_mapping_works",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/3d-mesh-socket/engine.log",
+      "log_sha256": "92ba71ed76b2f39945ac41ede406333a8499cb39b548d582fd277a79d95a7ef1"
+    },
+    {
+      "id": "animation-state-machine",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "idle_pose_applied",
+          "status": "passed"
+        },
+        {
+          "name": "transition_blends_actual_property",
+          "status": "passed"
+        },
+        {
+          "name": "move_pose_applied",
+          "status": "passed"
+        },
+        {
+          "name": "interrupted_action_returns_to_idle",
+          "status": "passed"
+        },
+        {
+          "name": "bad_track_target_detected_before_playback",
+          "status": "passed"
+        },
+        {
+          "name": "state_machine_pack",
+          "status": "passed"
+        },
+        {
+          "name": "state_machine_save",
+          "status": "passed"
+        },
+        {
+          "name": "saved_graph_replays_repaired_clip",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/animation-state-machine/engine.log",
+      "log_sha256": "8d5ad49ff89d2feb6b30c63f38180930255e09da29ec9e691b0e426f51761eff"
+    },
+    {
+      "id": "scenes-refactor",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "rename_reproduces_stale_export_path",
+          "status": "passed"
+        },
+        {
+          "name": "renamed_instance_pack",
+          "status": "passed"
+        },
+        {
+          "name": "renamed_instance_save",
+          "status": "passed"
+        },
+        {
+          "name": "renamed_instance_reload",
+          "status": "passed"
+        },
+        {
+          "name": "refactor_preserves_scene_instance_reference",
+          "status": "passed"
+        },
+        {
+          "name": "base_internal_state_unchanged",
+          "status": "passed"
+        },
+        {
+          "name": "saved_connection_and_export_path_execute",
+          "status": "passed"
+        },
+        {
+          "name": "saved_animation_path_repaired",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_boundary_retained",
+          "status": "passed"
+        },
+        {
+          "name": "inherited_override_and_child",
+          "status": "passed"
+        },
+        {
+          "name": "source_base_bytes_preserved",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/scenes-refactor/engine.log",
+      "log_sha256": "39e49103bd28a29ab1c57385f584fb41b2867c975ef70da03988ede35932d2e2"
+    },
+    {
+      "id": "assets-import-repair",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "isolated_project_directory",
+          "status": "passed"
+        },
+        {
+          "name": "fixture_configuration",
+          "status": "passed"
+        },
+        {
+          "name": "copy_resource_checker",
+          "status": "passed"
+        },
+        {
+          "name": "source_assets_created",
+          "status": "passed"
+        },
+        {
+          "name": "native_import_creates_metadata",
+          "status": "passed"
+        },
+        {
+          "name": "native_sidecar_loaded",
+          "status": "passed"
+        },
+        {
+          "name": "set_initial_mipmap_policy",
+          "status": "passed"
+        },
+        {
+          "name": "initial_loaded_resources_and_wrapper",
+          "status": "passed"
+        },
+        {
+          "name": "change_only_mipmap_policy",
+          "status": "passed"
+        },
+        {
+          "name": "model_source_modified",
+          "status": "passed"
+        },
+        {
+          "name": "new_process_observes_reimported_content",
+          "status": "passed"
+        },
+        {
+          "name": "reimport_preserves_identity_and_importer",
+          "status": "passed"
+        },
+        {
+          "name": "reimport_preserves_authored_wrapper_and_material",
+          "status": "passed"
+        },
+        {
+          "name": "missing_source_preflight_blocks_import",
+          "status": "passed"
+        },
+        {
+          "name": "source_repair_repeats_valid_import",
+          "status": "passed"
+        },
+        {
+          "name": "repair_preserves_neighboring_authoring",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/assets-import-repair/engine.log",
+      "log_sha256": "189a055e4e5de176d51a4ffbe52ee1e13c15c50d82578d7f8a5ac91702a5b87f"
+    },
+    {
+      "id": "workflow-bounded-resource",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "initial_state_rendered_without_signal",
+          "status": "passed"
+        },
+        {
+          "name": "commands_update_rule_and_hud",
+          "status": "passed"
+        },
+        {
+          "name": "exhausted_command_cannot_emit_success",
+          "status": "passed"
+        },
+        {
+          "name": "restart_without_duplicate_effect_0",
+          "status": "passed"
+        },
+        {
+          "name": "restart_without_duplicate_effect_1",
+          "status": "passed"
+        },
+        {
+          "name": "restart_without_duplicate_effect_2",
+          "status": "passed"
+        },
+        {
+          "name": "restart_detaches_old_publisher",
+          "status": "passed"
+        },
+        {
+          "name": "late_old_event_cannot_change_hud",
+          "status": "passed"
+        },
+        {
+          "name": "teardown_keeps_old_service_detached",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/workflow-bounded-resource/engine.log",
+      "log_sha256": "cd7899107afeaee67b87b01056ef0796abcdec884fe38f46ebd6a2e0aeb4a3a0"
+    },
+    {
+      "id": "animation-event-rig",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "bone_track_and_method_event",
+          "status": "passed"
+        },
+        {
+          "name": "animated_bone_socket_follows",
+          "status": "passed"
+        },
+        {
+          "name": "interruption_before_event_does_not_fire",
+          "status": "passed"
+        },
+        {
+          "name": "restarted_action_fires_once",
+          "status": "passed"
+        },
+        {
+          "name": "rig_event_pack",
+          "status": "passed"
+        },
+        {
+          "name": "rig_event_save",
+          "status": "passed"
+        },
+        {
+          "name": "reloaded_rig_and_event_execute",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/animation-event-rig/engine.log",
+      "log_sha256": "ad984036cbce80aeb0c883c6548bf49681a52219189f5000fc874297c1cfe6f1"
+    },
+    {
+      "id": "navigation-links",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "link_fixture_map_ready",
+          "status": "passed"
+        },
+        {
+          "name": "gap_has_no_arrival_before_link",
+          "status": "passed"
+        },
+        {
+          "name": "added_link_synchronizes",
+          "status": "passed"
+        },
+        {
+          "name": "one_way_link_connects_forward",
+          "status": "passed"
+        },
+        {
+          "name": "one_way_link_excludes_reverse",
+          "status": "passed"
+        },
+        {
+          "name": "disabled_link_reproduces_gap",
+          "status": "passed"
+        },
+        {
+          "name": "link_repair_restores_forward_route",
+          "status": "passed"
+        },
+        {
+          "name": "link_repair_preserves_direction_policy",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/navigation-links/engine.log",
+      "log_sha256": "fb6a8eaa0f062aacffc72d45d6be81195e4388924bebb83b635998a920eaed2c"
+    },
+    {
+      "id": "gdscript-terminal-waits",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "normal_tween_completion",
+          "status": "passed"
+        },
+        {
+          "name": "terminal_result_is_exactly_once",
+          "status": "passed"
+        },
+        {
+          "name": "synchronous_completion_cannot_be_missed",
+          "status": "passed"
+        },
+        {
+          "name": "nested_caller_cleanup_after_explicit_cancel",
+          "status": "passed"
+        },
+        {
+          "name": "external_kill_has_bounded_terminal_wait",
+          "status": "passed"
+        },
+        {
+          "name": "tree_exit_cancels_before_target_disappears",
+          "status": "passed"
+        },
+        {
+          "name": "batch_accepts_distinct_signals",
+          "status": "passed"
+        },
+        {
+          "name": "all_waits_for_every_event",
+          "status": "passed"
+        },
+        {
+          "name": "all_completes_before_wait_registration",
+          "status": "passed"
+        },
+        {
+          "name": "batch_reentry_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "empty_batch_completes",
+          "status": "passed"
+        },
+        {
+          "name": "duplicate_signal_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "lost_emitter_timeout_and_subscription_cleanup",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/gdscript-terminal-waits/engine.log",
+      "log_sha256": "3d34e5535f7389762696776d0da2b85ef89d8d972cd606a824eecb87296577ac"
+    },
+    {
+      "id": "navigation-tile-grid",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "negative_origin_route_detours_authored_wall",
+          "status": "passed"
+        },
+        {
+          "name": "transformed_world_cell_roundtrip",
+          "status": "passed"
+        },
+        {
+          "name": "dynamic_blocker_disconnects_route",
+          "status": "passed"
+        },
+        {
+          "name": "opening_restores_route_without_shape_update",
+          "status": "passed"
+        },
+        {
+          "name": "unblock_preserves_authored_wall",
+          "status": "passed"
+        },
+        {
+          "name": "empty_cell_policy_is_solid",
+          "status": "passed"
+        },
+        {
+          "name": "out_of_bounds_rejected_without_engine_error",
+          "status": "passed"
+        },
+        {
+          "name": "resize_replays_runtime_blockers",
+          "status": "passed"
+        },
+        {
+          "name": "point_weight_does_not_require_update",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/navigation-tile-grid/engine.log",
+      "log_sha256": "e450a8ecc5d184621446c21d1afe51a3e24a96cb172246e1bc28afaf4a5deef5"
+    },
+    {
+      "id": "data-inventory",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "hud_reads_initial_state",
+          "status": "passed"
+        },
+        {
+          "name": "pickup_stack_use_updates_rules",
+          "status": "passed"
+        },
+        {
+          "name": "independent_runtime_state_shared_definition",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_commands_preserve_state",
+          "status": "passed"
+        },
+        {
+          "name": "staged_inventory_commit",
+          "status": "passed"
+        },
+        {
+          "name": "json_roundtrip_stable_ids_not_resource_objects",
+          "status": "passed"
+        },
+        {
+          "name": "future_save_preserved_against_commit",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_snapshot_rejected_atomically",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_snapshot_rejected_atomically",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_snapshot_rejected_atomically",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_snapshot_rejected_atomically",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_snapshot_rejected_atomically",
+          "status": "passed"
+        },
+        {
+          "name": "old_inventory_disconnected",
+          "status": "passed"
+        },
+        {
+          "name": "repeat_reset_and_use",
+          "status": "passed"
+        },
+        {
+          "name": "repeat_reset_and_use",
+          "status": "passed"
+        },
+        {
+          "name": "repeat_reset_and_use",
+          "status": "passed"
+        },
+        {
+          "name": "hud_teardown_disconnects",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/data-inventory/engine.log",
+      "log_sha256": "81edae65cc26b5d5d0653ef25edb34912ea35a93184860807f5cab6b61b1b979"
+    },
+    {
+      "id": "ui-dialogue",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "valid_branch_graph_opens",
+          "status": "passed"
+        },
+        {
+          "name": "typewriter_progress",
+          "status": "passed"
+        },
+        {
+          "name": "skip_reveals_choices_and_keyboard_focus",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_choice_cannot_change_line",
+          "status": "passed"
+        },
+        {
+          "name": "keyboard_activation_selects_branch",
+          "status": "passed"
+        },
+        {
+          "name": "old_choice_callback_cannot_change_new_line",
+          "status": "passed"
+        },
+        {
+          "name": "completion_exactly_once",
+          "status": "passed"
+        },
+        {
+          "name": "dangling_branch_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_graph_shape_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "closed_dialogue_cannot_advance_or_complete",
+          "status": "passed"
+        },
+        {
+          "name": "closed_dialogue_cannot_advance_or_complete",
+          "status": "passed"
+        },
+        {
+          "name": "closed_dialogue_cannot_advance_or_complete",
+          "status": "passed"
+        },
+        {
+          "name": "reopen_preserves_single_completion_per_run",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/ui-dialogue/engine.log",
+      "log_sha256": "6da32b910f66a1472bc518f72630d4f59e5feba4661fbada81d413ce6dd6a6ce"
+    },
+    {
+      "id": "rendering-portal-popup",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "capture_distance",
+          "status": "passed"
+        },
+        {
+          "name": "distance_stage_center_to_edge",
+          "status": "passed"
+        },
+        {
+          "name": "capture_mask",
+          "status": "passed"
+        },
+        {
+          "name": "mask_stage_inside_outside",
+          "status": "passed"
+        },
+        {
+          "name": "capture_portal",
+          "status": "passed"
+        },
+        {
+          "name": "capture_portal_modified",
+          "status": "passed"
+        },
+        {
+          "name": "phase_changes_actual_portal_pixels",
+          "status": "passed"
+        },
+        {
+          "name": "portal_material_saved",
+          "status": "passed"
+        },
+        {
+          "name": "portal_material_uncached_readback",
+          "status": "passed"
+        },
+        {
+          "name": "capture_popup_excluded",
+          "status": "passed"
+        },
+        {
+          "name": "negative_control_low_layer_misses_popup",
+          "status": "passed"
+        },
+        {
+          "name": "capture_popup_processed",
+          "status": "passed"
+        },
+        {
+          "name": "high_layer_processes_embedded_popup",
+          "status": "passed"
+        },
+        {
+          "name": "capture_popup_closed",
+          "status": "passed"
+        },
+        {
+          "name": "popup_close_restores_underlying_content",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/rendering-portal-popup/engine.log",
+      "log_sha256": "a6068fd766078439c767d27bccdbc3f9e316d73f32a716525f17f268c40831f0"
+    },
+    {
+      "id": "ai-example",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "no_target_falls_back_to_idle",
+          "status": "passed"
+        },
+        {
+          "name": "visible_distant_target_chased",
+          "status": "passed"
+        },
+        {
+          "name": "visible_in_range_target_attacked",
+          "status": "passed"
+        },
+        {
+          "name": "low_health_flee_outranks_attack",
+          "status": "passed"
+        },
+        {
+          "name": "occluded_target_not_attacked",
+          "status": "passed"
+        },
+        {
+          "name": "nonfinite_health_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "target_tie_has_stable_identity_order",
+          "status": "passed"
+        },
+        {
+          "name": "repeated_state_does_not_reenter",
+          "status": "passed"
+        },
+        {
+          "name": "hysteresis_preserves_attack_at_entry_boundary",
+          "status": "passed"
+        },
+        {
+          "name": "hysteresis_preserves_attack_at_entry_boundary",
+          "status": "passed"
+        },
+        {
+          "name": "hysteresis_preserves_attack_at_entry_boundary",
+          "status": "passed"
+        },
+        {
+          "name": "hysteresis_preserves_attack_at_entry_boundary",
+          "status": "passed"
+        },
+        {
+          "name": "hysteresis_exits_at_outer_boundary",
+          "status": "passed"
+        },
+        {
+          "name": "state_transition_pairs_exit_enter",
+          "status": "passed"
+        },
+        {
+          "name": "lost_target_before_decision_falls_back",
+          "status": "passed"
+        },
+        {
+          "name": "queued_for_deletion_target_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "missing_actor_rejected",
+          "status": "passed"
+        },
+        {
+          "name": "bounded_candidates_per_tick",
+          "status": "passed"
+        },
+        {
+          "name": "bounded_candidates_per_tick",
+          "status": "passed"
+        },
+        {
+          "name": "bounded_candidates_per_tick",
+          "status": "passed"
+        },
+        {
+          "name": "bounded_candidates_per_tick",
+          "status": "passed"
+        },
+        {
+          "name": "bounded_candidates_per_tick",
+          "status": "passed"
+        },
+        {
+          "name": "bounded_candidates_per_tick",
+          "status": "passed"
+        },
+        {
+          "name": "budgeted_plan_matches_serial_snapshot",
+          "status": "passed"
+        },
+        {
+          "name": "pending_monitor_reaches_zero",
+          "status": "passed"
+        },
+        {
+          "name": "monitor_teardown",
+          "status": "passed"
+        },
+        {
+          "name": "stale_generation_cannot_commit_plan",
+          "status": "passed"
+        },
+        {
+          "name": "empty_plan_has_no_action",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/ai-example/engine.log",
+      "log_sha256": "dd419be64de2ec08f20dcbe7b67f15eb27717d10299bbe1dc089fe3090448f61"
+    },
+    {
+      "id": "rendering-portal-popup-headless",
+      "matched_expected": true,
+      "actual": "unsupported",
+      "expected": "unsupported",
+      "exit_code": 2,
+      "timed_out": false,
+      "assertions": [],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/rendering-portal-popup-headless/engine.log",
+      "log_sha256": "3d458dff797111d114f98490ddc6e0ed314556d205e30924ce1fd4f0e8f4f422"
+    },
+    {
+      "id": "workflow-story-inventory",
+      "matched_expected": true,
+      "actual": "passed",
+      "expected": "passed",
+      "exit_code": 0,
+      "timed_out": false,
+      "assertions": [
+        {
+          "name": "keyboard_dialogue_rule_reward_and_hud",
+          "status": "passed"
+        },
+        {
+          "name": "duplicate_completion_cannot_duplicate_reward",
+          "status": "passed"
+        },
+        {
+          "name": "combined_progress_reloaded",
+          "status": "passed"
+        },
+        {
+          "name": "restarted_conversation_preserves_claimed_reward",
+          "status": "passed"
+        },
+        {
+          "name": "restarted_conversation_preserves_claimed_reward",
+          "status": "passed"
+        },
+        {
+          "name": "restarted_conversation_preserves_claimed_reward",
+          "status": "passed"
+        },
+        {
+          "name": "invalid_quest_progress_rejected_without_partial_inventory_commit",
+          "status": "passed"
+        }
+      ],
+      "full_process_errors": [],
+      "log": "artifacts/community-20261014/full/1791957228-161-56276/workflow-story-inventory/engine.log",
+      "log_sha256": "6d8edbaec41db0b6f48a9d3698ffef1240372c413c3456c6277719c68a181241"
+    }
+  ],
+  "commands": [
+    "GODOT --version",
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/full.log -- --manifest PLUGIN/tests/cases.json --out OUT/full",
+    "python -X utf8 PLUGIN/tests/validate_structure.py --root PLUGIN --schema PLUGIN/artifacts/research/plugin.schema.json --report OUT/structure-final.json",
+    "python -X utf8 SKILL_CREATOR/scripts/quick_validate.py PLUGIN/skills/godot-ai",
+    "git diff --check",
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/shared/scripts/run_checks.gd --log-file OUT/final-focused.log -- --manifest PLUGIN/tests/cases.json --out OUT/final-focused --case gdscript-terminal-waits,navigation-tile-grid,data-inventory,ui-dialogue,rendering-portal-popup,ai-example,rendering-portal-popup-headless,workflow-story-inventory",
+    "GODOT --headless --path PLUGIN/shared/host --script PLUGIN/tests/package.gd --log-file OUT/package.log -- --root PLUGIN --out OUT/package",
+    "python -X utf8 PLUGIN/tests/validate_structure.py --root MOVED_SOURCE --schema PLUGIN/artifacts/research/plugin.schema.json --report OUT/moved-structure.json",
+    "GODOT --headless --path MOVED_INSTALL/shared/host --script MOVED_INSTALL/shared/scripts/run_checks.gd --log-file OUT/moved.log -- --manifest OUT/moved-cases.json --out OUT/moved"
+  ],
+  "command_paths": "PLUGIN is the checked-out repository; OUT is its artifacts/community-20261014 directory; GODOT is artifacts/tooling/godot-4.7.2/Godot_v4.7.2-stable_win64_console.exe. Paths were passed as absolute paths for Godot. Schema and engine are author-side ignored dependencies.",
+  "gpu_visual_inspection": {
+    "renderer": "Compatibility OpenGL 3.3 NVIDIA",
+    "device": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "inspected": [
+      "portal.png",
+      "popup_processed.png"
+    ],
+    "scope": "Observed original portal shape and processed embedded PopupPanel in actual GPU captures; numerical controls also checked low/high layering."
+  },
+  "untested": [
+    "native popup windows",
+    "Forward+/Mobile rendering",
+    "interactive shader preview breakpoints",
+    "real pointer/CJK dialogue layout",
+    "sight raycasts and moving AI combat",
+    "team planning and behavior trees",
+    "same-tree multiplayer diagnostic",
+    "public networking",
+    "installed host implicit skill selection",
+    "cross-run AI replay identity",
+    "target-device performance guarantees",
+    "Linux/macOS/mobile/browser variants"
+  ],
+  "self_review": {
+    "kind": "author_self_review",
+    "status": "passed",
+    "scope": "All changed contracts, original example scripts, routing/capability/manifests and versioned source assertions. No independent human or agent approval is claimed.",
+    "corrections": [
+      "Normalize validated JSON numbers to integer inventory counts before mutation.",
+      "Guard dialogue choices by generation and current legal edges; stale callbacks cannot change a new line.",
+      "Reject invalid/deleting AI actors and targets; add attack entry/exit hysteresis checks.",
+      "Keep same-tree multiplayer optional and label SceneMultiplayer RefCounted correctly.",
+      "Restrict popup layering to embedded windows and document native viewport limits.",
+      "Verify committed save against the staged SHA256; preserve future-version files against actual commit attempts."
+    ],
+    "limitations": "Full regression validates existing scenarios, not arbitrary user games. Structural links cannot prove external article availability or host model routing."
+  },
+  "final_focused": {
+    "status": "passed",
+    "cases": [
+      {
+        "id": "gdscript-terminal-waits",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "normal_tween_completion",
+            "status": "passed"
+          },
+          {
+            "name": "terminal_result_is_exactly_once",
+            "status": "passed"
+          },
+          {
+            "name": "synchronous_completion_cannot_be_missed",
+            "status": "passed"
+          },
+          {
+            "name": "nested_caller_cleanup_after_explicit_cancel",
+            "status": "passed"
+          },
+          {
+            "name": "external_kill_has_bounded_terminal_wait",
+            "status": "passed"
+          },
+          {
+            "name": "tree_exit_cancels_before_target_disappears",
+            "status": "passed"
+          },
+          {
+            "name": "batch_accepts_distinct_signals",
+            "status": "passed"
+          },
+          {
+            "name": "all_waits_for_every_event",
+            "status": "passed"
+          },
+          {
+            "name": "all_completes_before_wait_registration",
+            "status": "passed"
+          },
+          {
+            "name": "batch_reentry_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "empty_batch_completes",
+            "status": "passed"
+          },
+          {
+            "name": "duplicate_signal_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "lost_emitter_timeout_and_subscription_cleanup",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\gdscript-terminal-waits\\engine.log",
+        "log_sha256": "71c67f5663b9e247d725af8838be73ba8ac12d537a5157599b57680e2e63caa1"
+      },
+      {
+        "id": "navigation-tile-grid",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "negative_origin_route_detours_authored_wall",
+            "status": "passed"
+          },
+          {
+            "name": "transformed_world_cell_roundtrip",
+            "status": "passed"
+          },
+          {
+            "name": "dynamic_blocker_disconnects_route",
+            "status": "passed"
+          },
+          {
+            "name": "opening_restores_route_without_shape_update",
+            "status": "passed"
+          },
+          {
+            "name": "unblock_preserves_authored_wall",
+            "status": "passed"
+          },
+          {
+            "name": "empty_cell_policy_is_solid",
+            "status": "passed"
+          },
+          {
+            "name": "out_of_bounds_rejected_without_engine_error",
+            "status": "passed"
+          },
+          {
+            "name": "resize_replays_runtime_blockers",
+            "status": "passed"
+          },
+          {
+            "name": "point_weight_does_not_require_update",
+            "status": "passed"
+          },
+          {
+            "name": "resize_replays_runtime_costs",
+            "status": "passed"
+          },
+          {
+            "name": "weighted_route_avoids_expensive_cell",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_cost_preserves_prior_weight",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\navigation-tile-grid\\engine.log",
+        "log_sha256": "e65d43e327a1e91b00872aaaf029dce23736ff522d51018b12f8d6b3948e8a0b"
+      },
+      {
+        "id": "data-inventory",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "hud_reads_initial_state",
+            "status": "passed"
+          },
+          {
+            "name": "pickup_stack_use_updates_rules",
+            "status": "passed"
+          },
+          {
+            "name": "independent_runtime_state_shared_definition",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_commands_preserve_state",
+            "status": "passed"
+          },
+          {
+            "name": "staged_inventory_commit",
+            "status": "passed"
+          },
+          {
+            "name": "json_roundtrip_stable_ids_not_resource_objects",
+            "status": "passed"
+          },
+          {
+            "name": "future_save_preserved_against_commit",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "old_inventory_disconnected",
+            "status": "passed"
+          },
+          {
+            "name": "repeat_reset_and_use",
+            "status": "passed"
+          },
+          {
+            "name": "repeat_reset_and_use",
+            "status": "passed"
+          },
+          {
+            "name": "repeat_reset_and_use",
+            "status": "passed"
+          },
+          {
+            "name": "hud_teardown_disconnects",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\data-inventory\\engine.log",
+        "log_sha256": "208e2f1b17e30c0f5ad441b82442d98db7830bcea23e220039c61378ff9ec790"
+      },
+      {
+        "id": "ui-dialogue",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "valid_branch_graph_opens",
+            "status": "passed"
+          },
+          {
+            "name": "typewriter_progress",
+            "status": "passed"
+          },
+          {
+            "name": "skip_reveals_choices_and_keyboard_focus",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_choice_cannot_change_line",
+            "status": "passed"
+          },
+          {
+            "name": "keyboard_activation_selects_branch",
+            "status": "passed"
+          },
+          {
+            "name": "old_choice_callback_cannot_change_new_line",
+            "status": "passed"
+          },
+          {
+            "name": "completion_exactly_once",
+            "status": "passed"
+          },
+          {
+            "name": "dangling_branch_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_graph_shape_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "closed_dialogue_cannot_advance_or_complete",
+            "status": "passed"
+          },
+          {
+            "name": "closed_dialogue_cannot_advance_or_complete",
+            "status": "passed"
+          },
+          {
+            "name": "closed_dialogue_cannot_advance_or_complete",
+            "status": "passed"
+          },
+          {
+            "name": "reopen_preserves_single_completion_per_run",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\ui-dialogue\\engine.log",
+        "log_sha256": "741cd05c23e58eea109c97efe24b4a0a32b5ee53d4b66ac4176414e29f2713e7"
+      },
+      {
+        "id": "rendering-portal-popup",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "capture_distance",
+            "status": "passed"
+          },
+          {
+            "name": "distance_stage_center_to_edge",
+            "status": "passed"
+          },
+          {
+            "name": "capture_mask",
+            "status": "passed"
+          },
+          {
+            "name": "mask_stage_inside_outside",
+            "status": "passed"
+          },
+          {
+            "name": "capture_portal",
+            "status": "passed"
+          },
+          {
+            "name": "capture_portal_modified",
+            "status": "passed"
+          },
+          {
+            "name": "phase_changes_actual_portal_pixels",
+            "status": "passed"
+          },
+          {
+            "name": "portal_material_saved",
+            "status": "passed"
+          },
+          {
+            "name": "portal_material_uncached_readback",
+            "status": "passed"
+          },
+          {
+            "name": "capture_popup_excluded",
+            "status": "passed"
+          },
+          {
+            "name": "negative_control_low_layer_misses_popup",
+            "status": "passed"
+          },
+          {
+            "name": "capture_popup_processed",
+            "status": "passed"
+          },
+          {
+            "name": "high_layer_processes_embedded_popup",
+            "status": "passed"
+          },
+          {
+            "name": "capture_popup_closed",
+            "status": "passed"
+          },
+          {
+            "name": "popup_close_restores_underlying_content",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\rendering-portal-popup\\engine.log",
+        "log_sha256": "323d01320a8683197e9ffdba8b0bc371ff7e3b5abb65ae769e8e21b98a4d6080"
+      },
+      {
+        "id": "ai-example",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "no_target_falls_back_to_idle",
+            "status": "passed"
+          },
+          {
+            "name": "visible_distant_target_chased",
+            "status": "passed"
+          },
+          {
+            "name": "visible_in_range_target_attacked",
+            "status": "passed"
+          },
+          {
+            "name": "low_health_flee_outranks_attack",
+            "status": "passed"
+          },
+          {
+            "name": "occluded_target_not_attacked",
+            "status": "passed"
+          },
+          {
+            "name": "nonfinite_health_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "target_tie_has_stable_identity_order",
+            "status": "passed"
+          },
+          {
+            "name": "repeated_state_does_not_reenter",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_exits_at_outer_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "state_transition_pairs_exit_enter",
+            "status": "passed"
+          },
+          {
+            "name": "lost_target_before_decision_falls_back",
+            "status": "passed"
+          },
+          {
+            "name": "queued_for_deletion_target_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "missing_actor_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "budgeted_plan_matches_serial_snapshot",
+            "status": "passed"
+          },
+          {
+            "name": "pending_monitor_reaches_zero",
+            "status": "passed"
+          },
+          {
+            "name": "monitor_teardown",
+            "status": "passed"
+          },
+          {
+            "name": "stale_generation_cannot_commit_plan",
+            "status": "passed"
+          },
+          {
+            "name": "empty_plan_has_no_action",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\ai-example\\engine.log",
+        "log_sha256": "587a7cce80782cfb62a71098ff34b0c5ae96d60ea11fe56326b75c2ae9fa1dcb"
+      },
+      {
+        "id": "rendering-portal-popup-headless",
+        "matched_expected": true,
+        "actual": "unsupported",
+        "expected": "unsupported",
+        "exit_code": 2,
+        "timed_out": false,
+        "assertions": [],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\rendering-portal-popup-headless\\engine.log",
+        "log_sha256": "3d458dff797111d114f98490ddc6e0ed314556d205e30924ce1fd4f0e8f4f422"
+      },
+      {
+        "id": "workflow-story-inventory",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "keyboard_dialogue_rule_reward_and_hud",
+            "status": "passed"
+          },
+          {
+            "name": "duplicate_completion_cannot_duplicate_reward",
+            "status": "passed"
+          },
+          {
+            "name": "combined_progress_reloaded",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_conversation_preserves_claimed_reward",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_conversation_preserves_claimed_reward",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_conversation_preserves_claimed_reward",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_quest_progress_rejected_without_partial_inventory_commit",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\final-focused\\1791957715-132-53512\\workflow-story-inventory\\engine.log",
+        "log_sha256": "f8452adc0a97caddbd60c85b2beba57de798e2a1903b5808030b599c14131337"
+      }
+    ],
+    "scope": "Final seven original projects plus headless rejection; weighted route/cost replay added after the full regression run."
+  },
+  "relocation": {
+    "status": "passed",
+    "cases": [
+      {
+        "id": "gdscript-terminal-waits",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "normal_tween_completion",
+            "status": "passed"
+          },
+          {
+            "name": "terminal_result_is_exactly_once",
+            "status": "passed"
+          },
+          {
+            "name": "synchronous_completion_cannot_be_missed",
+            "status": "passed"
+          },
+          {
+            "name": "nested_caller_cleanup_after_explicit_cancel",
+            "status": "passed"
+          },
+          {
+            "name": "external_kill_has_bounded_terminal_wait",
+            "status": "passed"
+          },
+          {
+            "name": "tree_exit_cancels_before_target_disappears",
+            "status": "passed"
+          },
+          {
+            "name": "batch_accepts_distinct_signals",
+            "status": "passed"
+          },
+          {
+            "name": "all_waits_for_every_event",
+            "status": "passed"
+          },
+          {
+            "name": "all_completes_before_wait_registration",
+            "status": "passed"
+          },
+          {
+            "name": "batch_reentry_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "empty_batch_completes",
+            "status": "passed"
+          },
+          {
+            "name": "duplicate_signal_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "lost_emitter_timeout_and_subscription_cleanup",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\gdscript-terminal-waits\\engine.log",
+        "log_sha256": "aebe987dddf95910ae3ceaa6c67ce8c0881e33dc910b0e6155eb4f8edae8445e"
+      },
+      {
+        "id": "navigation-tile-grid",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "negative_origin_route_detours_authored_wall",
+            "status": "passed"
+          },
+          {
+            "name": "transformed_world_cell_roundtrip",
+            "status": "passed"
+          },
+          {
+            "name": "dynamic_blocker_disconnects_route",
+            "status": "passed"
+          },
+          {
+            "name": "opening_restores_route_without_shape_update",
+            "status": "passed"
+          },
+          {
+            "name": "unblock_preserves_authored_wall",
+            "status": "passed"
+          },
+          {
+            "name": "empty_cell_policy_is_solid",
+            "status": "passed"
+          },
+          {
+            "name": "out_of_bounds_rejected_without_engine_error",
+            "status": "passed"
+          },
+          {
+            "name": "resize_replays_runtime_blockers",
+            "status": "passed"
+          },
+          {
+            "name": "point_weight_does_not_require_update",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\navigation-tile-grid\\engine.log",
+        "log_sha256": "ea0ae39bef5f1172c5280de77936cef84263f0c62d9379078633ddb1b24295ed"
+      },
+      {
+        "id": "data-inventory",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "hud_reads_initial_state",
+            "status": "passed"
+          },
+          {
+            "name": "pickup_stack_use_updates_rules",
+            "status": "passed"
+          },
+          {
+            "name": "independent_runtime_state_shared_definition",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_commands_preserve_state",
+            "status": "passed"
+          },
+          {
+            "name": "staged_inventory_commit",
+            "status": "passed"
+          },
+          {
+            "name": "json_roundtrip_stable_ids_not_resource_objects",
+            "status": "passed"
+          },
+          {
+            "name": "future_save_preserved_against_commit",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_snapshot_rejected_atomically",
+            "status": "passed"
+          },
+          {
+            "name": "old_inventory_disconnected",
+            "status": "passed"
+          },
+          {
+            "name": "repeat_reset_and_use",
+            "status": "passed"
+          },
+          {
+            "name": "repeat_reset_and_use",
+            "status": "passed"
+          },
+          {
+            "name": "repeat_reset_and_use",
+            "status": "passed"
+          },
+          {
+            "name": "hud_teardown_disconnects",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\data-inventory\\engine.log",
+        "log_sha256": "77005d7be29ffbb8747e4726ffdae61bb491d0624d0c93f3cb9979b71a0cc975"
+      },
+      {
+        "id": "ui-dialogue",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "valid_branch_graph_opens",
+            "status": "passed"
+          },
+          {
+            "name": "typewriter_progress",
+            "status": "passed"
+          },
+          {
+            "name": "skip_reveals_choices_and_keyboard_focus",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_choice_cannot_change_line",
+            "status": "passed"
+          },
+          {
+            "name": "keyboard_activation_selects_branch",
+            "status": "passed"
+          },
+          {
+            "name": "old_choice_callback_cannot_change_new_line",
+            "status": "passed"
+          },
+          {
+            "name": "completion_exactly_once",
+            "status": "passed"
+          },
+          {
+            "name": "dangling_branch_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_graph_shape_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "closed_dialogue_cannot_advance_or_complete",
+            "status": "passed"
+          },
+          {
+            "name": "closed_dialogue_cannot_advance_or_complete",
+            "status": "passed"
+          },
+          {
+            "name": "closed_dialogue_cannot_advance_or_complete",
+            "status": "passed"
+          },
+          {
+            "name": "reopen_preserves_single_completion_per_run",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\ui-dialogue\\engine.log",
+        "log_sha256": "2cdfd21674e1b1fa66b399b544a090a5a321c6f326765a8a64f293e75216dafb"
+      },
+      {
+        "id": "rendering-portal-popup",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "capture_distance",
+            "status": "passed"
+          },
+          {
+            "name": "distance_stage_center_to_edge",
+            "status": "passed"
+          },
+          {
+            "name": "capture_mask",
+            "status": "passed"
+          },
+          {
+            "name": "mask_stage_inside_outside",
+            "status": "passed"
+          },
+          {
+            "name": "capture_portal",
+            "status": "passed"
+          },
+          {
+            "name": "capture_portal_modified",
+            "status": "passed"
+          },
+          {
+            "name": "phase_changes_actual_portal_pixels",
+            "status": "passed"
+          },
+          {
+            "name": "portal_material_saved",
+            "status": "passed"
+          },
+          {
+            "name": "portal_material_uncached_readback",
+            "status": "passed"
+          },
+          {
+            "name": "capture_popup_excluded",
+            "status": "passed"
+          },
+          {
+            "name": "negative_control_low_layer_misses_popup",
+            "status": "passed"
+          },
+          {
+            "name": "capture_popup_processed",
+            "status": "passed"
+          },
+          {
+            "name": "high_layer_processes_embedded_popup",
+            "status": "passed"
+          },
+          {
+            "name": "capture_popup_closed",
+            "status": "passed"
+          },
+          {
+            "name": "popup_close_restores_underlying_content",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\rendering-portal-popup\\engine.log",
+        "log_sha256": "f52cb8f3a6816ba4266598472532a30d5cfeb6e8ee654781311419379a261c90"
+      },
+      {
+        "id": "ai-example",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "no_target_falls_back_to_idle",
+            "status": "passed"
+          },
+          {
+            "name": "visible_distant_target_chased",
+            "status": "passed"
+          },
+          {
+            "name": "visible_in_range_target_attacked",
+            "status": "passed"
+          },
+          {
+            "name": "low_health_flee_outranks_attack",
+            "status": "passed"
+          },
+          {
+            "name": "occluded_target_not_attacked",
+            "status": "passed"
+          },
+          {
+            "name": "nonfinite_health_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "target_tie_has_stable_identity_order",
+            "status": "passed"
+          },
+          {
+            "name": "repeated_state_does_not_reenter",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_preserves_attack_at_entry_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "hysteresis_exits_at_outer_boundary",
+            "status": "passed"
+          },
+          {
+            "name": "state_transition_pairs_exit_enter",
+            "status": "passed"
+          },
+          {
+            "name": "lost_target_before_decision_falls_back",
+            "status": "passed"
+          },
+          {
+            "name": "queued_for_deletion_target_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "missing_actor_rejected",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "bounded_candidates_per_tick",
+            "status": "passed"
+          },
+          {
+            "name": "budgeted_plan_matches_serial_snapshot",
+            "status": "passed"
+          },
+          {
+            "name": "pending_monitor_reaches_zero",
+            "status": "passed"
+          },
+          {
+            "name": "monitor_teardown",
+            "status": "passed"
+          },
+          {
+            "name": "stale_generation_cannot_commit_plan",
+            "status": "passed"
+          },
+          {
+            "name": "empty_plan_has_no_action",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\ai-example\\engine.log",
+        "log_sha256": "13ab1eca6fe0cec7e11d9acc3eccdb3cced7334cc7526c8eb87c74a11d452cca"
+      },
+      {
+        "id": "rendering-portal-popup-headless",
+        "matched_expected": true,
+        "actual": "unsupported",
+        "expected": "unsupported",
+        "exit_code": 2,
+        "timed_out": false,
+        "assertions": [],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\rendering-portal-popup-headless\\engine.log",
+        "log_sha256": "3d458dff797111d114f98490ddc6e0ed314556d205e30924ce1fd4f0e8f4f422"
+      },
+      {
+        "id": "workflow-story-inventory",
+        "matched_expected": true,
+        "actual": "passed",
+        "expected": "passed",
+        "exit_code": 0,
+        "timed_out": false,
+        "assertions": [
+          {
+            "name": "keyboard_dialogue_rule_reward_and_hud",
+            "status": "passed"
+          },
+          {
+            "name": "duplicate_completion_cannot_duplicate_reward",
+            "status": "passed"
+          },
+          {
+            "name": "combined_progress_reloaded",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_conversation_preserves_claimed_reward",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_conversation_preserves_claimed_reward",
+            "status": "passed"
+          },
+          {
+            "name": "restarted_conversation_preserves_claimed_reward",
+            "status": "passed"
+          },
+          {
+            "name": "invalid_quest_progress_rejected_without_partial_inventory_commit",
+            "status": "passed"
+          }
+        ],
+        "full_process_errors": [],
+        "log": "PLUGIN\\artifacts\\community-20261014\\moved\\1791957628-351-35316\\workflow-story-inventory\\engine.log",
+        "log_sha256": "dea70d30a629d05f591936220a58f9a4ab83b67a6a863ca2ecc32aad06b3937a"
+      }
+    ],
+    "structure": "passed",
+    "scope": "Installation and source ZIPs expanded under a new Chinese/space path; eight installation cases and source structure checks passed. Subsequent grid cost refinement was retested separately; final archives are checked again and recorded in PR evidence."
+  },
+  "package_readback": {
+    "status": "passed",
+    "files": [
+      296,
+      321
+    ],
+    "scope": "Pre-delivery snapshot: both ZIPs reopened, member contents/hash readback and forbidden-file checks passed. Final hashes are external to the archives to avoid a self-referential hash."
+  },
+  "structure": {
+    "status": "passed",
+    "checks": 1909,
+    "schema": "author-side ignored schema; not claimed available in a clean checkout"
+  },
+  "example_source_sha256": {
+    "skills/godot-gdscript/assets/examples/terminal-waits/example.gd": "757d48ae5098e9c20c60db36f589c6134909bcbe2c593506b4037c9be6c72390",
+    "skills/godot-gdscript/assets/examples/terminal-waits/project.godot": "051ea3832d2eca418a3aecbacaf67c7e8c9d7ced7b8908a989f5d647964b33af",
+    "skills/godot-navigation/assets/examples/tile-grid/example.gd": "b3560f824a7f90562f9a65212f5a120d672615605e72aa68e66a5763f4a43150",
+    "skills/godot-navigation/assets/examples/tile-grid/project.godot": "051ea3832d2eca418a3aecbacaf67c7e8c9d7ced7b8908a989f5d647964b33af",
+    "skills/godot-data/assets/examples/inventory/example.gd": "fb4dbef33dbb10ad8855896a15a1cd34f6ef20a09ba00daaedf68cd6fde8a838",
+    "skills/godot-data/assets/examples/inventory/project.godot": "051ea3832d2eca418a3aecbacaf67c7e8c9d7ced7b8908a989f5d647964b33af",
+    "skills/godot-ui/assets/examples/dialogue/example.gd": "55d3f2f5d39ea0c46fdded9017a569e223760348a0a9cb53e489903ddb31d240",
+    "skills/godot-ui/assets/examples/dialogue/project.godot": "051ea3832d2eca418a3aecbacaf67c7e8c9d7ced7b8908a989f5d647964b33af",
+    "skills/godot-rendering/assets/examples/portal-popup/example.gd": "9d3ad67e08a5e12b2d0880426563d837dfa03638583a00dfb5d4193fdc5255c4",
+    "skills/godot-rendering/assets/examples/portal-popup/portal.gdshader": "eea7bafe099d7f6cc9a578ad71aec25b0961b5e2cd059fd75ac74f6d69460bd8",
+    "skills/godot-rendering/assets/examples/portal-popup/post.gdshader": "bc4aa225b81db3a9b1d6fa0de7056353daaca67f396aea4c632c7eb4a70c2009",
+    "skills/godot-rendering/assets/examples/portal-popup/project.godot": "051ea3832d2eca418a3aecbacaf67c7e8c9d7ced7b8908a989f5d647964b33af",
+    "skills/godot-ai/assets/examples/minimal/decision.gd": "0efd9d091dd14301533d675386409f898bf375aa573b2d3aba291bea0da38751",
+    "skills/godot-ai/assets/examples/minimal/example.gd": "9f2e8c44e63e894eabb689b7c2d96c0208191313d3ddf378b93e19be70796369",
+    "skills/godot-ai/assets/examples/minimal/project.godot": "051ea3832d2eca418a3aecbacaf67c7e8c9d7ced7b8908a989f5d647964b33af",
+    "skills/godot-workflow/assets/examples/story-inventory/dialogue_view.gd": "065e02bda6a39070d1072f039e61c171316f1e84d48ff6a6c25c8b49ae2854f5",
+    "skills/godot-workflow/assets/examples/story-inventory/example.gd": "24c7ceb4227761d0a8b45e8b30febfa6107420c436718036803ee521f3a4b2a2",
+    "skills/godot-workflow/assets/examples/story-inventory/inventory_rules.gd": "be7c740e7d6de8731ebbef51bd50709d2bef622000aa4a9a430570e828b00160",
+    "skills/godot-workflow/assets/examples/story-inventory/project.godot": "010f050b9b66ade734e282b54d55ba47e3b91501dd0058e481fe8c7867b5750e"
+  },
+  "published_native_logs": {
+    "url": "https://gist.github.com/wangdiandao/55cebaeea4b1ee5eeb5354a12da4f9b9",
+    "format": "Full actual current logs with local repository prefixes normalized; original log hashes retained separately."
+  }
+}

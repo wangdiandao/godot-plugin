@@ -47,3 +47,7 @@ Sources: [EditorPlugin](https://docs.godotengine.org/en/4.7/classes/class_editor
 
 
 Engine binding/lifecycle reference: [fixed 4.7.2 source](https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/editor/plugins/editor_plugin.cpp). Compare generated bindings and actual execution with this revision; internal implementation alone is not a callable scripting API.
+
+## Undo reference lifetime
+
+For node creation transactions, undo removes the node rather than freeing an object that redo will reuse. Pair do/undo references according to which side retains an orphan, set the intended owner on re-add, and check cleanup when history is discarded. Test do→undo→redo→save/reopen and repeated transactions in a disposable editor project. [The 4.4 forum failure](https://forum.godotengine.org/t/undoredomanager-add-and-remove-nodes-for-plugin/111380) (2025-05) motivates this branch; validate [EditorUndoRedoManager](https://docs.godotengine.org/en/4.7/classes/class_editorundoredomanager.html) and [UndoRedo](https://docs.godotengine.org/en/4.7/classes/class_undoredo.html) in the target version. Internal scene dock C++ helpers are not automatically public GDScript APIs.

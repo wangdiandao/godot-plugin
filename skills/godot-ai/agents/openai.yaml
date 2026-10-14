@@ -1,0 +1,6 @@
+interface:
+  display_name: "Godot · Game AI Decisions"
+  short_description: "Build enemy decisions, utility scoring and bounded planning"
+  default_prompt: "Use $godot-ai to create an enemy that selects legal attack, chase or flee actions and verify lost targets and bounded planning."
+policy:
+  allow_implicit_invocation: true

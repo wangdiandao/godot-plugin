@@ -982,6 +982,161 @@
         "isolated project copy"
       ],
       "acceptance": "Zero exit, clean log and named behavior/negative assertions"
+    },
+    {
+      "id": "gdscript-terminal-waits",
+      "project": "../skills/godot-gdscript/assets/examples/terminal-waits",
+      "script": "../skills/godot-gdscript/assets/examples/terminal-waits/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-gdscript",
+      "capability_id": "godot-gdscript",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions"
+    },
+    {
+      "id": "navigation-tile-grid",
+      "project": "../skills/godot-navigation/assets/examples/tile-grid",
+      "script": "../skills/godot-navigation/assets/examples/tile-grid/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-navigation",
+      "capability_id": "godot-navigation",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions"
+    },
+    {
+      "id": "data-inventory",
+      "project": "../skills/godot-data/assets/examples/inventory",
+      "script": "../skills/godot-data/assets/examples/inventory/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-data",
+      "capability_id": "godot-data",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions"
+    },
+    {
+      "id": "ui-dialogue",
+      "project": "../skills/godot-ui/assets/examples/dialogue",
+      "script": "../skills/godot-ui/assets/examples/dialogue/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-ui",
+      "capability_id": "godot-ui",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions"
+    },
+    {
+      "id": "rendering-portal-popup",
+      "project": "../skills/godot-rendering/assets/examples/portal-popup",
+      "script": "../skills/godot-rendering/assets/examples/portal-popup/example.gd",
+      "headless": false,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-rendering",
+      "capability_id": "godot-rendering",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy",
+        "real GPU",
+        "embedded popup Windows"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions"
+    },
+    {
+      "id": "ai-example",
+      "project": "../skills/godot-ai/assets/examples/minimal",
+      "script": "../skills/godot-ai/assets/examples/minimal/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-ai",
+      "capability_id": "godot-ai",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions"
+    },
+    {
+      "id": "rendering-portal-popup-headless",
+      "project": "../skills/godot-rendering/assets/examples/portal-popup",
+      "script": "../skills/godot-rendering/assets/examples/portal-popup/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-rendering",
+      "capability_id": "godot-rendering",
+      "conditions": [
+        "headless negative control"
+      ],
+      "acceptance": "Zero exit, clean log, positive and negative behavior assertions",
+      "expect": "unsupported",
+      "contains": "real_rendering_required"
+    },
+    {
+      "id": "workflow-story-inventory",
+      "project": "../skills/godot-workflow/assets/examples/story-inventory",
+      "script": "../skills/godot-workflow/assets/examples/story-inventory/example.gd",
+      "headless": true,
+      "copy_project": true,
+      "args": [
+        "--out",
+        "{output}"
+      ],
+      "timeout": 40,
+      "skill": "godot-workflow",
+      "capability_id": "godot-workflow",
+      "conditions": [
+        "Godot standard 4.7.2",
+        "isolated project copy"
+      ],
+      "acceptance": "Keyboard choice -> validated reward -> HUD -> JSON progress -> repeated restart without duplicate reward"
     }
   ],
   "integration_suites": [

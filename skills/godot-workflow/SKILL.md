@@ -32,6 +32,8 @@ Demonstrate the requested player loop and reload/restart behavior. Visual, audio
 
 ## On-Demand References and Examples
 
+- [Story/inventory integration](assets/examples/story-inventory/project.godot): keyboard dialogue, once-only reward, HUD and saved progress across repeated restart.
+
 - [Cross-system resource commands, HUD and repeated restart](references/vertical-slice.md): complete task selection, ordered failures and fixture boundaries.
 
 - [Task recipes, decisions and diagnosis](references/native.md): load only the section needed for the current task.

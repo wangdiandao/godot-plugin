@@ -16,6 +16,7 @@
 | 内容 | [godot-3d](../skills/godot-3d/SKILL.md) | 网格、模型、相机与 3D 内容 |
 | 交互 | [godot-physics](../skills/godot-physics/SKILL.md) | 移动、碰撞、触发器与射线 |
 | 交互 | [godot-navigation](../skills/godot-navigation/SKILL.md) | 烘焙、连通性、路径与移动代理 |
+| 交互 | [godot-ai](../skills/godot-ai/SKILL.md) | 敌人目标/动作选择、效用评分与分帧规划 |
 | 交互 | [godot-ui](../skills/godot-ui/SKILL.md) | 布局、焦点、主题、指针输入与本地化 |
 | 表现 | [godot-animation](../skills/godot-animation/SKILL.md) | 动画库、轨道、混合与状态切换 |
 | 表现 | [godot-rendering](../skills/godot-rendering/SKILL.md) | 材质、着色器、光照与视觉检查 |
