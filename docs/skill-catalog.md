@@ -35,4 +35,4 @@ Choose by the requested outcome. Cross-system game work belongs to `godot-workfl
 
 Each entry links to a `references/native.md` contract and an `assets/examples/minimal/` project. Task-specific references extend those contracts. The [priority task report](priority-skills-validation.md) maps deeper recipes to named cases. Full 2D/3D games are under `godot-workflow/assets/examples/`.
 
-The [capability index](capabilities.json) records sources, conditions, test IDs and tested/untested scope. The [Chinese coverage overview](coverage.zh.md) adds creation, modification and diagnosis prompts. Use [evidence](evidence.md) to distinguish a runnable example from an actually verified platform or host workflow.
+The [capability index](capabilities.json) records sources, conditions, test IDs and tested/untested scope. The [coverage overview](coverage.md) adds creation, modification and diagnosis prompts. Use [evidence](evidence.md) to distinguish a runnable example from an actually verified platform or host workflow.

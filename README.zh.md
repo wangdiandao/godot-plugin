@@ -8,11 +8,11 @@
 
 运行需要所选 Agent、**Godot 标准编辑器发行版和操作系统自带能力**。插件不新增 MCP Server、Godot 编辑器插件、Python 或 Node 运行依赖；Agent 本身的安装要求仍然适用。Context7 仅用于作者研究，不是用户运行依赖。
 
-基线为 **Godot 4.7.2 stable**，2026-10-11 核对官方发行版、匹配版本文档、源码和真实二进制。实际通过范围见[验证报告](docs/validation.md)、[能力索引](docs/capabilities.json)和[宿主兼容说明](docs/compatibility.md)。支持宿主安装格式不代表已经在每个 Agent 中验证完整模型工作流。
+基线为 **Godot 4.7.2 stable**，2026-10-11 核对官方发行版、匹配版本文档、源码和真实二进制。实际通过范围见[验证报告](docs/validation.zh.md)、[能力索引](docs/capabilities.json)和[宿主兼容说明](docs/compatibility.zh.md)。支持宿主安装格式不代表已经在每个 Agent 中验证完整模型工作流。
 
 ## 安装
 
-当前版本为 **0.3.0**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.md)。
+当前版本为 **0.3.0**，通过仓库市场或干净源码 checkout 安装。保留整个 `godot-plugin/` 目录及隐藏清单、`skills/`、`shared/`、`docs/`，只复制入口会破坏引用。更新内容见 [CHANGELOG](CHANGELOG.zh.md)。
 
 本地安装使用 `git clone https://github.com/wangdiandao/godot-plugin.git`，再按下方宿主说明操作。复制目录时使用干净 checkout，不要复制带有 `artifacts/`、`dist/` 或引擎缓存的开发工作区。
 
@@ -162,19 +162,19 @@ Skills 按需加载，没有隐藏执行状态或强制加载全部 Skills 的�
 
 ## 维护和交付
 
-插件使用 Godot Engine 官方图标（Andrea Calabró，CC BY 4.0），见[图标署名](assets/README.md)。本社区插件与 Godot 开发者及 Godot Foundation 无隶属关系，也未获其背书。
+插件使用 Godot Engine 官方图标（Andrea Calabró，CC BY 4.0），见[图标署名](assets/README.zh.md)。本社区插件与 Godot 开发者及 Godot Foundation 无隶属关系，也未获其背书。
 
-贡献前阅读[贡献指南](CONTRIBUTING.md)：先提或关联 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
+贡献前阅读[贡献指南](CONTRIBUTING.zh.md)：先提或关联 Issue，外部贡献者 fork 后开发，完成后提交 PR。外部贡献由维护者审核；所有者发起且由 Codex 开发的 PR，由 Codex 自行审核并记录结果。代码和自有示例采用 [MIT](LICENSE)。
 
-安装包包含全部宿主清单、中英文 README、CHANGELOG、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。本地归档仅用于可选的离线复制；本插件不通过 GitHub Releases 分发。
+安装包包含全部宿主清单、中英文 README、更新日志和贡献指南、Skills、共享文件、示例和能力/验证说明；源码包另含测试与贡献模板。生成产物、研究下载、`dist/`、引擎缓存与本地 `AGENTS.md` 不进入任何发布包。本地归档仅用于可选的离线复制；本插件不通过 GitHub Releases 分发。
 
-阅读[扩展规范](docs/authoring.md)、[研究依据](docs/research.md)、[验证报告](docs/validation.md)和 [Godot 基线官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。
+阅读[扩展规范](docs/authoring.zh.md)、[研究依据](docs/research.zh.md)、[验证报告](docs/validation.zh.md)和 [Godot 基线官方发布](https://github.com/godotengine/godot/releases/tag/4.7.2-stable)。
 
 
 中文任务覆盖与验收边界见[24 Skill覆盖总览](docs/coverage.zh.md)；本次研究与实施证据见[研究记录](docs/research/README.md)。
 
 C#任务额外需要匹配的Godot.NET与.NET SDK；GDExtension任务额外需要绑定、C++编译器、构建工具及绑定生成器。默认原生路径保留。
 
-此前优先任务流程与执行证据见[优先 Skill 验证](docs/priority-skills-validation.md)。该批次包含游戏示例存档保护和十个新增隔离案例；原有 23 个 Skill 名称在本次继续保留。
+此前优先任务流程与执行证据见[优先 Skill 验证](docs/priority-skills-validation.zh.md)。该批次包含游戏示例存档保护和十个新增隔离案例；原有 23 个 Skill 名称在本次继续保留。
 
-社区实践吸收范围与本次验证见[实施记录](docs/community-practices.md)。
+社区实践吸收范围与本次验证见[实施记录](docs/community-practices.zh.md)。

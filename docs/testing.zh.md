@@ -36,7 +36,7 @@ schema 被忽略，不随干净 checkout 提供。第一条命令不执行 schem
 
 ## 原生检查
 
-完整套件、桌面/资源/故障集成及打包命令统一维护在 [authoring.md](authoring.md)。将 `GODOT`、`PLUGIN`、`OUT` 和模板解析为实际绝对路径，使用新的输出目录并创建日志父目录。示例与工具遵守[执行合同](../shared/references/execution.md)。安装归档不包含源码案例清单，复现源码套件命令需要源码 checkout。
+完整套件、桌面/资源/故障集成及打包命令统一维护在 [authoring.md](authoring.zh.md)。将 `GODOT`、`PLUGIN`、`OUT` 和模板解析为实际绝对路径，使用新的输出目录并创建日志父目录。示例与工具遵守[执行合同](../shared/references/execution.md)。安装归档不包含源码案例清单，复现源码套件命令需要源码 checkout。
 
 ## 结果判读
 

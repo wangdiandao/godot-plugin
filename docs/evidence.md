@@ -4,7 +4,7 @@
 
 ## Capability contract
 
-[capabilities.json](capabilities.json) maps the 23 Skills to official sources, examples, test IDs, prerequisites and tested/untested scope. Its recorded baseline is Godot 4.7.2 on Windows. Read individual records and their linked evidence before claiming support for a particular task or platform.
+[capabilities.json](capabilities.json) maps the 24 Skills to official sources, examples, test IDs, prerequisites and tested/untested scope. Its recorded baseline is Godot 4.7.2 on Windows. Read individual records and their linked evidence before claiming support for a particular task or platform.
 
 ## Recorded validation batches
 
@@ -12,13 +12,14 @@ These are dated records from prior work, not new test runs performed by the docu
 
 | Batch | Human-readable context | Machine-readable result |
 |---|---|---|
-| 2026-10-11 original baseline | [Validation report](validation.md) (Chinese; 18 Skills at that time) | [validation-results.json](validation-results.json) |
-| 2026-10-12 host packaging; subsequent updates appended | [Compatibility history](compatibility.md) (English) | Results/limitations recorded in the report and linked PRs |
-| 2026-10-13 0.2.0 deepening to 23 Skills | [Research and implementation index](research/README.md), [coverage](coverage.zh.md) (Chinese) | [deepening-validation.json](deepening-validation.json) |
+| 2026-10-11 original baseline | [Validation report](validation.md) (18 Skills at that time) | [validation-results.json](validation-results.json) |
+| 2026-10-12 host packaging; subsequent updates appended | [Compatibility history](compatibility.md) | Results/limitations recorded in the report and linked PRs |
+| 2026-10-13 0.2.0 deepening to 23 Skills | [Research and implementation index](research/README.md), [coverage](coverage.md); research archive in its original language | [deepening-validation.json](deepening-validation.json) |
 | 2026-10-13 0.2.1 native diagnosis, localization and Web | [Validation report introduction](validation.md), [compatibility update](compatibility.md) | [native-workflows-validation.json](native-workflows-validation.json) |
-| 2026-10-13 0.2.2 priority tasks and protected saves | [Priority task report](priority-skills-validation.md) (English) | [priority-skills-validation.json](priority-skills-validation.json) |
+| 2026-10-13 0.2.2 priority tasks and protected saves | [Priority task report](priority-skills-validation.md) | [priority-skills-validation.json](priority-skills-validation.json) |
+| 2026-10-14 0.3.0 community practices and AI | [Community practices report](community-practices.md) | [community-validation.json](community-validation.json) |
 
-The 0.2.2 report records 53 expected outcomes: 42 normal passes, six intended failures, one intended timeout, two unsupported controls and two missing-toolchain controls. The eleven controls demonstrate recognition/preflight, not successful execution of those operations. That batch is the latest versioned report in this index; its results do not extend to every installed host or platform.
+The 0.2.2 report records 53 expected outcomes: 42 normal passes, six intended failures, one intended timeout, two unsupported controls and two missing-toolchain controls. The eleven controls demonstrate recognition/preflight, not successful execution of those operations. Those results do not extend to every installed host or platform. The 0.3.0 community batch in the table has separate evidence.
 
 ## Research trail
 
@@ -32,4 +33,4 @@ Raw local logs/downloads live in ignored `artifacts/` and are not shipped. Repro
 
 Recorded native behavior is Windows-specific. Real rendering and audio listening are separate from headless/state checks. Manifest/package validation does not certify installed-host implicit Skill selection. Browser, public networking, mobile and other platform variants require their own evidence. See the individual batch reports for exact conditions, exceptions and commands, and [testing](testing.md) for selecting a new verification run.
 
-[Community gameplay practices / 社区玩法实践与本次证据](community-practices.md) · [Current native results](community-validation.json).
+[Community gameplay practices and validation](community-practices.md) · [Current native results](community-validation.json).
