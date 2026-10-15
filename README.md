@@ -23,7 +23,7 @@ The PowerShell examples use `C:\Tools\godot-plugin` as the extracted directory. 
 1. Open **Plugins** in Codex Desktop.
 2. Open the marketplace controls and choose **Add marketplace** (labels may vary by desktop version).
 3. Enter the repository URL `https://github.com/wangdiandao/godot-plugin` and add it. The repository includes `.agents/plugins/marketplace.json`; no separate CLI registration is required for this desktop flow.
-4. Select **Godot Native Development** (`godot-native-local`), open `godot-plugin`, and install/enable it.
+4. Select **Godot** (`godot-native-local`), open **Godot** (`godot-plugin`), and install/enable it.
 5. Open your Godot project in a new local chat and ask: “Use `$godot-workflow` to inspect this project and report the installed Godot version.” If the installed plugin is not picked up, restart the desktop and start a new chat.
 
 For an extracted local ZIP or clients without **Add marketplace**, use the Codex CLI registration/install steps below, then restart the desktop. The CLI and desktop must use the same user and Codex home configuration; registration inside WSL or on another machine does not register a Windows desktop marketplace. Inspect `codex plugin marketplace list` when troubleshooting that alternative. You can also open the extracted `godot-plugin` directory as a local project to discover its repository-scoped marketplace.
