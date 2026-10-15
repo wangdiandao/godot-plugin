@@ -23,7 +23,7 @@
 1. 在 Codex Desktop 打开 **Plugins（插件）** 页。
 2. 打开市场管理入口，选择 **Add marketplace（添加市场）**；不同桌面版本的标签可能不同。
 3. 输入仓库地址 `https://github.com/wangdiandao/godot-plugin` 并添加。仓库已包含 `.agents/plugins/marketplace.json`，此桌面流程无需另行执行 CLI 注册命令。
-4. 选择 **Godot Native Development** 市场（`godot-native-local`），打开 `godot-plugin` 并安装/启用。
+4. 选择 **Godot** 市场（`godot-native-local`），打开 **Godot**（`godot-plugin`）并安装/启用。
 5. 在本地游戏项目中新建聊天，输入：“使用 `$godot-workflow` 检查当前项目，报告已安装的 Godot 版本。”若新安装的插件未被加载，重启桌面端后重新开聊天。
 
 使用本地解压 ZIP，或客户端没有 **Add marketplace** 时，可采用下面的 Codex CLI 注册/安装步骤，再重启桌面端。CLI 和桌面端必须使用同一用户及 Codex home 配置；在 WSL 或另一台机器注册，不会注册到 Windows 桌面端。该替代流程可通过 `codex plugin marketplace list` 排查。也可将解压后的 `godot-plugin` 目录作为本地项目打开，以发现仓库范围的市场。

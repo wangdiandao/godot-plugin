@@ -1,6 +1,6 @@
 {
   "name": "godot-native-local",
-  "interface": { "displayName": "Godot Native Development" },
+  "interface": { "displayName": "Godot" },
   "plugins": [{
     "name": "godot-plugin",
     "source": { "source": "local", "path": "./" },
